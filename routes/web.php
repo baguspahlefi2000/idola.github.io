@@ -136,5 +136,4 @@ Route::put('/management/update/{user}', [UserManagementController::class, 'updat
 Route::delete('/management/delete/{user}', [UserManagementController::class, 'destroy'])->name('management.destroy');
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [RekapController::class, 'index'])->name('home')->middleware('auth');
