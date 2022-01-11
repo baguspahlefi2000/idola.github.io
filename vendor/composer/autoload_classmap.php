@@ -24,6 +24,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\DatabaseController' => $baseDir . '/app/Http/Controllers/DatabaseController.php',
+    'App\\Http\\Controllers\\DateRangeController' => $baseDir . '/app/Http/Controllers/DateRangeController.php',
     'App\\Http\\Controllers\\DisconnectController' => $baseDir . '/app/Http/Controllers/DisconnectController.php',
     'App\\Http\\Controllers\\ExeSummController' => $baseDir . '/app/Http/Controllers/ExeSummController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',

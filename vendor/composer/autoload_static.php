@@ -669,6 +669,7 @@ class ComposerStaticInit98d356ec77f7d57b7b0edc1568e7a74d
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DatabaseController' => __DIR__ . '/../..' . '/app/Http/Controllers/DatabaseController.php',
+        'App\\Http\\Controllers\\DateRangeController' => __DIR__ . '/../..' . '/app/Http/Controllers/DateRangeController.php',
         'App\\Http\\Controllers\\DisconnectController' => __DIR__ . '/../..' . '/app/Http/Controllers/DisconnectController.php',
         'App\\Http\\Controllers\\ExeSummController' => __DIR__ . '/../..' . '/app/Http/Controllers/ExeSummController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
