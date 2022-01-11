@@ -134,3 +134,7 @@ Route::post('/management/store', [UserManagementController::class, 'store'])->na
 Route::get('/management/edit/{user}', [UserManagementController::class, 'edit'])->name('management.edit')->middleware('admin');
 Route::put('/management/update/{user}', [UserManagementController::class, 'update'])->name('management.update');
 Route::delete('/management/delete/{user}', [UserManagementController::class, 'destroy'])->name('management.destroy');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
