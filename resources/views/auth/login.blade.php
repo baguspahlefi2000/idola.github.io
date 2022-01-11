@@ -10,7 +10,7 @@
         <div class="card">
 
                 <div class="card-body">
-                    
+                <p class="login-box-msg">Masuk untuk memulai sesi Anda</p>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -47,7 +47,7 @@
                                 {!! NoCaptcha::display() !!}
                                 @if ($errors->has('g-recaptcha-response'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                    <strong>Captcha is Required.</strong>
                                 </span>
                                 @endif
                             </div>
