@@ -1,0 +1,395 @@
+/* Inisialisasi Warna di root */
+:root {
+    --primary: #EF5849;
+    --primary-80: #f2796d;
+    --primary-60: #f59a91;
+    --primary-50: #f7aba4;
+    --primary-40: #f8bcb6;
+    --primary-10: #fdeeec;
+    --secondary: #2D4664;
+    --secondary-80: #566a83;
+    --secondary-60: #8190a2;
+    --secondary-50: #96a2b1;
+    --secondary-40: #abb5c1;
+    --secondary-10: #eaecef;
+    --kuning: #FEC857;
+    --kuning-80: #fed378;
+    --kuning-60: #fede9a;
+    --kuning-50: #fee3ab;
+    --kuning-40: #fee9bb;
+    --kuning-10: #fef9ee;
+    --success: #198754;
+    --success-80: #198754;
+    --success-60: #198754;
+    --success-50: #198754;
+    --success-40: #198754;
+    --success-10: #198754;
+    --error: #dc3545;
+    --error-80: #e35d6a;
+    --error-60: #ea858f;
+    --error-50: #ed9aa2;
+    --error-40: #f1aeb4;
+    --error-10: #fbeaec;
+    --white-light: #fcfcfe;
+    --white-background: #f5f3f6;
+    --white: #ffffff;
+    --abu: #4D4D4D;
+    --black: #000000;
+    --black-80: #323232;
+    --black-60: #666666;
+    --black-50: #7f7f7f;
+    --black-40: #999999;
+    --black-10: #e5e5e5;
+}
+
+/* Style All Element */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style All Body */
+body {
+    overflow-x: hidden;
+}
+
+/* Style Text Selection */
+::-moz-selection {
+    /* Code for Firefox */
+    color: var(--white);
+    background: var(--primary);
+}
+
+::selection {
+    color: var(--white);
+    background: var(--primary);
+}
+
+/* Komponen Button */
+
+.btn-main {
+    color: var(--primary);
+}
+
+.btn-main {
+    color: white;
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-main:hover,
+.btn-main:active,
+.btn-main:focus {
+    color: white;
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-filter {
+    background-color: var(--secondary);
+    color: var(--white);
+    opacity: 0.8;
+}
+
+.btn-filter:hover {
+    transition: all ease-in 0.8;
+    opacity: 1;
+    background-color: var(--secondary);
+    color: var(--white);
+}
+
+.btn-reset {
+    transition: all 0.8;
+    color: var(--black-80);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.btn-reset:hover {
+    transition: all 0.8;
+    color: var(--black);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.btn-second-thin {
+    background-color: var(--primary);
+    color: var(--white);
+    transition: all 0.5s;
+}
+
+.btn-second-thin:hover {
+    background-color: var(--primary-10);
+    color: var(--primary);
+    transition: all 0.5s;
+}
+
+.btn-second,
+.btn-second:hover {
+    background-color: var(--secondary);
+    color: var(--white);
+}
+
+.btn-white {
+    background-color: var(--white-background);
+}
+
+.btn-outline {
+    color: var(--black);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    opacity: 1;
+}
+
+/* Komponen Dropdown */
+.dropdown-item:active {
+    color: var(--primary);
+    background-color: var(--black-10);
+}
+
+/* Style Navbar  */
+ul {
+    list-style: none;
+}
+
+ul li {
+    margin: 0 5px;
+}
+
+.nav-active {
+    color: var(--primary) !important;
+    font-weight: 500;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--black-80);
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: var(--primary) !important;
+}
+
+.dropmenu a {
+    width: 200px;
+}
+
+.dropdown-item {
+    font-weight: 400;
+}
+
+.dropdown-item:hover {
+    color: var(--primary);
+}
+
+.dropdown img:hover {
+    transition: all 0.3s;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.dropdown img {
+    transition: all 0.3s;
+}
+
+/* Penutup Style Navbar  */
+
+/* Style di Main */
+
+body {
+    background-color: var(--white-background);
+}
+
+.header i {
+    display: none;
+}
+
+/* Penutup Style di Main */
+
+/* Style di Index */
+.isi {
+    padding: 0 30px;
+}
+
+.border-none {
+    border: none !important;
+}
+
+.title-table a {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+th {
+    text-transform: uppercase;
+}
+
+.filter-title {
+    margin: 15px 0 0;
+}
+
+.clear-filter {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: end;
+}
+
+.clear-filter a {
+    text-decoration: none;
+    color: var(--secondary-60);
+}
+
+.clear-filter a:hover {
+    text-decoration: none;
+    color: var(--secondary);
+}
+
+.success-tambah {
+    height: 100px;
+    border-radius: 5px;
+    background-color: var(--white);
+    border-left: 15px solid var(--success);
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.1));
+}
+
+.success-tambah-none {
+    display: none;
+    height: 100px;
+    border-radius: 5px;
+    background-color: var(--white);
+    border-left: 15px solid var(--success);
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.1));
+}
+
+.pesan-berhasil {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--black-80);
+}
+
+.dropleft span {
+    cursor: pointer;
+}
+
+.header-tabel {
+    font-size: 36px;
+}
+
+.nav-pills a:hover {
+    color: var(--secondary) !important;
+}
+
+.tab-rekap {
+    padding: 0 5px 0 0;
+    margin: 0 15px 0 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.tab-active {
+    color: var(--secondary) !important;
+    font-weight: 500;
+    padding-bottom: 5px;
+    border-bottom: 3px solid var(--secondary);
+}
+
+.tab-rekap:hover {
+    color: var(--secondary);
+}
+
+.tab-rekap-item a {
+    text-decoration: none;
+    color: var(--black-80);
+}
+
+.template-tabel th {
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.template-tabel tr {
+    font-size: 12px;
+}
+
+/* Penutup Style di Index */
+
+/* Style create & edit */
+.form-title {
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    text-transform: uppercase;
+}
+
+.pesan-warning {
+    font-size: 12px;
+    color: var(--error);
+    font-weight: 500;
+}
+
+.disableWarning {
+    display: none;
+}
+
+.popoutWarning {
+    display: contents;
+}
+/* Penutup Style create & edit */
+
+/* Style login */
+.login-icon {
+    transform: translate(295px, -30px);
+}
+
+.error-text {
+    color: var(--error);
+    transform: translateY(-25px);
+}
+/* Penutup Style Login */
+
+/* Style Error Page */
+.logo-brand {
+    margin: 20px 0;
+}
+
+.error-heading {
+    font-weight: 700;
+    margin-top: 30px;
+}
+
+.error-404 {
+    font-weight: 700;
+    font-size: 200px;
+    margin: 20px;
+    color: var(--primary);
+}
+
+.error-body a {
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.error-background {
+    background-color: white;
+}
+
+/* RESPONSIVE */
+
+/* Handphone */
+@media (max-width: 575.98px) {
+    .main-content {
+        margin: 5px;
+    }
+
+    /* sidebar */
+    .dropdown-menu {
+        width: max-content;
+    }
+
+    .navbar-nav {
+        margin: 10px 0 5px 0;
+    }
+}
+
+/* Tablet */
+@media (min-width: 576px) {
+}
