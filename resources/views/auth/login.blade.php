@@ -53,8 +53,8 @@
                             </div>
                         </div>                        
                         <div class="row mb-0">
-                            <div class="col-md-4">
-                                <button type="submit" class="btn btn-danger">
+                            <div class="col-md-center">
+                                <button type="submit" class="btn btn-main btn-block">
                                     {{ __('Masuk') }}
                                 </button>
 

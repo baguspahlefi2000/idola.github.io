@@ -18,6 +18,17 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    {{-- login merah --}}
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <!-- Line Awesome -->
+    <link rel="stylesheet" href="{{ asset('line-awesome/css/line-awesome.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('css/AdminLTE.min.css') }}">
+    <!-- Favicon style -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/logo_favicon.png') }}">
 </head>
 <body>
 <?php

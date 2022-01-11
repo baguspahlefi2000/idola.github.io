@@ -23,7 +23,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <img src="{{ asset('img/logo_idola.png') }}" class="img-fluid" width="500" alt="">
+            <img src="{{ asset('img/logo.png') }}" class="img-fluid" width="500" alt="">
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
