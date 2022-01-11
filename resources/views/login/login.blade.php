@@ -44,6 +44,7 @@
                     <i class="las la-exclamation-circle"></i> {{ session('loginError') }}
                 </div>
                 @endif
+                
                 <div class="form-group">
                     <button id="submitBtn" type="submit" class="btn btn-main form-control">Masuk
                     </button>
