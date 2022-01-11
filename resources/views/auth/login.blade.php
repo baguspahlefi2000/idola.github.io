@@ -15,7 +15,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="input" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -50,16 +50,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="row mb-3">
                             <div class="col-md-4"></div>
                             <div class="col-md-6">
-                                {!! NoCaptcha::display() !!}
                                 {!! NoCaptcha::renderJs() !!}
-                                @error('g-recaptcha-response')
-                                <span class="text-danger" role="alert">
-                                    <strong>{{ $message }}</strong>
+                                {!! NoCaptcha::display() !!}
+                                @if ($errors->has('g-recaptcha-response'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
                                 </span>
-                                @enderror
+                                @endif
                             </div>
                         </div>                        
                         <div class="row mb-0">
