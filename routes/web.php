@@ -19,6 +19,7 @@ use App\Http\Controllers\UserManagementController;
 use App\Models\Rekap;
 use Maatwebsite\Excel\Row;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -78,6 +79,17 @@ Route::put('/wfm/update/{wfm}', [WfmController::class, 'update'])->name('wfm.upd
 Route::delete('/wfm/delete/{wfm}', [WfmController::class, 'destroy'])->name('wfm.delete');
 Route::get('/export/wfm', [WfmController::class, 'exportWfm'])->name('wfm.export');
 Route::post('/import/wfm', [WfmController::class, 'importWfm'])->name('wfm.import');
+Route::get('/', function (){
+    if (request()->tgl_bulan_dr || request()->tgl_bulan_sd){
+        $tgl_bulan_dr = Carbon::parse(request()->tgl_bulan_dr)->toDateTimeString();
+        $tgl_bulan_sd = Carbon::parse(request()->tgl_bulan_sd)->toDateTimeString();
+        $wfm = App\Models\Wfm::whereBetween('tgl_bulan_th',[$tgl_bulan_dr,$tgl_bulan_sd])->get();
+    }
+    else{
+        $wfm = App\Models\Wfm::latest()->get();
+    }
+    return view('wfm.index');
+});
 
 // end of wfm
 

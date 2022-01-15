@@ -29,7 +29,7 @@
                 <div class="clear-filter">
                     <a href="{{ route('wfm.index') }}">Clear Filters</a>
                 </div>
-                <form action="{{ route('wfm.index') }}">
+                <form action="{{ route('wfm.index') }}" method="GET">
                     {{-- filter field --}}
                     <div class="form-row">
                         <div class="col">
@@ -49,16 +49,15 @@
                             </datalist>
                         </div>
                         <div class="col">
-                            <label for="tgl_bulan_th">Dari Tanggal</label>
-                            <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_th"
-                                id="tgl_bulan_th" value="{{ request('tgl_bulan_th') }}">
+                            <label for="tgl_bulan_dr">Dari Tanggal</label>
+                            <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_dr"
+                                id="tgl_bulan_dr">
                         </div>
                         <div class="col">
                             <label for="tgl_bulan_th_sd">Sampai Tanggal</label>
                             <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_sd"
-                                id="tgl_bulan_sd" value="{{ request('tgl_bulan_sd') }}">
-                        </div>
-
+                                id="tgl_bulan_sd">
+                        </div> 
                         <div class="col">
                             <label for="witel">Witel</label>
                             <select class="form-control" id="witel" name="witel">

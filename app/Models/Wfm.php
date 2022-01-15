@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use Carbon\Carbon;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -73,15 +74,15 @@ class Wfm extends Model
         );
 
         // filter tanggal
-        $query->when(
-            $filters['tgl_bulan_th'] ?? false,
-            fn ($query, $tgl_bulan_th) =>  $query->where('tgl_bulan_th', $tgl_bulan_th)
-        );
-
-        $query->when(
-            $filters['tgl_bulan_sd'] ?? false,
-            fn ($query, $tgl_bulan_sd) =>  $query->where('tgl_bulan_th', $tgl_bulan_sd)
-        );
+        if (request()->tgl_bulan_dr || request()->tgl_bulan_sd){
+            $tgl_bulan_dr = Carbon::parse(request()->tgl_bulan_dr)->toDateTimeString();
+            $tgl_bulan_sd = Carbon::parse(request()->tgl_bulan_sd)->toDateTimeString();
+            $query->whereBetween('tgl_bulan_th',[$tgl_bulan_dr,$tgl_bulan_sd]);
+        }
+        else{
+            $query->latest();
+        }
+        
 
         // filter olo
         $query->when(
@@ -119,4 +120,5 @@ class Wfm extends Model
             fn ($query, $status_wfm) => $query->where('status_wfm', 'like', '%' . $status_wfm . '%')
         );
     }
+
 }
