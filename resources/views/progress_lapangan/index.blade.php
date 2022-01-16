@@ -28,7 +28,7 @@
                 <div class="clear-filter">
                     <a href="{{ route('progress.index') }}">Clear Filters</a>
                 </div>
-                <form action="{{ route('progress.index') }}">
+                <form action="{{ route('progress.index') }}" method="GET">
                     {{-- filter field --}}
                     <div class="form-row">
                         <div class="col">

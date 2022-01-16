@@ -9,7 +9,7 @@
                 <div class="clear-filter">
                     <a href="{{ route('dis.index') }}" class="">Clear Filters</a>
                 </div>
-                <form action="{{ route('dis.index') }}">
+                <form action="{{ route('dis.index') }}" method="GET">
                     {{-- filter field --}}
                     <div class="form-row">
                         <div class="col">
@@ -29,9 +29,9 @@
                             </datalist>
                         </div>
                         <div class="col">
-                            <label for="plan_cabut">Tanggal</label>
-                            <input type="date" class="form-control" placeholder="Tanggal" name="plan_cabut"
-                                id="plan_cabut" value="{{ request('plan_cabut') }}">
+                        <label for="tanggal">Tanggal</label>
+                            <input type="date" class="form-control" placeholder="Tanggal" name="tanggal" id="tanggal"
+                                value="{{ request('tanggal') }}">
                         </div>
 
                         <div class="col">
@@ -117,15 +117,15 @@
             <div class="card mt-2 mb-5 shadow-sm">
 
                 {{-- filter --}}
-                @if (request('no_ao') || request('plan_cabut') || request('olo') || request('witel') ||
+                @if (request('no_ao') || request('tanggal') || request('olo') || request('witel') ||
                 request('jenis_nte') || request('status'))
                 <div class="card-body">
                     <h2 class="title-table">Disconnect</h2>
                     <table class="table table-responsive-lg table-hover" id="table_id">
                         <thead>
                             <tr>
-                                <th scope="col">Tanggal</th>
                                 <th scope="col">NO</th>
+                                <th scope="col">Tanggal</th>
                                 <th scope="col">AO</th>
                                 <th scope="col">WITEL</th>
                                 <th scope="col">OLO</th>

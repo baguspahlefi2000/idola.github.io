@@ -18,7 +18,7 @@ class Diconnect extends Model
         'jenis_nte',
         'jumlah_nte',
         'status',
-        'plan_cabut',
+        'tanggal',
         'pic'
     ];
 
@@ -39,8 +39,8 @@ class Diconnect extends Model
 
         // filter tanggal
         $query->when(
-            $filters['plan_cabut'] ?? false,
-            fn ($query, $plan_cabut) => $query->where('plan_cabut', 'like', '%' . $plan_cabut . '%')
+            $filters['tanggal'] ?? false,
+            fn ($query, $tanggal) => $query->where('tanggal', 'like', '%' . $tanggal . '%')
         );
 
         // filter olo
