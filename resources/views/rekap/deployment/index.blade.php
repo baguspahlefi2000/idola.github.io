@@ -37,6 +37,9 @@
                                 <th class="text-center">DISCONNECT</th>
                                 <th class="text-center">RESUME</th>
                                 <th class="text-center">SUSPEND</th>
+                                <th class="text-center">PLAN AKTIVASI</th>
+                                <th class="text-center">PLAN MODIFY</th>
+                                <th class="text-center">PLAN DISCONNECT</th>
                             </tr>
                         </thead>
                         <tbody>

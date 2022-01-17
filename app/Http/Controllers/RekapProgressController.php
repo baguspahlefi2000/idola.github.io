@@ -18,7 +18,7 @@ class RekapProgressController extends Controller
      */
     public function index()
     {
-        $rekap_progress = DB::select("SELECT olo, COUNT(IF(progress = 'In Progress',1,NULL))  'plan_aktivasi', COUNT(IF(progress = 'Done',1,NULL)) 'plant_modify', COUNT(IF(progress = 'Cancel',1,NULL)) 'plant_dc' FROM progres_lapangans GROUP BY olo ORDER BY `plan_aktivasi` DESC");
+        $rekap_progress = DB::select("SELECT olo, COUNT(IF(progress = 'In Progress',0,NULL)) 'plan_aktivasi', SUM(IF(progress = 'Done',0,NULL)) 'plant_modify', SUM(IF(progress = 'Cancel',0,NULL)) 'plant_dc' FROM progres_lapangans GROUP BY olo ORDER BY `plan_aktivasi` DESC;");
 
 
         return view('rekap.progress.index', ['title' => 'Halaman Rekap Progress', 'rekap_pro' => $rekap_progress]);
