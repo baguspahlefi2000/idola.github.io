@@ -55,6 +55,14 @@
     <script type="text/javascript" src="{{ asset('DataTables/datatables.min.js') }}"></script>
 
     <script>
+    jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+});
+</script>
+
+    <script>
         $(document).ready(function () {
             $('#table_id').DataTable({
                 "language": {
@@ -89,6 +97,9 @@
         });
 
     </script>
+
+
+
 </body>
 
 </html>

@@ -71,6 +71,8 @@ Route::post('/import/database', [DatabaseController::class, 'databaseimport'])->
 // end of database
 
 // WFM
+Route::get('/wfm/view/{wfm}', [WfmController::class, 'view'])->name('wfm.view')->middleware('auth');
+
 Route::get('/wfm', [WfmController::class, 'index'])->name('wfm.index')->middleware('auth');
 Route::get('/wfm/create', [WfmController::class, 'create'])->name('wfm.create')->middleware('editor');
 Route::post('/wfm/store', [WfmController::class, 'store'])->name('wfm.store');
@@ -109,6 +111,8 @@ Route::get('/rekap_progress', [RekapProgressController::class, 'index'])->name('
 Route::get('/rekap_progress/export', [RekapProgressController::class, 'exportRekapProgres'])->name('rekapProgress.export');
 
 // progress lapangan
+Route::get('/progress_lapangan/view/{progress}', [ProgresLapanganController::class, 'view'])->name('progress.view')->middleware('auth');
+
 Route::get('/progress_lapangan', [ProgresLapanganController::class, 'index'])->name('progress.index')->middleware('auth');
 Route::get('/progress_lapangan/create', [ProgresLapanganController::class, 'create'])->name('progress.create')->middleware('editor');
 Route::post('/progress_lapangan/store', [ProgresLapanganController::class, 'store'])->name('progress.store');

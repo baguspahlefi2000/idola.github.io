@@ -283,6 +283,11 @@ class WfmController extends Controller
         }
     }
 
+    public function view(Wfm $wfm)
+    {
+        return view('wfm.view', ["title" => "Update Data - WFM", 'database' => Database::all(), 'wfm' => $wfm, 'rekap' => Rekap::all()]);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -384,7 +389,7 @@ class WfmController extends Controller
     {
         $wfm->delete();
         sleep(1);
-        return back();
+        return redirect()->route('wfm.index');
     }
 
     public function exportWfm()

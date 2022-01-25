@@ -102,6 +102,11 @@ class ProgresLapanganController extends Controller
         }
     }
 
+    public function view(ProgresLapangan $progress)
+    {
+            return view('progress_lapangan.view', ['title' => 'Update Data - Progress Lapangan', 'progress' => $progress, 'database' => Database::all(), 'wfm' => Wfm::all()]);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -140,7 +145,7 @@ class ProgresLapanganController extends Controller
     {
         $progress->delete();
         sleep(1);
-        return back();
+        return redirect()->route('progress.index');
     }
 
     public function exportProgressLapangan()

@@ -24,11 +24,14 @@ class RekapController extends Controller
      */
     public function index()
     {
-
-
-        $data = DB::select("SELECT wfms.olo_isp, COUNT(IF(wfms.order_type = 'NEW INSTALL',1,NULL))  'AKTIVASI', COUNT(IF(wfms.order_type = 'MODIFY',1,NULL)) 'MODIF', COUNT(IF(wfms.order_type = 'DISCONNECT',1,NULL)) 'DISCONNECT', COUNT(IF(wfms.order_type = 'RESUME',1,NULL)) 'RESUME', COUNT(IF(wfms.order_type = 'SUSPEND',1,NULL)) 'SUSPEND' FROM wfms GROUP BY olo_isp ORDER BY `AKTIVASI` DESC");
-
-        return view('rekap.deployment.index', ['title' => 'Halaman Rekap', 'rekap' => $data]);
+        return view('rekap.deployment.index', [
+            "title" => "Rekap deployment",
+            'database' => Database::all(),
+            'progress_all' => ProgresLapangan::all(),
+            'pro_lap' => ProgresLapangan::orderBy('id')->filter(request([
+                'ao', 'tanggal', 'witel', 'olo', 'produk', 'progress'
+            ]))->get()
+        ]);
     }
 
     /**

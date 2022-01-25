@@ -82,6 +82,7 @@ function validasiHapus() {
         text: "Data Berhasil Dihapus!",
         icon: "success",
     });
+   
 }
 
 // button

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand">
+        <a class="navbar-brand" href="{{ route('home') }}">
             <img src="{{ asset('img/logo_idola.png') }}" alt="logo aplikasi" style="max-height: 50px;" title="Logo Aplikasi">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navDropdown"
@@ -23,8 +23,8 @@
                     <div class="dropdown-menu dropmenu" aria-labelledby="deploymentMenu">
                         <a class="dropdown-item" href="{{ route('wfm.create') }}"><i class="las la-plus mr-3"></i>New
                             Order</a>
-                        <a class="dropdown-item" href="{{ route('wfm.index') }}"><i class="las la-pen mr-3"></i>Update
-                            Order</a>
+                            <a class="dropdown-item" href="{{ route('wfm.index') }}"><i class="las la-edit mr-3"></i>Update
+                            Deployment</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -37,7 +37,7 @@
                         <a class="dropdown-item" href="{{ route('progress.create') }}"><i
                                 class="las la-plus mr-3"></i>New Progress</a>
                         <a class="dropdown-item" href="{{ route('progress.index') }}"><i
-                                class="las la-pen mr-3"></i>Update Progress</a>
+                                class="las la-edit mr-3"></i>Update Progress</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -46,8 +46,6 @@
                         Evaluasi
                     </a>
                     <div class="dropdown-menu dropmenu" aria-labelledby="evaluasiMenu">
-                        <a class="dropdown-item" href="{{ route('wfm.index') }}">Deployment</a>
-                        <a class="dropdown-item" href="{{ route('progress.index') }}">Progress Lapangan</a>
                         <a class="dropdown-item" href="{{ route('rekap.index') }}">Rekap</a>
                         <a class="dropdown-item" href="{{ route('xSumm.index') }}">EXE SUMM</a>
                     </div>
@@ -107,7 +105,7 @@
                     <a class="nav-link {{ Request::is('progress_lapangan*') ? 'nav-active' : '' }} dropdown-toggle"
                         href="#" id="progressMenu" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        Progress Lapangan
+                        Progress Lapangan 
                     </a>
                     @can('editor')
                     <div class="dropdown-menu dropmenu" aria-labelledby="progressMenu">

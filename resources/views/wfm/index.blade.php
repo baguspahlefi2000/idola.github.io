@@ -304,6 +304,11 @@
                                         <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false"></span>
                                         <div class="dropdown-menu" aria-labelledby="menuEdit">
+                                        <a href="{{ route('wfm.view',$wfm->id) }}" class="dropdown-item"
+                                                type="button">
+                                                <i class="fas fa-eye mr-2"></i>
+                                                View
+                                            </a>
                                             <a href="{{ route('wfm.edit',$wfm->id) }}" class="dropdown-item"
                                                 type="button">
                                                 <i class="fas fa-edit mr-2"></i>
