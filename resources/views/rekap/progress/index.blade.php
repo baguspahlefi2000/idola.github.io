@@ -47,17 +47,17 @@
                             @foreach ($rekap_pro as $item_repro)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                <td>{{ $item_repro->olo }}</td>
-                                <td class="text-center">{{ $item_repro->plan_aktivasi }}</td>
-                                <td class="text-center">{{ $item_repro->plant_modify }}</td>
-                                <td class="text-center">{{ $item_repro->plant_dc }}</td>
-                                {{-- <td class="text-center">{{ $item->plan_modify }}</td>
-                                <td class="text-center">{{ $item->plan_dc }}</td> --}}
+                                <td>{{ $item_repro->OLO }}</td>
+                                <td class="text-center">{{ $item_repro->PLAN_AKTIVASI }}</td>
+                                <td class="text-center">{{ $item_repro->PLAN_MODIFY }}</td>
+                                <td class="text-center">{{ $item_repro->PLAN_DISCONNECT }}</td>
+                                {{-- <td class="text-center">{{ $item->PLAN_MODIFY }}</td>
+                                <td class="text-center">{{ $item->PLAN_DISCONNECT }}</td> --}}
                             </tr>
                             @php
-                            $totalPlanAktivasi += $item_repro->plan_aktivasi;
-                            $totalPlanModify += $item_repro->plant_modify;
-                            $totalPlanDisconnect += $item_repro->plant_dc;
+                            $totalPlanAktivasi += $item_repro->PLAN_AKTIVASI;
+                            $totalPlanModify += $item_repro->PLAN_MODIFY;
+                            $totalPlanDisconnect += $item_repro->PLAN_DISCONNECT;
                             @endphp
                             @endforeach
                         </tbody>

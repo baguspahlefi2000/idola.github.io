@@ -179,6 +179,9 @@ return [
         // Spatie
         Spatie\Permission\PermissionServiceProvider::class,
 
+        //reliese
+        Reliese\Coders\CodersServiceProvider::class
+
     ],
 
     /*

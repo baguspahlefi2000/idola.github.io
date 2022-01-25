@@ -50,9 +50,9 @@
                             @foreach ($rekap as $item)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                <td>{{ $item->olo_isp }}</td>
+                                <td>{{ $item->OLO }}</td>
                                 <td class="text-center">{{ $item->AKTIVASI }}</td>
-                                <td class="text-center">{{ $item->MODIF }}</td>
+                                <td class="text-center">{{ $item->MODIFY }}</td>
                                 <td class="text-center">{{ $item->DISCONNECT }}</td>
                                 <td class="text-center">{{ $item->RESUME }}</td>
                                 <td class="text-center">{{ $item->SUSPEND }}</td>
@@ -60,7 +60,7 @@
                             <?php
 
                                 $aktivasi += $item->AKTIVASI;
-                                $modify += $item->MODIF;
+                                $modify += $item->MODIFY;
                                 $dc += $item->DISCONNECT;
                                 $resume += $item->RESUME;
                                 $suspend += $item->SUSPEND;

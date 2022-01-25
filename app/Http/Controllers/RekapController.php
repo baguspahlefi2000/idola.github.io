@@ -6,7 +6,6 @@ use App\Models\Database;
 use App\Exports\RekapExport;
 use App\Imports\RekapImport;
 use App\Http\Controllers\Controller;
-use App\Models\Rekap;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\User;
@@ -26,7 +25,17 @@ class RekapController extends Controller
     {
 
 
-        $data = DB::select("SELECT wfms.olo_isp, COUNT(IF(wfms.order_type = 'NEW INSTALL',1,NULL))  'AKTIVASI', COUNT(IF(wfms.order_type = 'MODIFY',1,NULL)) 'MODIF', COUNT(IF(wfms.order_type = 'DISCONNECT',1,NULL)) 'DISCONNECT', COUNT(IF(wfms.order_type = 'RESUME',1,NULL)) 'RESUME', COUNT(IF(wfms.order_type = 'SUSPEND',1,NULL)) 'SUSPEND' FROM wfms GROUP BY olo_isp ORDER BY `AKTIVASI` DESC");
+        $data = DB::select("SELECT 
+        olo_tabel.olo_nama as OLO,
+        SUM(CASE WHEN deployment_tabel.order_type_id = '1'  THEN 1 ELSE 0 END) as AKTIVASI,
+        SUM(CASE WHEN deployment_tabel.order_type_id = '2'  THEN 1 ELSE 0 END) as MODIFY,
+        SUM(CASE WHEN deployment_tabel.order_type_id = '3'  THEN 1 ELSE 0 END) as DISCONNECT,
+        SUM(CASE WHEN deployment_tabel.order_type_id = '4'  THEN 1 ELSE 0 END) as RESUME,
+        SUM(CASE WHEN deployment_tabel.order_type_id = '5'  THEN 1 ELSE 0 END) as SUSPEND
+        FROM deployment_tabel 
+        JOIN olo_tabel ON olo_tabel.olo_id = deployment_tabel.olo_id
+        GROUP BY olo_tabel.olo_nama
+        ORDER BY AKTIVASI DESC");
 
         return view('rekap.deployment.index', ['title' => 'Halaman Rekap', 'rekap' => $data]);
     }
@@ -53,19 +62,7 @@ class RekapController extends Controller
      */
     public function store(Request $request, Rekap $rekap)
     {
-        // $rekap->no = $request->no;
-        $rekap->olo = $request->olo;
-        $rekap->plan_aktivasi = $request->plan_aktivasi;
-        // $rekap->plan_modify = $request->plan_modify;
-        // $rekap->plan_disconnect = $request->plan_disconnect;
-        $rekap->aktivasi = $request->aktivasi;
-        $rekap->modify = $request->modify;
-        $rekap->disconnect = $request->disconnect;
-        $rekap->resume = $request->resume;
-        $rekap->suspend = $request->suspend;
-        $rekap->save();
-        sleep(1);
-        return redirect()->route('rekap.index');
+
     }
 
     /**
@@ -87,11 +84,7 @@ class RekapController extends Controller
      */
     public function edit(Rekap $rekap)
     {
-        if (Gate::any(['admin', 'editor'])) {
-            return view('rekap.deployment.edit', ["rekap" => $rekap, "title" => "Update Data - Rekap"]);
-        } else {
-            abort(403);
-        }
+
     }
 
     /**
@@ -104,19 +97,7 @@ class RekapController extends Controller
     public function update(Request $request, Rekap $rekap)
     {
 
-        // $rekap->no = $request->no;
-        $rekap->olo = $request->olo;
-        $rekap->plan_aktivasi = $request->plan_aktivasi;
-        // $rekap->plan_modify = $request->plan_modify;
-        // $rekap->plan_disconnect = $request->plan_disconnect;
-        $rekap->aktivasi = $request->aktivasi;
-        $rekap->modify = $request->modify;
-        $rekap->disconnect = $request->disconnect;
-        $rekap->resume = $request->resume;
-        $rekap->suspend = $request->suspend;
-        $rekap->save();
-        sleep(1);
-        return redirect()->route('rekap.index');
+
     }
 
     /**
@@ -128,9 +109,6 @@ class RekapController extends Controller
     public function destroy(Rekap $rekap)
     {
 
-        $rekap->delete();
-        sleep(1);
-        return back();
     }
 
     public function exportRekap()

@@ -23,7 +23,7 @@
                     <div class="dropdown-menu dropmenu" aria-labelledby="deploymentMenu">
                         <a class="dropdown-item" href="{{ route('wfm.create') }}"><i class="las la-plus mr-3"></i>New
                             Order</a>
-                        <a class="dropdown-item" href="{{ route('wfm.index') }}"><i class="las la-pen mr-3"></i>Update
+                        <a class="dropdown-item" href="{{ route('deployment.index') }}"><i class="las la-pen mr-3"></i>Update
                             Order</a>
                     </div>
                 </li>
@@ -46,7 +46,7 @@
                         Evaluasi
                     </a>
                     <div class="dropdown-menu dropmenu" aria-labelledby="evaluasiMenu">
-                        <a class="dropdown-item" href="{{ route('wfm.index') }}">Deployment</a>
+                        <a class="dropdown-item" href="{{ route('deployment.index') }}">Deployment</a>
                         <a class="dropdown-item" href="{{ route('progress.index') }}">Progress Lapangan</a>
                         <a class="dropdown-item" href="{{ route('rekap.index') }}">Rekap</a>
                         <a class="dropdown-item" href="{{ route('xSumm.index') }}">EXE SUMM</a>
@@ -98,7 +98,7 @@
                     <div class="dropdown-menu dropmenu" aria-labelledby="deploymentMenu">
                         <a class="dropdown-item" href="{{ route('wfm.create') }}"><i class="las la-plus mr-3"></i>New
                             Order</a>
-                        <a class="dropdown-item" href="{{ route('wfm.index') }}"><i class="las la-pen mr-3"></i>Update
+                        <a class="dropdown-item" href="{{ route('deployment.index') }}"><i class="las la-pen mr-3"></i>Update
                             Order</a>
                     </div>
                     @endcan
@@ -124,7 +124,7 @@
                         Evaluasi
                     </a>
                     <div class="dropdown-menu dropmenu" aria-labelledby="evaluasiMenu">
-                        <a class="dropdown-item" href="{{ route('wfm.index') }}">Deployment</a>
+                        <a class="dropdown-item" href="{{ route('deployment.index') }}">Deployment</a>
                         <a class="dropdown-item" href="{{ route('progress.index') }}">Progress Lapangan</a>
                         <a class="dropdown-item" href="{{ route('rekap.index') }}">Rekap</a>
                         <a class="dropdown-item" href="{{ route('xSumm.index') }}">EXE SUMM</a>

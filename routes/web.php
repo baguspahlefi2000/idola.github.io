@@ -10,9 +10,9 @@ use App\Http\Controllers\ProgresLapanganController;
 use App\Models\PekerjaanLapangan;
 use App\Http\Controllers\RekapController;
 use App\Http\Controllers\RekapProgressController;
-use App\Http\Controllers\WfmController;
 use App\Models\Database;
 use App\Models\ProgresLapangan;
+use App\Models\DeploymentTabel;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserManagementController;
@@ -71,7 +71,7 @@ Route::post('/import/database', [DatabaseController::class, 'databaseimport'])->
 // end of database
 
 // WFM
-Route::get('/wfm', [WfmController::class, 'index'])->name('wfm.index')->middleware('auth');
+
 Route::get('/wfm/create', [WfmController::class, 'create'])->name('wfm.create')->middleware('editor');
 Route::post('/wfm/store', [WfmController::class, 'store'])->name('wfm.store');
 Route::get('/wfm/edit/{wfm}', [WfmController::class, 'edit'])->name('wfm.edit')->middleware('editor');
@@ -79,20 +79,7 @@ Route::put('/wfm/update/{wfm}', [WfmController::class, 'update'])->name('wfm.upd
 Route::delete('/wfm/delete/{wfm}', [WfmController::class, 'destroy'])->name('wfm.delete');
 Route::get('/export/wfm', [WfmController::class, 'exportWfm'])->name('wfm.export');
 Route::post('/import/wfm', [WfmController::class, 'importWfm'])->name('wfm.import');
-Route::get('/', function (){
-    if (request()->tgl_bulan_dr || request()->tgl_bulan_sd){
-        $tgl_bulan_dr = Carbon::parse(request()->tgl_bulan_dr)->toDateTimeString();
-        $tgl_bulan_sd = Carbon::parse(request()->tgl_bulan_sd)->toDateTimeString();
-        $wfm = App\Models\Wfm::whereBetween('tgl_bulan_th',[$tgl_bulan_dr,$tgl_bulan_sd])->get();
-    }
-    else{
-        $wfm = App\Models\Wfm::latest()->get();
-    }
-    return view('wfm.index');
-});
-
 // end of wfm
-
 // rekap
 Route::get('/rekap', [RekapController::class, 'index'])->name('rekap.index')->middleware('auth');
 Route::get('/rekap/create', [RekapController::class, 'create'])->name('rekap.create')->middleware('editor');
@@ -119,7 +106,7 @@ Route::get('/export/progress_lapangan', [ProgresLapanganController::class, 'expo
 Route::post('/import/progress_lapangan', [ProgresLapanganController::class, 'importProgressLapangan'])->name('progress.import');
 
 // deployment
-Route::get('/deployment', [DeploymentController::class, 'index'])->name('dep.index')->middleware('auth');
+Route::get('/deployment', [DeploymentController::class, 'index'])->name('deployment.index')->middleware('auth');
 Route::get('/deployment/create', [DeploymentController::class, 'create'])->name('dep.create')->middleware('editor');
 Route::post('/deployment/store', [DeploymentController::class, 'store'])->name('dep.store');
 Route::get('/deployment/edit/{deployment}', [DeploymentController::class, 'edit'])->name('dep.edit')->middleware('editor');
