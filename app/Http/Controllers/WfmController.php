@@ -213,11 +213,7 @@ class WfmController extends Controller
 
 
 
-            $query1 = DB::table('wfms')->where('order_type', 'NEW INSTALL')->groupBy('olo_isp')->count();
-            $query2 = DB::table('wfms')->where('order_type', 'MODIFY')->groupBy('olo_isp')->count();
-            $query3 = DB::table('wfms')->where('order_type', 'DISCONNECT')->groupBy('olo_isp')->count();
-            $query4 = DB::table('wfms')->where('order_type', 'RESUME')->groupBy('olo_isp')->count();
-            $query5 = DB::table('wfms')->where('order_type', 'SUSPEND')->groupBy('olo_isp')->count();
+
 
 
 
@@ -285,7 +281,7 @@ class WfmController extends Controller
 
     public function view(Wfm $wfm)
     {
-        return view('wfm.view', ["title" => "Update Data - WFM", 'database' => Database::all(), 'wfm' => $wfm, 'rekap' => Rekap::all()]);
+        return view('wfm.view', ["title" => "View Data - WFM", 'database' => Database::all(), 'wfm' => $wfm, 'rekap' => Rekap::all()]);
     }
 
     /**

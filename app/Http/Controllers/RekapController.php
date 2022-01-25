@@ -24,14 +24,9 @@ class RekapController extends Controller
      */
     public function index()
     {
-        return view('rekap.deployment.index', [
-            "title" => "Rekap deployment",
-            'database' => Database::all(),
-            'progress_all' => ProgresLapangan::all(),
-            'pro_lap' => ProgresLapangan::orderBy('id')->filter(request([
-                'ao', 'tanggal', 'witel', 'olo', 'produk', 'progress'
-            ]))->get()
-        ]);
+        $data = DB::select("SELECT wfms.olo_isp, COUNT(IF(wfms.order_type = 'NEW INSTALL',1,NULL))  'AKTIVASI', COUNT(IF(wfms.order_type = 'MODIFY',1,NULL)) 'MODIF', COUNT(IF(wfms.order_type = 'DISCONNECT',1,NULL)) 'DISCONNECT', COUNT(IF(wfms.order_type = 'RESUME',1,NULL)) 'RESUME', COUNT(IF(wfms.order_type = 'SUSPEND',1,NULL)) 'SUSPEND' FROM wfms GROUP BY olo_isp ORDER BY `AKTIVASI` DESC");
+
+        return view('rekap.deployment.index', ['title' => 'Halaman Rekap', 'rekap' => $data]);
     }
 
     /**
@@ -39,102 +34,7 @@ class RekapController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        if (Gate::any(['admin', 'editor'])) {
-            return view('rekap.deployment.create', ["title" => "Tambah Data - Rekap", 'database' => Database::all()]);
-        } else {
-            abort(403);
-        }
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request, Rekap $rekap)
-    {
-        // $rekap->no = $request->no;
-        $rekap->olo = $request->olo;
-        $rekap->plan_aktivasi = $request->plan_aktivasi;
-        // $rekap->plan_modify = $request->plan_modify;
-        // $rekap->plan_disconnect = $request->plan_disconnect;
-        $rekap->aktivasi = $request->aktivasi;
-        $rekap->modify = $request->modify;
-        $rekap->disconnect = $request->disconnect;
-        $rekap->resume = $request->resume;
-        $rekap->suspend = $request->suspend;
-        $rekap->save();
-        sleep(1);
-        return redirect()->route('rekap.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Rekap $rekap)
-    {
-        if (Gate::any(['admin', 'editor'])) {
-            return view('rekap.deployment.edit', ["rekap" => $rekap, "title" => "Update Data - Rekap"]);
-        } else {
-            abort(403);
-        }
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Rekap $rekap)
-    {
-
-        // $rekap->no = $request->no;
-        $rekap->olo = $request->olo;
-        $rekap->plan_aktivasi = $request->plan_aktivasi;
-        // $rekap->plan_modify = $request->plan_modify;
-        // $rekap->plan_disconnect = $request->plan_disconnect;
-        $rekap->aktivasi = $request->aktivasi;
-        $rekap->modify = $request->modify;
-        $rekap->disconnect = $request->disconnect;
-        $rekap->resume = $request->resume;
-        $rekap->suspend = $request->suspend;
-        $rekap->save();
-        sleep(1);
-        return redirect()->route('rekap.index');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Rekap $rekap)
-    {
-
-        $rekap->delete();
-        sleep(1);
-        return back();
-    }
+   
 
     public function exportRekap()
     {

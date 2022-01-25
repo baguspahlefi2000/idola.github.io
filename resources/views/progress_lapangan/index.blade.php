@@ -146,85 +146,87 @@
                             </a>
                         </div>
                     </div>
-                    <table class="table table-responsive table-hover" id="table_id" style="width: 100%">
-                        <thead>
-                            <tr>
-                                <th scope="col" rowspan="2">No</th>
-                                <th scope="col" rowspan="2">Tanggal</th>
-                                <th scope="col" rowspan="2">Witel</th>
-                                <th scope="col" class="text-nowrap" rowspan="2">No Ao</th>
-                                <th scope="col" rowspan="2">Olo</th>
-                                <th scope="col" rowspan="2">Produk</th>
-                                <th scope="col" class="text-nowrap" rowspan="2">Alamat</th>
-                                <th scope="col" colspan="2" class="text-center">Progress PT1</th>
-                                <th scope="col" colspan="2" class="text-center">Progress PT2</th>
-                                <th scope="col" class="text-nowrap" rowspan="2">Datek ODP</th>
-                                <th scope="col" class="text-nowrap" rowspan="2">Datek GPON</th>
-                                <th scope="col" rowspan="2">Progress</th>
-                                <th scope="col" rowspan="2">Keterangan</th>
-                                @canany(['admin', 'editor'])
-                                <th scope="col" rowspan="2"><i class="las la-ellipsis-v"></i></th>
-                                @endcanany
-                            </tr>
+                    <div class="div1">
+                        <table class="table table-responsive table-hover table-coba" id="table_id" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th scope="col" rowspan="2">No</th>
+                                    <th scope="col" rowspan="2">Tanggal</th>
+                                    <th scope="col" rowspan="2">Witel</th>
+                                    <th scope="col" class="text-nowrap" rowspan="2">No Ao</th>
+                                    <th scope="col" rowspan="2">Olo</th>
+                                    <th scope="col" rowspan="2">Produk</th>
+                                    <th scope="col" class="text-nowrap" rowspan="2">Alamat</th>
+                                    <th scope="col" colspan="2" class="text-center">Progress PT1</th>
+                                    <th scope="col" colspan="2" class="text-center">Progress PT2</th>
+                                    <th scope="col" class="text-nowrap" rowspan="2">Datek ODP</th>
+                                    <th scope="col" class="text-nowrap" rowspan="2">Datek GPON</th>
+                                    <th scope="col" rowspan="2">Progress</th>
+                                    <th scope="col" rowspan="2">Keterangan</th>
+                                    @canany(['admin', 'editor'])
+                                    <th scope="col" rowspan="2"><i class="las la-ellipsis-v"></i></th>
+                                    @endcanany
+                                </tr>
 
-                            <tr>
-                                <th scope="row" class="text-nowrap">Tanggal Order</th>
-                                <th scope="row">Keterangan</th>
-                                <th scope="row" class="text-nowrap">Tanggal Order</th>
-                                <th scope="row">Keterangan</th>
-                            </tr>
-                        </thead>
+                                <tr>
+                                    <th scope="row" class="text-nowrap">Tanggal Order</th>
+                                    <th scope="row">Keterangan</th>
+                                    <th scope="row" class="text-nowrap">Tanggal Order</th>
+                                    <th scope="row">Keterangan</th>
+                                </tr>
+                            </thead>
 
-                        <tbody>
-                            @foreach ($pro_lap as $item)
-                            <tr>
-                                <td class="text-center">{{ $loop->iteration }}</td>
-                                <td>{{ $item->tanggal }}</td>
-                                <td>{{ $item->witel }}</td>
-                                <td>{{ $item->ao }}</td>
-                                <td>{{ $item->olo }}</td>
-                                <td>{{ $item->produk }}</td>
-                                <td>{{ $item->alamat_toko }}</td>
-                                <td>{{ $item->tanggal_order_pt1 }}</td>
-                                <td>{{ $item->keterangan_pt1 }}</td>
-                                <td>{{ $item->tanggal_order_pt2 }}</td>
-                                <td>{{ $item->keterangan_pt2 }}</td>
-                                <td>{{ $item->datek_odp }}</td>
-                                <td>{{ $item->datek_gpon }}</td>
-                                <td>{{ $item->progress }}</td>
-                                <td>{{ $item->keterangan }}</td>
-                                @canany(['admin', 'editor'])
-                                <td class="text-center">
-                                    <div class="dropleft" title="Menu">
-                                        <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false"></span>
-                                        <div class="dropdown-menu" aria-labelledby="menuEdit">
-                                        <a href="{{ route('progress.view',$item->id) }}" class="dropdown-item"
-                                                type="button">
-                                                <i class="fas fa-eye mr-2"></i>
-                                                View
-                                            </a>
-                                            <a href="{{ route('progress.edit',$item->id) }}" class="dropdown-item"
-                                                type="button">
-                                                <i class="fas fa-edit mr-2"></i>
-                                                Edit
-                                            </a>
-                                            <form action="{{ route('progress.destroy',$item->id) }}" method="POST"
-                                                class="d-inline" onsubmit="return validasiHapus()">
-                                                @csrf
-                                                @method('delete')
-                                                <button class="dropdown-item" type="submit"
-                                                    onclick="return confirm('Apakah Anda Ingin Menghapusnya?')"><i
-                                                        class="fas fa-trash mr-2"></i> Hapus</button>
-                                            </form>
+                            <tbody>
+                                @foreach ($pro_lap as $item)
+                                <tr>
+                                    <td class="text-center">{{ $loop->iteration }}</td>
+                                    <td>{{ $item->tanggal }}</td>
+                                    <td>{{ $item->witel }}</td>
+                                    <td>{{ $item->ao }}</td>
+                                    <td>{{ $item->olo }}</td>
+                                    <td>{{ $item->produk }}</td>
+                                    <td>{{ $item->alamat_toko }}</td>
+                                    <td>{{ $item->tanggal_order_pt1 }}</td>
+                                    <td>{{ $item->keterangan_pt1 }}</td>
+                                    <td>{{ $item->tanggal_order_pt2 }}</td>
+                                    <td>{{ $item->keterangan_pt2 }}</td>
+                                    <td>{{ $item->datek_odp }}</td>
+                                    <td>{{ $item->datek_gpon }}</td>
+                                    <td>{{ $item->progress }}</td>
+                                    <td>{{ $item->keterangan }}</td>
+                                    @canany(['admin', 'editor'])
+                                    <td class="text-center">
+                                        <div class="dropleft" title="Menu">
+                                            <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false"></span>
+                                            <div class="dropdown-menu" aria-labelledby="menuEdit">
+                                            <a href="{{ route('progress.view',$item->id) }}" class="dropdown-item"
+                                                    type="button">
+                                                    <i class="fas fa-eye mr-2"></i>
+                                                    View
+                                                </a>
+                                                <a href="{{ route('progress.edit',$item->id) }}" class="dropdown-item"
+                                                    type="button">
+                                                    <i class="fas fa-edit mr-2"></i>
+                                                    Edit
+                                                </a>
+                                                <form action="{{ route('progress.destroy',$item->id) }}" method="POST"
+                                                    class="d-inline" onsubmit="return validasiHapus()">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="dropdown-item" type="submit"
+                                                        onclick="return confirm('Apakah Anda Ingin Menghapusnya?')"><i
+                                                            class="fas fa-trash mr-2"></i> Hapus</button>
+                                                </form>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                @endcanany
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                    </td>
+                                    @endcanany
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

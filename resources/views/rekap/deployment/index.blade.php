@@ -149,6 +149,7 @@
                                 $resume = 0;
                                 $suspend = 0;
                                 $olo_id = 0;
+                                $totalAktvasi = 0;
                                 $totalPlanModify = 0;
                                 $totalPlanDisconnect = 0;
                             ?>
@@ -159,7 +160,7 @@
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td>{{ $item->olo_isp }}</td>
-                                <td class="text-center">{{ $item->olo_id }}</td>
+                                <td class="text-center">Isi Plan aktivasi</td>
                                 <td class="text-center">0</td>
                                 <td class="text-center">0</td>
                                 <td class="text-center">{{ $item->AKTIVASI }}</td>
@@ -169,7 +170,7 @@
                                 <td class="text-center">{{ $item->SUSPEND }}</td>
                             </tr>
                             <?php
-                                $olo_id += $item->olo_id;
+                                # isi jumlah plan aktivasi
                                 $aktivasi += $item->AKTIVASI;
                                 $modify += $item->MODIF;
                                 $dc += $item->DISCONNECT;
@@ -182,7 +183,7 @@
                         <tfoot>
                             <tr>
                                 <th colspan="2" class="text-center">TOTAL</th>
-                                <td class="text-center">{{ $olo_id }}</td>
+                                <td class="text-center">Isi total Plan Aktivasi</td>
                                 <td class="text-center">0</td>
                                 <td class="text-center">0</td>
                                 <th class="text-center">{{ $aktivasi }}</th>

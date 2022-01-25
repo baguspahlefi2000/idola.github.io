@@ -308,6 +308,61 @@ th {
 .template-tabel tr {
     font-size: 12px;
 }
+.table-coba {
+    height: 500px;
+
+}
+.table-coba thead{
+    overflow: auto;
+    z-index: 1;
+}
+.table-coba thead th{
+    position: sticky;
+    top:0;
+    background: #eee;
+}
+
+.div1 th:nth-child(1),
+.div1 td:nth-child(1) {
+    position: sticky;
+    left: 0;
+    width: 80px;
+    min-width: 80px;
+}
+
+.div1 th:nth-child(2),
+.div1 td:nth-child(2) {
+    position: sticky;
+    /* 1st cell left/right padding + 1st cell width + 1st cell left/right border width */
+    /* 0 + 5 + 150 + 5 + 1 */
+    left: 90px;
+    width: 100px;
+    min-width: 100px;
+}
+
+.div1 th:nth-child(3),
+.div1 td:nth-child(3) {
+    position: sticky;
+    /* 1st cell left/right padding + 1st cell width + 1st cell left/right border width */
+    /* 0 + 5 + 150 + 5 + 1 */
+    left: 200px;
+    width: 50px;
+    min-width: 50px;
+}
+
+.div1 td:nth-child(1),
+.div1 td:nth-child(2),
+.div1 td:nth-child(3){
+    background: rgb(255, 255, 255);
+}
+
+.div1 th:nth-child(1),
+.div1 th:nth-child(2),
+.div1 th:nth-child(3) {
+    z-index: 2;
+}
+
+
 
 /* Penutup Style di Index */
 

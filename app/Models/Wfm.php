@@ -59,65 +59,65 @@ class Wfm extends Model
         'pic'
     ];
 
-    public function diconnect()
+    public function diconnect($query)
     {
         return $this->hasOne(Diconnect::class);
     }
 
     // filter
-    public function scopeFilter($query, array $filters)
+    public function scopeFilter($quedry, array $filters)
     {
         // filter no ao
-        $query->when(
+        $quedry->when(
             $filters['no_ao'] ?? false,
-            fn ($query, $no_ao) => $query->where('no_ao', 'like', '%' . $no_ao . '%')
+            fn ($quedry, $no_ao) => $quedry->where('no_ao', 'like', '%' . $no_ao . '%')
         );
 
         // filter tanggal
         if (request()->tgl_bulan_dr || request()->tgl_bulan_sd){
             $tgl_bulan_dr = Carbon::parse(request()->tgl_bulan_dr)->toDateTimeString();
             $tgl_bulan_sd = Carbon::parse(request()->tgl_bulan_sd)->toDateTimeString();
-            $query->whereBetween('tgl_bulan_th',[$tgl_bulan_dr,$tgl_bulan_sd]);
+            $quedry->whereBetween('tgl_bulan_th',[$tgl_bulan_dr,$tgl_bulan_sd]);
         }
         else{
-            $query->latest();
+            $quedry->latest();
         }
         
 
         // filter olo
-        $query->when(
+        $quedry->when(
             $filters['olo_isp'] ?? false,
-            fn ($query, $olo_isp) => $query->where('olo_isp', 'like', '%' . $olo_isp . '%')
+            fn ($qudery, $olo_isp) => $quedry->where('olo_isp', 'like', '%' . $olo_isp . '%')
         );
 
         // filter witel
-        $query->when(
+        $quedry->when(
             $filters['witel'] ?? false,
-            fn ($query, $witel) => $query->where('witel', 'like', '%' . $witel)
+            fn ($quedry, $witel) => $quedry->where('witel', 'like', '%' . $witel)
         );
 
         // filter order_type
-        $query->when(
+        $quedry->when(
             $filters['order_type'] ?? false,
-            fn ($query, $order_type) => $query->where('order_type', 'like', '%' . $order_type . '%')
+            fn ($quedry, $order_type) => $quedry->where('order_type', 'like', '%' . $order_type . '%')
         );
 
         // filter produk
-        $query->when(
+        $quedry->when(
             $filters['produk'] ?? false,
-            fn ($query, $produk) => $query->where('produk', 'like', '%' . $produk . '%')
+            fn ($quedry, $produk) => $quedry->where('produk', 'like', '%' . $produk . '%')
         );
 
         // filter status_ncx
-        $query->when(
+        $quedry->when(
             $filters['status_ncx'] ?? false,
-            fn ($query, $status_ncx) => $query->where('status_ncx', 'like', '%' . $status_ncx . '%')
+            fn ($quedry, $status_ncx) => $quedry->where('status_ncx', 'like', '%' . $status_ncx . '%')
         );
 
         // filter status_wfm
-        $query->when(
+        $quedry->when(
             $filters['status_wfm'] ?? false,
-            fn ($query, $status_wfm) => $query->where('status_wfm', 'like', '%' . $status_wfm . '%')
+            fn ($quedry, $status_wfm) => $quedry->where('status_wfm', 'like', '%' . $status_wfm . '%')
         );
     }
 
