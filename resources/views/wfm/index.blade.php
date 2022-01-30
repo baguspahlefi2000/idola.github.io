@@ -190,7 +190,8 @@
                             </a>
                         </div>
                     </div>
-                    <table class="table table-responsive table-hover" id="table_id">
+                <div class="div1">
+                    <table class="table table-responsive table-hover table-coba" id="table_id">
                         <thead>
                             <th>No</th>
                             <th>TGL/BLN/THN</th>
@@ -325,6 +326,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                </div>
                 </div>
             </div>
         </div>

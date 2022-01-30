@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand">
+        <a class="navbar-brand" href="#">
             <img src="{{ asset('img/logo_idola.png') }}" alt="logo aplikasi" style="max-height: 50px;" title="Logo Aplikasi">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navDropdown"
@@ -21,7 +21,7 @@
                         Deployment
                     </a>
                     <div class="dropdown-menu dropmenu" aria-labelledby="deploymentMenu">
-                        <a class="dropdown-item" href="{{ route('wfm.create') }}"><i class="las la-plus mr-3"></i>New
+                        <a class="dropdown-item" href="{{ route('deployment.create') }}"><i class="las la-plus mr-3"></i>Neww
                             Order</a>
                         <a class="dropdown-item" href="{{ route('deployment.index') }}"><i class="las la-pen mr-3"></i>Update
                             Order</a>

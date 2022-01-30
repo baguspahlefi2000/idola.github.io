@@ -54,6 +54,9 @@
     <!--  Data Table-->
     <script type="text/javascript" src="{{ asset('DataTables/datatables.min.js') }}"></script>
 
+    <link rel="stylesheet" href="extensions/sticky-header/bootstrap-table-sticky-header.css">
+    <script src="extensions/sticky-header/bootstrap-table-sticky-header.js"></script>
+
     <script>
         $(document).ready(function () {
             $('#table_id').DataTable({

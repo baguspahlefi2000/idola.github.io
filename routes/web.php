@@ -107,7 +107,7 @@ Route::post('/import/progress_lapangan', [ProgresLapanganController::class, 'imp
 
 // deployment
 Route::get('/deployment', [DeploymentController::class, 'index'])->name('deployment.index')->middleware('auth');
-Route::get('/deployment/create', [DeploymentController::class, 'create'])->name('dep.create')->middleware('editor');
+Route::get('/deployment/create', [DeploymentController::class, 'create'])->name('deployment.create')->middleware('editor');
 Route::post('/deployment/store', [DeploymentController::class, 'store'])->name('dep.store');
 Route::get('/deployment/edit/{deployment}', [DeploymentController::class, 'edit'])->name('dep.edit')->middleware('editor');
 Route::put('/deployment/update/{deployment}', [DeploymentController::class, 'update'])->name('dep.update');

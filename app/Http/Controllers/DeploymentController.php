@@ -89,7 +89,7 @@ class DeploymentController extends Controller
      */
     public function create()
     {
-        //
+        return view('wfm.create', ["title" => "Tambah Data - WFM"]);
     }
 
     /**
