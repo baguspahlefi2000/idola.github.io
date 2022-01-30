@@ -7,42 +7,38 @@
             <div class="card my-5 shadow-sm">
                 <div class="card-body">
                     <h4 class="form-title">Form New Deployment</h4>
-                    <form action="{{ route('wfm.store') }}" method="POST" enctype="multipart/form-data"
+                    <form action="{{ route('dep.store') }}" method="POST" enctype="multipart/form-data"
                         name="deploymentAdd">
                         @csrf
                         <div class="form-group">
-                            <label for="tgl_bulan_th">TGL/BLN/THN</label>
-                            <input type="date" name="tgl_bulan_th" id="tgl_bulan_th" class="form-control">
+                            <label for="tanggal">TGL/BLN/THN</label>
+                            <input type="date" name="tanggal" id="tanggal" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="NO. AO">NO. AO</label>
-                            <input type="text" name="no_ao" id="NO. AO" class="form-control">
+                            <label for="ao">NO. AO</label>
+                            <input type="text" name="ao" id="ao" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="witel">WITEL</label>
                             <select name="witel" id="witel" class="form-control">
-                                @foreach ($database as $item)
-                                @if ($item->witel !== '')
-                                <option value="{{ $item->witel }}">{{ $item->witel }}</option>
-                                @endif
+                                @foreach ($witel_data as $item)
+                                <option value="{{ $item->witel_id }}">{{ $item->witel_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="olo_isp">OLO / ISP</label>
-                            <select name="olo_isp" id="olo_isp" class="form-control">
-                                @foreach ($database as $item)
-                                <option value="{{ $item->olo_isp }}">{{ $item->olo_isp }}</option>
+                            <label for="olo">OLO / ISP</label>
+                            <select name="olo" id="olo" class="form-control">
+                                @foreach ($olo_data as $item)
+                                <option value="{{ $item->olo_id }}">{{ $item->olo_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="site_kriteria">SITE KRITERIA</label>
                             <select name="site_kriteria" id="site_kriteria" class="form-control">
-                                @foreach ($database as $item)
-                                @if ($item->site_kriteria !== '')
-                                <option value="{{ $item->site_kriteria }}">{{ $item->site_kriteria }}</option>
-                                @endif
+                                @foreach ($site_kriteria_data as $item)
+                                <option value="{{ $item->site_kriteria_id }}">{{ $item->site_kriteria_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -57,30 +53,24 @@
                         <div class="form-group">
                             <label for="order_type">ORDER TYPE</label>
                             <select name="order_type" id="order_type" class="form-control">
-                                @foreach ($database as $item)
-                                @if ($item->order_type !== '')
-                                <option value="{{ $item->order_type }}">{{ $item->order_type }}</option>
-                                @endif
+                                @foreach ($order_type_data as $item)
+                                <option value="{{ $item->order_type_id }}">{{ $item->order_type_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="produk">PRODUK</label>
                             <select name="produk" id="produk" class="form-control">
-                                @foreach ($database as $item)
-                                @if ($item->produk !== '')
-                                <option value="{{ $item->produk }}">{{ $item->produk }}</option>
-                                @endif
+                                @foreach ($produk_data as $item)
+                                <option value="{{ $item->produk_id }}">{{ $item->produk_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="satuan">SATUAN</label>
                             <select name="satuan" id="satuan" class="form-control">
-                                @foreach ($database as $item)
-                                @if ($item->satuan !== '')
-                                <option value="{{ $item->satuan }}">{{ $item->satuan }}</option>
-                                @endif
+                                @foreach ($satuan_data as $item)
+                                <option value="{{ $item->satuan_id }}">{{ $item->satuan_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -107,10 +97,8 @@
                         <div class="form-group">
                             <label for="status_ncx">STATUS NCX</label>
                             <select name="status_ncx" id="status_ncx" class="form-control">
-                                @foreach ($database as $item)
-                                @if ($item->status_ncx !== '')
-                                <option value="{{ $item->status_ncx }}">{{ $item->status_ncx }}</option>
-                                @endif
+                                @foreach ($status_ncx_data as $item)
+                                <option value="{{ $item->status_ncx_id }}">{{ $item->status_ncx_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -119,8 +107,8 @@
                             <input type="text" name="berita_acara" id="berita_acara" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="tgl_complete">TGL COMPLETE WFM</label>
-                            <input type="date" name="tgl_complete" id="tgl_complete" class="form-control">
+                            <label for="tgl_complete_wfm">TGL COMPLETE WFM</label>
+                            <input type="date" name="tgl_complete_wfm" id="tgl_complete_wfm" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="status_nfm">STATUS WFM</label>
@@ -147,28 +135,28 @@
                             <input type="date" name="integrasi" id="no" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="metro">METRO BACKHAUL</label>
-                            <input type="text" name="metro" id="metro" class="form-control">
+                            <label for="metro_1">METRO BACKHAUL</label>
+                            <input type="text" name="metro_1" id="metro_1" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="ip">IP</label>
-                            <input type="text" name="ip" id="ip" class="form-control">
+                            <label for="ip_1">IP</label>
+                            <input type="text" name="ip_1" id="ip_1" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="port">PORT</label>
-                            <input type="text" name="port" id="port" class="form-control">
+                            <label for="port_1">PORT</label>
+                            <input type="text" name="port_1" id="port_1" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="metro2">METRO ACCESS</label>
-                            <input type="text" name="metro2" id="metro2" class="form-control">
+                            <label for="metro_2">METRO ACCESS</label>
+                            <input type="text" name="metro_2" id="metro_2" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="ip2">IP</label>
-                            <input type="text" name="ip2" id="ip2" class="form-control">
+                            <label for="ip_2">IP</label>
+                            <input type="text" name="ip_2" id="ip_2" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="port2">PORT</label>
-                            <input type="text" name="port2" id="port2" class="form-control">
+                            <label for="port_2">PORT</label>
+                            <input type="text" name="port_2" id="port_2" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="vlan">VLAN</label>
@@ -183,70 +171,49 @@
                             <input type="text" name="gpon" id="gpon" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="ip3">IP</label>
-                            <input type="text" name="ip3" id="ip3" class="form-control">
+                            <label for="ip_3">IP</label>
+                            <input type="text" name="ip_3" id="ip_3" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="port3">PORT</label>
-                            <input type="text" name="port3" id="port3" class="form-control">
+                            <label for="port_3">PORT</label>
+                            <input type="text" name="port_3" id="port_3" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="sn">SN</label>
                             <input type="text" name="sn" id="sn" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="port4">PORT</label>
-                            <input type="text" name="port4" id="port4" class="form-control">
+                            <label for="port_4">PORT</label>
+                            <input type="text" name="port_4" id="port_4" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="type">TYPE</label>
-                            <input type="text" name="type" id="type" class="form-control">
+                            <label for="type_1">TYPE</label>
+                            <input type="text" name="type_1" id="type_1" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="nama">NAMA SWITCH</label>
-                            <textarea class="form-control" name="nama" id="nama" rows="3"></textarea>
+                            <label for="odp">ODP</label>
+                            <textarea class="form-control" name="odp" id="odp" rows="3"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="ip4">IP SWITCH</label>
-                            <textarea class="form-control" name="ip4" id="ip4" rows="3"></textarea>
+                            <label for="kontak_pic_lokasi">KONTAK PIC LOKASI</label>
+                            <textarea class="form-control" name="kontak_pic_lokasi" id="kontak_pic_lokasi" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="ip_4">IP</label>
+                            <textarea class="form-control" name="ip_4" id="ip_4" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="downlink">DOWNLINK</label>
                             <textarea class="form-control" name="downlink" id="downlink" rows="3"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="type_switch">TYPE SWITCH</label>
-                            <textarea class="form-control" name="type_switch" id="type_switch" rows="3"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="capture_metro_backhaul">CAPTURE METRO BACKHAUL</label>
-                            <textarea class="form-control" name="capture_metro_backhaul" id="capture_metro_backhaul"
+                            <label for="type_2">TYPE</label>
+                            <textarea class="form-control" name="type_2" id="type_2"
                                 rows="3"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="capture_metro_access">CAPTURE METRO ACCESS</label>
-                            <textarea class="form-control" name="capture_metro_access" id="capture_metro_access"
-                                rows="3"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="capture_gpon">CAPTURE GPON</label>
-                            <textarea class="form-control" name="capture_gpon" id="capture_gpon" rows="3"></textarea>
-                        </div>
-                        {{-- image --}}
-                        <div class="custom-file mb-3">
-                            <input type="file" name="capture_gpon_image" class="custom-file-input"
-                                id="validatedCustomFile">
-                            <label class="custom-file-label" for="validatedCustomFile">Pilih Gambar...</label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="pic">PIC</label>
-                            <input type="text" name="pic" id="pic" class="form-control">
-                        </div>
                         <div class="form-group text-right mt-4">
-                            <a href="{{ route('wfm.index') }}" class="btn btn-white mr-2" type="reset">Cancel</a>
+                            <a href="{{ route('deployment.index') }}" class="btn btn-white mr-2" type="reset">Cancel</a>
                             <button type="submit" class="btn btn-main" id="tombolSimpan">Simpan Data</button>
-                        </div>
+                        </div>        
                     </form>
                 </div>
             </div>

@@ -21,7 +21,7 @@
                         Deployment
                     </a>
                     <div class="dropdown-menu dropmenu" aria-labelledby="deploymentMenu">
-                        <a class="dropdown-item" href="{{ route('deployment.create') }}"><i class="las la-plus mr-3"></i>Neww
+                        <a class="dropdown-item" href="{{ route('deployment.create') }}"><i class="las la-plus mr-3"></i>New
                             Order</a>
                         <a class="dropdown-item" href="{{ route('deployment.index') }}"><i class="las la-pen mr-3"></i>Update
                             Order</a>
