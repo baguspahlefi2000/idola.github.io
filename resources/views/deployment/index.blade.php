@@ -34,7 +34,7 @@
                             <label for="no_ao">No. AO</label>
                             @if (request('no_ao'))
                             <input list="no_aos" name="no_ao" id="no_ao" class="form-control"
-                                value="{{ request('no_ao') }}" autocomplete="off">
+                            placeholder="Masukkan No. AO" value="{{ request('no_ao') }}" autocomplete="off">
                             @else
                             <input list="no_aos" name="no_ao" id="no_ao" class="form-control"
                                 placeholder="Masukkan No. AO" autocomplete="off">
@@ -59,30 +59,33 @@
                     <div class="col">
                             <label for="witel">Witel</label>
                             <select class="form-control" id="witel" name="witel">
+
                                 @if (request('witel'))
-                                <option value="{{ request('witel') }}">{{ request('witel') }}</option>
+                                <option value="{{ request('witel') }}">
+                                Pilih Witel
+                                </option>
                                 @else
                                 <option value="">Pilih Witel</option>
                                 @endif
 
                                 @foreach ($witel_data as $dbs)
-                                <option value="{{ $dbs->witel_nama }}">{{ $dbs->witel_nama }}</option>
+                                <option value="{{ $dbs->witel_id }}">{{ $dbs->witel_nama }}</option>
                                 @endforeach
                             </select>
                     </div>
                     </div> 
                     <div class="form-row mt-3">
                         <div class="col">
-                            <label for="olo_isp">OLO</label>
-                            <select class="form-control" id="olo_isp" name="olo_isp">
-                                @if (request('olo_isp'))
-                                <option value="{{ request('olo_isp') }}">{{ request('olo_isp') }}</option>
+                            <label for="olo">OLO</label>
+                            <select class="form-control" id="olo" name="olo">
+                                @if (request('olo'))
+                                <option value="{{ request('olo') }}">Pilih OLO</option>
                                 @else
                                 <option value="">Pilih OLO</option>
                                 @endif
 
                                 @foreach ($olo_data as $dbs)
-                                <option value="{{ $dbs->olo_nama }}">{{ $dbs->olo_nama }}</option>
+                                <option value="{{ $dbs->olo_id }}">{{ $dbs->olo_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -90,13 +93,13 @@
                             <label for="order_type">Order Type</label>
                             <select class="form-control" id="order_type" name="order_type">
                                 @if (request('order_type'))
-                                <option value="{{ request('order_type') }}">{{ request('order_type') }}</option>
+                                <option value="{{ request('order_type') }}">Pilih Order Type</option>
                                 @else
                                 <option value="">Pilih Order Type</option>
                                 @endif
 
                                 @foreach ($order_type_data as $dbs)
-                                <option value="{{ $dbs->order_type_nama }}">{{ $dbs->order_type_nama }}</option>
+                                <option value="{{ $dbs->order_type_id }}">{{ $dbs->order_type_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -105,13 +108,13 @@
                             <label for="produk">Produk</label>
                             <select class="form-control" id="produk" name="produk">
                                 @if (request('produk'))
-                                <option value="{{ request('produk') }}">{{ request('produk') }}</option>
+                                <option value="{{ request('produk') }}">Pilih Produk</option>
                                 @else
                                 <option value="">Pilih Produk</option>
                                 @endif
 
                                 @foreach ($produk_data as $dbs)
-                                <option value="{{ $dbs->produk_nama }}">{{ $dbs->produk_nama }}</option>
+                                <option value="{{ $dbs->produk_id }}">{{ $dbs->produk_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -120,13 +123,13 @@
                             <label for="status_ncx">Status NCX</label>
                             <select class="form-control" id="status_ncx" name="status_ncx">
                                 @if (request('status_ncx'))
-                                <option value="{{ request('status_ncx') }}">{{ request('status_ncx') }}</option>
+                                <option value="{{ request('status_ncx') }}">Pilih Status NCX</option>
                                 @else
                                 <option value="">Pilih Status NCX</option>
                                 @endif
 
                                 @foreach ($status_ncx_data as $dbs)
-                                <option value="{{ $dbs->status_ncx_nama }}">{{ $dbs->status_ncx_nama }}</option>
+                                <option value="{{ $dbs->status_ncx_id }}">{{ $dbs->status_ncx_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -238,23 +241,23 @@
                             <tr>
                                 <td class="text-center">{{$loop->iteration }}</td>
                                 <td>{{$wfm->tanggal }}</td>
-                                <td>{{$wfm->no_ao }}</td>
-                                <td>{{$wfm->witel }}</td>
-                                <td>{{$wfm->olo }}</td>
-                                <td>{{$wfm->site_kriteria }}</td>
+                                <td>{{$wfm->ao }}</td>
+                                <td>{{$wfm->witel_tabel->witel_nama}}</td>
+                                <td>{{$wfm->olo_tabel->olo_nama }}</td>
+                                <td>{{$wfm->site_kriteria_tabel->site_kriteria_nama }}</td>
                                 <td>{{$wfm->sid }}</td>
                                 <td>{{$wfm->site_id }}</td>
-                                <td>{{$wfm->order_type}}</td>
-                                <td>{{$wfm->produk }}</td>
-                                <td>{{$wfm->satuan }}</td>
-                                <td>{{$wfm->kapasitas }}</td>
+                                <td>{{$wfm->order_type_tabel->order_type_nama}}</td>
+                                <td>{{$wfm->produk_tabel->produk_nama }}</td>
+                                <td>{{$wfm->satuan_id }}</td>
+                                <td>{{$wfm->kapasitas_bw }}</td>
                                 <td>{{$wfm->longitude }}</td>
                                 <td>{{$wfm->latitude }}</td>
                                 <td>{{$wfm->alamat_asal }}</td>
                                 <td>{{$wfm->alamat_tujuan}}</td>
-                                <td>{{$wfm->status_ncx }}</td>
+                                <td>{{$wfm->status_ncx_tabel->status_ncx_nama }}</td>
                                 <td>{{$wfm->berita_acara }}</td>
-                                <td>{{$wfm->tanggal_complete}}</td>
+                                <td>{{$wfm->tgl_complete_wfm}}</td>
                                 <td>{{$wfm->status_wfm }}</td>
                                 <td>{{$wfm->alasan_cancel }}</td>
                                 <td>{{$wfm->cancel_by }}</td>

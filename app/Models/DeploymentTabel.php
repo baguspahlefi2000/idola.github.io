@@ -10,7 +10,6 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-
 /**
  * Class DeploymentTabel
  * 
@@ -172,62 +171,50 @@ class DeploymentTabel extends Model
 		return $this->belongsTo(StatusNcxTabel::class, 'status_ncx_id');
 	}
 
-
-	public function scopeFilter($deployment_data, array $filters)
-	{
-		
-		//filter ao
-		$deployment_data->when(
+	public function scopeFilter($query, array $filters){
+		// filter no ao
+        $query->when(
             $filters['no_ao'] ?? false,
-            fn ($deployment_data, $no_ao) => $deployment_data->where('ao', 'LIKE', '%' . $no_ao . '%')
+            fn ($query, $no_ao) => $query->where('ao', '=', $no_ao)
         );
 		// filter tanggal
         if (request()->tgl_bulan_dr || request()->tgl_bulan_sd){
             $tgl_bulan_dr = Carbon::parse(request()->tgl_bulan_dr)->toDateTimeString();
             $tgl_bulan_sd = Carbon::parse(request()->tgl_bulan_sd)->toDateTimeString();
-            $deployment_data->whereBetween('TANGGAL',[$tgl_bulan_dr,$tgl_bulan_sd]);
+            $query->whereBetween('tanggal',[$tgl_bulan_dr,$tgl_bulan_sd]);
         }
-        else{
-
-        }
-        
-
-        // filter olo
-        $deployment_data->when(
-            $filters['olo'] ?? false,
-            fn ($deployment_data, $olo_isp) => $deployment_data->where('OLO', 'like', '%' . $olo_isp . '%')
-        );
-
-        // filter witel
-        $deployment_data->when(
+		// filter witel
+		$query->when(
             $filters['witel'] ?? false,
-            fn ($deployment_data, $witel) => $deployment_data->where('WITEL', 'like', '%' . $witel)
+            fn ($query, $witel) => $query->where('witel_id', '=', $witel)
         );
-
-        // filter order_type
-        $deployment_data->when(
+		// filter olo
+        $query->when(
+            $filters['olo'] ?? false,
+            fn ($query, $olo) => $query->where('olo_id', '=', $olo)
+        );
+		// filter order_type
+        $query->when(
             $filters['order_type'] ?? false,
-            fn ($deployment_data, $order_type) => $deployment_data->where('ORDER_TYPE', 'like', '%' . $order_type . '%')
+            fn ($query, $order_type) => $query->where('order_type_id', '=', $order_type)
         );
-
-        // filter produk
-        $deployment_data->when(
+		// filter produk
+        $query->when(
             $filters['produk'] ?? false,
-            fn ($deployment_data, $produk) => $deployment_data->where('PRODUK', 'like', '%' . $produk . '%')
+            fn ($query, $produk) => $query->where('produk_id', '=', $produk)
         );
-
-        // filter status_ncx
-        $deployment_data->when(
+		// filter status_ncx
+		 $query->when(
             $filters['status_ncx'] ?? false,
-            fn ($deployment_data, $status_ncx) => $deployment_data->where('STATUS_NCX', 'like', '%' . $status_ncx . '%')
+            fn ($query, $status_ncx) => $query->where('status_ncx_id', '=', $status_ncx )
         );
-
-        // filter status_wfm
-        $deployment_data->when(
+		// filter status_wfm
+		$query->when(
             $filters['status_wfm'] ?? false,
-            fn ($deployment_data, $status_wfm) => $deployment_data->where('STATUS_WFM', 'like', '%' . $status_wfm . '%')
+            fn ($query, $status_wfm) => $query->where('status_wfm', '=', $status_wfm)
         );
 	}
+	
 
 
 }
