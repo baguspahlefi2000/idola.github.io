@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\ProgressExport;
 use App\Imports\ProgressImport;
 use App\Models\Database;
-use App\Models\ProgresLapangan;
+use App\Models\ProgressLapanganTabel;
 use App\Models\Rekap;
 use App\Models\RekapProgress;
 use App\Models\Wfm;
@@ -14,6 +14,22 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Excel\Facades\Excel;
 use phpDocumentor\Reflection\Types\Null_;
+
+use App\Exports\WfmExport;
+use App\Http\Controllers\Controller;
+use App\Imports\WfmImport;
+use App\Imports\WfmImportBaru;
+use App\Models\DeploymentTabel;
+use App\Models\WitelTabel;
+use App\Models\OloTabel;
+use App\Models\OrderTypeTabel;
+use App\Models\ProdukTabel;
+use App\Models\StatusNcxTabel;
+use App\Models\SiteKriteriaTabel;
+use App\Models\SatuanTabel;
+use Carbon\Carbon;
+use Dotenv\Store\File\Reader;
+
 
 class ProgresLapanganController extends Controller
 {
@@ -24,13 +40,45 @@ class ProgresLapanganController extends Controller
      */
     public function index()
     {
-        return view('progress_lapangan.index', [
-            "title" => "Progress Lapangan",
-            'database' => Database::all(),
-            'progress_all' => ProgresLapangan::all(),
-            'pro_lap' => ProgresLapangan::orderBy('id')->filter(request([
-                'ao', 'tanggal', 'witel', 'olo', 'produk', 'progress'
-            ]))->get()
+        $ao_data = DB::table("deployment_tabel")
+        ->select("deployment_tabel.ao as no_ao")
+        ->get();
+
+        $witel_data = DB::table("witel_tabel")
+        ->select("witel_id", "witel_nama")
+        ->get();
+
+        $olo_data = DB::table("olo_tabel")
+        ->select("olo_id","olo_nama")
+        ->get();
+
+        $order_type_data = DB::table("order_type_tabel")
+        ->select("order_type_id", "order_type_nama")
+        ->get();
+
+        $produk_data = DB::table("produk_tabel")
+        ->select("produk_id", "produk_nama")
+        ->get();
+
+        $status_ncx_data = DB::table("status_ncx_tabel")
+        ->select("status_ncx_id", "status_ncx_nama")
+        ->get();
+
+        $status_wfm = DB::table("deployment_tabel")
+        ->select("deployment_tabel.status_wfm as status_wfm")
+        ->get();
+
+        return view('progress_lapangan.index', ['title' => 'Halaman Progress lapangan', 
+        'progress_lapangan' => ProgressLapanganTabel::orderBy('progress_lapangan_id')->filter(request(['no_ao', 
+        'tanggal', 'witel', 'olo', 'order_type', 'produk', 'status_ncx', 'status_wfm'
+        ]))->get(),
+        'ao_data' => $ao_data, 
+        'witel_data' => $witel_data,
+        'olo_data' => $olo_data,
+        'order_type_data' => $order_type_data,
+        'produk_data' => $produk_data,
+        'status_ncx_data' => $status_ncx_data,
+        'status_wfm' => $status_wfm,
         ]);
     }
 

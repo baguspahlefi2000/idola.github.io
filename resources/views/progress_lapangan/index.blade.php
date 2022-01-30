@@ -42,8 +42,8 @@
                             @endif
 
                             <datalist id="aos">
-                                @foreach ($progress_all as $progress_a)
-                                <option value="{{ $progress_a->ao }}">{{ $progress_a->ao }}</option>
+                                @foreach ($ao_data as $progress_a)
+                                <option value="{{ $progress_a->no_ao }}">{{ $progress_a->no_ao }}</option>
                                 @endforeach
                             </datalist>
                         </div>
@@ -62,10 +62,10 @@
                                 <option value="">Pilih Witel</option>
                                 @endif
 
-                                @foreach ($database as $dbs)
-                                @if ($dbs->witel !== '')
-                                <option value="{{ $dbs->witel }}">{{ $dbs->witel }}</option>
-                                @endif
+                                @foreach ($witel_data as $dbs)
+          
+                                <option value="{{ $dbs->witel_id }}">{{ $dbs->witel_nama }}</option>
+     
                                 @endforeach
                             </select>
                         </div>
@@ -79,8 +79,8 @@
                                 <option value="">Pilih OLO</option>
                                 @endif
 
-                                @foreach ($database as $dbs)
-                                <option value="{{ $dbs->olo_isp }}">{{ $dbs->olo_isp }}</option>
+                                @foreach ($olo_data as $dbs)
+                                <option value="{{ $dbs->olo_id }}">{{ $dbs->olo_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -94,10 +94,10 @@
                                 <option value="">Pilih Produk</option>
                                 @endif
 
-                                @foreach ($database as $dbs)
-                                @if ($dbs->produk !== '')
-                                <option value="{{ $dbs->produk }}">{{ $dbs->produk }}</option>
-                                @endif
+                                @foreach ($produk_data as $dbs)
+            
+                                <option value="{{ $dbs->produk_id }}">{{ $dbs->produk_nama }}</option>
+   
                                 @endforeach
                             </select>
                         </div>
@@ -146,7 +146,8 @@
                             </a>
                         </div>
                     </div>
-                    <table class="table table-responsive table-hover" id="table_id" style="width: 100%">
+                 <div class="div1">
+                    <table class="table table-responsive table-hover table-coba" id="table_id" style="width: 100%">
                         <thead>
                             <tr>
                                 <th scope="col" rowspan="2">No</th>
@@ -162,9 +163,7 @@
                                 <th scope="col" class="text-nowrap" rowspan="2">Datek GPON</th>
                                 <th scope="col" rowspan="2">Progress</th>
                                 <th scope="col" rowspan="2">Keterangan</th>
-                                @canany(['admin', 'editor'])
-                                <th scope="col" rowspan="2"><i class="las la-ellipsis-v"></i></th>
-                                @endcanany
+
                             </tr>
 
                             <tr>
@@ -176,13 +175,13 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($pro_lap as $item)
+                            @foreach ($progress_lapangan as $item)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td>{{ $item->tanggal }}</td>
-                                <td>{{ $item->witel }}</td>
+                                <td>{{ $item->witel}}</td>
                                 <td>{{ $item->ao }}</td>
-                                <td>{{ $item->olo }}</td>
+                                <td>{{ $item->olo_tabel->olo_nama }}</td>
                                 <td>{{ $item->produk }}</td>
                                 <td>{{ $item->alamat_toko }}</td>
                                 <td>{{ $item->tanggal_order_pt1 }}</td>
@@ -193,33 +192,12 @@
                                 <td>{{ $item->datek_gpon }}</td>
                                 <td>{{ $item->progress }}</td>
                                 <td>{{ $item->keterangan }}</td>
-                                @canany(['admin', 'editor'])
-                                <td class="text-center">
-                                    <div class="dropleft" title="Menu">
-                                        <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false"></span>
-                                        <div class="dropdown-menu" aria-labelledby="menuEdit">
-                                            <a href="{{ route('progress.edit',$item->id) }}" class="dropdown-item"
-                                                type="button">
-                                                <i class="fas fa-edit mr-2"></i>
-                                                Edit
-                                            </a>
-                                            <form action="{{ route('progress.destroy',$item->id) }}" method="POST"
-                                                class="d-inline" onsubmit="return validasiHapus()">
-                                                @csrf
-                                                @method('delete')
-                                                <button class="dropdown-item" type="submit"
-                                                    onclick="return confirm('Apakah Anda Ingin Menghapusnya?')"><i
-                                                        class="fas fa-trash mr-2"></i> Hapus</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </td>
-                                @endcanany
+                               
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+                </div>   
                 </div>
             </div>
         </div>
