@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{ route('home') }}">
             <img src="{{ asset('img/logo_idola.png') }}" alt="logo aplikasi" style="max-height: 50px;" title="Logo Aplikasi">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navDropdown"
