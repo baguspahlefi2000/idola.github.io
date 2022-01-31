@@ -249,8 +249,8 @@
                                 <td>{{$wfm->sid }}</td>
                                 <td>{{$wfm->site_id }}</td>
                                 <td>{{$wfm->order_type_tabel->order_type_nama}}</td>
-                                <td>{{$wfm->produk_tabel->produk_nama }}</td>
-                                <td>{{$wfm->satuan_id }}</td>
+                                <td>{{$wfm->produk_tabel->produk_nama}}</td>
+                                <td>{{$wfm->satuan_tabel->satuan_nama}}</td>
                                 <td>{{$wfm->kapasitas_bw }}</td>
                                 <td>{{$wfm->longitude }}</td>
                                 <td>{{$wfm->latitude }}</td>
