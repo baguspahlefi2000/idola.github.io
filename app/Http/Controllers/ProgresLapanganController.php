@@ -172,10 +172,49 @@ class ProgresLapanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProgresLapangan $progress)
+    public function edit()
     {
         if (Gate::any(['admin', 'editor'])) {
-            return view('progress_lapangan.edit', ['title' => 'Update Data - Progress Lapangan', 'progress' => $progress, 'database' => Database::all(), 'wfm' => Wfm::all()]);
+            $ao_data = DB::table("progress_lapangan_tabel")
+        ->select("progress_lapangan_tabel.ao as no_ao")
+        ->get();
+
+        $witel_data = DB::table("witel_tabel")
+        ->select("witel_id", "witel_nama")
+        ->get();
+
+        $olo_data = DB::table("olo_tabel")
+        ->select("olo_id","olo_nama")
+        ->get();
+
+        $site_kriteria_data = DB::table("site_kriteria_tabel")
+        ->select("site_kriteria_id", "site_kriteria_nama")
+        ->get();
+
+        $order_type_data = DB::table("order_type_tabel")
+        ->select("order_type_id", "order_type_nama")
+        ->get();
+
+        $produk_data = DB::table("produk_tabel")
+        ->select("produk_id", "produk_nama")
+        ->get();
+
+        $satuan_data = DB::table("satuan_tabel")
+        ->select("satuan_id", "satuan_nama")
+        ->get();
+
+        $status_progress_data = DB::table("status_p_lapangan_tabel")
+        ->select("status_p_lapangan_id", "status_p_lapangan_nama")
+        ->get();
+
+            return view('progress_lapangan.edit', ['title' => 'Update Data - Progress Lapangan', 
+            'ao_data' => $ao_data, 
+            'witel_data' => $witel_data,
+            'olo_data' => $olo_data,
+            'order_type_data' => $order_type_data,
+            'produk_data' => $produk_data,
+            'status_progress_data' => $status_progress_data,
+        ]);
         } else {
             abort(403);
         }
@@ -215,11 +254,11 @@ class ProgresLapanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProgresLapangan $progress)
-    {
+    public function destroy(ProgressLapanganTabel $progress)
+    {;
         $progress->delete();
         sleep(1);
-        return back();
+        return redirect()->route('progress.index');
     }
 
     public function exportProgressLapangan()

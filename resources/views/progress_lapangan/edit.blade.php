@@ -7,7 +7,7 @@
             <div class="card my-5 shadow-sm">
                 <div class="card-body">
                     <h4 class="form-title">Form Update Progress</h4>
-                    <form action="{{ route('progress.update', $progress->id) }}" method="POST">
+                    <form action="{{ route('progress.update', $status_progress_data->progress_lapangan_id) }}" method="POST">
                         @csrf
                         @method('put')
                         <div class="form-group">

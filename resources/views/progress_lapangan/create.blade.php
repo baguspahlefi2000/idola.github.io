@@ -107,9 +107,9 @@
                             <select name="progress" id="progress" class="form-control">
                             @foreach ($status_progress_data as $dbs)
             
-                            <option value="{{ $dbs->status_p_lapangan_id }}">{{ $dbs->status_p_lapangan_nama }}</option>
+                    <option value="{{ $dbs->status_p_lapangan_id }}">{{ $dbs->status_p_lapangan_nama }}</option>
 
-                            @endforeach
+                    @endforeach
                             </select>
                         </div>
                         <div class="form-group">
