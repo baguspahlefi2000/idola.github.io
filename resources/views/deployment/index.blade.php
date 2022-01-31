@@ -214,7 +214,7 @@
                             <th class="text-nowrap">CANCEL By</th>
                             <th class="text-nowrap">START CANCEL DATE</th>
                             <th class="text-nowrap">READY AFTER CANCEL</th>
-                            <th>INTEGRASI</th>
+                            <th>TANGGAL INTEGRASI</th>
                             <th class="text-nowrap">METRO</th>
                             <th>IP</th>
                             <th>PORT</th>
@@ -227,9 +227,9 @@
                             <th>IP</th>
                             <th>PORT</th>
                             <th>SN</th>
+                            <th>ODP</th>
                             <th>PORT</th>
                             <th>TYPE</th>
-                            <th>ODP</th>
                             <th class="text-nowrap">KONTAK PIC</th>
                             <th>IP</th>
                             <th>TYPE</th>
@@ -264,7 +264,7 @@
                                 <td>{{$wfm->cancel_by }}</td>
                                 <td>{{$wfm->start_cancel }}</td>
                                 <td>{{$wfm->ready_after_cancel }}</td>
-                                <td>{{$wfm->integrasi }}</td>
+                                <td>{{$wfm->tanggal_integrasi }}</td>
                                 <td>{{$wfm->metro_1 }}</td>
                                 <td>{{$wfm->ip_1 }}</td>
                                 <td>{{$wfm->port_1 }}</td>
@@ -277,9 +277,9 @@
                                 <td>{{$wfm->ip_3 }}</td>
                                 <td>{{$wfm->port_3 }}</td>
                                 <td>{{$wfm->sn }}</td>
+                                <td>{{ $wfm->odp_tabel->odp_nama }}</td>
                                 <td>{{$wfm->port_4 }}</td>
                                 <td>{{$wfm->type_1 }}</td>
-                                <td>{{ $wfm->odp }}</td>
                                 <td>{{ $wfm->kontak_pic_lokasi }}</td>
                                 <td>{{ $wfm->ip_4 }}</td>
                                 <td>{{ $wfm->downlink }}</td>

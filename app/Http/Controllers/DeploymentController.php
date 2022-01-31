@@ -15,6 +15,7 @@ use App\Models\ProdukTabel;
 use App\Models\StatusNcxTabel;
 use App\Models\SiteKriteriaTabel;
 use App\Models\SatuanTabel;
+use App\Models\OdpTabel;
 use Carbon\Carbon;
 use Dotenv\Store\File\Reader;
 use Illuminate\Http\Request;
@@ -58,6 +59,8 @@ class DeploymentController extends Controller
         $status_wfm = DB::table("deployment_tabel")
         ->select("deployment_tabel.status_wfm as status_wfm")
         ->get();
+
+        
 
         
         
@@ -121,6 +124,10 @@ class DeploymentController extends Controller
         ->select("status_ncx_id", "status_ncx_nama")
         ->get();
 
+        $status_odp_data = DB::table('odp_tabel')
+        ->select("odp_id", "odp_nama")
+        ->get();
+
         return view('deployment.create', ['title' => 'Tambah Data - WFM', 
         'ao_data' => $ao_data, 
         'witel_data' => $witel_data,
@@ -129,7 +136,8 @@ class DeploymentController extends Controller
         'order_type_data' => $order_type_data,
         'produk_data' => $produk_data,
         'satuan_data' => $satuan_data,
-        'status_ncx_data' => $status_ncx_data,]);
+        'status_ncx_data' => $status_ncx_data,
+        'status_odp_data' => $status_odp_data,]);
     }
 
     /**
@@ -164,7 +172,7 @@ class DeploymentController extends Controller
         $wfm->cancel_by = $request->cancel_by;
         $wfm->start_cancel = $request->start_cancel;
         $wfm->ready_after_cancel = $request->ready_after_cancel;
-        $wfm->integrasi = $request->integrasi;
+        $wfm->tanggal_integrasi = $request->tanggal_integrasi;
         $wfm->metro_1 = $request->metro_1;
         $wfm->ip_1 = $request->ip_1;
         $wfm->port_1 = $request->port_1;
@@ -177,9 +185,9 @@ class DeploymentController extends Controller
         $wfm->ip_3 = $request->ip_3;
         $wfm->port_3 = $request->port_3;
         $wfm->sn = $request->sn;
+        $wfm->odp_id = $request->odp;
         $wfm->port_4 = $request->port_4;
         $wfm->type_1 = $request->type_1;
-        $wfm->odp = $request->odp;
         $wfm->kontak_pic_lokasi = $request->kontak_pic_lokasi;
         $wfm->ip_4 = $request->ip_4;
         $wfm->downlink = $request->downlink;

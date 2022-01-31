@@ -37,7 +37,7 @@ use Illuminate\Support\Facades\DB;
  * @property string|null $cancel_by
  * @property Carbon|null $start_cancel
  * @property Carbon|null $ready_after_cancel
- * @property string|null $integrasi
+ * @property string|null $tanggal_integrasi
  * @property string|null $metro_1
  * @property string|null $ip_1
  * @property string|null $port_1
@@ -50,21 +50,22 @@ use Illuminate\Support\Facades\DB;
  * @property string|null $ip_3
  * @property string|null $port_3
  * @property string|null $sn
+ * @property string|null $odp
  * @property string|null $port_4
  * @property string|null $type_1
- * @property string|null $odp
  * @property string|null $kontak_pic_lokasi
  * @property string|null $ip_4
  * @property string|null $downlink
  * @property string|null $type_2
  * 
- * @property WitelTabel|null $witel_tabel
+ * @property WitelTabel $witel_tabel
  * @property OloTabel $olo_tabel
  * @property SiteKriteriaTabel $site_kriteria_tabel
  * @property OrderTypeTabel $order_type_tabel
  * @property ProdukTabel $produk_tabel
- * @property SatuanTabel|null $satuan_tabel
+ * @property SatuanTabel $satuan_tabel
  * @property StatusNcxTabel $status_ncx_tabel
+ * @property OdpTabel $odp_tabel
  *
  * @package App\Models
  */
@@ -81,13 +82,15 @@ class DeploymentTabel extends Model
 		'order_type_id' => 'int',
 		'produk_id' => 'int',
 		'satuan_id' => 'int',
-		'status_ncx_id' => 'int'
+		'status_ncx_id' => 'int',
+		'odp_id' => 'int'
 	];
 
 	protected $dates = [
 		'tanggal',
 		'start_cancel',
-		'ready_after_cancel'
+		'ready_after_cancel',
+		'tanggal_integrasi'
 	];
 
 	protected $fillable = [
@@ -114,7 +117,7 @@ class DeploymentTabel extends Model
 		'cancel_by',
 		'start_cancel',
 		'ready_after_cancel',
-		'integrasi',
+		'tanggal_integrasi',
 		'metro_1',
 		'ip_1',
 		'port_1',
@@ -127,9 +130,9 @@ class DeploymentTabel extends Model
 		'ip_3',
 		'port_3',
 		'sn',
+		'odp_id',
 		'port_4',
 		'type_1',
-		'odp',
 		'kontak_pic_lokasi',
 		'ip_4',
 		'downlink',
@@ -169,6 +172,11 @@ class DeploymentTabel extends Model
 	public function status_ncx_tabel()
 	{
 		return $this->belongsTo(StatusNcxTabel::class, 'status_ncx_id');
+	}
+
+	public function odp_tabel()
+	{
+		return $this->belongsTo(OdpTabel::class, 'odp_id');
 	}
 
 	public function scopeFilter($query, array $filters){
