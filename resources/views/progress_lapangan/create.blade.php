@@ -16,10 +16,10 @@
                             <label for="witel">Witel</label>
                             <select name="witel" id="witel" class="form-control">
                                 <option value="">Pilih Witel</option>
-                                @foreach ($database as $db)
-                                @if ($db->witel !== '')
-                                <option value="{{ $db->witel }}">{{ $db->witel }}</option>
-                                @endif
+                                @foreach ($witel_data as $db)
+       
+                                <option value="{{ $db->witel_id }}">{{ $db->witel_nama }}</option>
+
                                 @endforeach
                             </select>
                         </div>
@@ -33,8 +33,8 @@
                             <label for="olo">OLO</label>
                             <select name="olo" id="olo" class="form-control">
                                 <option value="">Pilih OLO</option>
-                                @foreach ($database as $db)
-                                <option value="{{ $db->olo_isp }}">{{ $db->olo_isp }}</option>
+                                @foreach ($olo_data as $db)
+                                <option value="{{ $db->olo_id }}">{{ $db->olo_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -42,10 +42,10 @@
                             <label for="produk">Produk</label>
                             <select name="produk" id="produk" class="form-control">
                                 <option value="">Pilih Produk</option>
-                                @foreach ($database as $db)
-                                @if ($db->produk !== '')
-                                <option value="{{ $db->produk }}">{{ $db->produk }}</option>
-                                @endif
+                                @foreach ($produk_data as $db)
+
+                                <option value="{{ $db->produk_id }}">{{ $db->produk_nama }}</option>
+
                                 @endforeach
                             </select>
                         </div>
@@ -105,10 +105,11 @@
                         <div class="form-group">
                             <label for="progress">Progress</label>
                             <select name="progress" id="progress" class="form-control">
-                                <option value="">Pilih Progress</option>
-                                <option value="In Progress">In Progress</option>
-                                <option value="Done">Done</option>
-                                <option value="Cancel">Cancel</option>
+                            @foreach ($status_progress_data as $dbs)
+            
+                            <option value="{{ $dbs->status_p_lapangan_id }}">{{ $dbs->status_p_lapangan_nama }}</option>
+
+                            @endforeach
                             </select>
                         </div>
                         <div class="form-group">

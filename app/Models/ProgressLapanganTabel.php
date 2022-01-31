@@ -134,5 +134,11 @@ class ProgressLapanganTabel extends Model
             $filters['status_wfm'] ?? false,
             fn ($query, $status_wfm) => $query->where('status_wfm', '=', $status_wfm)
         );
+
+		// filter progress
+		$query->when(
+            $filters['progress'] ?? false,
+            fn ($query, $progress) => $query->where('status_p_lapangan_id', '=', $progress)
+        );
 	}
 }
