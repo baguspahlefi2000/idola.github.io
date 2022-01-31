@@ -347,7 +347,7 @@ th {
     position: sticky;
     /* 1st cell left/right padding + 1st cell width + 1st cell left/right border width */
     /* 0 + 5 + 150 + 5 + 1 */
-    left: 220px;
+    left: 212px;
     width: 100px;
     min-width: 100px;
 }

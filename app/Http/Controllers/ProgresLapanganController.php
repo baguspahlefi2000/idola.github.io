@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\ProgressExport;
 use App\Imports\ProgressImport;
 use App\Models\Database;
-use App\Models\ProgresLapangan;
+use App\Models\ProgressLapanganTabel;
 use App\Models\Rekap;
 use App\Models\RekapProgress;
 use App\Models\Wfm;
@@ -14,6 +14,22 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Excel\Facades\Excel;
 use phpDocumentor\Reflection\Types\Null_;
+
+use App\Exports\WfmExport;
+use App\Http\Controllers\Controller;
+use App\Imports\WfmImport;
+use App\Imports\WfmImportBaru;
+use App\Models\DeploymentTabel;
+use App\Models\WitelTabel;
+use App\Models\OloTabel;
+use App\Models\OrderTypeTabel;
+use App\Models\ProdukTabel;
+use App\Models\StatusNcxTabel;
+use App\Models\SiteKriteriaTabel;
+use App\Models\SatuanTabel;
+use Carbon\Carbon;
+use Dotenv\Store\File\Reader;
+
 
 class ProgresLapanganController extends Controller
 {
@@ -24,13 +40,41 @@ class ProgresLapanganController extends Controller
      */
     public function index()
     {
-        return view('progress_lapangan.index', [
-            "title" => "Progress Lapangan",
-            'database' => Database::all(),
-            'progress_all' => ProgresLapangan::all(),
-            'pro_lap' => ProgresLapangan::orderBy('id')->filter(request([
-                'ao', 'tanggal', 'witel', 'olo', 'produk', 'progress'
-            ]))->get()
+        $ao_data = DB::table("progress_lapangan_tabel")
+        ->select("progress_lapangan_tabel.ao as no_ao")
+        ->get();
+
+        $witel_data = DB::table("witel_tabel")
+        ->select("witel_id", "witel_nama")
+        ->get();
+
+        $olo_data = DB::table("olo_tabel")
+        ->select("olo_id","olo_nama")
+        ->get();
+
+        $produk_data = DB::table("produk_tabel")
+        ->select("produk_id", "produk_nama")
+        ->get();
+
+
+        $status_progress_data = DB::table("status_p_lapangan_tabel")
+        ->select("status_p_lapangan_id", "status_p_lapangan_nama")
+        ->get();
+
+        
+
+
+
+        return view('progress_lapangan.index', ['title' => 'Halaman Progress lapangan', 
+        'progress_lapangan' => ProgressLapanganTabel::orderBy('progress_lapangan_id')->filter(request(['no_ao', 
+        'tanggal', 'witel', 'olo', 'produk', 'progress'
+        ]))->get(),
+        'ao_data' => $ao_data, 
+        'witel_data' => $witel_data,
+        'olo_data' => $olo_data,
+        'produk_data' => $produk_data,
+        'status_progress_data' => $status_progress_data,
+
         ]);
     }
 
@@ -41,11 +85,45 @@ class ProgresLapanganController extends Controller
      */
     public function create()
     {
-        if (Gate::any(['admin', 'editor'])) {
-            return view('progress_lapangan.create', ['title' => 'Tambah Data - Progress Lapangan', 'database' => Database::all(), 'wfm' => Wfm::all()]);
-        } else {
-            abort(403);
-        }
+        $ao_data = DB::table("progress_lapangan_tabel")
+        ->select("progress_lapangan_tabel.ao as no_ao")
+        ->get();
+
+        $witel_data = DB::table("witel_tabel")
+        ->select("witel_id", "witel_nama")
+        ->get();
+
+        $olo_data = DB::table("olo_tabel")
+        ->select("olo_id","olo_nama")
+        ->get();
+
+        $site_kriteria_data = DB::table("site_kriteria_tabel")
+        ->select("site_kriteria_id", "site_kriteria_nama")
+        ->get();
+
+        $order_type_data = DB::table("order_type_tabel")
+        ->select("order_type_id", "order_type_nama")
+        ->get();
+
+        $produk_data = DB::table("produk_tabel")
+        ->select("produk_id", "produk_nama")
+        ->get();
+
+        $satuan_data = DB::table("satuan_tabel")
+        ->select("satuan_id", "satuan_nama")
+        ->get();
+
+        $status_progress_data = DB::table("status_p_lapangan_tabel")
+        ->select("status_p_lapangan_id", "status_p_lapangan_nama")
+        ->get();
+
+        return view('progress_lapangan.create', ['title' => 'Tambah Data - Progress Lapangan', 
+        'ao_data' => $ao_data, 
+        'witel_data' => $witel_data,
+        'olo_data' => $olo_data,
+        'order_type_data' => $order_type_data,
+        'produk_data' => $produk_data,
+        'status_progress_data' => $status_progress_data,]);
     }
 
     /**
@@ -54,13 +132,14 @@ class ProgresLapanganController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, ProgresLapangan $progress, RekapProgress $rekapPro, Rekap $rekap)
+    public function store(Request $request)
     {
+        $progress = new ProgressLapanganTabel();
         $progress->tanggal = $request->tanggal;
-        $progress->witel = $request->witel;
+        $progress->witel_id = $request->witel;
         $progress->ao = $request->ao;
-        $progress->olo = $request->olo;
-        $progress->produk = $request->produk;
+        $progress->olo_id = $request->olo;
+        $progress->produk_id = $request->produk;
         $progress->alamat_toko = $request->alamat_toko;
         $progress->tanggal_order_pt1 = $request->tanggal_order_pt1;
         $progress->keterangan_pt1 = $request->keterangan_pt1;
@@ -68,7 +147,7 @@ class ProgresLapanganController extends Controller
         $progress->keterangan_pt2 = $request->keterangan_pt2;
         $progress->datek_odp = $request->datek_odp;
         $progress->datek_gpon = $request->datek_gpon;
-        $progress->progress = $request->progress;
+        $progress->status_p_lapangan_id = $request->progress;
         $progress->keterangan = $request->keterangan;
         $progress->save();
 
@@ -93,10 +172,49 @@ class ProgresLapanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProgresLapangan $progress)
+    public function edit()
     {
         if (Gate::any(['admin', 'editor'])) {
-            return view('progress_lapangan.edit', ['title' => 'Update Data - Progress Lapangan', 'progress' => $progress, 'database' => Database::all(), 'wfm' => Wfm::all()]);
+            $ao_data = DB::table("progress_lapangan_tabel")
+        ->select("progress_lapangan_tabel.ao as no_ao")
+        ->get();
+
+        $witel_data = DB::table("witel_tabel")
+        ->select("witel_id", "witel_nama")
+        ->get();
+
+        $olo_data = DB::table("olo_tabel")
+        ->select("olo_id","olo_nama")
+        ->get();
+
+        $site_kriteria_data = DB::table("site_kriteria_tabel")
+        ->select("site_kriteria_id", "site_kriteria_nama")
+        ->get();
+
+        $order_type_data = DB::table("order_type_tabel")
+        ->select("order_type_id", "order_type_nama")
+        ->get();
+
+        $produk_data = DB::table("produk_tabel")
+        ->select("produk_id", "produk_nama")
+        ->get();
+
+        $satuan_data = DB::table("satuan_tabel")
+        ->select("satuan_id", "satuan_nama")
+        ->get();
+
+        $status_progress_data = DB::table("status_p_lapangan_tabel")
+        ->select("status_p_lapangan_id", "status_p_lapangan_nama")
+        ->get();
+
+            return view('progress_lapangan.edit', ['title' => 'Update Data - Progress Lapangan', 
+            'ao_data' => $ao_data, 
+            'witel_data' => $witel_data,
+            'olo_data' => $olo_data,
+            'order_type_data' => $order_type_data,
+            'produk_data' => $produk_data,
+            'status_progress_data' => $status_progress_data,
+        ]);
         } else {
             abort(403);
         }
@@ -136,11 +254,11 @@ class ProgresLapanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProgresLapangan $progress)
-    {
+    public function destroy(ProgressLapanganTabel $progress)
+    {;
         $progress->delete();
         sleep(1);
-        return back();
+        return redirect()->route('progress.index');
     }
 
     public function exportProgressLapangan()

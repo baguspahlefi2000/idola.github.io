@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class ProgressLapanganTabel
@@ -89,5 +90,55 @@ class ProgressLapanganTabel extends Model
 	public function status_p_lapangan_tabel()
 	{
 		return $this->belongsTo(StatusPLapanganTabel::class, 'status_p_lapangan_id');
+	}
+	
+	public function scopeFilter($query, array $filters){
+		// filter no ao
+        $query->when(
+            $filters['no_ao'] ?? false,
+            fn ($query, $no_ao) => $query->where('ao', '=', $no_ao)
+        );
+		// filter tanggal
+        if (request()->tgl_bulan_dr || request()->tgl_bulan_sd){
+            $tgl_bulan_dr = Carbon::parse(request()->tgl_bulan_dr)->toDateTimeString();
+            $tgl_bulan_sd = Carbon::parse(request()->tgl_bulan_sd)->toDateTimeString();
+            $query->whereBetween('tanggal',[$tgl_bulan_dr,$tgl_bulan_sd]);
+        }
+		// filter witel
+		$query->when(
+            $filters['witel'] ?? false,
+            fn ($query, $witel) => $query->where('witel_id', '=', $witel)
+        );
+		// filter olo
+        $query->when(
+            $filters['olo'] ?? false,
+            fn ($query, $olo) => $query->where('olo_id', '=', $olo)
+        );
+		// filter order_type
+        $query->when(
+            $filters['order_type'] ?? false,
+            fn ($query, $order_type) => $query->where('order_type_id', '=', $order_type)
+        );
+		// filter produk
+        $query->when(
+            $filters['produk'] ?? false,
+            fn ($query, $produk) => $query->where('produk_id', '=', $produk)
+        );
+		// filter status_ncx
+		 $query->when(
+            $filters['status_ncx'] ?? false,
+            fn ($query, $status_ncx) => $query->where('status_ncx_id', '=', $status_ncx )
+        );
+		// filter status_wfm
+		$query->when(
+            $filters['status_wfm'] ?? false,
+            fn ($query, $status_wfm) => $query->where('status_wfm', '=', $status_wfm)
+        );
+
+		// filter progress
+		$query->when(
+            $filters['progress'] ?? false,
+            fn ($query, $progress) => $query->where('status_p_lapangan_id', '=', $progress)
+        );
 	}
 }
