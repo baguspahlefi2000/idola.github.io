@@ -139,6 +139,11 @@ class DeploymentTabel extends Model
 		'type_2'
 	];
 
+	public function deployment_id_tabel()
+	{
+		return $this->belongsTo(deploymentIdTabel::class, 'deployment_id');
+	}
+
 	public function witel_tabel()
 	{
 		return $this->belongsTo(WitelTabel::class, 'witel_id');

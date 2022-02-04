@@ -98,6 +98,7 @@ Route::get('/rekap_progress/export', [RekapProgressController::class, 'exportRek
 // progress lapangan
 Route::get('/progress_lapangan', [ProgresLapanganController::class, 'index'])->name('progress.index')->middleware('auth');
 Route::get('/progress_lapangan/create', [ProgresLapanganController::class, 'create'])->name('progress.create')->middleware('editor');
+
 Route::post('/progress_lapangan/store', [ProgresLapanganController::class, 'store'])->name('progress.store');
 Route::get('/progress_lapangan/edit/{progress}', [ProgresLapanganController::class, 'edit'])->name('progress.edit')->middleware('editor');
 Route::put('/progress_lapangan/update/{progress}', [ProgresLapanganController::class, 'update'])->name('progress.update');

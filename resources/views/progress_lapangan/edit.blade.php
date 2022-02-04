@@ -7,22 +7,16 @@
             <div class="card my-5 shadow-sm">
                 <div class="card-body">
                     <h4 class="form-title">Form Update Progress</h4>
-                    <form action="{{ route('progress.update', $status_progress_data->progress_lapangan_id) }}" method="POST">
+                    <form action="{{ route('progress.update', $progress->progress_lapangan_id) }}" method="POST">
                         @csrf
                         @method('put')
-                        <div class="form-group">
-                            <label for="tanggal">Tanggal</label>
-                            <input type="date" name="tanggal" id="tanggal" class="form-control"
-                                value="{{ $progress->tanggal }}">
-                        </div>
+
                         <div class="form-group">
                             <label for="witel">Witel</label>
                             <select name="witel" id="witel" class="form-control">
-                                <option value="{{ $progress->witel }}">{{ $progress->witel }}</option>
-                                @foreach ($database as $db)
-                                @if ($db->witel !== '')
-                                <option value="{{ $db->witel }}">{{ $db->witel }}</option>
-                                @endif
+                                <option value="{{ $progress->witel_id }}">{{ $progress->witel_tabel->witel_nama }}</option>
+                                @foreach ($witel_data as $db)
+                                <option value="{{ $db->witel_id }}">{{ $db->witel_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -31,8 +25,8 @@
                             <label for="ao">No Ao</label>
                             <select name="ao" id="ao" class="form-control">
                                 <option value="{{ $progress->ao }}">{{ $progress->ao }}</option>
-                                @foreach ($wfm as $wfm)
-                                <option value="{{ $wfm->no_ao }}">{{ $wfm->no_ao }}</option>
+                                @foreach ($ao_data as $ao_data)
+                                <option value="{{ $ao_data->no_ao }}">{{ $ao_data->no_ao }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -40,20 +34,18 @@
                         <div class="form-group">
                             <label for="olo">Olo</label>
                             <select name="olo" id="olo" class="form-control">
-                                <option value="{{ $progress->olo }}">{{ $progress->olo }}</option>
-                                @foreach ($database as $db)
-                                <option value="{{ $db->olo_isp }}">{{ $db->olo_isp }}</option>
+                                <option value="{{ $progress->olo_id }}">{{ $progress->olo_tabel->olo_nama }}</option>
+                                @foreach ($olo_data as $db)
+                                <option value="{{ $db->olo_id }}">{{ $db->olo_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="produk">Produk</label>
                             <select name="produk" id="produk" class="form-control">
-                                <option value="{{ $progress->produk }}">{{ $progress->produk }}</option>
-                                @foreach ($database as $db)
-                                @if ($db->produk !== '')
-                                <option value="{{ $db->produk }}">{{ $db->produk }}</option>
-                                @endif
+                                <option value="{{ $progress->produk_id }}">{{ $progress->produk_tabel->produk_nama }}</option>
+                                @foreach ($produk_data as $db)
+                                <option value="{{ $db->produk_id }}">{{ $db->produk_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -71,7 +63,7 @@
                                 <div class="form-group">
                                     <label for="tanggal_order_pt1">Tanggal Order</label>
                                     <input type="date" name="tanggal_order_pt1" id="tanggal_order_pt1"
-                                        class="form-control" value="{{ $progress->tanggal_order_pt1 }}">
+                                        class="form-control" value="{{ $progress->tanggal_order_pt1 }}">{{ $progress->tanggal_order_pt1 }}</input>
                                 </div>
                             </div>
 
@@ -91,6 +83,8 @@
                                     <label for="tanggal_order_pt2">Tanggal Order</label>
                                     <input type="date" name="tanggal_order_pt2" id="tanggal_order_pt2"
                                         class="form-control" value="{{ $progress->tanggal_order_pt2 }}">
+                                        {{ $progress->tanggal_order_pt2 }}
+                                    </input>
                                 </div>
                             </div>
 
@@ -107,6 +101,7 @@
                             <label for="datek_odp">Datek ODP</label>
                             <input type="text" name="datek_odp" id="datek_odp" class="form-control"
                                 value="{{ $progress->datek_odp }}">
+                            </input>
                         </div>
                         <div class="form-group">
                             <label for="datek_gpon">Datek GPON</label>
@@ -116,10 +111,10 @@
                         <div class="form-group">
                             <label for="progress">Progress</label>
                             <select name="progress" id="progress" class="form-control">
-                                <option value="{{ $progress->progress }}">{{ $progress->progress }}</option>
-                                <option value="In Progress">In Progress</option>
-                                <option value="Done">Done</option>
-                                <option value="Cancel">Cancel</option>
+                                <option value="{{ $progress->status_p_lapangan_id }}">{{ $progress->status_p_lapangan_tabel->status_p_lapangan_nama }}</option>
+                                <option value="1">In Progress</option>
+                                <option value="2">Done</option>
+                                <option value="3">Cancel</option>
                             </select>
                         </div>
                         <div class="form-group">

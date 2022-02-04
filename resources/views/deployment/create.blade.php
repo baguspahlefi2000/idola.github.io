@@ -155,7 +155,7 @@
                             </div>
                             <div class="col">
                                 <label for="start_cancel">TANGGAL INTEGRASI</label>
-                                <input type="date" name="start_cancel" id="start_cancel" class="form-control">
+                                <input type="date" name="tanggal_integrasi" id="tanggal_integrasi" class="form-control">
                             </div>
                         </div>
 

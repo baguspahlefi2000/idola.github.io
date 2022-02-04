@@ -172,10 +172,9 @@ class ProgresLapanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit(ProgressLapanganTabel $progress)
     {
-        if (Gate::any(['admin', 'editor'])) {
-            $ao_data = DB::table("progress_lapangan_tabel")
+        $ao_data = DB::table("progress_lapangan_tabel")
         ->select("progress_lapangan_tabel.ao as no_ao")
         ->get();
 
@@ -207,17 +206,16 @@ class ProgresLapanganController extends Controller
         ->select("status_p_lapangan_id", "status_p_lapangan_nama")
         ->get();
 
-            return view('progress_lapangan.edit', ['title' => 'Update Data - Progress Lapangan', 
-            'ao_data' => $ao_data, 
-            'witel_data' => $witel_data,
-            'olo_data' => $olo_data,
-            'order_type_data' => $order_type_data,
-            'produk_data' => $produk_data,
-            'status_progress_data' => $status_progress_data,
-        ]);
-        } else {
-            abort(403);
-        }
+        return view('progress_lapangan.edit', ["title" => "Update Data - Progress Lapangan", 
+        'progress' => $progress,
+        'ao_data' => $ao_data, 
+        'witel_data' => $witel_data,
+        'olo_data' => $olo_data,
+        'order_type_data' => $order_type_data,
+        'produk_data' => $produk_data,
+        'status_progress_data' => $status_progress_data,]);
+        
+        
     }
 
     /**
@@ -227,13 +225,13 @@ class ProgresLapanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProgresLapangan $progress)
+    public function update(Request $request, ProgressLapanganTabel $progress)
     {
         $progress->tanggal = $request->tanggal;
-        $progress->witel = $request->witel;
+        $progress->witel_id = $request->witel;
         $progress->ao = $request->ao;
-        $progress->olo = $request->olo;
-        $progress->produk = $request->produk;
+        $progress->olo_id = $request->olo;
+        $progress->produk_id = $request->produk;
         $progress->alamat_toko = $request->alamat_toko;
         $progress->tanggal_order_pt1 = $request->tanggal_order_pt1;
         $progress->keterangan_pt1 = $request->keterangan_pt1;
@@ -241,7 +239,7 @@ class ProgresLapanganController extends Controller
         $progress->keterangan_pt2 = $request->keterangan_pt2;
         $progress->datek_odp = $request->datek_odp;
         $progress->datek_gpon = $request->datek_gpon;
-        $progress->progress = $request->progress;
+        $progress->status_p_lapangan_id = $request->progress;
         $progress->keterangan = $request->keterangan;
         $progress->save();
         sleep(1);
@@ -255,7 +253,7 @@ class ProgresLapanganController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(ProgressLapanganTabel $progress)
-    {;
+    {
         $progress->delete();
         sleep(1);
         return redirect()->route('progress.index');

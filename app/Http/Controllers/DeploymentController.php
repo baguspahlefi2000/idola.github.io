@@ -215,9 +215,57 @@ class DeploymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(DeploymentTabel $Deployment)
     {
-        //
+        $ao_data = DB::table("deployment_tabel")
+        ->select("deployment_tabel.ao as no_ao")
+        ->get();
+
+        $witel_data = DB::table("witel_tabel")
+        ->select("witel_id", "witel_nama")
+        ->get();
+
+        $olo_data = DB::table("olo_tabel")
+        ->select("olo_id","olo_nama")
+        ->get();
+        
+        $site_kriteria_data = DB::table("site_kriteria_tabel")
+        ->select("site_kriteria_id", "site_kriteria_nama")
+        ->get();
+
+        $order_type_data = DB::table("order_type_tabel")
+        ->select("order_type_id", "order_type_nama")
+        ->get();
+
+        $produk_data = DB::table("produk_tabel")
+        ->select("produk_id", "produk_nama")
+        ->get();
+
+        $satuan_data = DB::table("satuan_tabel")
+        ->select("satuan_id", "satuan_nama")
+        ->get();
+
+        $status_ncx_data = DB::table("status_ncx_tabel")
+        ->select("status_ncx_id", "status_ncx_nama")
+        ->get();
+
+        $status_odp_data = DB::table('odp_tabel')
+        ->select("odp_id", "odp_nama")
+        ->get();
+
+        
+
+        return view('deployment.edit', ['title' => 'Halaman Deployment', 
+        'deployment' =>$Deployment,
+        'ao_data' => $ao_data, 
+        'witel_data' => $witel_data,
+        'olo_data' => $olo_data,
+        'site_kriteria_data' => $site_kriteria_data,
+        'order_type_data' => $order_type_data,
+        'produk_data' => $produk_data,
+        'satuan_data' => $satuan_data,
+        'status_ncx_data' => $status_ncx_data,
+        'status_odp_data' => $status_odp_data,]);
     }
 
     /**
@@ -227,9 +275,55 @@ class DeploymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, DeploymentTabel $Deployment)
     {
-        //
+        $Deployment->tanggal = $request->tanggal;
+        $Deployment->ao = $request->ao;
+        $Deployment->witel_id = $request->witel;
+        $Deployment->olo_id = $request->olo;
+        $Deployment->site_kriteria_id = $request->site_kriteria;
+        $Deployment->sid = $request->sid;
+        $Deployment->site_id = $request->site_id;
+        $Deployment->order_type_id = $request->order_type;
+        $Deployment->produk_id = $request->produk;
+        $Deployment->satuan_id = $request->satuan;
+        $Deployment->kapasitas_bw = $request->kapasitas_bw;
+        $Deployment->longitude = $request->longitude;
+        $Deployment->latitude = $request->latitude;
+        $Deployment->alamat_asal = $request->alamat_asal;
+        $Deployment->alamat_tujuan = $request->alamat_tujuan;
+        $Deployment->status_ncx_id = $request->status_ncx;
+        $Deployment->berita_acara = $request->berita_acara;
+        $Deployment->tgl_complete_wfm = $request->tgl_complete_wfm;
+        $Deployment->status_wfm = $request->status_wfm;
+        $Deployment->alasan_cancel = $request->alasan_cancel;
+        $Deployment->cancel_by = $request->cancel_by;
+        $Deployment->start_cancel = $request->start_cancel;
+        $Deployment->ready_after_cancel = $request->ready_after_cancel;
+        $Deployment->tanggal_integrasi = $request->tanggal_integrasi;
+        $Deployment->metro_1 = $request->metro_1;
+        $Deployment->ip_1 = $request->ip_1;
+        $Deployment->port_1 = $request->port_1;
+        $Deployment->metro_2 = $request->metro_2;
+        $Deployment->ip_2 = $request->ip_2;
+        $Deployment->port_2 = $request->port_2;
+        $Deployment->vlan = $request->vlan;
+        $Deployment->vcid = $request->vcid;
+        $Deployment->gpon = $request->gpon;
+        $Deployment->ip_3 = $request->ip_3;
+        $Deployment->port_3 = $request->port_3;
+        $Deployment->sn = $request->sn;
+        $Deployment->odp_id = $request->odp;
+        $Deployment->port_4 = $request->port_4;
+        $Deployment->type_1 = $request->type_1;
+        $Deployment->kontak_pic_lokasi = $request->kontak_pic_lokasi;
+        $Deployment->ip_4 = $request->ip_4;
+        $Deployment->downlink = $request->downlink;
+        $Deployment->type_2 = $request-> type_2;
+        $Deployment->save();
+
+        sleep(1);
+        return redirect()->route('deployment.index');
     }
 
     /**
@@ -238,8 +332,10 @@ class DeploymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(DeploymentTabel $Deployment)
     {
-        //
+        $Deployment->delete();
+        sleep(1);
+        return redirect()->route('deployment.index');
     }
 }

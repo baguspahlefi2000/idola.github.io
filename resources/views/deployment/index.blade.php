@@ -232,7 +232,8 @@
                             <th>TYPE</th>
                             <th class="text-nowrap">KONTAK PIC</th>
                             <th>IP</th>
-                            <th>TYPE</th>
+                            <th>DOWNLINK</th>
+                            <th>TYPE2</th>
                             @canany(['admin', 'editor'])
                             <th scope="col"><span class="las la-ellipsis-v"></span></th>
                             @endcanany
@@ -284,6 +285,30 @@
                                 <td>{{ $wfm->ip_4 }}</td>
                                 <td>{{ $wfm->downlink }}</td>
                                 <td>{{ $wfm->type_2 }}</td>
+
+                                @canany(['admin', 'editor'])
+                                    <td class="text-center">
+                                        <div class="dropleft" title="Menu">
+                                            <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false"></span>
+                                            <div class="dropdown-menu" aria-labelledby="menuEdit">
+                                                <a href="{{ route('dep.edit',$wfm->deployment_id) }}" class="dropdown-item"
+                                                    type="button">
+                                                    <i class="fas fa-edit mr-2"></i>
+                                                    Edit
+                                                </a>
+                                                <form action="{{ route('dep.destroy',$wfm->deployment_id) }}" method="POST"
+                                                    class="d-inline" onsubmit="return validasiHapus()">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="dropdown-item" type="submit"
+                                                        onclick="return confirm('Apakah Anda Ingin Menghapusnya?')"><i
+                                                            class="fas fa-trash mr-2"></i> Hapus</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    @endcanany
 
                                 
                             </tr>

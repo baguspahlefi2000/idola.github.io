@@ -72,6 +72,11 @@ class ProgressLapanganTabel extends Model
 		'keterangan'
 	];
 
+	public function progress_lapangan_id()
+	{
+		return $this->belongsTo(ProgressLapanganTabel::class, 'progress_lapangan_id');
+	}
+
 	public function witel_tabel()
 	{
 		return $this->belongsTo(WitelTabel::class, 'witel_id');
