@@ -96,13 +96,14 @@ class DeploymentTabel extends Model
 		'status_disconnect_detail_id' => 'int'
 	];
 
+
 	protected $dates = [
-		'tanggal',
-		'start_cancel',
-		'ready_after_cancel',
-		'tgl_complete_wfm',
-		'tanggal_integrasi',
-		'tgl_plan_cabut'
+		'tanggal' => 'date:YYYY-MM-DD',
+		'start_cancel' => 'date:YYYY-MM-DD',
+		'ready_after_cancel' => 'date:YYYY-MM-DD',
+		'tgl_complete_wfm' => 'date:YYYY-MM-DD',
+		'tanggal_integrasi' => 'date:YYYY-MM-DD',
+		'tgl_plan_cabut' => 'date:YYYY-MM-DD'
 	];
 
 	protected $fillable = [

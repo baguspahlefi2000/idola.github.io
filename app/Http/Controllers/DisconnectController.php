@@ -143,6 +143,7 @@ class DisconnectController extends Controller
      */
     public function update(Request $request, DeploymentTabel $disconnect)
     {
+        $disconnect->tanggal = $request->tanggal;
         $disconnect->ao = $request->ao;
         $disconnect->witel_id = $request->witel;
         $disconnect->olo_id = $request->olo;

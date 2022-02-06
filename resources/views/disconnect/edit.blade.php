@@ -15,7 +15,6 @@
                             <label for="tanggal">TGL/BLN/THN</label>
                             <input type="date" name="tanggal" id="tanggal" class="form-control"
                                 value="{{ $disconnect->tanggal }}">
-                                {{ $disconnect->tanggal }}
                             </input>
                         </div>
                         <div class="form-group">
@@ -75,7 +74,6 @@
                             <label for="integrasi">TANGGAL PLAN CABUT</label>
                             <input type="date" name="tgl_plan_cabut" id="tgl_plan_cabut" class="form-control"
                                 value="{{ $disconnect->tgl_plan_cabut }}">
-                                {{ $disconnect->tgl_plan_cabut }}
                             </input>
                         </div>
                         <div class="form-group">

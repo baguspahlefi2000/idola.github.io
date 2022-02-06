@@ -12,6 +12,13 @@
                         @method('put')
 
                         <div class="form-group">
+                            <label for="tanggal">Tanggal</label>
+                             <input type="date" name="tanggal" id="tanggal" class="form-control"
+                                value="{{ $progress->tanggal }}">
+                            </input>
+                        </div>
+
+                        <div class="form-group">
                             <label for="witel">Witel</label>
                             <select name="witel" id="witel" class="form-control">
                                 <option value="{{ $progress->witel_id }}">{{ $progress->witel_tabel->witel_nama }}</option>
@@ -58,7 +65,7 @@
                                 <div class="form-group">
                                     <label for="tanggal_order_pt1">Tanggal Order</label>
                                     <input type="date" name="tanggal_order_pt1" id="tanggal_order_pt1"
-                                        class="form-control" value="{{ $progress->tanggal_order_pt1 }}">{{ $progress->tanggal_order_pt1 }}</input>
+                                        class="form-control" value="{{ $progress->tanggal_order_pt1 }}"></input>
                                 </div>
                             </div>
 
@@ -78,7 +85,7 @@
                                     <label for="tanggal_order_pt2">Tanggal Order</label>
                                     <input type="date" name="tanggal_order_pt2" id="tanggal_order_pt2"
                                         class="form-control" value="{{ $progress->tanggal_order_pt2 }}">
-                                        {{ $progress->tanggal_order_pt2 }}
+                                    
                                     </input>
                                 </div>
                             </div>

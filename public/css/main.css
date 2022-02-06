@@ -364,6 +364,12 @@ th {
     z-index: 2;
 }
 
+#tanggal_integrasi_b{
+    display: none;
+
+}
+
+
 /* Penutup Style di Index */
 
 /* Style create & edit */

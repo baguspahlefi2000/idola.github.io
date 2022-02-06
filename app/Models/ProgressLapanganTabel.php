@@ -50,9 +50,9 @@ class ProgressLapanganTabel extends Model
 	];
 
 	protected $dates = [
-		'tanggal',
-		'tanggal_order_pt1',
-		'tanggal_order_pt2'
+		'tanggal'=> 'date:YYYY-MM-DD',
+		'tanggal_order_pt1'=> 'date:YYYY-MM-DD',
+		'tanggal_order_pt2'=> 'date:YYYY-MM-DD'
 	];
 
 	protected $fillable = [
