@@ -23,6 +23,7 @@
                             <div class="col">
                                 <label for="witel">WITEL</label>
                                 <select name="witel" id="witel" class="form-control">
+                                <option value="">Pilih Witel</option>
                                     @foreach ($witel_data as $item)
                                     <option value="{{ $item->witel_id }}">{{ $item->witel_nama }}</option>
                                     @endforeach
@@ -34,6 +35,7 @@
                             <div class="col">
                                 <label for="olo">OLO / ISP</label>
                                 <select name="olo" id="olo" class="form-control">
+                                <option value="">Pilih OLO</option>
                                     @foreach ($olo_data as $item)
                                     <option value="{{ $item->olo_id }}">{{ $item->olo_nama }}</option>
                                     @endforeach
@@ -42,6 +44,7 @@
                             <div class="col">
                                 <label for="site_kriteria">SITE KRITERIA</label>
                                 <select name="site_kriteria" id="site_kriteria" class="form-control">
+                                <option value="">Pilih Site Kriteria</option>
                                     @foreach ($site_kriteria_data as $item)
                                     <option value="{{ $item->site_kriteria_id }}">{{ $item->site_kriteria_nama }}</option>
                                     @endforeach
@@ -61,6 +64,7 @@
                             <div class="col">
                                 <label for="order_type">ORDER TYPE</label>
                                 <select name="order_type" id="order_type" class="form-control">
+                                <option value="">Pilih Order Type</option>
                                     @foreach ($order_type_data as $item)
                                     <option value="{{ $item->order_type_id }}">{{ $item->order_type_nama }}</option>
                                     @endforeach
@@ -69,6 +73,7 @@
                             <div class="col">
                                 <label for="produk">PRODUK</label>
                                 <select name="produk" id="produk" class="form-control">
+                                <option value="">Pilih Produk</option>
                                     @foreach ($produk_data as $item)
                                     <option value="{{ $item->produk_id }}">{{ $item->produk_nama }}</option>
                                     @endforeach
@@ -80,6 +85,7 @@
                             <div class="col">
                             <label for="satuan">SATUAN</label>
                             <select name="satuan" id="satuan" class="form-control">
+                            <option value="">Pilih Satuan</option>
                                 @foreach ($satuan_data as $item)
                                 <option value="{{ $item->satuan_id }}">{{ $item->satuan_nama }}</option>
                                 @endforeach
@@ -114,6 +120,7 @@
                             <div class="col mt-3">
                                 <label for="status_ncx">STATUS NCX</label>
                                 <select name="status_ncx" id="status_ncx" class="form-control">
+                                <option value="">Pilih Status NCX</option>
                                     @foreach ($status_ncx_data as $item)
                                     <option value="{{ $item->status_ncx_id }}">{{ $item->status_ncx_nama }}</option>
                                     @endforeach

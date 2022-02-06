@@ -64,7 +64,7 @@
                         <div class="form-group">
                             <label for="order_type">ORDER TYPE</label>
                             <select name="order_type" id="order_type" class="form-control">
-                                <option value="{{ $deployment->order_type }}">{{ $deployment->order_type_tabel->order_type_nama }}</option>
+                                <option value="{{ $deployment->order_type_id }}">{{ $deployment->order_type_tabel->order_type_nama }}</option>
                                 @foreach ($order_type_data as $item)
 
                                 <option value="{{ $item->order_type_id }}">{{ $item->order_type_nama }}</option>
