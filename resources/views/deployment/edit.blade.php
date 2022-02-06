@@ -136,8 +136,8 @@
                                 value="{{ $deployment->berita_acara }}">
                         </div>
                         <div class="form-group">
-                            <label for="tgl_complete">TGL COMPLETE WFM</label>
-                            <input type="date" name="tgl_complete" id="tgl_complete" class="form-control"
+                            <label for="tgl_complete_wfm">TGL COMPLETE WFM</label>
+                            <input type="date" name="tgl_complete_wfm" id="tgl_complete_wfm" class="form-control"
                                 value="{{ $deployment->tgl_complete_wfm }}">
                         </div>
                         <div class="form-group">

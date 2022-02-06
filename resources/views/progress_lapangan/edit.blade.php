@@ -20,15 +20,10 @@
                                 @endforeach
                             </select>
                         </div>
-
                         <div class="form-group">
-                            <label for="ao">No Ao</label>
-                            <select name="ao" id="ao" class="form-control">
-                                <option value="{{ $progress->ao }}">{{ $progress->ao }}</option>
-                                @foreach ($ao_data as $ao_data)
-                                <option value="{{ $ao_data->no_ao }}">{{ $ao_data->no_ao }}</option>
-                                @endforeach
-                            </select>
+                            <label for="no_ao">NO. AO</label>
+                            <input type="text" name="ao" id="ao" class="form-control" value="{{ $progress->ao }}">
+                            </input>
                         </div>
 
                         <div class="form-group">
