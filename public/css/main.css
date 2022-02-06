@@ -364,6 +364,11 @@ th {
     z-index: 2;
 }
 
+#tanggalIntegrasi{
+    display: block;
+
+}
+
 /* Penutup Style di Index */
 
 /* Style create & edit */

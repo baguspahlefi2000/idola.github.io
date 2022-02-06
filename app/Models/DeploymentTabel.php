@@ -37,6 +37,7 @@ use Illuminate\Support\Facades\DB;
  * @property string|null $cancel_by
  * @property Carbon|null $start_cancel
  * @property Carbon|null $ready_after_cancel
+ * @property int|null $status_integrasi_id
  * @property string|null $tanggal_integrasi
  * @property string|null $metro_1
  * @property string|null $ip_1
@@ -83,6 +84,7 @@ class DeploymentTabel extends Model
 		'produk_id' => 'int',
 		'satuan_id' => 'int',
 		'status_ncx_id' => 'int',
+		'status_integrasi_id' => 'int',
 		'odp_id' => 'int'
 	];
 
@@ -117,6 +119,7 @@ class DeploymentTabel extends Model
 		'cancel_by',
 		'start_cancel',
 		'ready_after_cancel',
+		'status_integrasi_id',
 		'tanggal_integrasi',
 		'metro_1',
 		'ip_1',
@@ -183,6 +186,12 @@ class DeploymentTabel extends Model
 	{
 		return $this->belongsTo(OdpTabel::class, 'odp_id');
 	}
+
+	public function status_integrasi_tabel()
+	{
+		return $this->belongsTo(StatusIntegrasiTabel::class, 'status_integrasi_id');
+	}
+
 
 	public function scopeFilter($query, array $filters){
 		// filter no ao

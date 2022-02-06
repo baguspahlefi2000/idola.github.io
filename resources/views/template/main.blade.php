@@ -92,6 +92,21 @@
         });
 
     </script>
+
+<script>
+    function display(){
+        var x = document.getElementById('status_integrasi').value;
+
+        if(x=="1"){
+            document.getElementById('tanggal_integrasi_a').style.display= "block";
+            document.getElementById('tanggal_integrasi_b').style.display= "none";
+        }else{
+            document.getElementById('tanggal_integrasi_a').style.display= "none";
+            document.getElementById('tanggal_integrasi_b').style.display= "block";
+        }
+    }
+</script>
+
 </body>
 
 </html>

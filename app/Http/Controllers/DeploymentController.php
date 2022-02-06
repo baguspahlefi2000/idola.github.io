@@ -16,6 +16,7 @@ use App\Models\StatusNcxTabel;
 use App\Models\SiteKriteriaTabel;
 use App\Models\SatuanTabel;
 use App\Models\OdpTabel;
+use App\Models\StatusIntegrasiTabel;
 use Carbon\Carbon;
 use Dotenv\Store\File\Reader;
 use Illuminate\Http\Request;
@@ -172,7 +173,7 @@ class DeploymentController extends Controller
         $wfm->cancel_by = $request->cancel_by;
         $wfm->start_cancel = $request->start_cancel;
         $wfm->ready_after_cancel = $request->ready_after_cancel;
-        $wfm->tanggal_integrasi = $request->tanggal_integrasi;
+        $wfm->tanggal_integrasi = $request->tanggal_integrasi_b;
         $wfm->metro_1 = $request->metro_1;
         $wfm->ip_1 = $request->ip_1;
         $wfm->port_1 = $request->port_1;
@@ -191,7 +192,7 @@ class DeploymentController extends Controller
         $wfm->kontak_pic_lokasi = $request->kontak_pic_lokasi;
         $wfm->ip_4 = $request->ip_4;
         $wfm->downlink = $request->downlink;
-        $wfm->type_2 = $request-> type_2;
+        $wfm->type_2 = $request->type_2;
         $wfm->save();
 
         sleep(1);
@@ -253,6 +254,10 @@ class DeploymentController extends Controller
         ->select("odp_id", "odp_nama")
         ->get();
 
+        $status_integrasi_data = DB::table('status_integrasi_tabel')
+        ->select("status_integrasi_id", "status_integrasi_nama")
+        ->get();
+
         
 
         return view('deployment.edit', ['title' => 'Halaman Deployment', 
@@ -265,7 +270,8 @@ class DeploymentController extends Controller
         'produk_data' => $produk_data,
         'satuan_data' => $satuan_data,
         'status_ncx_data' => $status_ncx_data,
-        'status_odp_data' => $status_odp_data,]);
+        'status_odp_data' => $status_odp_data,
+        'status_integrasi_data' => $status_integrasi_data,]);
     }
 
     /**
@@ -300,7 +306,8 @@ class DeploymentController extends Controller
         $Deployment->cancel_by = $request->cancel_by;
         $Deployment->start_cancel = $request->start_cancel;
         $Deployment->ready_after_cancel = $request->ready_after_cancel;
-        $Deployment->tanggal_integrasi = $request->tanggal_integrasi;
+        $Deployment->status_integrasi_id = $request->status_integrasi;
+        $Deployment->tanggal_integrasi = $request->tanggal_integrasi_b;
         $Deployment->metro_1 = $request->metro_1;
         $Deployment->ip_1 = $request->ip_1;
         $Deployment->port_1 = $request->port_1;

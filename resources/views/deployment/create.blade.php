@@ -153,9 +153,20 @@
                                 <label for="ready_after_cancel">READY AFTER CANCEL</label>
                                 <input type="date" name="ready_after_cancel" id="ready_after_cancel" class="form-control">
                             </div>
-                            <div class="col">
-                                <label for="start_cancel">TANGGAL INTEGRASI</label>
-                                <input type="date" name="tanggal_integrasi" id="tanggal_integrasi" class="form-control">
+                            <div class="form-row">
+                                <div class="col-5">
+                                    <label for="start_cancel">STATUS INTEGRASI</label>
+                                    <select name="status_integrasi" id="status" class="form-control">
+                                        <option value="1">Not Yet</option>
+                                        <option value="2">Done</option>
+                                    </select>
+                        
+                                </div>
+
+                                <div class="col-7">
+                                    <label for="start_cancel">TANGGAL INTEGRASI</label>
+                                    <input type="date" name="tanggal_integrasi" id="tanggal_integrasi" class="form-control">
+                                </div>
                             </div>
                         </div>
 
@@ -165,11 +176,11 @@
                             <input type="text" name="metro_1" id="metro_1" class="form-control">
                             </div>
                             <div class="col">
-                                <label for="ip_1">IP</label>
+                                <label for="ip_1">IP 1</label>
                                 <input type="text" name="ip_1" id="ip_1" class="form-control">
                             </div>
                             <div class="col">
-                                <label for="port_1">PORT</label>
+                                <label for="port_1">PORT 1</label>
                                 <input type="text" name="port_1" id="port_1" class="form-control">
                             </div>
                         </div>
@@ -180,11 +191,11 @@
                                 <input type="text" name="metro_2" id="metro_2" class="form-control">
                             </div>
                             <div class="col">
-                                <label for="ip_2">IP</label>
+                                <label for="ip_2">IP 2</label>
                                 <input type="text" name="ip_2" id="ip_2" class="form-control">
                             </div>
                             <div class="col">
-                                <label for="port_2">PORT</label>
+                                <label for="port_2">PORT 2</label>
                                 <input type="text" name="port_2" id="port_2" class="form-control">
                             </div>
                         </div>
@@ -206,11 +217,11 @@
 
                         <div class="form-row mt-3">
                             <div class="col">
-                                <label for="ip_3">IP</label>
+                                <label for="ip_3">IP 3</label>
                                 <input type="text" name="ip_3" id="ip_3" class="form-control">
                                 </div>
                             <div class="col">
-                                <label for="port_3">PORT</label>
+                                <label for="port_3">PORT 3</label>
                                 <input type="text" name="port_3" id="port_3" class="form-control">
                             </div>
                             <div class="col">
@@ -229,11 +240,11 @@
                             </select>
                             </div>
                             <div class="col">
-                                <label for="port_4">PORT</label>
+                                <label for="port_4">PORT 4</label>
                                 <input type="text" name="port_4" id="port_4" class="form-control">
                             </div>
                             <div class="col">
-                                <label for="type_1">TYPE</label>
+                                <label for="type_1">TYPE 1</label>
                                 <input type="text" name="type_1" id="type_1" class="form-control">
                             </div>
                         </div>
@@ -244,7 +255,7 @@
                                 <textarea class="form-control" name="kontak_pic_lokasi" id="kontak_pic_lokasi" rows="3"></textarea>
                             </div>
                             <div class="col">
-                                <label for="ip_4">IP</label>
+                                <label for="ip_4">IP 4</label>
                                 <textarea class="form-control" name="ip_4" id="ip_4" rows="3"></textarea>
                             </div>
                             <div class="col">
@@ -255,7 +266,7 @@
 
                         <div class="form-row mt-3">
                             <div class="col-4">
-                                <label for="type_2">TYPE</label>
+                                <label for="type_2">TYPE 2</label>
                                 <textarea class="form-control" name="type_2" id="type_2"
                                     rows="3"></textarea>
                             </div>
