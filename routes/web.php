@@ -116,10 +116,10 @@ Route::delete('/deployment/delete/{deployment}', [DeploymentController::class, '
 
 
 // disconnect
-Route::get('/disconnect', [DisconnectController::class, 'index'])->name('dis.index')->middleware('auth');
-Route::get('/disconnect/edit/{diconnect}', [DisconnectController::class, 'edit'])->name('dis.edit')->middleware('editor');
-Route::put('/disconnect/update/{diconnect}', [DisconnectController::class, 'update'])->name('dis.update');
-Route::delete('/disconnect/delete/{diconnect}', [DisconnectController::class, 'destroy'])->name('dis.destroy');
+Route::get('/disconnect', [DisconnectController::class, 'index'])->name('disconnect.index')->middleware('auth');
+Route::get('/disconnect/edit/{disconnect}', [DisconnectController::class, 'edit'])->name('disconnect.edit')->middleware('editor');
+Route::put('/disconnect/update/{disconnect}', [DisconnectController::class, 'update'])->name('disconnect.update');
+Route::delete('/disconnect/delete/{disconnect}', [DisconnectController::class, 'destroy'])->name('disconnect.destroy');
 
 //route EXE SUMM
 Route::get('/exe_summ', [ExeSummController::class, 'index'])->name('xSumm.index')->middleware('auth');

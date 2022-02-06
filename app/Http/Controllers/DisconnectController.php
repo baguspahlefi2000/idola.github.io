@@ -3,9 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Diconnect;
-use App\Models\Database;
-use App\Models\Wfm;
+use App\Models\DeploymentTabel;
+use App\Models\WitelTabel;
+use App\Models\OloTabel;
+use App\Models\OrderTypeTabel;
+use App\Models\ProdukTabel;
+use App\Models\StatusNcxTabel;
+use App\Models\SiteKriteriaTabel;
+use App\Models\SatuanTabel;
+use App\Models\StatusIntegrasiTabel;
+use App\Models\OdpTabel;
+use App\Models\JenisNteTabel;
+use App\Models\StatusDisconnectDetailTabel;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
@@ -19,20 +29,38 @@ class DisconnectController extends Controller
      */
     public function index()
     {
+        $ao_data = DB::table("deployment_tabel")
+        ->select("deployment_tabel.ao as no_ao")
+        ->where('order_type_id', '=', '3')
+        ->get();
 
-        $disconnect = DB::table('diconnects')
-            ->join('wfms', 'wfms.id', '=', 'diconnects.wfm_id')
-            ->where('order_type', '=', 'DISCONNECT')
-            ->get();
+        $witel_data = DB::table("witel_tabel")
+        ->select("witel_id", "witel_nama")
+        ->get();
+
+        $olo_data = DB::table("olo_tabel")
+        ->select("olo_id","olo_nama")
+        ->get();
+
+        $jenis_nte_data = DB::table("jenis_nte_tabel")
+        ->select("jenis_nte_id", "jenis_nte_nama")
+        ->get();
+
+        $status_ncx_data = DB::table("status_ncx_tabel")
+        ->select("status_ncx_id", "status_ncx_nama")
+        ->get();
+
 
         return view('disconnect.index', [
-            'disconnect' => $disconnect,
-            'title' => 'Disconnect',
-            'database' => Database::all(),
-            'wfms' => Wfm::all(),
-            'disconnects' => Diconnect::orderBy('id')->filter(request([
-                'no_ao', 'tanggal', 'witel', 'olo', 'jenis_nte', 'status'
-            ]))->get()
+            'title' => 'Halaman Disconnect',
+            'disconnect' => DeploymentTabel::orderBy('deployment_id')->where('order_type_id', '=', '3')->filter(request(['no_ao', 
+        'tanggal', 'witel', 'olo', 'jenis_nte', 'status_ncx'
+        ]))->get(),
+        'ao_data' => $ao_data, 
+        'witel_data' => $witel_data,
+        'olo_data' => $olo_data,
+        'jenis_nte_data' => $jenis_nte_data,
+        'status_ncx_data' => $status_ncx_data
         ]);
     }
 
@@ -74,13 +102,36 @@ class DisconnectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Diconnect $diconnect)
+    public function edit(DeploymentTabel $disconnect)
     {
-        if (Gate::any(['admin', 'editor'])) {
-            return view('disconnect.edit', ['title' => 'Update Data - Disconnect', 'dis' => $diconnect]);
-        } else {
-            abort(403);
-        }
+        $ao_data = DB::table("deployment_tabel")
+        ->select("deployment_tabel.ao as no_ao")
+        ->where('order_type_id', '=', '3')
+        ->get();
+
+        $witel_data = DB::table("witel_tabel")
+        ->select("witel_id", "witel_nama")
+        ->get();
+
+        $olo_data = DB::table("olo_tabel")
+        ->select("olo_id","olo_nama")
+        ->get();
+
+        $jenis_nte_data = DB::table("jenis_nte_tabel")
+        ->select("jenis_nte_id", "jenis_nte_nama")
+        ->get();
+
+        $status_disconnect_detail_data = DB::table("status_disconnect_detail_tabel")
+        ->select("status_disconnect_detail_id", "status_disconnect_detail_nama")
+        ->get();
+
+        return view('disconnect.edit', ['title' => 'Halaman Disconnect', 
+        'disconnect' => $disconnect,
+        'ao_data' => $ao_data, 
+        'witel_data' => $witel_data,
+        'olo_data' => $olo_data,
+        'jenis_nte_data' => $jenis_nte_data,
+        'status_disconnect_detail_data' => $status_disconnect_detail_data]);
     }
 
     /**
@@ -90,24 +141,22 @@ class DisconnectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Diconnect $diconnect)
+    public function update(Request $request, DeploymentTabel $disconnect)
     {
+        $disconnect->ao = $request->ao;
+        $disconnect->witel_id = $request->witel;
+        $disconnect->olo_id = $request->olo;
+        $disconnect->alamat_asal = $request->alamat_asal;
+        $disconnect->jenis_nte_id = $request->jenis_nte;
+        $disconnect->jumlah_nte = $request->jumlah_nte;
+        $disconnect->status_disconnect_detail_id = $request->status_disconnect_detail;
+        $disconnect->tgl_plan_cabut = $request->tgl_plan_cabut;
+        $disconnect->save();
 
-        $diconnect->wfm_id = $request->wfm_id;
-        $diconnect->tanggal = $request->tanggal;
-        $diconnect->no_ao = $request->older;
-        $diconnect->witel = $request->witel;
-        $diconnect->olo = $request->olo;
-        $diconnect->alamat = $request->alamat;
-        $diconnect->jenis_nte = $request->jenis_nte;
-        $diconnect->jumlah_nte = $request->jumlah_nte;
-        $diconnect->status = $request->status;
-        $diconnect->plan_cabut = $request->plan_cabut;
-        $diconnect->pic = $request->pic;
-        $diconnect->save();
         sleep(1);
-        //
-        return redirect()->route('dis.index');
+
+       
+        return redirect()->route('disconnect.index');
     }
 
     /**
@@ -116,10 +165,10 @@ class DisconnectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Diconnect $diconnect)
+    public function destroy(DeploymentTabel $disconnect)
     {
-        $diconnect->delete();
+        $disconnect->delete();
         sleep(1);
-        return redirect()->route('dis.index');
+        return redirect()->route('disconnect.index');
     }
 }

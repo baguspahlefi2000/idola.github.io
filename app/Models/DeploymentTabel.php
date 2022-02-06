@@ -16,14 +16,14 @@ use Illuminate\Support\Facades\DB;
  * @property int $deployment_id
  * @property Carbon|null $tanggal
  * @property string|null $ao
- * @property int|null $witel_id
+ * @property int $witel_id
  * @property int $olo_id
  * @property int $site_kriteria_id
  * @property string|null $sid
  * @property string|null $site_id
  * @property int $order_type_id
  * @property int $produk_id
- * @property int|null $satuan_id
+ * @property int $satuan_id
  * @property string|null $kapasitas_bw
  * @property string|null $longitude
  * @property string|null $latitude
@@ -37,7 +37,8 @@ use Illuminate\Support\Facades\DB;
  * @property string|null $cancel_by
  * @property Carbon|null $start_cancel
  * @property Carbon|null $ready_after_cancel
- * @property string|null $tanggal_integrasi
+ * @property int $status_integrasi_id
+ * @property Carbon|null $tanggal_integrasi
  * @property string|null $metro_1
  * @property string|null $ip_1
  * @property string|null $port_1
@@ -50,6 +51,7 @@ use Illuminate\Support\Facades\DB;
  * @property string|null $ip_3
  * @property string|null $port_3
  * @property string|null $sn
+ * @property int $odp_id
  * @property string|null $odp
  * @property string|null $port_4
  * @property string|null $type_1
@@ -57,6 +59,10 @@ use Illuminate\Support\Facades\DB;
  * @property string|null $ip_4
  * @property string|null $downlink
  * @property string|null $type_2
+ * @property int $jenis_nte_id
+ * @property string|null $jumlah_nte
+ * @property int status_disconnect_detail_id
+ * @property Carbon|null $tgl_plan_cabut
  * 
  * @property WitelTabel $witel_tabel
  * @property OloTabel $olo_tabel
@@ -66,6 +72,7 @@ use Illuminate\Support\Facades\DB;
  * @property SatuanTabel $satuan_tabel
  * @property StatusNcxTabel $status_ncx_tabel
  * @property OdpTabel $odp_tabel
+ * @property StatusDisconnectDetailTabel $status_disconnect_detail_tabel
  *
  * @package App\Models
  */
@@ -83,14 +90,19 @@ class DeploymentTabel extends Model
 		'produk_id' => 'int',
 		'satuan_id' => 'int',
 		'status_ncx_id' => 'int',
-		'odp_id' => 'int'
+		'status_integrasi_id' => 'int',
+		'odp_id' => 'int',
+		'jenis_nte_id' => 'int',
+		'status_disconnect_detail_id' => 'int'
 	];
 
 	protected $dates = [
 		'tanggal',
 		'start_cancel',
 		'ready_after_cancel',
-		'tanggal_integrasi'
+		'tgl_complete_wfm',
+		'tanggal_integrasi',
+		'tgl_plan_cabut'
 	];
 
 	protected $fillable = [
@@ -117,6 +129,7 @@ class DeploymentTabel extends Model
 		'cancel_by',
 		'start_cancel',
 		'ready_after_cancel',
+		'status_integrasi_id',
 		'tanggal_integrasi',
 		'metro_1',
 		'ip_1',
@@ -131,12 +144,17 @@ class DeploymentTabel extends Model
 		'port_3',
 		'sn',
 		'odp_id',
+		'odp',
 		'port_4',
 		'type_1',
 		'kontak_pic_lokasi',
 		'ip_4',
 		'downlink',
-		'type_2'
+		'type_2',
+		'jenis_nte_id',
+		'jumlah_nte',
+		'status_disconnect_detail_id',
+		'tgl_plan_cabut'
 	];
 
 	public function deployment_id_tabel()
@@ -179,10 +197,26 @@ class DeploymentTabel extends Model
 		return $this->belongsTo(StatusNcxTabel::class, 'status_ncx_id');
 	}
 
+	public function status_integrasi_tabel()
+	{
+		return $this->belongsTo(StatusIntegrasiTabel::class, 'status_integrasi_id');
+	}
+
 	public function odp_tabel()
 	{
 		return $this->belongsTo(OdpTabel::class, 'odp_id');
 	}
+
+	public function jenis_nte_tabel()
+	{
+		return $this->belongsTo(JenisNteTabel::class, 'jenis_nte_id');
+	}
+
+	public function status_disconnect_detail_tabel()
+	{
+		return $this->belongsTo(StatusDisconnectDetailTabel::class, 'status_disconnect_detail_id');
+	}
+
 
 	public function scopeFilter($query, array $filters){
 		// filter no ao
@@ -225,6 +259,11 @@ class DeploymentTabel extends Model
 		$query->when(
             $filters['status_wfm'] ?? false,
             fn ($query, $status_wfm) => $query->where('status_wfm', '=', $status_wfm)
+        );
+		// filter jenis_nte
+		$query->when(
+            $filters['jenis_nte'] ?? false,
+            fn ($query, $jenis_nte) => $query->where('jenis_nte_id', '=', $jenis_nte)
         );
 	}
 	

@@ -8,80 +8,82 @@
             <div class="card mt-3">
                 <div class="card-body">
                     <h4 class="form-title">Form Update Disconnect</h4>
-                    <form action="{{ route('dis.update',$dis->id) }}" method="POST">
+                    <form action="{{ route('disconnect.update',$disconnect->deployment_id) }}" method="POST">
                         @csrf
                         @method('put')
                         <div class="form-group">
-                            <label for="wfm_id">WFM ID</label>
-                            <input type="hidden" name="wfm_id" id="wfm_id" value="{{ $dis->wfm_id }}"
-                                class="form-control">
+                            <label for="tanggal">TGL/BLN/THN</label>
+                            <input type="date" name="tanggal" id="tanggal" class="form-control"
+                                value="{{ $disconnect->tanggal }}">
+                                {{ $disconnect->tanggal }}
+                            </input>
                         </div>
                         <div class="form-group">
-                            <label for="ao">TANGGAL</label>
-                            <input type="date" name="tanggal" id="ao" value="{{ $dis->tanggal }}" class="form-control">
+                            <label for="no_ao">NO. AO</label>
+                            <input type="text" name="ao" id="ao" class="form-control" value="{{ $disconnect->ao }}">
+                            </input>
                         </div>
                         <div class="form-group">
-                            <label for="ao">AO</label>
-                            <input type="text" name="no_ao" id="ao" value="{{ $dis->no_ao }}" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="older">WITEL</label>
-                            <input type="text" name="witel" id="older" value="{{ $dis->witel }}" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="customer">OLO</label>
-                            <input type="text" name="olo" id="customer" value="{{ $dis->olo }}" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="lokasi">ALAMAT</label>
-                            <input type="text" name="alamat" id="lokasi" value="{{ $dis->alamat }}"
-                                class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="jenis_ont">JENIS NTE</label>
-                            <select name="jenis_nte" id="jenis_ont" class="form-control">
-                                <option value="{{ $dis->jenis_nte }}">{{ $dis->jenis_nte }}</option>
-                                <option value="L2SW">L2SW</option>
-                                <option value="Big ONT Huawei">Big ONT Huawei</option>
-                                <option value="Big ONT ZTE">Big ONT ZTE</option>
-                                <option value="Big ONT Fiberhome">Big ONT Fiberhome</option>
-                                <option value="ONT Premium Huawei">ONT Premium Huawei</option>
-                                <option value="ONT Premium ZTE">ONT Premium ZTE</option>
-                                <option value="ONT Premium Fiberhome">ONT Premium Fiberhome</option>
-                                <option value="ONT Retail Huawei">ONT Retail Huawei</option>
-                                <option value="ONT Retail ZTE">ONT Retail ZTE</option>
-                                <option value="ONT Retail Fiberhome">ONT Retail Fiberhome</option>
+                            <label for="witel">WITEL</label>
+                            <select name="witel" id="witel" class="form-control">
+                                <option value="{{ $disconnect->witel_id }}">{{ $disconnect->witel_tabel->witel_nama }}</option>
+                                @foreach ($witel_data as $item)
+           
+                                <option value="{{ $item->witel_id }}">{{ $item->witel_nama }}</option>
+
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="jumlah_ont">JUMLAH NTE</label>
-                            <select name="jumlah_nte" id="jumlah_ont" class="form-control">
-                                <option value="{{ $dis->jumlah_nte }}">{{ $dis->jumlah_nte }}</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
+                            <label for="olo">OLO / ISP</label>
+                            <select name="olo" id="olo" class="form-control">
+                                <option value="{{ $disconnect->olo_id }}">{{ $disconnect->olo_tabel->olo_nama }}</option>
+                                @foreach ($olo_data as $item)
+                                <option value="{{ $item->olo_id }}">{{ $item->olo_nama }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="status">STATUS</label>
-                            <select name="status" id="status" class="form-control">
-                                <option value="{{ $dis->status }}">{{ $dis->status }}</option>
-                                <option value="Sudah dicabut">Sudah dicabut</option>
-                                <option value="DOWN">DOWN</option>
-                                <option value="ON">ON</option>
+                            <label for="alamat_asal">ALAMAT ASAL</label>
+                            <textarea class="form-control" name="alamat_asal" id="alamat_asal" rows="3"
+                                value="{{ $disconnect->alamat_asal }}">{{ $disconnect->alamat_asal }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="jenis_nte">JENIS NTE</label>
+                            <select name="jenis_nte" id="jenis_nte" class="form-control">
+                                <option value="{{ $disconnect->jenis_nte_id }}">{{ $disconnect->jenis_nte_tabel->jenis_nte_nama }}</option>
+                                @foreach ($jenis_nte_data as $item)
+
+                                <option value="{{ $item->jenis_nte_id }}">{{ $item->jenis_nte_nama }}</option>
+
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="plan_cabut">PLAN CABUT</label>
-                            <input class="form-control" type="date" name="plan_cabut" id="plan_cabut"
-                                value="{{ $dis->plan_cabut }}">
+                            <label for="status_disconnect_detail">STATUS</label>
+                            <select name="status_disconnect_detail" id="status_disconnect_detail" class="form-control">
+                                <option value="{{ $disconnect->status_disconnect_detail_id }}">{{ $disconnect->status_disconnect_detail_tabel->status_disconnect_detail_nama }}</option>
+                                @foreach ($status_disconnect_detail_data as $item)
+
+                                <option value="{{ $item->status_disconnect_detail_id }}">{{ $item->status_disconnect_detail_nama }}</option>
+
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="integrasi">TANGGAL PLAN CABUT</label>
+                            <input type="date" name="tgl_plan_cabut" id="tgl_plan_cabut" class="form-control"
+                                value="{{ $disconnect->tgl_plan_cabut }}">
+                                {{ $disconnect->tgl_plan_cabut }}
+                            </input>
                         </div>
                         <div class="form-group">
                             <label for="wfm_id">PIC</label>
-                            <input type="text" name="pic" id="wfm_id" value="{{ $dis->pic }}" class="form-control">
+                            <input type="text" name="pic" id="wfm_id" value="{{ $disconnect->kontak_pic_lokasi }}" class="form-control">
                         </div>
                         <div class="form-group text-right mt-4">
-                            <a href="{{ route('dis.index') }}" class="btn btn-white mr-2" type="reset">Cancel</a>
+                            <a href="{{ route('disconnect.index') }}" class="btn btn-white mr-2" type="reset">Cancel</a>
                             <button class="btn btn-main" type="submit" onclick="return validasiEdit();">Update
                                 Data</button>
                         </div>

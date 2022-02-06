@@ -7,46 +7,52 @@
             <div class="m-0 p-0" id="filterform">
                 <h4 class="filter-title" title="Filter"><i class="las la-filter"></i> Filter</h4>
                 <div class="clear-filter">
-                    <a href="{{ route('dis.index') }}" class="">Clear Filters</a>
+                    <a href="{{ route('disconnect.index') }}" class="">Clear Filters</a>
                 </div>
-                <form action="{{ route('dis.index') }}" method="GET">
+                <form action="{{ route('disconnect.index') }}" method="GET">
                     {{-- filter field --}}
                     <div class="form-row">
                         <div class="col">
                             <label for="no_ao">No. AO</label>
                             @if (request('no_ao'))
                             <input list="no_aos" name="no_ao" id="no_ao" class="form-control"
-                                value="{{ request('no_ao') }}" autocomplete="off">
+                            placeholder="Masukkan No. AO" value="{{ request('no_ao') }}" autocomplete="off">
                             @else
                             <input list="no_aos" name="no_ao" id="no_ao" class="form-control"
                                 placeholder="Masukkan No. AO" autocomplete="off">
                             @endif
 
                             <datalist id="no_aos">
-                                @foreach ($wfms as $wfm)
-                                <option value="{{ $wfm->no_ao }}">{{ $wfm->no_ao }}</option>
+                                @foreach ($ao_data as $wfm_ao)
+                                <option value="{{ $wfm_ao->no_ao }}">{{ $wfm_ao->no_ao }}</option>
                                 @endforeach
                             </datalist>
                         </div>
                         <div class="col">
-                        <label for="tanggal">Tanggal</label>
-                            <input type="date" class="form-control" placeholder="Tanggal" name="tanggal" id="tanggal"
-                                value="{{ request('tanggal') }}">
+                        <label for="tgl_bulan_dr">Dari Tanggal</label>
+                        <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_dr"
+                                id="tgl_bulan_dr">
+                        </div>
+                        <div class="col">
+                        <label for="tgl_bulan_th_sd">Sampai Tanggal</label>
+                        <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_sd"
+                                id="tgl_bulan_sd">
                         </div>
 
                         <div class="col">
                             <label for="witel">Witel</label>
                             <select class="form-control" id="witel" name="witel">
+
                                 @if (request('witel'))
-                                <option value="{{ request('witel') }}">{{ request('witel') }}</option>
+                                <option value="{{ request('witel') }}">
+                                Pilih Witel
+                                </option>
                                 @else
                                 <option value="">Pilih Witel</option>
                                 @endif
 
-                                @foreach ($database as $dbs)
-                                @if ($dbs->witel !== '')
-                                <option value="{{ $dbs->witel }}">{{ $dbs->witel }}</option>
-                                @endif
+                                @foreach ($witel_data as $dbs)
+                                <option value="{{ $dbs->witel_id }}">{{ $dbs->witel_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -55,13 +61,13 @@
                             <label for="olo">OLO</label>
                             <select class="form-control" id="olo" name="olo">
                                 @if (request('olo'))
-                                <option value="{{ request('olo') }}">{{ request('olo') }}</option>
+                                <option value="{{ request('olo') }}">Pilih OLO</option>
                                 @else
                                 <option value="">Pilih OLO</option>
                                 @endif
 
-                                @foreach ($database as $dbs)
-                                <option value="{{ $dbs->olo_isp }}">{{ $dbs->olo_isp }}</option>
+                                @foreach ($olo_data as $dbs)
+                                <option value="{{ $dbs->olo_id }}">{{ $dbs->olo_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -70,34 +76,31 @@
                             <label for="jenis_nte">Jenis NTE</label>
                             <select class="form-control" id="jenis_nte" name="jenis_nte">
                                 @if (request('jenis_nte'))
-                                <option value="{{ request('jenis_nte') }}">{{ request('jenis_nte') }}</option>
+                                <option value="{{ request('jenis_nte') }}">Pilih Jenis NTE</option>
                                 @else
                                 <option value="">Pilih Jenis NTE</option>
                                 @endif
-                                <option value="L2SW">L2SW</option>
-                                <option value="Big ONT Huawei">Big ONT Huawei</option>
-                                <option value="Big ONT ZTE">Big ONT ZTE</option>
-                                <option value="Big ONT Fiberhome">Big ONT Fiberhome</option>
-                                <option value="ONT Premium Huawei">ONT Premium Huawei</option>
-                                <option value="ONT Premium ZTE">ONT Premium ZTE</option>
-                                <option value="ONT Premium Fiberhome">ONT Premium Fiberhome</option>
-                                <option value="ONT Retail Huawei">ONT Retail Huawei</option>
-                                <option value="ONT Retail ZTE">ONT Retail ZTE</option>
-                                <option value="ONT Retail Fiberhome">ONT Retail Fiberhome</option>
+
+                                @foreach ($jenis_nte_data as $dbs)
+                                <option value="{{ $dbs->jenis_nte_id }}">{{ $dbs->jenis_nte_nama }}</option>
+                                @endforeach
                             </select>
                         </div>
 
+                    
+
                         <div class="col">
-                            <label for="status">Status</label>
-                            <select class="form-control" id="status" name="status">
-                                @if (request('status'))
-                                <option value="{{ request('status') }}">{{ request('status') }}</option>
+                            <label for="status_ncx">Status NCX</label>
+                            <select class="form-control" id="status_ncx" name="status_ncx">
+                                @if (request('status_ncx'))
+                                <option value="{{ request('status_ncx') }}">Pilih Status NCX</option>
                                 @else
                                 <option value="">Pilih Status NCX</option>
                                 @endif
-                                <option value="Sudah dicabut">Sudah dicabut</option>
-                                <option value="DOWN">DOWN</option>
-                                <option value="ON">ON</option>
+
+                                @foreach ($status_ncx_data as $dbs)
+                                <option value="{{ $dbs->status_ncx_id }}">{{ $dbs->status_ncx_nama }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -116,9 +119,6 @@
             <span id="ct" class="mt-3 d-block text-right"></span>
             <div class="card mt-2 mb-5 shadow-sm">
 
-                {{-- filter --}}
-                @if (request('no_ao') || request('tanggal') || request('olo') || request('witel') ||
-                request('jenis_nte') || request('status'))
                 <div class="card-body">
                     <h2 class="title-table">Disconnect</h2>
                     <table class="table table-responsive-lg table-hover" id="table_id">
@@ -126,71 +126,6 @@
                             <tr>
                                 <th scope="col">NO</th>
                                 <th scope="col">Tanggal</th>
-                                <th scope="col">AO</th>
-                                <th scope="col">WITEL</th>
-                                <th scope="col">OLO</th>
-                                <th scope="col">ALAMAT</th>
-                                <th scope="col">JENIS ONT</th>
-                                <th scope="col">JUMLAH ONT</th>
-                                <th scope="col">STATUS</th>
-                                <th scope="col">PLAN CABUT</th>
-                                <th scope="col">PIC</th>
-                                @canany(['admin', 'editor'])
-                                <th scope="col"><span class="las la-ellipsis-v"></span></th>
-                                @endcanany
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            @foreach ($disconnects as $items)
-                            <tr>
-                                <td class="text-center">{{ $loop->iteration }}</td>
-                                <td>{{ $items->tanggal }}</td>
-                                <td>{{ $items->no_ao }}</td>
-                                <td>{{ $items->witel }}</td>
-                                <td>{{ $items->olo }}</td>
-                                <td>{{ $items->alamat}}</td>
-                                <td>{{ $items->jenis_nte }}</td>
-                                <td>{{ $items->jumlah_nte }}</td>
-                                <td>{{ $items->status }}</td>
-                                <td>{{ $items->plan_cabut }}</td>
-                                <td>{{ $items->pic }}</td>
-                                @canany(['admin', 'editor'])
-                                <td class="text-center">
-                                    <div class="dropleft" title="Menu">
-                                        <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false"></span>
-                                        <div class="dropdown-menu" aria-labelledby="menuEdit">
-                                            <a href="{{ route('dis.edit',$items->id) }}" class="dropdown-item"
-                                                type="button">
-                                                <i class="fas fa-edit mr-2"></i>
-                                                Edit
-                                            </a>
-                                            <form action="{{ route('dis.destroy',$items->id) }}" method="POST"
-                                                class="d-inline" onsubmit="return validasiHapus()">
-                                                @csrf
-                                                @method('delete')
-                                                <button class="dropdown-item" type="submit"
-                                                    onclick="return confirm('Apakah Anda Ingin Menghapusnya?')"><i
-                                                        class="fas fa-trash mr-2"></i> Hapus</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </td>
-                                @endcanany
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                @else
-                <div class="card-body">
-                    <h2 class="title-table">Disconnect</h2>
-                    <table class="table table-responsive-lg table-hover" id="table_id">
-                        <thead>
-                            <tr>
-                                <th scope="col">NO</th>
-                                <th scope="col">TANGGAL</th>
                                 <th scope="col">AO</th>
                                 <th scope="col">WITEL</th>
                                 <th scope="col">OLO</th>
@@ -207,33 +142,31 @@
                         </thead>
                         <tbody>
 
-                            @foreach ($disconnect as $item)
+                            @foreach ($disconnect as $items)
                             <tr>
-                                {{-- <td>{{ $item->wfm_id; }}</td> --}}
-
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                <td>{{ $item->tanggal }}</td>
-                                <td>{{ $item->no_ao }}</td>
-                                <td>{{ $item->witel }}</td>
-                                <td>{{ $item->olo }}</td>
-                                <td>{{ $item->alamat }}</td>
-                                <td>{{ $item->jenis_nte }}</td>
-                                <td class="text-center">{{ $item->jumlah_nte }}</td>
-                                <td>{{ $item->status }}</td>
-                                <td>{{ $item->plan_cabut }}</td>
-                                <td>{{ $item->pic }}</td>
+                                <td>{{ $items->tanggal }}</td>
+                                <td>{{ $items->ao }}</td>
+                                <td>{{ $items->witel_tabel->witel_nama }}</td>
+                                <td>{{ $items->olo_tabel->olo_nama }}</td>
+                                <td>{{ $items->alamat_asal}}</td>
+                                <td>{{ $items->jenis_nte_tabel->jenis_nte_nama }}</td>
+                                <td>{{ $items->jumlah_nte }}</td>
+                                <td>{{ $items->status_disconnect_detail_tabel->status_disconnect_detail_nama }}</td>
+                                <td>{{ $items->tgl_plan_cabut }}</td>
+                                <td>{{ $items->kontak_pic_lokasi }}</td>
                                 @canany(['admin', 'editor'])
                                 <td class="text-center">
                                     <div class="dropleft" title="Menu">
                                         <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false"></span>
                                         <div class="dropdown-menu" aria-labelledby="menuEdit">
-                                            <a href="{{ route('dis.edit',$item->id) }}" class="dropdown-item"
+                                            <a href="{{ route('disconnect.edit',$items->deployment_id) }}" class="dropdown-item"
                                                 type="button">
                                                 <i class="fas fa-edit mr-2"></i>
                                                 Edit
                                             </a>
-                                            <form action="{{ route('dis.destroy',$item->id) }}" method="POST"
+                                            <form action="{{ route('disconnect.destroy',$items->deployment_id) }}" method="POST"
                                                 class="d-inline" onsubmit="return validasiHapus()">
                                                 @csrf
                                                 @method('delete')
@@ -250,7 +183,6 @@
                         </tbody>
                     </table>
                 </div>
-                @endif
             </div>
         </div>
 
