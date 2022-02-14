@@ -90,16 +90,16 @@
                     
 
                         <div class="col">
-                            <label for="status_ncx">Status NCX</label>
-                            <select class="form-control" id="status_ncx" name="status_ncx">
-                                @if (request('status_ncx'))
-                                <option value="{{ request('status_ncx') }}">Pilih Status NCX</option>
+                            <label for="status_ncx">Status</label>
+                            <select class="form-control" id="status_disconnect_detail" name="status_disconnect_detail">
+                                @if (request('status_disconnect_detail'))
+                                <option value="{{ request('status_disconnect_detail') }}">Pilih Status</option>
                                 @else
-                                <option value="">Pilih Status NCX</option>
+                                <option value="">Pilih Status</option>
                                 @endif
 
-                                @foreach ($status_ncx_data as $dbs)
-                                <option value="{{ $dbs->status_ncx_id }}">{{ $dbs->status_ncx_nama }}</option>
+                                @foreach ($status_disconnect_detail_data as $dbs)
+                                <option value="{{ $dbs->status_disconnect_detail_id }}">{{ $dbs->status_disconnect_detail_nama }}</option>
                                 @endforeach
                             </select>
                         </div>

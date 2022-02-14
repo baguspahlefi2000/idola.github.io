@@ -46,21 +46,21 @@ class DisconnectController extends Controller
         ->select("jenis_nte_id", "jenis_nte_nama")
         ->get();
 
-        $status_ncx_data = DB::table("status_ncx_tabel")
-        ->select("status_ncx_id", "status_ncx_nama")
+        $status_disconnect_detail_data = DB::table("status_disconnect_detail_tabel")
+        ->select("status_disconnect_detail_id", "status_disconnect_detail_nama")
         ->get();
 
 
         return view('disconnect.index', [
             'title' => 'Halaman Disconnect',
             'disconnect' => DeploymentTabel::orderBy('deployment_id')->where('order_type_id', '=', '3')->filter(request(['no_ao', 
-        'tanggal', 'witel', 'olo', 'jenis_nte', 'status_ncx'
+        'tanggal', 'witel', 'olo', 'jenis_nte', 'status_disconnect_detail'
         ]))->get(),
         'ao_data' => $ao_data, 
         'witel_data' => $witel_data,
         'olo_data' => $olo_data,
         'jenis_nte_data' => $jenis_nte_data,
-        'status_ncx_data' => $status_ncx_data
+        'status_disconnect_detail_data' => $status_disconnect_detail_data
         ]);
     }
 
