@@ -59,6 +59,11 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="jumlah_nte">Jumlah NTE</label>
+                            <input type="text" name="jumlah_nte" id="jumlah_nte" class="form-control" value="{{ $disconnect->jumlah_nte }}">
+                            </input>
+                        </div>
+                        <div class="form-group">
                             <label for="status_disconnect_detail">STATUS</label>
                             <select name="status_disconnect_detail" id="status_disconnect_detail" class="form-control">
                                 <option value="{{ $disconnect->status_disconnect_detail_id }}">{{ $disconnect->status_disconnect_detail_tabel->status_disconnect_detail_nama }}</option>
