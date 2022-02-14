@@ -132,7 +132,7 @@
                 </li>
                 <li class="nav-item menu">
                     <a class="nav-link {{ Request::is('disconnect*') ? 'nav-active' : '' }}"
-                        href="{{ route('dis.index') }}">Disconnect</a>
+                        href="{{ route('disconnect.index') }}">Disconnect</a>
                 </li>
             </ul>
         </div>

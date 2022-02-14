@@ -152,7 +152,24 @@
                                 @endforeach
                             </select>
                         </div>
-                    </div>                        
+
+                        <div class="col-3">
+                            <label for="status_integrasi">Status Integrasi</label>
+                            <select class="form-control" id="status_integrasi" name="status_integrasi">
+                                @if (request('status_integrasi'))
+                                <option value="{{ request('status_integrasi') }}">Pilih Status Integrasi</option>
+                                @else
+                                <option value="">Pilih Status Integrasi</option>
+                                @endif
+
+                                @foreach ($status_integrasi_data as $dbs)
+                                <option value="{{ $dbs->status_integrasi_id }}">{{ $dbs->status_integrasi_nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>                 
+                    
+                    
 
 
                     
@@ -214,6 +231,7 @@
                             <th class="text-nowrap">CANCEL By</th>
                             <th class="text-nowrap">START CANCEL DATE</th>
                             <th class="text-nowrap">READY AFTER CANCEL</th>
+                            <th>STATUS INTEGRASI</th>
                             <th>TANGGAL INTEGRASI</th>
                             <th class="text-nowrap">METRO</th>
                             <th>IP</th>
@@ -265,6 +283,7 @@
                                 <td>{{$wfm->cancel_by }}</td>
                                 <td>{{$wfm->start_cancel }}</td>
                                 <td>{{$wfm->ready_after_cancel }}</td>
+                                <td>{{$wfm->status_integrasi_tabel->status_integrasi_nama }}</td>
                                 <td>{{$wfm->tanggal_integrasi }}</td>
                                 <td>{{$wfm->metro_1 }}</td>
                                 <td>{{$wfm->ip_1 }}</td>

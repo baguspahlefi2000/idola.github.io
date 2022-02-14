@@ -272,6 +272,11 @@ class DeploymentTabel extends Model
             $filters['status_disconnect_detail'] ?? false,
             fn ($query, $status_disconnect_detail) => $query->where('status_disconnect_detail_id', '=', $status_disconnect_detail)
         );
+
+		$query->when(
+            $filters['status_integrasi'] ?? false,
+            fn ($query, $status_integrasi) => $query->where('status_integrasi_id', '=', $status_integrasi)
+        );
 	}
 	
 

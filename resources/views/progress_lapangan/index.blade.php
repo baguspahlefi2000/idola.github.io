@@ -169,6 +169,28 @@
                                 <th scope="col" class="text-nowrap" rowspan="2">Datek GPON</th>
                                 <th scope="col" rowspan="2">Progress</th>
                                 <th scope="col" rowspan="2">Keterangan</th>
+                                @canany(['admin', 'editor'])
+                                    <td class="text-center">
+                                        <div class="dropleft" title="Menu">
+                                            <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false"></span>
+                                            <div class="dropdown-menu" aria-labelledby="menuEdit">
+                                                <a href="#" class="dropdown-item"
+                                                    type="button">
+                                                    <i class="fas fa-edit mr-2"></i>
+                                                    Edit
+                                                </a>
+                                                <form action="#" method="POST"
+                                                    class="d-inline" onsubmit="return validasiHapus()">
+                                                    @csrf
+                                                    <button class="dropdown-item" type="submit"
+                                                        onclick="return confirm('Apakah Anda Ingin Menghapusnya?')"><i
+                                                            class="fas fa-trash mr-2"></i> Hapus</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    @endcanany
 
                             </tr>
 

@@ -62,6 +62,12 @@ class DeploymentController extends Controller
         ->select("deployment_tabel.status_wfm as status_wfm")
         ->get();
 
+        $status_integrasi_data = DB::table("status_integrasi_tabel")
+        ->select("status_integrasi_id", "status_integrasi_nama")
+        ->get();
+        
+        
+
         
 
         
@@ -73,7 +79,7 @@ class DeploymentController extends Controller
 
         return view('deployment.index', ['title' => 'Halaman Deployment', 
         'deployment' => DeploymentTabel::orderBy('deployment_id')->filter(request(['no_ao', 
-        'tanggal', 'witel', 'olo', 'order_type', 'produk', 'status_ncx', 'status_wfm'
+        'tanggal', 'witel', 'olo', 'order_type', 'produk', 'status_ncx', 'status_wfm','status_integrasi'
         ]))->get(),
         'ao_data' => $ao_data, 
         'witel_data' => $witel_data,
@@ -82,6 +88,7 @@ class DeploymentController extends Controller
         'produk_data' => $produk_data,
         'status_ncx_data' => $status_ncx_data,
         'status_wfm' => $status_wfm,
+        'status_integrasi_data'=> $status_integrasi_data,
 
     ]);
     }
