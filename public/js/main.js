@@ -57,7 +57,8 @@ function validasiTambahDeployment() {
     }
 }
 
-function validasiTambah() {
+
+/* function validasiTambah() {
     Swal.fire({
         title: "Berhasil",
         text: "Data Berhasil Ditambahkan!",
@@ -65,7 +66,9 @@ function validasiTambah() {
     });
 }
 
+
 // edit data
+
 function validasiEdit() {
     Swal.fire({
         title: "Berhasil",
@@ -73,6 +76,7 @@ function validasiEdit() {
         icon: "success",
     });
 }
+*/
 
 // hapus data
 

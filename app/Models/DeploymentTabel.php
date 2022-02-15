@@ -39,15 +39,18 @@ use Illuminate\Support\Facades\DB;
  * @property Carbon|null $ready_after_cancel
  * @property int $status_integrasi_id
  * @property Carbon|null $tanggal_integrasi
- * @property string|null $metro_1
+ * @property string|null $metro_backhaul
+ * @property string|null $capture_metro_backhaul
  * @property string|null $ip_1
  * @property string|null $port_1
- * @property string|null $metro_2
+ * @property string|null $metro_access
+ * @property string|null $capture_metro_access
  * @property string|null $ip_2
  * @property string|null $port_2
  * @property string|null $vlan
  * @property string|null $vcid
  * @property string|null $gpon
+ * @property string|null $capture_gpon
  * @property string|null $ip_3
  * @property string|null $port_3
  * @property string|null $sn
@@ -63,6 +66,7 @@ use Illuminate\Support\Facades\DB;
  * @property string|null $jumlah_nte
  * @property int status_disconnect_detail_id
  * @property Carbon|null $tgl_plan_cabut
+ * @property string|null $gponcapture
  * 
  * @property WitelTabel $witel_tabel
  * @property OloTabel $olo_tabel
@@ -132,15 +136,18 @@ class DeploymentTabel extends Model
 		'ready_after_cancel',
 		'status_integrasi_id',
 		'tanggal_integrasi',
-		'metro_1',
+		'metro_backhaul',
+		'capture_metro_backhaul',
 		'ip_1',
 		'port_1',
-		'metro_2',
+		'metro_access',
+		'capture_metro_access',
 		'ip_2',
 		'port_2',
 		'vlan',
 		'vcid',
 		'gpon',
+		'capture_gpon',
 		'ip_3',
 		'port_3',
 		'sn',
@@ -155,7 +162,8 @@ class DeploymentTabel extends Model
 		'jenis_nte_id',
 		'jumlah_nte',
 		'status_disconnect_detail_id',
-		'tgl_plan_cabut'
+		'tgl_plan_cabut',
+		'gponcapture'
 	];
 
 	public function deployment_id_tabel()
