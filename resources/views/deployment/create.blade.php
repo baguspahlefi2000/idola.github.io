@@ -164,7 +164,6 @@
                                 <div class="col-5">
                                     <label for="start_cancel">STATUS INTEGRASI</label>
                                     <select name="status_integrasi" id="status_integrasi" class="form-control" onclick="display();" required>
-                                    <option value="">Status Integrasi</option>
                                         @foreach ($status_integrasi_data as $item)
                                         <option value="{{ $item->status_integrasi_id }}">{{ $item->status_integrasi_nama }}</option>
                                         @endforeach
