@@ -541,6 +541,18 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <div id="orderModal" class="modal hide fade" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                                <h3>Order</h3>
+
+                            </div>
+                            <div id="orderDetails" class="modal-body"></div>
+                            <div id="orderItems" class="modal-body"></div>
+                            <div class="modal-footer">
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

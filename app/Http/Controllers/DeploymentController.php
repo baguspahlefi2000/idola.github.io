@@ -162,6 +162,15 @@ class DeploymentController extends Controller
      */
     public function store(Request $request)
     {
+
+        if($request->hasFile('gponcapture')){
+            $imgName = $request->gponcapture->getClientOriginalName() . '-' . time() . '.' . $request->gponcapture->extension();
+            $request->gponcapture->move(public_path('img'), $imgName);
+        }else{
+            $imgName = null;
+        }
+        
+
         $wfm = new DeploymentTabel();
         $wfm->tanggal = $request->tanggal;
         $wfm->ao = $request->ao;
@@ -188,15 +197,18 @@ class DeploymentController extends Controller
         $wfm->ready_after_cancel = $request->ready_after_cancel;
         $wfm->status_integrasi_id = $request->status_integrasi;
         $wfm->tanggal_integrasi = $request->tanggal_integrasi_b;
-        $wfm->metro_1 = $request->metro_1;
+        $wfm->metro_backhaul = $request->metro_backhaul;
+        $wfm->capture_metro_backhaul = $request->capture_metro_backhaul;
         $wfm->ip_1 = $request->ip_1;
         $wfm->port_1 = $request->port_1;
-        $wfm->metro_2 = $request->metro_2;
+        $wfm->metro_access = $request->metro_access;
+        $wfm->capture_metro_access = $request->capture_metro_access;
         $wfm->ip_2 = $request->ip_2;
         $wfm->port_2 = $request->port_2;
         $wfm->vlan = $request->vlan;
         $wfm->vcid = $request->vcid;
         $wfm->gpon = $request->gpon;
+        $wfm->capture_gpon = $request->capture_gpon;
         $wfm->ip_3 = $request->ip_3;
         $wfm->port_3 = $request->port_3;
         $wfm->sn = $request->sn;
@@ -208,6 +220,7 @@ class DeploymentController extends Controller
         $wfm->ip_4 = $request->ip_4;
         $wfm->downlink = $request->downlink;
         $wfm->type_2 = $request->type_2;
+        $wfm->gponcapture = $imgName;
         $wfm->save();
 
         sleep(1);
@@ -298,6 +311,9 @@ class DeploymentController extends Controller
      */
     public function update(Request $request, DeploymentTabel $Deployment)
     {
+        
+        
+
         $Deployment->tanggal = $request->tanggal;
         $Deployment->ao = $request->ao;
         $Deployment->witel_id = $request->witel;
@@ -323,15 +339,18 @@ class DeploymentController extends Controller
         $Deployment->ready_after_cancel = $request->ready_after_cancel;
         $Deployment->status_integrasi_id = $request->status_integrasi;
         $Deployment->tanggal_integrasi = $request->tanggal_integrasi_b;
-        $Deployment->metro_1 = $request->metro_1;
+        $Deployment->metro_backhaul = $request->metro_backhaul;
+        $Deployment->capture_metro_backhaul = $request->capture_metro_backhaul;
         $Deployment->ip_1 = $request->ip_1;
         $Deployment->port_1 = $request->port_1;
-        $Deployment->metro_2 = $request->metro_2;
+        $Deployment->metro_access = $request->metro_access;
+        $Deployment->capture_metro_access = $request->capture_metro_access;
         $Deployment->ip_2 = $request->ip_2;
         $Deployment->port_2 = $request->port_2;
         $Deployment->vlan = $request->vlan;
         $Deployment->vcid = $request->vcid;
         $Deployment->gpon = $request->gpon;
+        $Deployment->capture_gpon = $request->capture_gpon;
         $Deployment->ip_3 = $request->ip_3;
         $Deployment->port_3 = $request->port_3;
         $Deployment->sn = $request->sn;
@@ -343,6 +362,12 @@ class DeploymentController extends Controller
         $Deployment->ip_4 = $request->ip_4;
         $Deployment->downlink = $request->downlink;
         $Deployment->type_2 = $request-> type_2;
+        if($request->hasFile('gponcapture')){
+            $imgName = $request->gponcapture->getClientOriginalName() . '-' . time() . '.' . $request->gponcapture->extension();
+            $request->gponcapture->move(public_path('img'), $imgName);
+            $Deployment->gponcapture = $imgName;
+        }
+        
         $Deployment->save();
 
         sleep(1);

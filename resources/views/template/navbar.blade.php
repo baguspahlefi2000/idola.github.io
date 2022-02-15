@@ -49,7 +49,7 @@
                         <a class="dropdown-item" href="{{ route('deployment.index') }}">Deployment</a>
                         <a class="dropdown-item" href="{{ route('progress.index') }}">Progress Lapangan</a>
                         <a class="dropdown-item" href="{{ route('rekap.index') }}">Rekap</a>
-                        <a class="dropdown-item" href="{{ route('xSumm.index') }}">EXE SUMM</a>
+    
                     </div>
                 </li>
                 <li class="nav-item menu">
@@ -127,7 +127,6 @@
                         <a class="dropdown-item" href="{{ route('deployment.index') }}">Deployment</a>
                         <a class="dropdown-item" href="{{ route('progress.index') }}">Progress Lapangan</a>
                         <a class="dropdown-item" href="{{ route('rekap.index') }}">Rekap</a>
-                        <a class="dropdown-item" href="{{ route('xSumm.index') }}">EXE SUMM</a>
                     </div>
                 </li>
                 <li class="nav-item menu">

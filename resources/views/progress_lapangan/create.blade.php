@@ -10,12 +10,12 @@
                         @csrf
                         <div class="form-group">
                             <label for="tanggal">Tanggal</label>
-                            <input type="date" name="tanggal" id="tanggal" class="form-control">
+                            <input type="date" name="tanggal" id="tanggal" class="form-control" required>
                             
                         </div>
                         <div class="form-group">
                             <label for="witel">Witel</label>
-                            <select name="witel" id="witel" class="form-control">
+                            <select name="witel" id="witel" class="form-control" required>
                                 <option value="">Pilih Witel</option>
                                 @foreach ($witel_data as $db)
        
@@ -32,7 +32,7 @@
 
                         <div class="form-group">
                             <label for="olo">OLO</label>
-                            <select name="olo" id="olo" class="form-control">
+                            <select name="olo" id="olo" class="form-control" required>
                                 <option value="">Pilih OLO</option>
                                 @foreach ($olo_data as $db)
                                 <option value="{{ $db->olo_id }}">{{ $db->olo_nama }}</option>
@@ -41,7 +41,7 @@
                         </div>
                         <div class="form-group">
                             <label for="produk">Produk</label>
-                            <select name="produk" id="produk" class="form-control">
+                            <select name="produk" id="produk" class="form-control" required>
                                 <option value="">Pilih Produk</option>
                                 @foreach ($produk_data as $db)
 
@@ -105,7 +105,7 @@
                         </div>
                         <div class="form-group">
                             <label for="progress">Progress</label>
-                            <select name="progress" id="progress" class="form-control">
+                            <select name="progress" id="progress" class="form-control" required>
                             @foreach ($status_progress_data as $dbs)
             
                     <option value="{{ $dbs->status_p_lapangan_id }}">{{ $dbs->status_p_lapangan_nama }}</option>
