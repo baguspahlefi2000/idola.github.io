@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Exports\RekapProgres;
-use App\Models\ProgresLapangan;
+use App\Models\ProgressLapanganTabel;
 use App\Models\RekapProgress;
+use App\Models\WitelTabel;
+use App\Models\OloTabel;
+use App\Models\ProdukTabel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
@@ -18,21 +21,24 @@ class RekapProgressController extends Controller
      */
     public function index()
     {
-        $rekap_progress = DB::select("SELECT 
-        olo_tabel.olo_nama as OLO,
-        SUM(CASE WHEN progress_lapangan_tabel.status_p_lapangan_id = '1' THEN 1 ELSE 0 END) as PLAN_AKTIVASI,
-        SUM(CASE WHEN progress_lapangan_tabel.status_p_lapangan_id = '2' THEN 0 ELSE 0 END) as PLAN_MODIFY,
-        SUM(CASE WHEN progress_lapangan_tabel.status_p_lapangan_id = '3' THEN 0 ELSE 0 END) as PLAN_DISCONNECT
-        FROM progress_lapangan_tabel 
-        JOIN witel_tabel ON witel_tabel.witel_id = progress_lapangan_tabel.witel_id 
-        JOIN olo_tabel ON olo_tabel.olo_id = progress_lapangan_tabel.olo_id 
-        JOIN produk_tabel ON produk_tabel.produk_id = progress_lapangan_tabel.produk_id
-        JOIN status_p_lapangan_tabel ON status_p_lapangan_tabel.status_p_lapangan_id = progress_lapangan_tabel.status_p_lapangan_id
-        GROUP BY olo_tabel.olo_nama
-        ORDER BY PLAN_AKTIVASI DESC");
+        $witel_data = DB::table("witel_tabel")
+        ->select("witel_id", "witel_nama")
+        ->get();
+
+        $olo_data = DB::table("olo_tabel")
+        ->select("olo_id","olo_nama")
+        ->get();
 
 
-        return view('rekap.progress.index', ['title' => 'Halaman Rekap Progress', 'rekap_pro' => $rekap_progress]);
+        $produk_data = DB::table("produk_tabel")
+        ->select("produk_id", "produk_nama")
+        ->get();
+
+
+        return view('rekap.progress.index', ['title' => 'Halaman Rekap Progress', 'rekap_pro' => ProgressLapanganTabel::rekapProgress()->filter(request(['tanggal', 'witel', 'olo', 'produk']))->get(),
+        'witel_data' => $witel_data,
+        'olo_data' => $olo_data,
+        'produk_data' => $produk_data]);
     }
 
     /**

@@ -146,4 +146,15 @@ class ProgressLapanganTabel extends Model
             fn ($query, $progress) => $query->where('status_p_lapangan_id', '=', $progress)
         );
 	}
+
+	public function scopeRekapProgress($query){
+		return $query->join('olo_tabel', 'olo_tabel.olo_id', '=', 'progress_lapangan_tabel.olo_id')
+		->groupBy('progress_lapangan_tabel.olo_id')
+		->addSelect(DB::raw('
+        SUM(CASE WHEN status_p_lapangan_id = "1"  THEN 1 ELSE 0 END) as PLAN_AKTIVASI,
+        SUM(CASE WHEN status_p_lapangan_id = "2"  THEN 1 ELSE 0 END) as PLAN_MODIFY,
+        SUM(CASE WHEN status_p_lapangan_id = "3"  THEN 1 ELSE 0 END) as PLAN_DISCONNECT,
+		olo_tabel.olo_nama as OLO'))
+        ->orderBy('PLAN_AKTIVASI', 'DESC');
+	}
 }

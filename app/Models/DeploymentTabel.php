@@ -278,6 +278,19 @@ class DeploymentTabel extends Model
             fn ($query, $status_integrasi) => $query->where('status_integrasi_id', '=', $status_integrasi)
         );
 	}
+
+	public function scopeRekap($query){
+		return $query->join('olo_tabel', 'olo_tabel.olo_id', '=', 'deployment_tabel.olo_id')
+		->groupBy('deployment_tabel.olo_id')
+		->addSelect(DB::raw('
+        SUM(CASE WHEN order_type_id = "1"  THEN 1 ELSE 0 END) as AKTIVASI,
+        SUM(CASE WHEN order_type_id = "2"  THEN 1 ELSE 0 END) as MODIFY,
+        SUM(CASE WHEN order_type_id = "3"  THEN 1 ELSE 0 END) as DISCONNECT,
+        SUM(CASE WHEN order_type_id = "4"  THEN 1 ELSE 0 END) as RESUME,
+        SUM(CASE WHEN order_type_id = "5"  THEN 1 ELSE 0 END) as SUSPEND,
+		olo_tabel.olo_nama as OLO'))
+        ->orderBy('AKTIVASI', 'DESC');
+	}
 	
 
 

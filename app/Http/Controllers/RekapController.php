@@ -9,6 +9,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\User;
+use App\Models\DeploymentTabel;
+use App\Models\WitelTabel;
+use App\Models\OloTabel;
+use App\Models\OrderTypeTabel;
+use App\Models\ProdukTabel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
@@ -24,20 +29,29 @@ class RekapController extends Controller
     public function index()
     {
 
+        $witel_data = DB::table("witel_tabel")
+        ->select("witel_id", "witel_nama")
+        ->get();
 
-        $data = DB::select("SELECT 
-        olo_tabel.olo_nama as OLO,
-        SUM(CASE WHEN deployment_tabel.order_type_id = '1'  THEN 1 ELSE 0 END) as AKTIVASI,
-        SUM(CASE WHEN deployment_tabel.order_type_id = '2'  THEN 1 ELSE 0 END) as MODIFY,
-        SUM(CASE WHEN deployment_tabel.order_type_id = '3'  THEN 1 ELSE 0 END) as DISCONNECT,
-        SUM(CASE WHEN deployment_tabel.order_type_id = '4'  THEN 1 ELSE 0 END) as RESUME,
-        SUM(CASE WHEN deployment_tabel.order_type_id = '5'  THEN 1 ELSE 0 END) as SUSPEND
-        FROM deployment_tabel 
-        JOIN olo_tabel ON olo_tabel.olo_id = deployment_tabel.olo_id
-        GROUP BY olo_tabel.olo_nama
-        ORDER BY AKTIVASI DESC");
+        $olo_data = DB::table("olo_tabel")
+        ->select("olo_id","olo_nama")
+        ->get();
 
-        return view('rekap.deployment.index', ['title' => 'Halaman Rekap', 'rekap' => $data]);
+        $order_type_data = DB::table("order_type_tabel")
+        ->select("order_type_id", "order_type_nama")
+        ->get();
+
+        $produk_data = DB::table("produk_tabel")
+        ->select("produk_id", "produk_nama")
+        ->get();
+
+
+
+        return view('rekap.deployment.index', ['title' => 'Halaman Rekap', 'rekap' => DeploymentTabel::rekap()->filter(request(['tanggal', 'witel', 'olo', 'order_type', 'produk']))->get(),
+        'witel_data' => $witel_data,
+        'olo_data' => $olo_data,
+        'order_type_data' => $order_type_data,
+        'produk_data' => $produk_data]);
     }
 
     /**

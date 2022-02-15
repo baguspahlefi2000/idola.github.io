@@ -14,6 +14,73 @@
                         Progress</a>
                 </li>
             </ul>
+            <div class="col">
+            <div class="m-0 p-0" id="filterform">
+                <h4 class="filter-title" title="Filter"><i class="las la-filter"></i> Filter</h4>
+                <div class="clear-filter">
+                    <a href="{{ route('rekapProgress.index') }}">Clear Filters</a>
+                </div>
+                <form action="{{ route('rekapProgress.index') }}" method="GET">
+                    {{-- filter field --}}
+                    <div class="form-row">
+                    <div class="col">
+                        <label for="tgl_bulan_dr">Dari Tanggal</label>
+                        <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_dr"
+                                id="tgl_bulan_dr">
+                    </div>
+                    <div class="col">
+                        <label for="tgl_bulan_th_sd">Sampai Tanggal</label>
+                        <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_sd"
+                                id="tgl_bulan_sd">
+                    </div>
+                    <div class="col">
+                            <label for="witel">Witel</label>
+                            <select class="form-control" id="witel" name="witel">
+
+                                @if (request('witel'))
+                                <option value="{{ request('witel') }}">
+                                Pilih Witel
+                                </option>
+                                @else
+                                <option value="">Pilih Witel</option>
+                                @endif
+
+                                @foreach ($witel_data as $dbs)
+                                <option value="{{ $dbs->witel_id }}">{{ $dbs->witel_nama }}</option>
+                                @endforeach
+                            </select>
+                    </div>
+                    <div class="col">
+                            <label for="produk">Produk</label>
+                            <select class="form-control" id="produk" name="produk">
+                                @if (request('produk'))
+                                <option value="{{ request('produk') }}">Pilih Produk</option>
+                                @else
+                                <option value="">Pilih Produk</option>
+                                @endif
+
+                                @foreach ($produk_data as $dbs)
+                                <option value="{{ $dbs->produk_id }}">{{ $dbs->produk_nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div> 
+               
+                    
+                    
+
+
+                    
+                    {{-- akhir filter field --}}
+
+                    {{-- button filter --}}
+                    <div class="mt-3 text-right">
+                        <button class="btn btn-reset px-4 py-3/2" type="reset">Reset</button>
+                        <button class="btn btn-filter px-4 py-3/2" type="submit">Filter</button>
+                    </div>
+                </form>
+            </div>
+            {{-- akhir form filter --}}
 
             {{-- Table Rekap Progress --}}
             <div class="card mt-2 mb-5 shadow-sm" id="rekap-progress">
