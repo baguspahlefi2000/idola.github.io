@@ -66,14 +66,6 @@ class DeploymentController extends Controller
         ->select("status_integrasi_id", "status_integrasi_nama")
         ->get();
         
-        
-
-        
-
-        
-        
-
-        
 
         
 
@@ -311,9 +303,6 @@ class DeploymentController extends Controller
      */
     public function update(Request $request, DeploymentTabel $Deployment)
     {
-        
-        
-
         $Deployment->tanggal = $request->tanggal;
         $Deployment->ao = $request->ao;
         $Deployment->witel_id = $request->witel;

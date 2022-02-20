@@ -7,12 +7,15 @@ use App\Http\Controllers\ExeSummController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PekerjaanLapanganController;
 use App\Http\Controllers\ProgresLapanganController;
-use App\Models\PekerjaanLapangan;
+use App\Http\Controllers\OloController;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\RekapController;
 use App\Http\Controllers\RekapProgressController;
 use App\Models\Database;
 use App\Models\ProgresLapangan;
 use App\Models\DeploymentTabel;
+use App\Models\PekerjaanLapangan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserManagementController;
@@ -98,7 +101,6 @@ Route::get('/rekap_progress/export', [RekapProgressController::class, 'exportRek
 // progress lapangan
 Route::get('/progress_lapangan', [ProgresLapanganController::class, 'index'])->name('progress.index')->middleware('auth');
 Route::get('/progress_lapangan/create', [ProgresLapanganController::class, 'create'])->name('progress.create')->middleware('editor');
-
 Route::post('/progress_lapangan/store', [ProgresLapanganController::class, 'store'])->name('progress.store');
 Route::get('/progress_lapangan/edit/{progress}', [ProgresLapanganController::class, 'edit'])->name('progress.edit')->middleware('editor');
 Route::put('/progress_lapangan/update/{progress}', [ProgresLapanganController::class, 'update'])->name('progress.update');
@@ -120,6 +122,31 @@ Route::get('/disconnect', [DisconnectController::class, 'index'])->name('disconn
 Route::get('/disconnect/edit/{disconnect}', [DisconnectController::class, 'edit'])->name('disconnect.edit')->middleware('editor');
 Route::put('/disconnect/update/{disconnect}', [DisconnectController::class, 'update'])->name('disconnect.update');
 Route::delete('/disconnect/delete/{disconnect}', [DisconnectController::class, 'destroy'])->name('disconnect.destroy');
+
+// db_olo
+Route::get('/db_olo', [OloController::class, 'index'])->name('db_olo.index')->middleware('auth');
+Route::get('/db_olo/create', [OloController::class, 'create'])->name('db_olo.create')->middleware('editor');
+Route::post('/db_olo/store', [OloController::class, 'store'])->name('db_olo.store');
+Route::get('/db_olo/edit/{olo}', [OloController::class, 'edit'])->name('db_olo.edit')->middleware('editor');
+Route::put('/db_olo/update/{olo}', [OloController::class, 'update'])->name('db_olo.update');
+Route::delete('/db_olo/delete/{olo}', [OloController::class, 'destroy'])->name('db_olo.destroy');
+
+// db_produk
+Route::get('/db_produk', [ProdukController::class, 'index'])->name('db_produk.index')->middleware('auth');
+Route::get('/db_produk/create', [ProdukController::class, 'create'])->name('db_produk.create')->middleware('editor');
+Route::post('/db_produk/store', [ProdukController::class, 'store'])->name('db_produk.store');
+Route::get('/db_produk/edit/{produk}', [ProdukController::class, 'edit'])->name('db_produk.edit')->middleware('editor');
+Route::put('/db_produk/update/{produk}', [ProdukController::class, 'update'])->name('db_produk.update');
+Route::delete('/db_produk/delete/{produk}', [ProdukController::class, 'destroy'])->name('db_produk.destroy');
+
+// db_satuan
+Route::get('/db_satuan', [SatuanController::class, 'index'])->name('db_satuan.index')->middleware('auth');
+Route::get('/db_satuan/create', [SatuanController::class, 'create'])->name('db_satuan.create')->middleware('editor');
+Route::post('/db_satuan/store', [SatuanController::class, 'store'])->name('db_satuan.store');
+Route::get('/db_satuan/edit/{satuan}', [satuanController::class, 'edit'])->name('db_satuan.edit')->middleware('editor');
+Route::put('/db_satuan/update/{satuan}', [SatuanController::class, 'update'])->name('db_satuan.update');
+Route::delete('/db_satuan/delete/{satuan}', [SatuanController::class, 'destroy'])->name('db_satuan.destroy');
+
 
 //route EXE SUMM
 Route::get('/exe_summ', [ExeSummController::class, 'index'])->name('xSumm.index')->middleware('auth');

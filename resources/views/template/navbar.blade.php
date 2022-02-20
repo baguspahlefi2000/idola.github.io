@@ -49,8 +49,12 @@
                         <a class="dropdown-item" href="{{ route('deployment.index') }}">Deployment</a>
                         <a class="dropdown-item" href="{{ route('progress.index') }}">Progress Lapangan</a>
                         <a class="dropdown-item" href="{{ route('rekap.index') }}">Rekap</a>
-    
                     </div>
+                </li>
+                <li class="nav-item menu">
+                    <a class="nav-link {{ Request::is('db_olo*') ? 'nav-active' : '' }}" href="{{route('db_olo.index')}}" id="databaseMenu">
+                        Database
+                    </a>
                 </li>
                 <li class="nav-item menu">
                     <a class="nav-link {{ Request::is('disconnect*') ? 'nav-active' : '' }}"
@@ -88,36 +92,7 @@
                 <li class="nav-item menu">
                     <a class="nav-link {{ Request::is('/') ? 'nav-active' : '' }}" href="{{ route('home') }}">Home</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link {{ Request::is('wfm*') ? 'nav-active' : '' }} dropdown-toggle" href=""
-                        id="deploymentMenu" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        Deployment
-                    </a>
-                    @can('editor')
-                    <div class="dropdown-menu dropmenu" aria-labelledby="deploymentMenu">
-                        <a class="dropdown-item" href="{{ route('wfm.create') }}"><i class="las la-plus mr-3"></i>New
-                            Order</a>
-                        <a class="dropdown-item" href="{{ route('deployment.index') }}"><i class="las la-pen mr-3"></i>Update
-                            Order</a>
-                    </div>
-                    @endcan
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link {{ Request::is('progress_lapangan*') ? 'nav-active' : '' }} dropdown-toggle"
-                        href="#" id="progressMenu" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        Progress Lapangan
-                    </a>
-                    @can('editor')
-                    <div class="dropdown-menu dropmenu" aria-labelledby="progressMenu">
-                        <a class="dropdown-item" href="{{ route('progress.create') }}"><i
-                                class="las la-plus mr-3"></i>New Progress</a>
-                        <a class="dropdown-item" href="{{ route('progress.index') }}"><i
-                                class="las la-pen mr-3"></i>Update Progress</a>
-                    </div>
-                    @endcan
-                </li>
+                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="evaluasiMenu" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -129,6 +104,13 @@
                         <a class="dropdown-item" href="{{ route('rekap.index') }}">Rekap</a>
                     </div>
                 </li>
+
+                <li class="nav-item menu">
+                    <a class="nav-link {{ Request::is('db_olo*') ? 'nav-active' : '' }}" href="{{route('db_olo.index')}}" id="databaseMenu">
+                        Database
+                    </a>
+                </li>
+
                 <li class="nav-item menu">
                     <a class="nav-link {{ Request::is('disconnect*') ? 'nav-active' : '' }}"
                         href="{{ route('disconnect.index') }}">Disconnect</a>

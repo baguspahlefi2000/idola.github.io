@@ -81,11 +81,6 @@
                             </select>
                         </div>
                     </div>               
-                    
-                    
-
-
-                    
                     {{-- akhir filter field --}}
 
                     {{-- button filter --}}
