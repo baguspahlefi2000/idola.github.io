@@ -94,6 +94,7 @@ class DeploymentTabel extends Model
 		'produk_id' => 'int',
 		'satuan_id' => 'int',
 		'status_ncx_id' => 'int',
+		'status_wfm_id' => 'int',
 		'status_integrasi_id' => 'int',
 		'odp_id' => 'int',
 		'jenis_nte_id' => 'int',
@@ -129,7 +130,7 @@ class DeploymentTabel extends Model
 		'status_ncx_id',
 		'berita_acara',
 		'tgl_complete_wfm',
-		'status_wfm',
+		'status_wfm_id',
 		'alasan_cancel',
 		'cancel_by',
 		'start_cancel',
@@ -206,6 +207,11 @@ class DeploymentTabel extends Model
 		return $this->belongsTo(StatusNcxTabel::class, 'status_ncx_id');
 	}
 
+	public function status_wfm_tabel()
+	{
+		return $this->belongsTo(StatusWfmTabel::class, 'status_wfm_id');
+	}
+
 	public function status_integrasi_tabel()
 	{
 		return $this->belongsTo(StatusIntegrasiTabel::class, 'status_integrasi_id');
@@ -267,7 +273,7 @@ class DeploymentTabel extends Model
 		// filter status_wfm
 		$query->when(
             $filters['status_wfm'] ?? false,
-            fn ($query, $status_wfm) => $query->where('status_wfm', '=', $status_wfm)
+            fn ($query, $status_wfm) => $query->where('status_wfm_id', '=', $status_wfm)
         );
 		// filter jenis_nte
 		$query->when(

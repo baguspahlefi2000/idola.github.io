@@ -161,10 +161,14 @@
 
                         <div class="form-row mt-3">
                             <div class="col">
-                                <label for="status_nfm">STATUS WFM</label>
-                                <input type="text" name="status_wfm" id="status_wfm" class="form-control"
-                                value="{{ $deployment->status_wfm }}">
-                            </div>
+                                <label for="status_wfm">STATUS WFM</label>
+                                    <select name="status_wfm" id="status_wfm" class="form-control" onclick="display();">
+                                        <option value="{{ $deployment->status_wfm_id }}">{{ $deployment->status_wfm_tabel->status_wfm_nama }}</option>
+                                        @foreach ($status_wfm_data as $item)
+                                        <option value="{{ $item->status_wfm_id }}">{{ $item->status_wfm_nama }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             <div class="col">
                                 <label for="alasan_cancel">ALASAN CANCEL</label>
                                 <input type="text" name="alasan_cancel" id="alasan_cancel" class="form-control"

@@ -13,6 +13,7 @@ use App\Models\OloTabel;
 use App\Models\OrderTypeTabel;
 use App\Models\ProdukTabel;
 use App\Models\StatusNcxTabel;
+use App\Models\StatusWfmTabel;
 use App\Models\SiteKriteriaTabel;
 use App\Models\SatuanTabel;
 use App\Models\StatusIntegrasiTabel;
@@ -58,8 +59,8 @@ class DeploymentController extends Controller
         ->select("status_ncx_id", "status_ncx_nama")
         ->get();
 
-        $status_wfm = DB::table("deployment_tabel")
-        ->select("deployment_tabel.status_wfm as status_wfm")
+        $status_wfm_data = DB::table("status_wfm_tabel")
+        ->select("status_wfm_id", "status_wfm_nama")
         ->get();
 
         $status_integrasi_data = DB::table("status_integrasi_tabel")
@@ -79,7 +80,7 @@ class DeploymentController extends Controller
         'order_type_data' => $order_type_data,
         'produk_data' => $produk_data,
         'status_ncx_data' => $status_ncx_data,
-        'status_wfm' => $status_wfm,
+        'status_wfm_data' => $status_wfm_data,
         'status_integrasi_data'=> $status_integrasi_data,
 
     ]);
@@ -125,6 +126,10 @@ class DeploymentController extends Controller
         ->select("status_ncx_id", "status_ncx_nama")
         ->get();
 
+        $status_wfm_data = DB::table("status_wfm_tabel")
+        ->select("status_wfm_id", "status_wfm_nama")
+        ->get();
+
         $status_odp_data = DB::table('odp_tabel')
         ->select("odp_id", "odp_nama")
         ->get();
@@ -142,6 +147,7 @@ class DeploymentController extends Controller
         'produk_data' => $produk_data,
         'satuan_data' => $satuan_data,
         'status_ncx_data' => $status_ncx_data,
+        'status_wfm_data' => $status_wfm_data,
         'status_odp_data' => $status_odp_data,
         'status_integrasi_data' => $status_integrasi_data,]);
     }
@@ -182,7 +188,7 @@ class DeploymentController extends Controller
         $wfm->status_ncx_id = $request->status_ncx;
         $wfm->berita_acara = $request->berita_acara;
         $wfm->tgl_complete_wfm = $request->tgl_complete_wfm;
-        $wfm->status_wfm = $request->status_wfm;
+        $wfm->status_wfm_id = $request->status_wfm;
         $wfm->alasan_cancel = $request->alasan_cancel;
         $wfm->cancel_by = $request->cancel_by;
         $wfm->start_cancel = $request->start_cancel;
@@ -270,6 +276,10 @@ class DeploymentController extends Controller
         ->select("status_ncx_id", "status_ncx_nama")
         ->get();
 
+        $status_wfm_data = DB::table("status_wfm_tabel")
+        ->select("status_wfm_id", "status_wfm_nama")
+        ->get();
+
         $status_odp_data = DB::table('odp_tabel')
         ->select("odp_id", "odp_nama")
         ->get();
@@ -290,6 +300,7 @@ class DeploymentController extends Controller
         'produk_data' => $produk_data,
         'satuan_data' => $satuan_data,
         'status_ncx_data' => $status_ncx_data,
+        'status_wfm_data' => $status_wfm_data,
         'status_odp_data' => $status_odp_data,
         'status_integrasi_data' => $status_integrasi_data,]);
     }
@@ -321,7 +332,7 @@ class DeploymentController extends Controller
         $Deployment->status_ncx_id = $request->status_ncx;
         $Deployment->berita_acara = $request->berita_acara;
         $Deployment->tgl_complete_wfm = $request->tgl_complete_wfm;
-        $Deployment->status_wfm = $request->status_wfm;
+        $Deployment->status_wfm_id = $request->status_wfm;
         $Deployment->alasan_cancel = $request->alasan_cancel;
         $Deployment->cancel_by = $request->cancel_by;
         $Deployment->start_cancel = $request->start_cancel;

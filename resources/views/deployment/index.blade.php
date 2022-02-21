@@ -140,15 +140,13 @@
                             <label for="status_wfm">Status WFM</label>
                             <select class="form-control" id="status_wfm" name="status_wfm">
                                 @if (request('status_wfm'))
-                                <option value="{{ request('status_wfm') }}">{{ request('status_wfm') }}</option>
+                                <option value="{{ request('status_wfm') }}">Pilih Status WFM</option>
                                 @else
                                 <option value="">Pilih Status WFM</option>
                                 @endif
 
-                                @foreach ($status_wfm as $wfm_a)
-                                @if ($wfm_a->status_wfm != '')
-                                <option value="{{ $wfm_a->status_wfm }}">{{ $wfm_a->status_wfm }}</option>
-                                @endif
+                                @foreach ($status_wfm_data as $wfm_a)
+                                <option value="{{ $wfm_a->status_wfm_id }}">{{ $wfm_a->status_wfm_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -233,10 +231,10 @@
                             <th class="text-nowrap">READY AFTER CANCEL</th>
                             <th>STATUS INTEGRASI</th>
                             <th>TANGGAL INTEGRASI</th>
-                            <th class="text-nowrap">METRO</th>
+                            <th class="text-nowrap">METRO ACCESS</th>
                             <th>IP</th>
                             <th>PORT</th>
-                            <th class="text-nowrap">METRO</th>
+                            <th class="text-nowrap">METRO BACKHAUL</th>
                             <th>IP</th>
                             <th>PORT</th>
                             <th>VLAN</th>
@@ -278,17 +276,17 @@
                                 <td>{{$wfm->status_ncx_tabel->status_ncx_nama }}</td>
                                 <td>{{$wfm->berita_acara }}</td>
                                 <td>{{$wfm->tgl_complete_wfm}}</td>
-                                <td>{{$wfm->status_wfm }}</td>
+                                <td>{{$wfm->status_wfm_tabel->status_wfm_nama }}</td>
                                 <td>{{$wfm->alasan_cancel }}</td>
                                 <td>{{$wfm->cancel_by }}</td>
                                 <td>{{$wfm->start_cancel }}</td>
                                 <td>{{$wfm->ready_after_cancel }}</td>
                                 <td>{{$wfm->status_integrasi_tabel->status_integrasi_nama }}</td>
                                 <td>{{$wfm->tanggal_integrasi }}</td>
-                                <td>{{$wfm->metro_1 }}</td>
+                                <td>{{$wfm->metro_access }}</td>
                                 <td>{{$wfm->ip_1 }}</td>
                                 <td>{{$wfm->port_1 }}</td>
-                                <td>{{$wfm->metro_2 }}</td>
+                                <td>{{$wfm->metro_backhaul }}</td>
                                 <td>{{$wfm->ip_2 }}</td>
                                 <td>{{$wfm->port_2 }}</td>
                                 <td>{{$wfm->vlan }}</td>

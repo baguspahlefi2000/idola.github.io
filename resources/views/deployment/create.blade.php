@@ -139,7 +139,12 @@
                         <div class="form-row mt-3">
                             <div class="col">
                                 <label for="status_nfm">STATUS WFM</label>
-                                <input type="text" name="status_wfm" id="status_nfm" class="form-control">
+                                <select name="status_wfm" id="status_wfm" class="form-control" required>
+                                <option value="">Pilih Status WFM</option>
+                                    @foreach ($status_wfm_data as $item)
+                                    <option value="{{ $item->status_wfm_id }}">{{ $item->status_wfm_nama }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="col">
                                 <label for="alasan_cancel">ALASAN CANCEL</label>
