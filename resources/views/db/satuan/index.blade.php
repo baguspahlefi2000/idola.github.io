@@ -37,7 +37,7 @@
                                 <th class="text-center">NO</th>
                                 <th>Satuan</th>
                                 @canany(['admin', 'editor'])
-                                <th scope="col"><span class="las la-ellipsis-v"></span></th>
+                                <th scope="col" class="text-center"><span></span></th>
                                 @endcanany
                             </tr>
                         </thead>

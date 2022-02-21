@@ -16,7 +16,6 @@
                                 <label for="tanggal">TGL/BLN/THN</label>
                                 <input type="date" name="tanggal" id="tanggal" class="form-control" value="{{ $deployment->tanggal }}"></input>
                             </div>
-
                             <div class="col">
                                 <label for="ao">NO. AO</label>
                                 <input type="text" name="ao" id="ao" class="form-control" value="{{ $deployment->ao }}"></input>

@@ -368,6 +368,85 @@ th {
     display: none;
 }
 
+/* Data Rumah */
+.row-rumah  .rumah-1{
+    background-image: url("/img/home-1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-align: center;
+    background-position: center;
+}
+.row-rumah  .rumah-2{
+    background-image: url("/img/home-2.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-align: center;
+    background-position: center;
+}
+.row-rumah  .rumah-3{
+    background-image: url("/img/home-3.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-align: center;
+    background-position: center;
+}
+.row-rumah label{
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    font-size: 1.5ch;
+}
+.img-teknisi img{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+.isi-rumah{
+    font-size: 2.5ch;
+    font-weight: bold;
+}
+
+.table-rekap{
+    background-color: #e7e6e6;
+    border-radius: 15px;
+    box-shadow:0.2em 0.2em 0.4em grey;
+}
+
+.table-rekap th{
+    font-size: small;
+}
+.table-rekap td{
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+    color: white;
+}
+.table-rekap .data-1{
+    background-color: #ed7d31;
+    border-radius: 10px;
+
+}
+.table-rekap .total-1{
+    background-color: #c55a11;
+    border-radius: 10px;
+}
+.table-rekap .data-2{
+    background-color: #c00000;
+    border-radius: 10px;
+}
+.table-rekap .total-2{
+    background-color: #941100;
+    border-radius: 10px;
+}
+
+.table-rekap .tahun{
+    color: black;
+}
+
+
+
+/* Tutup Data Rumah */
+
 /* Style the Image Used to Trigger the Modal */
 #myImg {
     border-radius: 5px;
