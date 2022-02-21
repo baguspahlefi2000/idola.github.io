@@ -305,6 +305,12 @@ class DeploymentTabel extends Model
 		olo_tabel.olo_nama as OLO'))
         ->orderBy('AKTIVASI', 'DESC');
 	}
+
+	public function scopeRekapCustomer($query){
+		return $query
+		->addSelect(DB::raw('
+        SUM(CASE WHEN order_type_id = "1"  THEN 1 ELSE 0 END) as REKAP_CUSTOMER'));
+	}
 	
 
 

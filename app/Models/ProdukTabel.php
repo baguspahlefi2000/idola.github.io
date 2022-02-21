@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class ProdukTabel
@@ -38,5 +39,9 @@ class ProdukTabel extends Model
 	public function progress_lapangan_tabels()
 	{
 		return $this->hasMany(ProgressLapanganTabel::class, 'produk_id');
+	}
+	public function scopeRekapProduk($query){
+		return $query->addSelect(DB::raw('
+        COUNT(produk_id) - 1 as REKAP_PRODUK'));
 	}
 }

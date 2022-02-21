@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class WitelTabel
@@ -38,5 +39,10 @@ class WitelTabel extends Model
 	public function progress_lapangan_tabels()
 	{
 		return $this->hasMany(ProgressLapanganTabel::class, 'witel_id');
+	}
+
+	public function scopeRekapWitel($query){
+		return $query->addSelect(DB::raw('
+        COUNT(witel_id) - 1 as REKAP_WITEL'));
 	}
 }

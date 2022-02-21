@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ route('home') }}">
+        <a class="navbar-brand" href="{{ route('home.index') }}">
             <img src="{{ asset('img/logo_idola.png') }}" alt="logo aplikasi" style="max-height: 50px;" title="Logo Aplikasi">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navDropdown"
@@ -12,7 +12,7 @@
         <div class="navbar-collapse collapse d-flex-xl justify-content-xl-end" id="navDropdown">
             <ul class="navbar-nav mr-5">
                 <li class="nav-item menu">
-                    <a class="nav-link {{ Request::is('/') ? 'nav-active' : '' }}" href="{{ route('home') }}">Home</a>
+                    <a class="nav-link {{ Request::is('/') ? 'nav-active' : '' }}" href="{{ route('home.index') }}">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link {{ Request::is('wfm*') ? 'nav-active' : '' }} dropdown-toggle" href=""
@@ -90,7 +90,7 @@
         <div class="navbar-collapse collapse d-flex-xl justify-content-xl-end" id="navDropdown">
             <ul class="navbar-nav mr-5">
                 <li class="nav-item menu">
-                    <a class="nav-link {{ Request::is('/') ? 'nav-active' : '' }}" href="{{ route('home') }}">Home</a>
+                    <a class="nav-link {{ Request::is('/') ? 'nav-active' : '' }}" href="{{ route('home.index') }}">Home</a>
                 </li>
                 
                 <li class="nav-item dropdown">

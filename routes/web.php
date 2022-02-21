@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PekerjaanLapanganController;
 use App\Http\Controllers\ProgresLapanganController;
 use App\Http\Controllers\OloController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\RekapController;
@@ -40,7 +41,7 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 // Route Home
-Route::get('/', [RekapController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/', [HomeController::class, 'index'])->name('home.index')->middleware('auth');
 
 // Route Database
 // Route::get('/database', [DatabaseController::class, 'index'])->name('database.index')->middleware('auth');
@@ -163,4 +164,4 @@ Route::put('/management/update/{user}', [UserManagementController::class, 'updat
 Route::delete('/management/delete/{user}', [UserManagementController::class, 'destroy'])->name('management.destroy');
 
 Auth::routes();
-Route::get('/', [RekapController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/', [HomeController::class, 'index'])->name('home.index')->middleware('auth');
