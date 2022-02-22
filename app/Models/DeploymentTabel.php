@@ -306,10 +306,16 @@ class DeploymentTabel extends Model
         ->orderBy('AKTIVASI', 'DESC');
 	}
 
-	public function scopeRekapCustomer($query){
+
+	public function scopeRekapSatu($query){
+
+
 		return $query
 		->addSelect(DB::raw('
-        SUM(CASE WHEN order_type_id = "1"  THEN 1 ELSE 0 END) as REKAP_CUSTOMER'));
+        SUM(CASE WHEN order_type_id = "1"  THEN 1 ELSE 0 END) as REKAP_AKTIVASI_SATU,
+        SUM(CASE WHEN order_type_id = "2"  THEN 1 ELSE 0 END) as REKAP_MODIFY_SATU,
+        SUM(CASE WHEN order_type_id = "3"  THEN 1 ELSE 0 END) as REKAP_DISCONNECT_SATU'))
+        ->whereBetween('tanggal',['2021-01-01','2021-12-31']);
 	}
 
 	public function scopeRekapDua($query){

@@ -424,23 +424,28 @@ th {
 .table-rekap .data-1{
     background-color: #ed7d31;
     border-radius: 10px;
+    min-width: 5.5vw;
 
 }
 .table-rekap .total-1{
     background-color: #c55a11;
     border-radius: 10px;
+    min-width: 5.5vw;
 }
 .table-rekap .data-2{
     background-color: #c00000;
     border-radius: 10px;
+    min-width: 5.5vw;
 }
 .table-rekap .total-2{
     background-color: #941100;
     border-radius: 10px;
+    min-width: 5.5vw;
 }
 
 .table-rekap .tahun{
     color: black;
+    transform: rotate(270deg);
 }
 
 .row .table-kiri {

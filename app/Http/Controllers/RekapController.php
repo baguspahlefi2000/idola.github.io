@@ -31,18 +31,22 @@ class RekapController extends Controller
 
         $witel_data = DB::table("witel_tabel")
         ->select("witel_id", "witel_nama")
+        ->orderBy('witel_nama', 'ASC')
         ->get();
 
         $olo_data = DB::table("olo_tabel")
         ->select("olo_id","olo_nama")
+        ->orderBy('olo_nama', 'ASC')
         ->get();
 
         $order_type_data = DB::table("order_type_tabel")
         ->select("order_type_id", "order_type_nama")
+        ->orderBy('order_type_nama', 'ASC')
         ->get();
 
         $produk_data = DB::table("produk_tabel")
         ->select("produk_id", "produk_nama")
+        ->orderBy('produk_nama', 'ASC')
         ->get();
 
 

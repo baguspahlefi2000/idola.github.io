@@ -36,24 +36,28 @@ class DisconnectController extends Controller
 
         $witel_data = DB::table("witel_tabel")
         ->select("witel_id", "witel_nama")
+        ->orderBy('witel_nama', 'ASC')
         ->get();
 
         $olo_data = DB::table("olo_tabel")
         ->select("olo_id","olo_nama")
+        ->orderBy('olo_nama', 'ASC')
         ->get();
 
         $jenis_nte_data = DB::table("jenis_nte_tabel")
         ->select("jenis_nte_id", "jenis_nte_nama")
+        ->orderBy('jenis_nte_nama', 'ASC')
         ->get();
 
         $status_disconnect_detail_data = DB::table("status_disconnect_detail_tabel")
         ->select("status_disconnect_detail_id", "status_disconnect_detail_nama")
+        ->orderBy('status_disconnect_detail_nama', 'ASC')
         ->get();
 
 
         return view('disconnect.index', [
             'title' => 'Halaman Disconnect',
-            'disconnect' => DeploymentTabel::orderBy('deployment_id')->where('order_type_id', '=', '3')->filter(request(['no_ao', 
+            'disconnect' => DeploymentTabel::orderBy('tanggal')->where('order_type_id', '=', '3')->filter(request(['no_ao', 
         'tanggal', 'witel', 'olo', 'jenis_nte', 'status_disconnect_detail'
         ]))->get(),
         'ao_data' => $ao_data, 
@@ -111,18 +115,22 @@ class DisconnectController extends Controller
 
         $witel_data = DB::table("witel_tabel")
         ->select("witel_id", "witel_nama")
+        ->orderBy('witel_nama', 'ASC')
         ->get();
 
         $olo_data = DB::table("olo_tabel")
         ->select("olo_id","olo_nama")
+        ->orderBy('olo_nama', 'ASC')
         ->get();
 
         $jenis_nte_data = DB::table("jenis_nte_tabel")
         ->select("jenis_nte_id", "jenis_nte_nama")
+        ->orderBy('jenis_nte_nama', 'ASC')
         ->get();
 
         $status_disconnect_detail_data = DB::table("status_disconnect_detail_tabel")
         ->select("status_disconnect_detail_id", "status_disconnect_detail_nama")
+        ->orderBy('status_disconnect_detail_nama', 'ASC')
         ->get();
 
         return view('disconnect.edit', ['title' => 'Halaman Disconnect', 

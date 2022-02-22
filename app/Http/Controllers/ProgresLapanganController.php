@@ -46,16 +46,18 @@ class ProgresLapanganController extends Controller
 
         $witel_data = DB::table("witel_tabel")
         ->select("witel_id", "witel_nama")
+        ->orderBy('witel_nama', 'ASC')
         ->get();
 
         $olo_data = DB::table("olo_tabel")
         ->select("olo_id","olo_nama")
+        ->orderBy('olo_nama', 'ASC')
         ->get();
 
         $produk_data = DB::table("produk_tabel")
         ->select("produk_id", "produk_nama")
+        ->orderBy('produk_nama', 'ASC')
         ->get();
-
 
         $status_progress_data = DB::table("status_p_lapangan_tabel")
         ->select("status_p_lapangan_id", "status_p_lapangan_nama")
@@ -66,7 +68,7 @@ class ProgresLapanganController extends Controller
 
 
         return view('progress_lapangan.index', ['title' => 'Halaman Progress lapangan', 
-        'progress_lapangan' => ProgressLapanganTabel::orderBy('progress_lapangan_id')->filter(request(['no_ao', 
+        'progress_lapangan' => ProgressLapanganTabel::orderBy('tanggal')->filter(request(['no_ao', 
         'tanggal', 'witel', 'olo', 'produk', 'progress'
         ]))->get(),
         'ao_data' => $ao_data, 
@@ -91,27 +93,19 @@ class ProgresLapanganController extends Controller
 
         $witel_data = DB::table("witel_tabel")
         ->select("witel_id", "witel_nama")
+        ->orderBy('witel_nama', 'ASC')
         ->get();
 
         $olo_data = DB::table("olo_tabel")
         ->select("olo_id","olo_nama")
-        ->get();
-
-        $site_kriteria_data = DB::table("site_kriteria_tabel")
-        ->select("site_kriteria_id", "site_kriteria_nama")
-        ->get();
-
-        $order_type_data = DB::table("order_type_tabel")
-        ->select("order_type_id", "order_type_nama")
+        ->orderBy('olo_nama', 'ASC')
         ->get();
 
         $produk_data = DB::table("produk_tabel")
         ->select("produk_id", "produk_nama")
+        ->orderBy('produk_nama', 'ASC')
         ->get();
 
-        $satuan_data = DB::table("satuan_tabel")
-        ->select("satuan_id", "satuan_nama")
-        ->get();
 
         $status_progress_data = DB::table("status_p_lapangan_tabel")
         ->select("status_p_lapangan_id", "status_p_lapangan_nama")
@@ -121,7 +115,6 @@ class ProgresLapanganController extends Controller
         'ao_data' => $ao_data, 
         'witel_data' => $witel_data,
         'olo_data' => $olo_data,
-        'order_type_data' => $order_type_data,
         'produk_data' => $produk_data,
         'status_progress_data' => $status_progress_data,]);
     }
@@ -180,27 +173,19 @@ class ProgresLapanganController extends Controller
 
         $witel_data = DB::table("witel_tabel")
         ->select("witel_id", "witel_nama")
+        ->orderBy('witel_nama', 'ASC')
         ->get();
 
         $olo_data = DB::table("olo_tabel")
         ->select("olo_id","olo_nama")
-        ->get();
-
-        $site_kriteria_data = DB::table("site_kriteria_tabel")
-        ->select("site_kriteria_id", "site_kriteria_nama")
-        ->get();
-
-        $order_type_data = DB::table("order_type_tabel")
-        ->select("order_type_id", "order_type_nama")
+        ->orderBy('olo_nama', 'ASC')
         ->get();
 
         $produk_data = DB::table("produk_tabel")
         ->select("produk_id", "produk_nama")
+        ->orderBy('produk_nama', 'ASC')
         ->get();
 
-        $satuan_data = DB::table("satuan_tabel")
-        ->select("satuan_id", "satuan_nama")
-        ->get();
 
         $status_progress_data = DB::table("status_p_lapangan_tabel")
         ->select("status_p_lapangan_id", "status_p_lapangan_nama")
@@ -211,7 +196,6 @@ class ProgresLapanganController extends Controller
         'ao_data' => $ao_data, 
         'witel_data' => $witel_data,
         'olo_data' => $olo_data,
-        'order_type_data' => $order_type_data,
         'produk_data' => $produk_data,
         'status_progress_data' => $status_progress_data,]);
         

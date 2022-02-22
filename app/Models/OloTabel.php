@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class OloTabel
@@ -38,5 +39,11 @@ class OloTabel extends Model
 	public function progress_lapangan_tabels()
 	{
 		return $this->hasMany(ProgressLapanganTabel::class, 'olo_id');
+	}
+
+	public function scopeRekapCustomer($query){
+		return $query
+		->addSelect(DB::raw('
+        COUNT(olo_id) - 1 as REKAP_CUSTOMER'));
 	}
 }

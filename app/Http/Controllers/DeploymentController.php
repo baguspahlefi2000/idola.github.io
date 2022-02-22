@@ -34,36 +34,42 @@ class DeploymentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {        
+
         $ao_data = DB::table("deployment_tabel")
         ->select("deployment_tabel.ao as no_ao")
         ->get();
 
         $witel_data = DB::table("witel_tabel")
         ->select("witel_id", "witel_nama")
+        ->orderBy('witel_nama', 'ASC')
         ->get();
 
         $olo_data = DB::table("olo_tabel")
         ->select("olo_id","olo_nama")
+        ->orderBy('olo_nama', 'ASC')
         ->get();
 
         $order_type_data = DB::table("order_type_tabel")
         ->select("order_type_id", "order_type_nama")
+        ->orderBy('order_type_nama', 'ASC')
         ->get();
 
         $produk_data = DB::table("produk_tabel")
         ->select("produk_id", "produk_nama")
+        ->orderBy('produk_nama', 'ASC')
         ->get();
 
         $status_ncx_data = DB::table("status_ncx_tabel")
         ->select("status_ncx_id", "status_ncx_nama")
+        ->orderBy('status_ncx_nama', 'ASC')
         ->get();
 
         $status_wfm_data = DB::table("status_wfm_tabel")
         ->select("status_wfm_id", "status_wfm_nama")
         ->get();
 
-        $status_integrasi_data = DB::table("status_integrasi_tabel")
+        $status_integrasi_data = DB::table('status_integrasi_tabel')
         ->select("status_integrasi_id", "status_integrasi_nama")
         ->get();
         
@@ -71,7 +77,7 @@ class DeploymentController extends Controller
         
 
         return view('deployment.index', ['title' => 'Halaman Deployment', 
-        'deployment' => DeploymentTabel::orderBy('deployment_id')->filter(request(['no_ao', 
+        'deployment' => DeploymentTabel::orderBy('tanggal')->filter(request(['no_ao', 
         'tanggal', 'witel', 'olo', 'order_type', 'produk', 'status_ncx', 'status_wfm','status_integrasi'
         ]))->get(),
         'ao_data' => $ao_data, 
@@ -100,30 +106,37 @@ class DeploymentController extends Controller
 
         $witel_data = DB::table("witel_tabel")
         ->select("witel_id", "witel_nama")
+        ->orderBy('witel_nama', 'ASC')
         ->get();
 
         $olo_data = DB::table("olo_tabel")
         ->select("olo_id","olo_nama")
+        ->orderBy('olo_nama', 'ASC')
         ->get();
         
         $site_kriteria_data = DB::table("site_kriteria_tabel")
         ->select("site_kriteria_id", "site_kriteria_nama")
+        ->orderBy('site_kriteria_nama', 'ASC')
         ->get();
 
         $order_type_data = DB::table("order_type_tabel")
         ->select("order_type_id", "order_type_nama")
+        ->orderBy('order_type_nama', 'ASC')
         ->get();
 
         $produk_data = DB::table("produk_tabel")
         ->select("produk_id", "produk_nama")
+        ->orderBy('produk_nama', 'ASC')
         ->get();
 
         $satuan_data = DB::table("satuan_tabel")
         ->select("satuan_id", "satuan_nama")
+        ->orderBy('satuan_nama', 'ASC')
         ->get();
 
         $status_ncx_data = DB::table("status_ncx_tabel")
         ->select("status_ncx_id", "status_ncx_nama")
+        ->orderBy('status_ncx_nama', 'ASC')
         ->get();
 
         $status_wfm_data = DB::table("status_wfm_tabel")
@@ -137,6 +150,8 @@ class DeploymentController extends Controller
         $status_integrasi_data = DB::table('status_integrasi_tabel')
         ->select("status_integrasi_id", "status_integrasi_nama")
         ->get();
+
+        
 
         return view('deployment.create', ['title' => 'Tambah Data - WFM', 
         'ao_data' => $ao_data, 
@@ -250,30 +265,37 @@ class DeploymentController extends Controller
 
         $witel_data = DB::table("witel_tabel")
         ->select("witel_id", "witel_nama")
+        ->orderBy('witel_nama', 'ASC')
         ->get();
 
         $olo_data = DB::table("olo_tabel")
         ->select("olo_id","olo_nama")
+        ->orderBy('olo_nama', 'ASC')
         ->get();
         
         $site_kriteria_data = DB::table("site_kriteria_tabel")
         ->select("site_kriteria_id", "site_kriteria_nama")
+        ->orderBy('site_kriteria_nama', 'ASC')
         ->get();
 
         $order_type_data = DB::table("order_type_tabel")
         ->select("order_type_id", "order_type_nama")
+        ->orderBy('order_type_nama', 'ASC')
         ->get();
 
         $produk_data = DB::table("produk_tabel")
         ->select("produk_id", "produk_nama")
+        ->orderBy('produk_nama', 'ASC')
         ->get();
 
         $satuan_data = DB::table("satuan_tabel")
         ->select("satuan_id", "satuan_nama")
+        ->orderBy('satuan_nama', 'ASC')
         ->get();
 
         $status_ncx_data = DB::table("status_ncx_tabel")
         ->select("status_ncx_id", "status_ncx_nama")
+        ->orderBy('status_ncx_nama', 'ASC')
         ->get();
 
         $status_wfm_data = DB::table("status_wfm_tabel")

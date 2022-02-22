@@ -48,11 +48,20 @@
                             <th class="text-nowrap text-center">Total</th>
                         </thead>
                         <tbody>
+                            <?php
+                                $totalSatu = 0;
+                                
+                            ?>
                             <td class="tahun">2021</td>
-                            <td><div class="py-2 px-3 data-1">517</div></td>
-                            <td><div class="py-2 px-3 data-1">155</div></td>
-                            <td><div class="py-2 px-3 data-1">262</div></td>
-                            <td><div class="py-2 px-3 total-1">934</div></td>
+                            @foreach ($rekapSatu as $item)
+                            <<td><div class="py-2 px-3 data-1">{{ $item->REKAP_AKTIVASI_SATU }}</div></td>
+                            <td><div class="py-2 px-3 data-1">{{ $item->REKAP_MODIFY_SATU }}</div></td>
+                            <td><div class="py-2 px-3 data-1">{{ $item->REKAP_DISCONNECT_SATU }}</div></td>
+                            <?php
+                                $totalSatu = $item->REKAP_AKTIVASI_SATU + $item->REKAP_MODIFY_SATU + $item->REKAP_DISCONNECT_SATU;
+                            ?>
+                            <td><div class="py-2 px-3 total-1">{{ $totalSatu }}</div></td>
+                            @endforeach
                         </tbody>
                         <tbody>
                             <?php
