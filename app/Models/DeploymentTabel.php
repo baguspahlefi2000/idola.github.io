@@ -311,6 +311,17 @@ class DeploymentTabel extends Model
 		->addSelect(DB::raw('
         SUM(CASE WHEN order_type_id = "1"  THEN 1 ELSE 0 END) as REKAP_CUSTOMER'));
 	}
+
+	public function scopeRekapDua($query){
+
+
+		return $query
+		->addSelect(DB::raw('
+        SUM(CASE WHEN order_type_id = "1"  THEN 1 ELSE 0 END) as REKAP_AKTIVASI_DUA,
+        SUM(CASE WHEN order_type_id = "2"  THEN 1 ELSE 0 END) as REKAP_MODIFY_DUA,
+        SUM(CASE WHEN order_type_id = "3"  THEN 1 ELSE 0 END) as REKAP_DISCONNECT_DUA'))
+        ->whereBetween('tanggal',['2022-01-01','2022-12-31']);
+	}
 	
 
 

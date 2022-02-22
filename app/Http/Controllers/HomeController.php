@@ -29,7 +29,8 @@ class HomeController extends Controller
         return view('home.index', ['title' => 'idola - Integrated Database OLO TR 3', 
         'witel' => WitelTabel::rekapWitel()->get(),
         'produk' => ProdukTabel::rekapProduk()->get(),
-        'customer' => DeploymentTabel::rekapCustomer()->get()]);
+        'customer' => DeploymentTabel::rekapCustomer()->get(),
+        'rekapDua' => DeploymentTabel::rekapDua()->get()]);
     }
 
     /**

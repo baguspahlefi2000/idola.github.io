@@ -53,16 +53,26 @@
                         <tbody>
                             <td class="tahun">2021</td>
                             <td><div class="py-2 px-3 data-1">517</div></td>
-                            <td><div class="py-2 px-3 data-1">517</div></td>
-                            <td><div class="py-2 px-3 data-1">517</div></td>
-                            <td><div class="py-2 px-3 total-1">517</div></td>
+                            <td><div class="py-2 px-3 data-1">155</div></td>
+                            <td><div class="py-2 px-3 data-1">262</div></td>
+                            <td><div class="py-2 px-3 total-1">934</div></td>
                         </tbody>
                         <tbody>
+                            <?php
+                                $totalDua = 0;
+                                
+                            ?>
                             <td class="tahun">2022</td>
-                            <td><div class="py-2 px-3 data-2">517</div></td>
-                            <td><div class="py-2 px-3 data-2">517</div></td>
-                            <td><div class="py-2 px-3 data-2">517</div></td>
-                            <td><div class="py-2 px-3 total-2">517</div></td>
+                            @foreach ($rekapDua as $item)
+                            <td><div class="py-2 px-3 data-2">{{ $item->REKAP_AKTIVASI_DUA }}</div></td>
+                            <td><div class="py-2 px-3 data-2">{{ $item->REKAP_MODIFY_DUA }}</div></td>
+                            <td><div class="py-2 px-3 data-2">{{ $item->REKAP_DISCONNECT_DUA }}</div></td>
+                            <?php
+                                $totalDua = $item->REKAP_AKTIVASI_DUA + $item->REKAP_MODIFY_DUA + $item->REKAP_DISCONNECT_DUA;
+                            ?>
+                            <td><div class="py-2 px-3 total-2">{{ $totalDua }}</div></td>
+                           
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
