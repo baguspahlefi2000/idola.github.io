@@ -473,15 +473,53 @@ th {
     text-align: center;
     vertical-align: middle;
     color: white;
-
 }
+
 
 .row .table-kanan .text{
     border: 2px solid #0432ff;
     border-radius: 8px 0px 0px 8px;
-
 }
 
+
+ .row .progressff{
+     background-color: #e2f0d9;
+     border : 1px solid black
+ }
+ .row .integrasi{
+    background-image: url("/img/integrasi.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-align: center;
+    background-position: center;
+}
+
+.row .integrasi-2{
+    background-image: url("/img/integrasi2.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-align: center;
+    background-position: center;
+}
+
+.row .integrasi-3{
+    background-image: url("/img/integrasi3.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-align: center;
+    background-position: center;
+}
+.row .totaltxtff{
+    background-color: #70ad47;
+    border-left: 0.5px solid black;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black;
+}
+
+.row .totalff{
+    background-color: #548235;
+    border-left: 0.5px solid black;
+}
 
 
 

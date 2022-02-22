@@ -54,7 +54,7 @@
                             ?>
                             <td class="tahun">2021</td>
                             @foreach ($rekapSatu as $item)
-                            <<td><div class="py-2 px-3 data-1">{{ $item->REKAP_AKTIVASI_SATU }}</div></td>
+                            <td><div class="py-2 px-3 data-1">{{ $item->REKAP_AKTIVASI_SATU }}</div></td>
                             <td><div class="py-2 px-3 data-1">{{ $item->REKAP_MODIFY_SATU }}</div></td>
                             <td><div class="py-2 px-3 data-1">{{ $item->REKAP_DISCONNECT_SATU }}</div></td>
                             <?php
@@ -130,11 +130,74 @@
                     </div>
                 </div>
             </div>
+            
             <div class="col border border-primary">
                 
+                
+                
             </div>
-            <div class="col border border-primary">
 
+            <div class="col progressff">
+                <div class="row mt-4 text-center mx-4">
+                    <div class="col">
+                        <h6>Complete</h6>
+                    </div>
+                    <div class="col">
+                        <h6>On Progress</h6>
+                    </div>
+                    <div class="col">
+                        <h6>Cancel</h6>
+                    </div>
+                </div>
+                <div class="row text-center text-white mt-1 mb-4 mx-4">
+                    <div class="col-4 integrasi">
+                        <h4 class="p-3">881</h4>
+                    </div>
+                    <div class="col-4 integrasi-2">
+                        <h4 class="p-3">8</h4>
+                    </div>
+                    <div class="col-4 integrasi-3">
+                        <h4 class="p-3">8</h4>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-7">
+                        <div class="row text-center">
+                            <div class="col integrasi">
+                                @foreach ($witel as $item)
+                                <h4 class="mt-1 p-3 text-white">{{ $item->REKAP_WITEL }}</h4>
+                                @endforeach
+                            </div>
+                            <div class="col integrasi-2 mr-4">
+                                @foreach ($witel as $item)
+                                <h4 class="mt-1 p-3 text-white">{{ $item->REKAP_WITEL }}</h4>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h6>Done Integrasi</h6>
+                            </div>
+                            <div class="col">
+                                <h6>Menunggu Integrasi</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row justify-content-end">
+                    <div class="col-4 totaltxtff text-center text-white">
+                        <h6 class="pt-2 align-middle">Total</h6>
+                    </div>
+                </div>
+                <div class="row justify-content-end">
+                    <div class="col-4 totalff">
+                        <h2 class="py-3 text-center text-white">81</h2>
+                    </div>
+                </div>
+                
             </div>
         </div>
         <!-- Data Row 2 -->
