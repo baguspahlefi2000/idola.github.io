@@ -30,7 +30,9 @@ class HomeController extends Controller
         'witel' => WitelTabel::rekapWitel()->get(),
         'produk' => ProdukTabel::rekapProduk()->get(),
         'customer' => DeploymentTabel::rekapCustomer()->get(),
-        'rekapDua' => DeploymentTabel::rekapDua()->get()]);
+        'rekapDua' => DeploymentTabel::rekapDua()->get(),
+        'topProduk' => DeploymentTabel::topProduk()->skip(0)->take(10)->get(),
+        'topOlo' => DeploymentTabel::topOlo()->skip(0)->take(10)->get()]);
     }
 
     /**

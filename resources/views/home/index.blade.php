@@ -101,34 +101,22 @@
                 <div class="row">
                     <div class="col-sm">
                         <table class="table table-kiri">
+                            @foreach ($topProduk as $item)
                             <tr>
-                                <td class="angka">1</td>
-                                <td class="text">BINA INFORMATIKA SOLUSINDO (FIBERCONNECT)</td>
+                                <td class="angka">{{ $loop->iteration }}</td>
+                                <td class="text">{{ $item->REKAP_PRODUK_NAMA }}</td>
                             </tr>
-                            <tr>
-                                <td class="angka">1</td>
-                                <td class="text">BINA INFORMATIKA SOLUSINDO (FIBERCONNECT)</td>
-                            </tr>
-                            <tr>
-                                <td class="angka">1</td>
-                                <td class="text">BINA INFORMATIKA</td>
-                            </tr>
+                            @endforeach
                         </table>
                     </div>
                     <div class="col-sm">
                         <table class="table table-kanan">
+                            @foreach ($topOlo as $item)
                             <tr>
-                                <td class="text">Telkomsel</td>
-                                <td class="angka">1</td>
+                                <td class="text">{{ $item->REKAP_OLO_NAMA }}</td>
+                                <td class="angka">{{ $loop->iteration }}</td>
                             </tr>
-                            <tr>
-                                <td class="text">Telkomsel</td>
-                                <td class="angka">1</td>
-                            </tr>
-                            <tr>
-                                <td class="text">Telkomsel</td>
-                                <td class="angka">1</td>
-                            </tr>
+                            @endforeach
                         </table>
                     </div>
                 </div>

@@ -322,6 +322,24 @@ class DeploymentTabel extends Model
         SUM(CASE WHEN order_type_id = "3"  THEN 1 ELSE 0 END) as REKAP_DISCONNECT_DUA'))
         ->whereBetween('tanggal',['2022-01-01','2022-12-31']);
 	}
+
+	public function scopeTopProduk($query){
+		return $query->join('produk_tabel', 'produk_tabel.produk_id', '=', 'deployment_tabel.produk_id')
+		->groupBy('deployment_tabel.produk_id')
+		->addSelect(DB::raw('
+        COUNT(deployment_tabel.produk_id) as REKAP_PRODUK,
+		produk_tabel.produk_nama as REKAP_PRODUK_NAMA'))
+        ->orderBy('REKAP_PRODUK', 'DESC');
+	}
+	
+	public function scopeTopOlo($query){
+		return $query->join('olo_tabel', 'olo_tabel.olo_id', '=', 'deployment_tabel.olo_id')
+		->groupBy('deployment_tabel.olo_id')
+		->addSelect(DB::raw('
+        COUNT(deployment_tabel.olo_id) as REKAP_OLO,
+		olo_tabel.olo_nama as REKAP_OLO_NAMA'))
+        ->orderBy('REKAP_OLO', 'DESC');
+	}
 	
 
 

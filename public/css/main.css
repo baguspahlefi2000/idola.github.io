@@ -452,6 +452,7 @@ th {
     border: 2px solid #ff2600;
     vertical-align: middle;
     text-align: center;
+    color: white;
 }
 .row .table-kiri .text{
     border: 2px solid #ff2600;
@@ -466,6 +467,7 @@ th {
     border: 2px solid #0432ff;
     text-align: center;
     vertical-align: middle;
+    color: white;
 
 }
 
