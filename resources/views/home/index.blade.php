@@ -7,9 +7,6 @@
             <div class="col-md-4 tulisan">
                 <h4>OLO CUSTOMER DATA HIGHLIGHTS</h4>
              </div>
-            <div class="col-md-2 pt-1 tulisan-tanggal bg-danger">
-                <h4 class="text-white text-center">4 - 10 Feb 22</h4>
-            </div>
             <div class="col">
                 <span id="ct" class="mt-3 d-block text-right"></span>
             </div>
@@ -89,6 +86,63 @@
             </div>
         </div>
         <!--Tutup Data Row 1 -->
+
+        <!-- Data Row 2 -->
+        <div class="row mx-2">
+            <div class="col border border-primary">
+                <div class="row">
+                    <div class="col">
+                        <h5>Top 10 Produk OLO</h5>
+                    </div>
+                    <div class="col">
+                        <h5 class="text-right">Top 10 OLO</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <table class="table table-kiri">
+                            <tr>
+                                <td class="angka">1</td>
+                                <td class="text">BINA INFORMATIKA SOLUSINDO (FIBERCONNECT)</td>
+                            </tr>
+                            <tr>
+                                <td class="angka">1</td>
+                                <td class="text">BINA INFORMATIKA SOLUSINDO (FIBERCONNECT)</td>
+                            </tr>
+                            <tr>
+                                <td class="angka">1</td>
+                                <td class="text">BINA INFORMATIKA</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-sm">
+                        <table class="table table-kanan">
+                            <tr>
+                                <td class="text">Telkomsel</td>
+                                <td class="angka">1</td>
+                            </tr>
+                            <tr>
+                                <td class="text">Telkomsel</td>
+                                <td class="angka">1</td>
+                            </tr>
+                            <tr>
+                                <td class="text">Telkomsel</td>
+                                <td class="angka">1</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col border border-primary">
+                
+            </div>
+            <div class="col border border-primary">
+
+            </div>
+        </div>
+        <!-- Data Row 2 -->
+    </div>
+
     </div>
 
     <!-- Tutup Data Semua -->
