@@ -346,6 +346,29 @@ class DeploymentTabel extends Model
 		olo_tabel.olo_nama as REKAP_OLO_NAMA'))
         ->orderBy('REKAP_OLO', 'DESC');
 	}
+
+	public function scopeRekapWfm($query){
+		return $query
+		->addSelect(DB::raw('
+        SUM(CASE WHEN status_wfm_id = "1"  THEN 1 ELSE 0 END) as REKAP_ONPROGRESS,
+		SUM(CASE WHEN status_wfm_id = "2" THEN 1 ELSE 0 END) + SUM(CASE WHEN status_wfm_id = "3" THEN 1 ELSE 0 END) as REKAP_DONE,
+        SUM(CASE WHEN status_wfm_id = "4"  THEN 1 ELSE 0 END) as REKAP_CANCEL'));
+	}
+
+	public function scopeRekapIntegrasiSatu($query){
+		return $query
+		->addSelect(DB::raw('
+		SUM(CASE WHEN status_wfm_id = "2" THEN 1 ELSE 0 END) + SUM(CASE WHEN status_wfm_id = "3" THEN 1 ELSE 0 END) as REKAP_DONE_INTEGRASI'))
+		->where('status_integrasi_id', '=', '2');
+	}
+
+	public function scopeRekapIntegrasiDua($query){
+		return $query
+		->addSelect(DB::raw('
+		SUM(CASE WHEN status_wfm_id = "2" THEN 1 ELSE 0 END) + SUM(CASE WHEN status_wfm_id = "3" THEN 1 ELSE 0 END) as REKAP_NOTYET_INTEGRASI'))
+		->where('status_integrasi_id', '=', '1');;
+		
+	}
 	
 
 

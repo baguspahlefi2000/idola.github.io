@@ -149,29 +149,35 @@
                         <h6>Cancel</h6>
                     </div>
                 </div>
+                <?php
+                    $totalff = 0;
+                                
+                ?>
                 <div class="row text-center text-white mt-1 mb-4 mx-4">
+                @foreach ($rekapWfm as $item)
                     <div class="col-4 integrasi">
-                        <h4 class="p-3">881</h4>
+                        <h4 class="p-3">{{ $item->REKAP_DONE }}</h4>
                     </div>
                     <div class="col-4 integrasi-2">
-                        <h4 class="p-3">8</h4>
+                        <h4 class="p-3">{{ $item->REKAP_ONPROGRESS }}</h4>
                     </div>
                     <div class="col-4 integrasi-3">
-                        <h4 class="p-3">8</h4>
+                        <h4 class="p-3">{{ $item->REKAP_CANCEL }}</h4>
                     </div>
+                @endforeach
                 </div>
 
                 <div class="row mt-4">
                     <div class="col-7">
                         <div class="row text-center">
                             <div class="col integrasi">
-                                @foreach ($witel as $item)
-                                <h4 class="mt-1 p-3 text-white">{{ $item->REKAP_WITEL }}</h4>
+                                @foreach ($rekapIntegrasiSatu as $item)
+                                <h4 class="mt-1 p-3 text-white">{{ $item->REKAP_DONE_INTEGRASI }}</h4>
                                 @endforeach
                             </div>
                             <div class="col integrasi-2 mr-4">
-                                @foreach ($witel as $item)
-                                <h4 class="mt-1 p-3 text-white">{{ $item->REKAP_WITEL }}</h4>
+                                @foreach ($rekapIntegrasiDua as $item)
+                                <h4 class="mt-1 p-3 text-white">{{ $item->REKAP_NOTYET_INTEGRASI }}</h4>
                                 @endforeach
                             </div>
                         </div>
@@ -192,12 +198,17 @@
                         <h6 class="pt-2 align-middle">Total</h6>
                     </div>
                 </div>
-                <div class="row justify-content-end">
-                    <div class="col-4 totalff">
-                        <h2 class="py-3 text-center text-white">81</h2>
-                    </div>
-                </div>
                 
+                <div class="row justify-content-end">
+                    @foreach ($rekapWfm as $item)
+                    <?php
+                    $totalff = $item->REKAP_DONE + $item->REKAP_ONPROGRESS + $item->REKAP_CANCEL;
+                    ?>
+                    <div class="col-4 totalff">
+                        <h2 class="py-3 text-center text-white">{{ $totalff }}</h2>
+                    </div>
+                    @endforeach
+                </div>
             </div>
         </div>
         <!-- Data Row 2 -->
