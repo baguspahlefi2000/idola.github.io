@@ -97,7 +97,7 @@
         <!--Tutup Data Row 1 -->
 
         <!-- Data Row 2 -->
-        <div class="row mx-2">
+        <div class="row">
             <div class="col border border-primary">
                 <div class="row">
                     <div class="col">
@@ -108,7 +108,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm">
+                    <div class="col-lg-6 col-md col-sm">
                         <table class="table table-kiri">
                             @foreach ($topProduk as $item)
                             <tr>
@@ -118,7 +118,7 @@
                             @endforeach
                         </table>
                     </div>
-                    <div class="col-sm">
+                    <div class="col-lg-6 col-md col-sm">
                         <table class="table table-kanan">
                             @foreach ($topOlo as $item)
                             <tr>
@@ -138,6 +138,19 @@
             </div>
 
             <div class="col progressff">
+                <div class="row tanggal ">
+                    <div class="col-6">
+                    <h6 for="tgl_bulan_dr">Dari Tanggal</h6>
+                        <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_dr"
+                                id="tgl_bulan_dr">
+                    </div>
+                    <div class="col-6">
+                    <h6 for="tgl_bulan_th_sd">Sampai Tanggal</h6>
+                        <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_sd"
+                                id="tgl_bulan_sd">
+                    </div>
+                </div>
+            <div class="isi-ff">
                 <div class="row mt-4 text-center mx-4">
                     <div class="col">
                         <h6>Complete</h6>
@@ -151,8 +164,8 @@
                 </div>
                 <?php
                     $totalff = 0;
-                                
                 ?>
+               
                 <div class="row text-center text-white mt-1 mb-4 mx-4">
                 @foreach ($rekapWfm as $item)
                     <div class="col-4 integrasi">
@@ -166,6 +179,9 @@
                     </div>
                 @endforeach
                 </div>
+
+                <hr class="vertical-line">
+                <hr class="vertical-line-2">
 
                 <div class="row mt-4">
                     <div class="col-7">
@@ -209,6 +225,7 @@
                     </div>
                     @endforeach
                 </div>
+            </div>
             </div>
         </div>
         <!-- Data Row 2 -->

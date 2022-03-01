@@ -483,7 +483,8 @@ th {
 
 
  .row .progressff{
-     background-color: #e2f0d9;
+    height: fit-content;
+    background-color: #e2f0d9;
      border : 1px solid black
  }
  .row .integrasi{
@@ -519,6 +520,31 @@ th {
 .row .totalff{
     background-color: #548235;
     border-left: 0.5px solid black;
+}
+
+.vertical-line{ 
+    position: absolute;
+    z-index: 0;
+    height: 1%;
+    width: 21%;
+    transform: rotate(110deg); 
+    border-color: purple;
+    margin-left: 2%;
+    margin-top: 1%;
+
+}
+.vertical-line-2{ 
+    position: absolute;
+    z-index: 0;
+    width: 23%; 
+    transform: rotate(-115deg); 
+    border-color: purple;
+    margin-left: 17%;
+    margin-top:  2.5%;
+}
+.row .isi-ff{
+    max-height: 100%;
+    background-color: #e2f0d9;
 }
 
 
