@@ -97,8 +97,8 @@
         <!--Tutup Data Row 1 -->
 
         <!-- Data Row 2 -->
-        <div class="row">
-            <div class="col border border-primary">
+        <div class="row mx-2">
+            <div class="col">
                 <div class="row">
                     <div class="col">
                         <h5>Top 10 Produk OLO</h5>
@@ -131,13 +131,17 @@
                 </div>
             </div>
             
-            <div class="col border border-primary">
+            <div class="col">
                 
                 
                 
             </div>
 
             <div class="col progressff">
+                <div class="row">
+                    <h5 class="ml-2">Progress FF</h5>
+                </div>
+                <form action="{{ route('home.index') }}" method="GET">
                 <div class="row tanggal ">
                     <div class="col-6">
                     <h6 for="tgl_bulan_dr">Dari Tanggal</h6>
@@ -149,6 +153,14 @@
                         <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_sd"
                                 id="tgl_bulan_sd">
                     </div>
+                    <div class="col-6">
+                        <button class="btn btn-reset px-4 py-2 mt-4 mr-2" type="submit">Reset</button>
+                    </div>
+                    <div class="col-6">
+                        <button class="btn btn-filter px-4 py-2 mt-4 mr-2" type="submit">Filter</button>
+                    </div>
+                    
+                </form>
                 </div>
             <div class="isi-ff">
                 <div class="row mt-4 text-center mx-4">
@@ -180,8 +192,7 @@
                 @endforeach
                 </div>
 
-                <hr class="vertical-line">
-                <hr class="vertical-line-2">
+                
 
                 <div class="row mt-4">
                     <div class="col-7">

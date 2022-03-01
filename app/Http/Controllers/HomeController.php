@@ -34,9 +34,9 @@ class HomeController extends Controller
         'rekapDua' => DeploymentTabel::rekapDua()->get(),
         'topProduk' => DeploymentTabel::topProduk()->skip(0)->take(10)->get(),
         'topOlo' => DeploymentTabel::topOlo()->skip(0)->take(10)->get(),
-        'rekapWfm' => DeploymentTabel::rekapWfm()->get(),
-        'rekapIntegrasiSatu' => DeploymentTabel::rekapIntegrasiSatu()->get(),
-        'rekapIntegrasiDua' => DeploymentTabel::rekapIntegrasiDua()->get()]);
+        'rekapWfm' => DeploymentTabel::rekapWfm()->filter(request(['tanggal']))->get(),
+        'rekapIntegrasiSatu' => DeploymentTabel::rekapIntegrasiSatu()->filter(request(['tanggal']))->get(),
+        'rekapIntegrasiDua' => DeploymentTabel::rekapIntegrasiDua()->filter(request(['tanggal']))->get()]);
     }
 
     /**

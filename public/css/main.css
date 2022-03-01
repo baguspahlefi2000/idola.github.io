@@ -485,7 +485,7 @@ th {
  .row .progressff{
     height: fit-content;
     background-color: #e2f0d9;
-     border : 1px solid black
+    border : 1px solid black;
  }
  .row .integrasi{
     background-image: url("/img/integrasi.png");
