@@ -77,7 +77,7 @@ class AssuranceTabel extends Model
 	public function scopeFirstCal($query){
 		return $query->join('olo_tabel', 'olo_tabel.olo_id', '=', 'assurance_tabel.olo_id')
 		->join('witel_tabel', 'witel_tabel.witel_id', '=', 'assurance_tabel.witel_id')
-		->groupBy('incident')
+		->groupBy('assurance_id')
 		->addSelect(DB::raw(' *,
         SUM(ttr_customer + ttr_pending) as TTR_E2E,
 		olo_tabel.olo_nama as REKAP_OLO_NAMA,
@@ -92,7 +92,7 @@ class AssuranceTabel extends Model
 	public function scopeThirdCal($query){
 		return $query
 		->addSelect(DB::raw('
-        SUM(CASE WHEN ttr_pending >= 5  THEN 1 ELSE 0 END) as NOT_COMPLY,
+        SUM(CASE WHEN ttr_pending > 5  THEN 1 ELSE 0 END) as NOT_COMPLY,
 		SUM(CASE WHEN ttr_pending <= 5  THEN 1 ELSE 0 END) as COMPLY'));
 	}
 
