@@ -131,10 +131,82 @@
                 </div>
             </div>
             
-            <div class="col">
-                
-                
-                
+            <div class="col-lg assurance text-center">
+                <div class="container">
+                    <div class="row py-3">
+                        <div class="col">
+                            <div class="row">
+                                <div class="container">
+                                    <h6>Comply</h6>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="container">
+                                    <h6>Not Comply</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col content-comply">
+                            <div class="row">
+                                <div class="container comply">
+                                    11
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="container not-comply">
+                                    0
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col content-total mx-3">
+                            <div class="row total">
+                                <div class="container">
+                                    total
+                                </div>
+                            </div>
+                            <div class="row isi-total">
+                                <div class="container">
+                                    <h1 class="text-white">11</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mttr">
+                             <div class="row">
+                                <div class="container mt-2 fw-bold">
+                                    <b>MTTR</b>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="container mt-2 isi-mttr">
+                                    <b>1.18</b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center">
+                            <h3>OLO Terganggu</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <table class="table table-kiri">
+                                <tr>
+                                    <td class="table">coba</td>
+                                    <td class="table">coba</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col">
+                        <table class="table table-kiri">
+                                <tr>
+                                    <td class="table">coba</td>
+                                    <td class="table">coba</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="col progressff">

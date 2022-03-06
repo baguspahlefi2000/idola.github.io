@@ -547,6 +547,49 @@ th {
     background-color: #e2f0d9;
 }
 
+.assurance{
+    height: fit-content;
+    background-color: #fff4cc;
+}
+.row .content-comply{
+    max-width: 15%;
+}
+.row .comply{
+    border-radius: 10px 10px 0px 0px;
+    max-width: 100%;
+    background-color: #08b454;
+    color: white;
+}
+.row .not-comply{
+    border-radius: 10px 10px 0px 0px;
+    max-width: 100%;
+    background-color: #c80404;
+    color: white;
+}
+.assurance .content-total{
+    max-width: 20%;
+}
+.assurance .total{
+    background-color: #c09404;
+    color: white;
+    border: 1px solid #c09404;
+}
+.assurance .isi-total{
+    background-color: #ffc404;
+    border: 1px solid #c09404;
+}
+.assurance .mttr{
+    background-color: #e8f4dc;
+    border: 2px solid #d8cccc;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+}
+.assurance .isi-mttr{
+    background-color: #78ac44;
+    color: white;
+    max-width: 80%;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 
 
 
