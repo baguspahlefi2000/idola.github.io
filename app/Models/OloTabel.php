@@ -41,6 +41,11 @@ class OloTabel extends Model
 		return $this->hasMany(ProgressLapanganTabel::class, 'olo_id');
 	}
 
+	public function assurance_tabels()
+	{
+		return $this->hasMany(AssuranceTabel::class, 'olo_id');
+	}
+
 	public function scopeRekapCustomer($query){
 		return $query
 		->addSelect(DB::raw('

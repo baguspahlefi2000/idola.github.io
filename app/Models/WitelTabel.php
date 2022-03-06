@@ -41,6 +41,11 @@ class WitelTabel extends Model
 		return $this->hasMany(ProgressLapanganTabel::class, 'witel_id');
 	}
 
+	public function assurance_tabels()
+	{
+		return $this->hasMany(AssuranceTabel::class, 'witel_id');
+	}
+
 	public function scopeRekapWitel($query){
 		return $query->addSelect(DB::raw('
         COUNT(witel_id) - 1 as REKAP_WITEL'));

@@ -40,6 +40,10 @@
                                 class="las la-pen mr-3"></i>Update Progress</a>
                     </div>
                 </li>
+                <li class="nav-item menu">
+                    <a class="nav-link {{ Request::is('assurance*') ? 'nav-active' : '' }}"
+                        href="{{ route('assurance.index') }}">Assurance</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="evaluasiMenu" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -103,6 +107,11 @@
                         <a class="dropdown-item" href="{{ route('progress.index') }}">Progress Lapangan</a>
                         <a class="dropdown-item" href="{{ route('rekap.index') }}">Rekap</a>
                     </div>
+                </li>
+
+                <li class="nav-item menu">
+                    <a class="nav-link {{ Request::is('assurance*') ? 'nav-active' : '' }}"
+                        href="{{ route('assurance.index') }}">Assurance</a>
                 </li>
 
                 <li class="nav-item menu">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssuranceController;
 use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\DeploymentController;
 use App\Http\Controllers\DisconnectController;
@@ -116,6 +117,9 @@ Route::post('/deployment/store', [DeploymentController::class, 'store'])->name('
 Route::get('/deployment/edit/{deployment}', [DeploymentController::class, 'edit'])->name('dep.edit')->middleware('editor');
 Route::put('/deployment/update/{deployment}', [DeploymentController::class, 'update'])->name('dep.update');
 Route::delete('/deployment/delete/{deployment}', [DeploymentController::class, 'destroy'])->name('dep.destroy');
+
+// assurance
+Route::get('/assurance', [AssuranceController::class, 'index'])->name('assurance.index')->middleware('auth');
 
 
 // disconnect

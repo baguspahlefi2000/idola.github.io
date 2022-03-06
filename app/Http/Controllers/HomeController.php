@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+
+use App\Models\AssuranceTabel;
 use App\Models\DeploymentTabel;
 use App\Models\WitelTabel;
 use App\Models\OloTabel;
@@ -36,7 +38,10 @@ class HomeController extends Controller
         'topOlo' => DeploymentTabel::topOlo()->skip(0)->take(10)->get(),
         'rekapWfm' => DeploymentTabel::rekapWfm()->filter(request(['tanggal']))->get(),
         'rekapIntegrasiSatu' => DeploymentTabel::rekapIntegrasiSatu()->filter(request(['tanggal']))->get(),
-        'rekapIntegrasiDua' => DeploymentTabel::rekapIntegrasiDua()->filter(request(['tanggal']))->get()]);
+        'rekapIntegrasiDua' => DeploymentTabel::rekapIntegrasiDua()->filter(request(['tanggal']))->get(),
+        'mttr' => AssuranceTabel::secondCal()->get(),
+        'comply_not_comply' => AssuranceTabel::thirdCal()->get(),
+        'rekap_assurance' => AssuranceTabel::fourthCal()->get()]);
     }
 
     /**

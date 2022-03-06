@@ -147,26 +147,30 @@
                             </div>
                         </div>
                         <div class="col content-comply">
+                        @foreach ($comply_not_comply as $item)
                             <div class="row">
                                 <div class="container comply">
-                                    11
+                                {{ $item->COMPLY }}
                                 </div>
                             </div>
                             <div class="row mt-4">
                                 <div class="container not-comply">
-                                    0
+                                {{ $item->NOT_COMPLY }}
                                 </div>
                             </div>
+                        @endforeach
                         </div>
                         <div class="col content-total mx-3">
                             <div class="row total">
                                 <div class="container">
-                                    total
+                                    Total
                                 </div>
                             </div>
                             <div class="row isi-total">
                                 <div class="container">
-                                    <h1 class="text-white">11</h1>
+                                @foreach ($rekap_assurance as $item)
+                                    <h1 class="text-white">{{ $item->REKAP_ASSURANCE }}</h1>
+                                @endforeach
                                 </div>
                             </div>
                         </div>
@@ -178,7 +182,9 @@
                             </div>
                             <div class="row">
                                 <div class="container mt-2 isi-mttr">
-                                    <b>1.18</b>
+                                @foreach ($mttr as $item)
+                                    <b>{{ $item->MTTR }}</b>
+                                @endforeach 
                                 </div>
                             </div>
                         </div>
