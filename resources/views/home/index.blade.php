@@ -131,10 +131,33 @@
                 </div>
             </div>
             
-            <div class="col-lg assurance text-center">
+            <div class="col-lg assurance text-center mx-2">
                 <div class="container">
-                    <div class="row py-3">
-                        <div class="col">
+                <div class="row">
+                    <h5 class="ml-2">Rekap Assurance</h5>
+                </div>
+                <form class="text-left" action="{{ route('home.index') }}" method="GET">
+                    <div class="row tanggal ">
+                        <div class="col-6">
+                        <h6 for="tgl_bulan_dr">Dari Tanggal</h6>
+                            <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_dr"
+                                    id="tgl_bulan_dr">
+                        </div>
+                        <div class="col-6">
+                        <h6 for="tgl_bulan_th_sd">Sampai Tanggal</h6>
+                            <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_sd"
+                                    id="tgl_bulan_sd">
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-reset px-4 py-2 mt-4 mr-2" type="submit">Reset</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-filter px-4 py-2 mt-4 mr-2" type="submit">Filter</button>
+                        </div>
+                    </div>
+                </form>
+                    <div class="row py-3 mt-3">
+                        <div class="col-3">
                             <div class="row">
                                 <div class="container">
                                     <h6>Comply</h6>
@@ -194,22 +217,33 @@
                             <h3>OLO Terganggu</h3>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <table class="table table-kiri">
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-2 d-flex justify-content-center tabel-ruwet">
+                            <table class="table table-kiri-assurance">
                                 <tr>
-                                    <td class="table">coba</td>
-                                    <td class="table">coba</td>
+                                    <td class="text">Hipernet</td>
+                                    <td class="angka">4</td>
+                                    <td class="text">Hipernet</td>
+                                    <td class="angka">4</td>
+                                </tr>
+                                <tr>
+                                    <td class="text">Hipernet</td>
+                                    <td class="angka">4</td>
+                                    <td class="text">Hipernet</td>
+                                    <td class="angka">4</td>
+                                </tr>
+                                <tr>
+                                    <td class="text">Hipernet</td>
+                                    <td class="angka">4</td>
+                                    <td class="text">Hipernet</td>
+                                    <td class="angka">4</td>
                                 </tr>
                             </table>
                         </div>
-                        <div class="col">
-                        <table class="table table-kiri">
-                                <tr>
-                                    <td class="table">coba</td>
-                                    <td class="table">coba</td>
-                                </tr>
-                            </table>
+                    </div>
+                    <div class="row my-2">
+                        <div class="container">
+                            <div id="container"></div>
                         </div>
                     </div>
                 </div>
@@ -220,26 +254,26 @@
                     <h5 class="ml-2">Progress FF</h5>
                 </div>
                 <form action="{{ route('home.index') }}" method="GET">
-                <div class="row tanggal ">
-                    <div class="col-6">
-                    <h6 for="tgl_bulan_dr">Dari Tanggal</h6>
-                        <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_dr"
-                                id="tgl_bulan_dr">
+                    <div class="row tanggal ">
+                        <div class="col-6">
+                        <h6 for="tgl_bulan_dr">Dari Tanggal</h6>
+                            <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_dr"
+                                    id="tgl_bulan_dr">
+                        </div>
+                        <div class="col-6">
+                        <h6 for="tgl_bulan_th_sd">Sampai Tanggal</h6>
+                            <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_sd"
+                                    id="tgl_bulan_sd">
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-reset px-4 py-2 mt-4 mr-2" type="submit">Reset</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-filter px-4 py-2 mt-4 mr-2" type="submit">Filter</button>
+                        </div>
                     </div>
-                    <div class="col-6">
-                    <h6 for="tgl_bulan_th_sd">Sampai Tanggal</h6>
-                        <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_sd"
-                                id="tgl_bulan_sd">
-                    </div>
-                    <div class="col-6">
-                        <button class="btn btn-reset px-4 py-2 mt-4 mr-2" type="submit">Reset</button>
-                    </div>
-                    <div class="col-6">
-                        <button class="btn btn-filter px-4 py-2 mt-4 mr-2" type="submit">Filter</button>
-                    </div>
-                    
                 </form>
-                </div>
+     
             <div class="isi-ff">
                 <div class="row mt-4 text-center mx-4">
                     <div class="col">
@@ -318,10 +352,15 @@
             </div>
         </div>
         <!-- Data Row 2 -->
+        <div class="text-center">
+            <img src="{{ asset('img/tulisan-home.png') }}" width="550px" alt="">
+        </div>
     </div>
-
+        
     </div>
-
+    <div class="text-center my-2">
+        <h6>Developed by Putri Nurina Ayuningtias / 870014</h6>
+    </div>
     <!-- Tutup Data Semua -->
 </div>
 @endsection
