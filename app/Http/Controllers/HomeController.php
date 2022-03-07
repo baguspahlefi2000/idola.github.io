@@ -39,10 +39,11 @@ class HomeController extends Controller
         'rekapWfm' => DeploymentTabel::rekapWfm()->filter(request(['tanggal']))->get(),
         'rekapIntegrasiSatu' => DeploymentTabel::rekapIntegrasiSatu()->filter(request(['tanggal']))->get(),
         'rekapIntegrasiDua' => DeploymentTabel::rekapIntegrasiDua()->filter(request(['tanggal']))->get(),
-        'mttr' => AssuranceTabel::secondCal()->get(),
-        'comply_not_comply' => AssuranceTabel::thirdCal()->get(),
-        'rekap_assurance' => AssuranceTabel::fourthCal()->get(),
-        'segment_gangguan' => AssuranceTabel::fifthCal()->get()]);
+        'mttr' => AssuranceTabel::secondCal()->filter(request(['resolved_date']))->get(),
+        'comply_not_comply' => AssuranceTabel::thirdCal()->filter(request(['resolved_date']))->get(),
+        'rekap_assurance' => AssuranceTabel::fourthCal()->filter(request(['resolved_date']))->get(),
+        'segment_gangguan' => AssuranceTabel::fifthCal()->filter(request(['resolved_date']))->get(),
+        'top_assurance' => AssuranceTabel::sixthCal()->filter(request(['resolved_date']))->get()]);
     }
 
     /**

@@ -610,6 +610,7 @@ th {
     border: 2px solid #806404;
     background-color: #985404;
     vertical-align: middle;
+    color: white;
 }
 .row .tabel-ruwet{
     height: fit-content;

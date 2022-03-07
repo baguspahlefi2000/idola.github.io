@@ -139,14 +139,14 @@
                 <form class="text-left" action="{{ route('home.index') }}" method="GET">
                     <div class="row tanggal ">
                         <div class="col-6">
-                        <h6 for="tgl_bulan_dr">Dari Tanggal</h6>
-                            <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_dr"
-                                    id="tgl_bulan_dr">
+                        <h6 for="tgl_bulan_dr_assurance">Dari Tanggal</h6>
+                            <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_dr_assurance"
+                                    id="tgl_bulan_dr_assurance">
                         </div>
                         <div class="col-6">
-                        <h6 for="tgl_bulan_th_sd">Sampai Tanggal</h6>
-                            <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_sd"
-                                    id="tgl_bulan_sd">
+                        <h6 for="tgl_bulan_sd_assurance">Sampai Tanggal</h6>
+                            <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_sd_assurance"
+                                    id="tgl_bulan_sd_assurance">
                         </div>
                         <div class="col-6">
                             <button class="btn btn-reset px-4 py-2 mt-4 mr-2" type="submit">Reset</button>
@@ -220,10 +220,10 @@
                     <div class="row g-3 justify-content-center">
                         <div class="col-2 d-flex justify-content-center tabel-ruwet">
                             <table class="table table-kiri-assurance">
-                            @foreach ($topOlo as $item)
+                            @foreach ($top_assurance as $item)
                                 <tr>
                                     <td class="text text-nowrap">{{ $item->REKAP_OLO_NAMA }}</td>
-                                    <td class="angka">{{ $loop->iteration }}</td>
+                                    <td class="angka">{{ $item->REKAP_ASSURANCE }}</td>
                                 </tr>
                             @endforeach
                             </table>

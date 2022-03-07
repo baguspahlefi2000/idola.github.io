@@ -118,5 +118,23 @@ class AssuranceTabel extends Model
 		SUM(CASE WHEN incident_domain_id = "5" THEN 1 ELSE 0 END) + SUM(CASE WHEN incident_domain_id = "8" THEN 1 ELSE 0 END) as REKAP_ODP'));
 	}
 
+	public function scopeSixthCal($query){
+		return $query->join('olo_tabel', 'olo_tabel.olo_id', '=', 'assurance_tabel.olo_id')
+		->groupBy('assurance_tabel.olo_id')
+		->addSelect(DB::raw('
+        COUNT(assurance_tabel.olo_id) as REKAP_ASSURANCE,
+		olo_tabel.olo_nama as REKAP_OLO_NAMA'))
+        ->orderBy('REKAP_ASSURANCE', 'DESC');
+	}
+
+	public function scopeFilter($query, array $filters){
+		// filter resolved_date
+        if (request()->tgl_bulan_dr_assurance || request()->tgl_bulan_sd_assurance){
+            $tgl_bulan_dr_assurance = Carbon::parse(request()->tgl_bulan_dr_assurance)->toDateTimeString();
+            $tgl_bulan_sd_assurance = Carbon::parse(request()->tgl_bulan_sd_assurance)->toDateTimeString();
+            $query->whereBetween('resolved_date',[$tgl_bulan_dr_assurance,$tgl_bulan_sd_assurance]);
+		}
+	}
+
 
 }
