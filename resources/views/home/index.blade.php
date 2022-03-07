@@ -17,7 +17,7 @@
     <div class="card">
         <!-- Data Row 1 -->
         <div class="row">
-            <div class="col m-4">
+            <div class="col-md-lg m-4">
                 <div class="form-row row-rumah">
                     <div class="col rumah-1">
                         <label class="mt-4" for="witel">Witel</label><br>
@@ -83,12 +83,12 @@
                     </table>
                 </div>
             </div>
-            <div class="col m-4">
+            <div class="col-md m-4">
                 <div class="form-row img-teknisi">
                     <img src="{{ asset('img/teknisi-olo.png') }}" alt="">
                 </div>
             </div>
-            <div class="col m-4">
+            <div class="col-md m-4">
                 <div class="form-row img-teknisi">
                     <img src="{{ asset('img/teknisi-ff.png') }}" alt="">
                 </div>
@@ -173,7 +173,7 @@
                         @foreach ($comply_not_comply as $item)
                             <div class="row">
                                 <div class="container comply">
-                                {{ $item->COMPLY }}
+                                    {{ $item->COMPLY }}
                                 </div>
                             </div>
                             <div class="row mt-4">
@@ -185,7 +185,7 @@
                         </div>
                         <div class="col content-total mx-3">
                             <div class="row total">
-                                <div class="container">
+                                <div class="container" style="font-weight:bold;">
                                     Total
                                 </div>
                             </div>

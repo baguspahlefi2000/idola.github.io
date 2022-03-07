@@ -562,12 +562,14 @@ th {
     max-width: 100%;
     background-color: #08b454;
     color: white;
+    font-weight: bold;
 }
 .row .not-comply{
     border-radius: 10px 10px 0px 0px;
     max-width: 100%;
     background-color: #c80404;
     color: white;
+    font-weight: bold;
 }
 .assurance .content-total{
     max-width: 20%;
