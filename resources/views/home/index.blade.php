@@ -119,7 +119,7 @@
                         </table>
                     </div>
                     <div class="col-lg-6 col-md col-sm">
-                        <table class="table table-kanan">
+                        <table class="table table-kanan nopadding">
                             @foreach ($topOlo as $item)
                             <tr>
                                 <td class="text">{{ $item->REKAP_OLO_NAMA }}</td>
@@ -220,32 +220,19 @@
                     <div class="row g-3 justify-content-center">
                         <div class="col-2 d-flex justify-content-center tabel-ruwet">
                             <table class="table table-kiri-assurance">
+                            @foreach ($topOlo as $item)
                                 <tr>
-                                    <td class="text">Hipernet</td>
-                                    <td class="angka">4</td>
-                                    <td class="text">Hipernet</td>
-                                    <td class="angka">4</td>
+                                    <td class="text text-nowrap">{{ $item->REKAP_OLO_NAMA }}</td>
+                                    <td class="angka">{{ $loop->iteration }}</td>
                                 </tr>
-                                <tr>
-                                    <td class="text">Hipernet</td>
-                                    <td class="angka">4</td>
-                                    <td class="text">Hipernet</td>
-                                    <td class="angka">4</td>
-                                </tr>
-                                <tr>
-                                    <td class="text">Hipernet</td>
-                                    <td class="angka">4</td>
-                                    <td class="text">Hipernet</td>
-                                    <td class="angka">4</td>
-                                </tr>
+                            @endforeach
                             </table>
                         </div>
                     </div>
-                    <div class="row my-2">
+                    <div class="row my-2 mb-4">
                         <div class="container">
                             <div id="container">
-                            
-                            </div>
+                        </div>
                             @foreach ($segment_gangguan as $item)
                             <?php
                                 $cpe = $item->REKAP_CPE;
@@ -363,14 +350,11 @@
             </div>
         </div>
         <!-- Data Row 2 -->
-        <div class="text-center">
-            <img src="{{ asset('img/tulisan-home.png') }}" width="550px" alt="">
+        <div class="text-center mt-4">
+            <img src="{{ asset('img/tulisan-home.png') }}" width="70%" alt="">
         </div>
     </div>
         
-    </div>
-    <div class="text-center my-2">
-        <h6>Developed by Putri Nurina Ayuningtias / 870014</h6>
     </div>
     <!-- Tutup Data Semua -->
 </div>

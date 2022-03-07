@@ -38,6 +38,7 @@
 
         @yield('contain')
     </div>
+    @include('template.footer')
 
     <!-- Font Awesome-->
     <script src="{{ asset('js/fontawesome.js') }}"></script>

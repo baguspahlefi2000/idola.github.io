@@ -450,6 +450,7 @@ th {
 
 .row .table-kiri {
     border-collapse: separate;
+    font-size: small;
 }
 
 .row .table-kiri .angka{
@@ -466,6 +467,7 @@ th {
 
 .row .table-kanan {
     border-collapse: separate;
+    font-size: small;
 }
 .row .table-kanan .angka{
     background-color: #7a81ff;
@@ -583,13 +585,15 @@ th {
     background-color: #e8f4dc;
     border: 2px solid #d8cccc;
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5);
-    font-size: small;
+
 }
 .assurance .isi-mttr{
     background-color: #78ac44;
     color: white;
-    max-width: 80%;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: 2ch;
+    height: fit-content;
+    width: fit-content;
 }
 .row .table-kiri-assurance{
     border: 2px solid #806404;
@@ -600,14 +604,23 @@ th {
     }
 .row .table-kiri-assurance .text{
     border: 2px solid #806404;
+    vertical-align: middle;
 }
 .row .table-kiri-assurance .angka{
     border: 2px solid #806404;
     background-color: #985404;
+    vertical-align: middle;
 }
 .row .tabel-ruwet{
     height: fit-content;
+    font-size: smaller;
 }
+
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+ }
+
 
 
 

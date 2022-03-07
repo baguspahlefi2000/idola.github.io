@@ -93,7 +93,7 @@ class AssuranceTabel extends Model
 
 	public function scopeSecondCal($query){
 		return $query
-		->addSelect(DB::raw('AVG(ttr_customer + ttr_pending) as MTTR'));
+		->addSelect(DB::raw('CAST(AVG (ttr_customer + ttr_pending) AS DECIMAL (12,2)) as MTTR'));
 	}
 
 	public function scopeThirdCal($query){
