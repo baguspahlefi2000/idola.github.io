@@ -109,50 +109,10 @@
 </script>
 
 
-    <!-- Chart Assurance -->
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script>
-    Highcharts.chart('container', {
-    chart: {
-        type: 'bar'
-    },
-    title: {
-        text: 'Segmen Gangguan'
-    },
-    xAxis: {
-        categories: ['CPE', 'ODP', 'DROP CORE', 'LAIN - LAIN'],
-        title: {
-            text: null
-        }
-    },
-    yAxis: {
-        min: 0,
-        title: {
 
-        },
-        labels: {
-            overflow: 'justify'
-        }
-    },
-    tooltip: {
-        valueSuffix: ' gangguan'
-    },
-    plotOptions: {
-        bar: {
-            dataLabels: {
-                enabled: false
-            }
-        }
-    },
-    credits: {
-        enabled: false
-    },
-    series: [{
-        name : 'Data Gangguan',
-        data: [6, 3, 2, 2]
-    }]
-});
-</script>
+
+    
+
 
 <script>
         // Get the modal

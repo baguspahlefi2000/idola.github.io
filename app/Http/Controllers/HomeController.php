@@ -41,7 +41,8 @@ class HomeController extends Controller
         'rekapIntegrasiDua' => DeploymentTabel::rekapIntegrasiDua()->filter(request(['tanggal']))->get(),
         'mttr' => AssuranceTabel::secondCal()->get(),
         'comply_not_comply' => AssuranceTabel::thirdCal()->get(),
-        'rekap_assurance' => AssuranceTabel::fourthCal()->get()]);
+        'rekap_assurance' => AssuranceTabel::fourthCal()->get(),
+        'segment_gangguan' => AssuranceTabel::fifthCal()->get()]);
     }
 
     /**

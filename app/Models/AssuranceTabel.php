@@ -55,7 +55,7 @@ class AssuranceTabel extends Model
 		'incidents_symptom',
 		'solutions_segment',
 		'actual_solution',
-		'incident_domain',
+		'incident_domain_id',
 		'resolved_date'
 	];
 
@@ -74,14 +74,21 @@ class AssuranceTabel extends Model
 		return $this->belongsTo(OloTabel::class, 'olo_id');
 	}
 
+	public function incident_domain_tabel()
+	{
+		return $this->belongsTo(IncidentDomainTabel::class, 'incident_domain_id');
+	}
+
 	public function scopeFirstCal($query){
 		return $query->join('olo_tabel', 'olo_tabel.olo_id', '=', 'assurance_tabel.olo_id')
 		->join('witel_tabel', 'witel_tabel.witel_id', '=', 'assurance_tabel.witel_id')
+		->join('incident_domain_tabel', 'incident_domain_tabel.incident_domain_id', '=', 'assurance_tabel.incident_domain_id')
 		->groupBy('assurance_id')
 		->addSelect(DB::raw(' *,
         SUM(ttr_customer + ttr_pending) as TTR_E2E,
 		olo_tabel.olo_nama as REKAP_OLO_NAMA,
-		witel_tabel.witel_nama as REKAP_WITEL_NAMA'));
+		witel_tabel.witel_nama as REKAP_WITEL_NAMA,
+		incident_domain_tabel.incident_domain_nama as INCIDENT_DOMAIN_NAMA'));
 	}
 
 	public function scopeSecondCal($query){
@@ -100,5 +107,16 @@ class AssuranceTabel extends Model
 		return $query->addSelect(DB::raw('
         COUNT(assurance_id) as REKAP_ASSURANCE'));
 	}
+
+	public function scopeFifthCal($query){
+		return $query->addSelect(DB::raw('
+		SUM(CASE WHEN incident_domain_id = "1" THEN 1 ELSE 0 END) as REKAP_CPE,
+        SUM(CASE WHEN incident_domain_id = "2" THEN 1 ELSE 0 END) + SUM(CASE WHEN incident_domain_id = "3" THEN 1 ELSE 0 END)
+		+ SUM(CASE WHEN incident_domain_id = "6" THEN 1 ELSE 0 END) as REKAP_DROPCORE,
+		SUM(CASE WHEN incident_domain_id = "4" THEN 1 ELSE 0 END) + SUM(CASE WHEN incident_domain_id = "7" THEN 1 ELSE 0 END)
+		+ SUM(CASE WHEN incident_domain_id = "9" THEN 1 ELSE 0 END) as REKAP_LAIN,
+		SUM(CASE WHEN incident_domain_id = "5" THEN 1 ELSE 0 END) + SUM(CASE WHEN incident_domain_id = "8" THEN 1 ELSE 0 END) as REKAP_ODP'));
+	}
+
 
 }

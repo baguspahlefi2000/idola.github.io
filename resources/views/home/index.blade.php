@@ -243,7 +243,18 @@
                     </div>
                     <div class="row my-2">
                         <div class="container">
-                            <div id="container"></div>
+                            <div id="container">
+                            
+                            </div>
+                            @foreach ($segment_gangguan as $item)
+                            <?php
+                                $cpe = $item->REKAP_CPE;
+                                $odp = $item->REKAP_ODP;
+                                $dropcore = $item->REKAP_DROPCORE;
+                                $lain = $item->REKAP_LAIN;
+                            ?>
+                            @endforeach
+                            
                         </div>
                     </div>
                 </div>
@@ -363,4 +374,55 @@
     </div>
     <!-- Tutup Data Semua -->
 </div>
+<!-- Chart Assurance -->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script>
+    var cpe = <?php echo($cpe)?>;
+    var odp = <?php echo($odp)?>;
+    var dropcore = <?php echo($dropcore)?>;
+    var lain = <?php echo($lain)?>;
+    Highcharts.chart('container', {
+    chart: {
+        type: 'bar',
+        
+    },
+    title: {
+        text: 'Segmen Gangguan'
+    },
+    xAxis: {
+        categories: ['CPE', 'ODP', 'DROP CORE', 'LAIN - LAIN'],
+        title: {
+            text: null
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+
+        },
+        labels: {
+            overflow: 'justify'
+        }
+    },
+    tooltip: {
+        valueSuffix: ' gangguan'
+    },
+    plotOptions: {
+        bar: {
+            dataLabels: {
+                enabled: false
+            }
+        }
+    },
+    credits: {
+        enabled: false
+    },
+    series: [{
+        name : 'Data Gangguan',
+        data: [cpe, odp, dropcore, lain],
+        color: '#bf9000'
+    }]
+});
+</script>
 @endsection
+

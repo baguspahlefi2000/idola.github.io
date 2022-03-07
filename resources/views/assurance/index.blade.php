@@ -94,7 +94,7 @@
                                 <td>{{$data->incidents_symptom }}</td>
                                 <td>{{$data->solutions_segment }}</td>
                                 <td>{{$data->actual_solution }}</td>
-                                <td>{{$data->incident_domain }}</td>
+                                <td>{{$data->INCIDENT_DOMAIN_NAMA }}</td>
                                 <td>{{$data->resolved_date }}</td>
                                 
 
