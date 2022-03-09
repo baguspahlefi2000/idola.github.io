@@ -197,7 +197,7 @@
                                 data-target="#importButton">
                                 <i class="las la-upload"></i> Import
                             </button>
-                            <a href="{{ route('wfm.export') }}" class="btn btn-second-thin ml-2">
+                            <a href="{{ route('export-deployment') }}" class="btn btn-second-thin ml-2">
                                 <i class="las la-download"></i> Export
                             </a>
                         </div>

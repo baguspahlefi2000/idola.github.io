@@ -24,6 +24,7 @@ use Dotenv\Store\File\Reader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ExportDeployment;
 use Illuminate\Support\Facades\Gate;
 
 class DeploymentController extends Controller
@@ -407,5 +408,9 @@ class DeploymentController extends Controller
         $Deployment->delete();
         sleep(1);
         return redirect()->route('deployment.index');
+    }
+
+    public function exportDeployment(Request $request){
+        return Excel::download(new ExportDeployment, 'deployment-wfm.xlsx');
     }
 }

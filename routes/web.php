@@ -117,7 +117,7 @@ Route::post('/deployment/store', [DeploymentController::class, 'store'])->name('
 Route::get('/deployment/edit/{deployment}', [DeploymentController::class, 'edit'])->name('dep.edit')->middleware('editor');
 Route::put('/deployment/update/{deployment}', [DeploymentController::class, 'update'])->name('dep.update');
 Route::delete('/deployment/delete/{deployment}', [DeploymentController::class, 'destroy'])->name('dep.destroy');
-
+Route::get('/deployment/export-deployment',[DeploymentController::class,'exportDeployment'])->name('export-deployment');
 // assurance
 Route::get('/assurance', [AssuranceController::class, 'index'])->name('assurance.index')->middleware('auth');
 
