@@ -222,7 +222,7 @@
                             <table class="table table-kiri-assurance">
                             @foreach ($top_assurance as $item)
                                 <tr>
-                                    <td class="text text-nowrap">{{ $item->REKAP_OLO_NAMA }}</td>
+                                    <td class="text text-nowrap text-left">{{ $item->REKAP_OLO_NAMA }}</td>
                                     <td class="angka">{{ $item->REKAP_ASSURANCE }}</td>
                                 </tr>
                             @endforeach

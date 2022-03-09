@@ -65,7 +65,8 @@
                             <th>Solution's Segment</th>
                             <th>Actual Solution</th>
                             <th>Incident Domain</th>
-                            <th>Resolved Data</th>
+                            <th>Resolved Date</th>
+                            <th>Resolved Time</th>
                             @canany(['admin', 'editor'])
                             <th scope="col"><span class="las la-ellipsis-v"></span></th>
                             @endcanany
@@ -96,6 +97,7 @@
                                 <td>{{$data->actual_solution }}</td>
                                 <td>{{$data->INCIDENT_DOMAIN_NAMA }}</td>
                                 <td>{{$data->resolved_date }}</td>
+                                <td>{{$data->resolved_time }}</td>
                                 
 
                                 

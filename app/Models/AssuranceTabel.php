@@ -56,7 +56,8 @@ class AssuranceTabel extends Model
 		'solutions_segment',
 		'actual_solution',
 		'incident_domain_id',
-		'resolved_date'
+		'resolved_date',
+		'resolved_time'
 	];
 
 	public function assurance_id_tabel()
