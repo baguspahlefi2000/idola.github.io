@@ -112,11 +112,16 @@ class AssuranceTabel extends Model
 	public function scopeFifthCal($query){
 		return $query->addSelect(DB::raw('
 		SUM(CASE WHEN incident_domain_id = "1" THEN 1 ELSE 0 END) as REKAP_CPE,
+		SUM(CASE WHEN incident_domain_id = "5" THEN 1 ELSE 0 END) + SUM(CASE WHEN incident_domain_id = "8" THEN 1 ELSE 0 END) as REKAP_ODP,
         SUM(CASE WHEN incident_domain_id = "2" THEN 1 ELSE 0 END) + SUM(CASE WHEN incident_domain_id = "3" THEN 1 ELSE 0 END)
-		+ SUM(CASE WHEN incident_domain_id = "6" THEN 1 ELSE 0 END) as REKAP_DROPCORE,
+		+ SUM(CASE WHEN incident_domain_id = "6" THEN 1 ELSE 0 END) + SUM(CASE WHEN incident_domain_id = "13" THEN 1 ELSE 0 END) as REKAP_DROPCORE,
 		SUM(CASE WHEN incident_domain_id = "4" THEN 1 ELSE 0 END) + SUM(CASE WHEN incident_domain_id = "7" THEN 1 ELSE 0 END)
-		+ SUM(CASE WHEN incident_domain_id = "9" THEN 1 ELSE 0 END) as REKAP_LAIN,
-		SUM(CASE WHEN incident_domain_id = "5" THEN 1 ELSE 0 END) + SUM(CASE WHEN incident_domain_id = "8" THEN 1 ELSE 0 END) as REKAP_ODP'));
+		+ SUM(CASE WHEN incident_domain_id = "9" THEN 1 ELSE 0 END) + SUM(CASE WHEN incident_domain_id = "11" THEN 1 ELSE 0 END) 
+		+ SUM(CASE WHEN incident_domain_id = "15" THEN 1 ELSE 0 END) + SUM(CASE WHEN incident_domain_id = "16" THEN 1 ELSE 0 END) 
+		+ SUM(CASE WHEN incident_domain_id = "17" THEN 1 ELSE 0 END) + SUM(CASE WHEN incident_domain_id = "18" THEN 1 ELSE 0 END) 
+		+ SUM(CASE WHEN incident_domain_id = "19" THEN 1 ELSE 0 END) + SUM(CASE WHEN incident_domain_id = "20" THEN 1 ELSE 0 END) 
+		+ SUM(CASE WHEN incident_domain_id = "21" THEN 1 ELSE 0 END) + SUM(CASE WHEN incident_domain_id = "22" THEN 1 ELSE 0 END) 
+		+ SUM(CASE WHEN incident_domain_id = "25" THEN 1 ELSE 0 END) as REKAP_LAIN'));
 	}
 
 	public function scopeSixthCal($query){
