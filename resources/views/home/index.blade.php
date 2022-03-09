@@ -302,17 +302,18 @@
                 @endforeach
                 </div>
 
-                
+                <hr class="vertical-line">
+                <hr class="vertical-line-2">
 
                 <div class="row mt-4">
                     <div class="col-7">
                         <div class="row text-center">
-                            <div class="col integrasi">
+                            <div class="col-lg integrasi">
                                 @foreach ($rekapIntegrasiSatu as $item)
                                 <h4 class="mt-1 p-3 text-white">{{ $item->REKAP_DONE_INTEGRASI }}</h4>
                                 @endforeach
                             </div>
-                            <div class="col integrasi-2 mr-4">
+                            <div class="col-lg integrasi-2 mr-4">
                                 @foreach ($rekapIntegrasiDua as $item)
                                 <h4 class="mt-1 p-3 text-white">{{ $item->REKAP_NOTYET_INTEGRASI }}</h4>
                                 @endforeach

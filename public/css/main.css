@@ -527,22 +527,21 @@ th {
 .vertical-line{ 
     position: absolute;
     z-index: 0;
-    height: 1%;
-    width: 21%;
+    width: 18%;
     transform: rotate(110deg); 
     border-color: purple;
-    margin-left: 2%;
-    margin-top: 1%;
+    margin-left: 4%;
+    margin-top: 1.2%;
 
 }
 .vertical-line-2{ 
     position: absolute;
     z-index: 0;
-    width: 23%; 
+    width: 20%; 
     transform: rotate(-115deg); 
     border-color: purple;
-    margin-left: 17%;
-    margin-top:  2.5%;
+    margin-left: 19.5%;
+    margin-top:  2%;
 }
 .row .isi-ff{
     max-height: 100%;
