@@ -90,7 +90,7 @@
                             <h2 class="">Rekap Progress</h2>
                         </div>
                         <div class="col text-right button-list">
-                            <a href="{{route('rekap.export')}}" class="btn btn-second-thin">
+                            <a href="{{route('rekapProgress.export')}}" class="btn btn-second-thin">
                                 <i class="las la-download"></i> Export
                             </a>
                         </div>

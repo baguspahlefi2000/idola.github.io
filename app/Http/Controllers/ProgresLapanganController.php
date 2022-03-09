@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Excel\Facades\Excel;
 use phpDocumentor\Reflection\Types\Null_;
 
-use App\Exports\WfmExport;
+use App\Exports\ExportProgressLapangan;
 use App\Http\Controllers\Controller;
 use App\Imports\WfmImport;
 use App\Imports\WfmImportBaru;
@@ -243,9 +243,8 @@ class ProgresLapanganController extends Controller
         return redirect()->route('progress.index');
     }
 
-    public function exportProgressLapangan()
-    {
-        return Excel::download(new ProgressExport, 'progress_lapangan.xlsx');
+    public function exportProgressLapangan(Request $request){
+        return Excel::download(new ExportProgressLapangan, 'progress-lapangan.xlsx');
     }
 
     public function importProgressLapangan(Request $request, ProgresLapangan $progress)

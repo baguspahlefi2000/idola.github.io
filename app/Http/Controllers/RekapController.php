@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Database;
-use App\Exports\RekapExport;
+use App\Exports\ExportRekapDeployment;
 use App\Imports\RekapImport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -131,7 +131,7 @@ class RekapController extends Controller
 
     public function exportRekap()
     {
-        return Excel::download(new RekapExport, 'rekap.xlsx');
+        return Excel::download(new ExportRekapDeployment, 'rekap-deployment.xlsx');
     }
     public function importRekap(Request $request, Rekap $rekap)
     {

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\RekapProgres;
+use App\Exports\ExportRekapProgressLapangan;
 use App\Models\ProgressLapanganTabel;
 use App\Models\RekapProgress;
 use App\Models\WitelTabel;
@@ -106,8 +106,8 @@ class RekapProgressController extends Controller
         //
     }
 
-    public function exportRekapProgres()
+    public function exportRekapProgress()
     {
-        return Excel::download(new RekapProgres, 'rekap_progres_lapangan.xlsx');
+        return Excel::download(new ExportRekapProgressLapangan, 'rekap_progress_lapangan.xlsx');
     }
 }
