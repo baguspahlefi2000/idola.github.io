@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\AssuranceTabel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ExportAssurance;
+use App\Exports\ImportAssurance;
 
 class AssuranceController extends Controller
 {
@@ -84,5 +87,29 @@ class AssuranceController extends Controller
     public function destroy(AssuranceTabel $assuranceTabel)
     {
         //
+    }
+
+    public function exportAssurance(Request $request){
+        return Excel::download(new ExportAssurance, 'assurance.xlsx');
+    }
+
+    public function importAssurance(Request $request)
+    {
+
+		$this->validate($request, [
+			'file' => 'required|mimes:csv,xls,xlsx'
+		]);
+
+        $file = $request->file('file');
+
+        $nama_file = rand().$file->getClientOriginalName();
+
+        $file->move('database_assurance_temp', $nama_file);
+
+        Excel::import(new ImportAssurance, public_path('/database_assurance_temp/' . $nama_file));
+
+        Session::flash('sukses','Data Assurance Berhasil Diimport!');
+
+        return redirect()->route('assurance.index');
     }
 }

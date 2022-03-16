@@ -49,6 +49,7 @@ class AssuranceTabel extends Model
 		'ttr_agent',
 		'ttr_pending',
 		'pending_reason',
+		'status',
 		'workzone',
 		'witel_id',
 		'regional',

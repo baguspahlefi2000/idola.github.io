@@ -31,11 +31,55 @@
                             <h2 class="">Assurance</h2>
                         </div>
                         <div class="col text-right">
+                            {{-- notifikasi form validasi --}}
+                            @if ($errors->has('file'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('file') }}</strong>
+                            </span>
+                            @endif
+                    
+                            {{-- notifikasi sukses --}}
+                            @if ($sukses = Session::get('sukses'))
+                            <div class="alert alert-success alert-block">
+                                <button type="button" class="close" data-dismiss="alert">×</button> 
+                                <strong>{{ $sukses }}</strong>
+                            </div>
+                            @endif
+
+
                             <button type="button" class="btn btn-outline" data-toggle="modal"
-                                data-target="#importButton">
+                                data-target="#importExcel">
                                 <i class="las la-upload"></i> Import
                             </button>
-                            <a href="{{ route('wfm.export') }}" class="btn btn-second-thin ml-2">
+
+                            <!-- Import Excel -->
+                            <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <form method="post" action="{{ route('assurance.import')}}" enctype="multipart/form-data">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
+                                            </div>
+                                            <div class="modal-body">
+                    
+                                                {{ csrf_field() }}
+                    
+                                                <label>Pilih file excel</label>
+                                                <div class="form-group">
+                                                    <input type="file" name="file" required="required">
+                                                </div>
+                    
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Import</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                                                        
+                            <a href="{{ route('assurance.export') }}" class="btn btn-second-thin ml-2">
                                 <i class="las la-download"></i> Export
                             </a>
                         </div>
@@ -109,225 +153,8 @@
                 </div>
             </div>
         </div>
-
-        <!-- Modal Impor -->
-        <div class="modal fade" id="importButton" data-backdrop="static" data-keyboard="false" tabindex="-1"
-            aria-labelledby="importButtonLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="importButtonLabel">Import Excel</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="{{ route('wfm.import')}}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <p><i class="las la-info-circle"></i> Sebelum Import pastikan sesuai dengan template!</p>
-                            <div class="input-group mb-3">
-                                <div class="custom-file">
-                                    <input type="file" name="file" class="custom-file-input" id="importFile" required
-                                        accept=".xlsx, .csv, .xls, .ods, .tsv">
-                                    <label class="custom-file-label" for="importFile">Pilih File</label>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-second btn-block">Import</button>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-second-thin text-bold" data-toggle="modal"
-                            data-target="#templateButton">Lihat Template</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal Template -->
-        <div class="modal fade" id="templateButton" data-backdrop="static" data-keyboard="false" tabindex="-1"
-            aria-labelledby="templatelabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="templatelabel">Template Tabel Deployment</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Pastikan urutan kolom file excel yang akan diupload sesuai seperti tabel template agar tidak
-                            terjadi error!</p>
-                        <table class="table table-sm table-responsive table-striped template-tabel">
-                            <thead>
-                                <tr>
-                                    <th>Tgl/Bln/Thn</th>
-                                    <th class="text-nowrap">No. ao</th>
-                                    <th>Witel</th>
-                                    <th class="text-nowrap">OLO / ISP</th>
-                                    <th class="text-nowrap">Site kriteria</th>
-                                    <th>SID</th>
-                                    <th class="text-nowrap">Site ID</th>
-                                    <th class="text-nowrap">Order type</th>
-                                    <th>Produk</th>
-                                    <th>Satuan</th>
-                                    <th class="text-nowrap">Kapasitas [BW]</th>
-                                    <th>Longitude</th>
-                                    <th>Latitude</th>
-                                    <th class="text-nowrap">Alamat asal</th>
-                                    <th class="text-nowrap">Alamat tujuan</th>
-                                    <th class="text-nowrap">Status NCX</th>
-                                    <th class="text-nowrap">Berita acara</th>
-                                    <th class="text-nowrap">Tgl Complete WFM</th>
-                                    <th class="text-nowrap">Status WFM</th>
-                                    <th class="text-nowrap">Alasan cancel</th>
-                                    <th class="text-nowrap">Cancel by</th>
-                                    <th class="text-nowrap">Start cancel date</th>
-                                    <th class="text-nowrap">Ready after cancel</th>
-                                    <th>Integrasi</th>
-                                    <th class="text-nowrap">Metro backhaull</th>
-                                    <th>IP</th>
-                                    <th>PORT</th>
-                                    <th class="text-nowrap">Metro access</th>
-                                    <th>IP</th>
-                                    <th>PORT</th>
-                                    <th>VLAN</th>
-                                    <th>VCID</th>
-                                    <th>GPON</th>
-                                    <th>IP</th>
-                                    <th>PORT</th>
-                                    <th>SN</th>
-                                    <th>PORT</th>
-                                    <th>TYPE</th>
-                                    <th class="text-nowrap">Nama switch</th>
-                                    <th class="text-nowrap">IP switch</th>
-                                    <th>Downlink</th>
-                                    <th class="text-nowrap">Type SWITCH</th>
-                                    <th class="text-nowrap">CAPTURE METRO BACKHAUL</th>
-                                    <th class="text-nowrap">CAPTURE METRO ACCESS</th>
-                                    <th class="text-nowrap">CAPTURE GPON</th>
-                                    <th class="text-nowrap">CAPTURE GPON IMAGE</th>
-                                    <th>PIC</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>12-12-2021</td>
-                                    <td>2-780564639</td>
-                                    <td>TASIKMALAYA</td>
-                                    <td>CITRA JELAJAH INFORMATIKA (CIFO)</td>
-                                    <td>SINGLE</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>NEW INSTALL</td>
-                                    <td>METRO</td>
-                                    <td>MBps</td>
-                                    <td>100</td>
-                                    <td>107,895</td>
-                                    <td>-7,484347</td>
-                                    <td>Singajaya, Kabupaten Garut, Jawa Barat Garut Indonesia CIFO KEC SINGAJAYA</td>
-                                    <td>-</td>
-                                    <td>Fulfill Billing Completed</td>
-                                    <td></td>
-                                    <td>15-12-2021</td>
-                                    <td>CLOSE</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>16-12-2021</td>
-                                    <td>ME9-D3-LBG</td>
-                                    <td>172.30.193.1</td>
-                                    <td>3/2/2</td>
-                                    <td>ME-B-JWB-CKG</td>
-                                    <td>172.30.193.1</td>
-                                    <td>3/2/2</td>
-                                    <td>2080</td>
-                                    <td>1934412080</td>
-                                    <td>GPON02-D3-CKJ-2</td>
-                                    <td>172.30.193.1</td>
-                                    <td>1/2/2</td>
-                                    <td>48575443E09915A3</td>
-                                    <td>1</td>
-                                    <td></td>
-                                    <td>Huawei</td>
-                                    <td>199.202.93.2</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-
-                                <tr>
-                                    <td>11-11-2021</td>
-                                    <td>2-780564639</td>
-                                    <td>BANDUNG</td>
-                                    <td>PT. TELKOM INDONESIA</td>
-                                    <td>SINGLE</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>NEW INSTALL</td>
-                                    <td>METRO</td>
-                                    <td>MBps</td>
-                                    <td>100</td>
-                                    <td>107,895</td>
-                                    <td>-7,484347</td>
-                                    <td>Coblong, Bandung</td>
-                                    <td>-</td>
-                                    <td>Fulfill Billing Completed</td>
-                                    <td></td>
-                                    <td>15-12-2021</td>
-                                    <td>CLOSE</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>16-12-2021</td>
-                                    <td>ME9-D3-LBG</td>
-                                    <td>172.30.193.1</td>
-                                    <td>3/2/2</td>
-                                    <td>ME-B-JWB-CKG</td>
-                                    <td>172.30.193.1</td>
-                                    <td>3/2/2</td>
-                                    <td>2080</td>
-                                    <td>1934412080</td>
-                                    <td>GPON02-D3-CKJ-2</td>
-                                    <td>172.30.193.1</td>
-                                    <td>1/2/2</td>
-                                    <td>48575443E09915A3</td>
-                                    <td>1</td>
-                                    <td></td>
-                                    <td>Huawei</td>
-                                    <td>199.202.93.2</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div id="orderModal" class="modal hide fade" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-                                <h3>Order</h3>
-
-                            </div>
-                            <div id="orderDetails" class="modal-body"></div>
-                            <div id="orderItems" class="modal-body"></div>
-                            <div class="modal-footer">
-                                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    
+        
 
     </div>
 </div>
