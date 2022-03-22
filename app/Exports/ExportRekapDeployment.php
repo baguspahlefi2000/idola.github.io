@@ -6,8 +6,9 @@ use App\Models\DeploymentTabel;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class ExportRekapDeployment implements FromCollection
+class ExportRekapDeployment implements FromCollection, WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -26,5 +27,16 @@ class ExportRekapDeployment implements FromCollection
 		->groupBy('deployment_tabel.olo_id')
         ->orderBy('AKTIVASI', 'DESC')
         ->get();
+    }
+
+    public function headings() : array
+    {
+        return ["OLO",
+        "AKTIVASI",
+        "MODIFY",
+        "DISCONNECT",
+        "RESUME",
+        "SUSPEND"];
+
     }
 }

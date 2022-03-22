@@ -6,8 +6,9 @@ use App\Models\ProgressLapanganTabel;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class ExportRekapProgressLapangan implements FromCollection
+class ExportRekapProgressLapangan implements FromCollection, WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -24,5 +25,13 @@ class ExportRekapProgressLapangan implements FromCollection
 		->groupBy('progress_lapangan_tabel.olo_id')
         ->orderBy('PLAN_AKTIVASI', 'DESC')
         ->get();
+    }
+    public function headings() : array
+    {
+        return ["OLO",
+        "PLAN_AKTIVASI",
+        "PLAN_MODIFY",
+        "PLAN_DISCONNECT"];
+
     }
 }

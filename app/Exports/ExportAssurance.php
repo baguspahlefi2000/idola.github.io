@@ -6,12 +6,15 @@ use App\Models\AssuranceTabel;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class ExportAssurance implements FromCollection
+class ExportAssurance implements FromCollection, WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
     */
+    
+    
     public function collection()
     {
         return DB::table('assurance_tabel')
@@ -54,5 +57,43 @@ class ExportAssurance implements FromCollection
 		->join('incident_domain_tabel', 'incident_domain_tabel.incident_domain_id', '=', 'assurance_tabel.incident_domain_id')
 		->groupBy('assurance_id')
         ->get();
+    }
+
+    public function headings() : array
+    {
+        return ["Incident",
+        "Customer Name",
+        "Contact Name",
+        "Summary",
+        "Owner",
+        "channel",
+        "customer_segment",
+        "service_id",
+        "service_no",
+        "service_type",
+        "top_priority",
+        "related_to_global_issue",
+        "lapul",
+        "gaul",
+        "SUM(ttr_customer + ttr_pending) as TTR_E2E",
+        "ttr_customer",
+        "ttr_nasional",
+        "ttr_regional",
+        "ttr_witel",
+        "ttr_mitra",
+        "ttr_agent",
+        "ttr_pending",
+        "pending_reason",
+        "status",
+        "workzone",
+		"witel_tabel.witel_nama as REKAP_WITEL_NAMA",
+        "regional",
+        "incidents_symptom",
+        "solutions_symptom",
+        "actual_solution",
+		"incident_domain_tabel.incident_domain_nama as INCIDENT_DOMAIN_NAMA",
+        "resolved_date",
+        "resolved_time"];
+
     }
 }

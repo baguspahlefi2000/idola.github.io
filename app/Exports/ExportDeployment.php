@@ -6,8 +6,9 @@ use App\Models\DeploymentTabel;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class ExportDeployment implements FromCollection
+class ExportDeployment implements FromCollection, WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -28,5 +29,10 @@ class ExportDeployment implements FromCollection
         ->join('odp_tabel','odp_tabel.odp_id','=','deployment_tabel.odp_id')
         ->orderBy('deployment_tabel.tanggal','asc')
         ->get();
+    }
+    public function headings() : array{
+        return ['TGL/BLN/THN', 'NO. AO', 'WITEL', 'OLO/ISP', 'SITE KRITERIA', 'SID', 'SITE ID', 'ORDER TYPE', 'PRODUK', 'SATUAN', 'KAPASITAS [BW]', 'LONGITUDE', 'LATITUDE', 'ALAMAT ASAL', 'ALAMAT TUJUAN', 'STATUS NCX', 'BERITA ACARA', 'TGL COMPLETE WFM', 'STATUS WFM', 'ALASAN CANCEL', 'CANCEL By', 'START CANCEL DATE', 'READY AFTER CANCEL', 'STATUS INTEGRASI', 'TANGGAL INTEGRASI', 'METRO ACCESS', 'CAPTURE METRO ACCESS', 'IP 1', 'PORT 1', 'METRO BACKHAUL', 'CAPTURE METRO BACKHAUL', 'IP 2', 'PORT 2', 'VLAN', 'VCID', 'GPON', 'CAPTURE GPON', 'IP 3', 'PORT 3', 'SN', 'ODP', 'ISI ODP', 'PORT 4', 'TYPE 1', 'KONTAK PIC LOKASI', 'IP 4', 'DOWNLINK', 'TYPE 2'
+
+        ];
     }
 }
