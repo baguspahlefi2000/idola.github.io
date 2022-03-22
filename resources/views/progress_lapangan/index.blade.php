@@ -162,6 +162,7 @@
                                 <th scope="col" class="text-nowrap" rowspan="2">No Ao</th>
                                 <th scope="col" rowspan="2">Olo</th>
                                 <th scope="col" rowspan="2">Produk</th>
+                                <th scope="col" rowspan="2">Bandwith</th>
                                 <th scope="col" class="text-nowrap" rowspan="2">Alamat</th>
                                 <th scope="col" colspan="2" class="text-center">Progress PT1</th>
                                 <th scope="col" colspan="2" class="text-center">Progress PT2</th>
@@ -211,6 +212,7 @@
                                 <td>{{ $item->ao }}</td>
                                 <td>{{ $item->olo_tabel->olo_nama }}</td>
                                 <td>{{ $item->produk_tabel->produk_nama }}</td>
+                                <td>{{ $item->bandwith}}</td>
                                 <td>{{ $item->alamat_toko }}</td>
                                 <td>{{ $item->tanggal_order_pt1 }}</td>
                                 <td>{{ $item->keterangan_pt1 }}</td>
@@ -308,6 +310,7 @@
                                     <th scope="col" class="text-nowrap">No Ao</th>
                                     <th scope="col">Olo</th>
                                     <th scope="col">Produk</th>
+                                    <th scope="col">Bandwith</th>
                                     <th scope="col" class="text-nowrap">Alamat</th>
                                     <th scope="col" class="text-nowrap">Tanggal Order PT1</th>
                                     <th scope="col" class="text-nowrap">Keterangan PT1</th>
@@ -326,6 +329,7 @@
                                     <td>2-780564639</td>
                                     <td>PT. TELKOM INDONESIA</td>
                                     <td>METRO</td>
+                                    <td>123 Mbps</td>
                                     <td>Jalan Dipatiukur 203, Coblong, Bandung</td>
                                     <td>10-12-2021</td>
                                     <td>-</td>

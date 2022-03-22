@@ -61,6 +61,7 @@ class ProgressLapanganTabel extends Model
 		'ao',
 		'olo_id',
 		'produk_id',
+		'bandwith',
 		'alamat_toko',
 		'tanggal_order_pt1',
 		'keterangan_pt1',

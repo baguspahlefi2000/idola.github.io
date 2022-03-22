@@ -52,6 +52,11 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="bandwith">Bandwith</label>
+                            <input type="text" name="bandwith" id="bandwith" class="form-control" value="{{ $progress->bandwith }}">
+                            </input>
+                        </div>
+                        <div class="form-group">
                             <div class="form-group">
                                 <label for="alamat_toko">Alamat</label>
                                 <textarea name="alamat_toko" id="alamat_toko" rows="3"

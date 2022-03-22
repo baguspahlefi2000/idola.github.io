@@ -133,6 +133,7 @@ class ProgresLapanganController extends Controller
         $progress->ao = $request->ao;
         $progress->olo_id = $request->olo;
         $progress->produk_id = $request->produk;
+        $progress->bandwith = $request->bandwith;
         $progress->alamat_toko = $request->alamat_toko;
         $progress->tanggal_order_pt1 = $request->tanggal_order_pt1;
         $progress->keterangan_pt1 = $request->keterangan_pt1;
@@ -216,6 +217,7 @@ class ProgresLapanganController extends Controller
         $progress->ao = $request->ao;
         $progress->olo_id = $request->olo;
         $progress->produk_id = $request->produk;
+        $progress->bandwith = $request->bandwith;
         $progress->alamat_toko = $request->alamat_toko;
         $progress->tanggal_order_pt1 = $request->tanggal_order_pt1;
         $progress->keterangan_pt1 = $request->keterangan_pt1;
