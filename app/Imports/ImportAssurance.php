@@ -4,8 +4,10 @@ namespace App\Imports;
 
 use App\Models\AssuranceTabel;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithCustomCsvSettings;
 
-class ImportAssurance implements ToModel
+class ImportAssurance implements ToModel, WithHeadingRow, WithCustomCsvSettings
 {
     /**
     * @param array $row
@@ -15,38 +17,45 @@ class ImportAssurance implements ToModel
     public function model(array $row)
     {
         return new AssuranceTabel([
-                'incident' => $row[1],
-                'olo_id' => $row[2],
-                'contact_email' => $row[3],
-                'summary' => $row[4],
-                'owner_group' => $row[5],
-                'channel' => $row[6],
-                'customer_segment' => $row[7],
-                'service_id' => $row[8],
-                'service_no' => $row[9],
-                'service_type' => $row[10],
-                'top_priority' => $row[11],
-                'related_to_global_issue' => $row[12],
-                'lapul' => $row[13],
-                'gaul' => $row[14],
-                'ttr_customer' => $row[15],
-                'ttr_nasional' => $row[16],
-                'ttr_regional' => $row[17],
-                'ttr_witel' => $row[18],
-                'ttr_mitra' => $row[19],
-                'ttr_agent' => $row[20],
-                'ttr_pending' => $row[21],
-                'pending_reason' => $row[22],
-                'status' => $row[23],
-                'workzone' => $row[24],
-                'witel_id' => $row[25],
-                'regional' => $row[26],
-                'incidents_symptom' => $row[27],
-                'solutions_segment' => $row[28],
-                'actual_solution' => $row[29],
-                'incident_domain_id' => $row[30],
-                'resolved_date' => $row[31],
-                'resolved_time' => $row[32],
+                'incident' => $row['incident'],
+                'olo_id' => $row['olo_id'],
+                'contact_email' => $row['contact_email'],
+                'summary' => $row['summary'],
+                'owner_group' => $row['owner_group'],
+                'channel' => $row['channel'],
+                'customer_segment' => $row['customer_segment'],
+                'service_id' => $row['service_id'],
+                'service_no' => $row['service_no'],
+                'service_type' => $row['service_type'],
+                'top_priority' => $row['top_priority'],
+                'related_to_global_issue' => $row['related_to_global_issue'],
+                'lapul' => $row['lapul'],
+                'gaul' => $row['gaul'],
+                'ttr_customer' => $row['ttr_customer'],
+                'ttr_nasional' => $row['ttr_nasional'],
+                'ttr_regional' => $row['ttr_regional'],
+                'ttr_witel' => $row['ttr_witel'],
+                'ttr_mitra' => $row['ttr_mitra'],
+                'ttr_agent' => $row['ttr_agent'],
+                'ttr_pending' => $row['ttr_pending'],
+                'pending_reason' => $row['pending_reason'],
+                'status' => $row['status'],
+                'workzone' => $row['workzone'],
+                'witel_id' => $row['witel_id'],
+                'regional' => $row['regional'],
+                'incidents_symptom' => $row['incidents_symptom'],
+                'solutions_symptom' => $row['solutions_symptom'],
+                'actual_solution' => $row['actual_solution'],
+                'incident_domain_id' => $row['incident_domain_id'],
+                'resolved_date' => $row['resolved_date'],
+                'resolved_time' => $row['resolved_time'],
         ]);
     }
+    public function getCsvSettings(): array
+    {
+        return [
+            'delimiter' => ';'
+        ];
+    }
+
 }

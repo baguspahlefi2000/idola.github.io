@@ -68,14 +68,14 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="{{ route('wfm.import')}}" method="POST" enctype="multipart/form-data">
+                                        <form action="{{ route('assurance.import')}}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <p class="text-left"><i class="las la-info-circle"></i> Sebelum Import pastikan sesuai dengan template!</p>
                                             <div class="input-group mb-3">
                                                 <div class="custom-file">
-                                                    <input type="file" name="file" class="custom-file-input" id="importFile" required
-                                                        accept=".xlsx, .csv, .xls, .ods, .tsv">
-                                                    <label class="custom-file-label" for="importFile">Pilih File</label>
+                                                <input type="file" class="form-control" id="file" name="file" aria-describedby="inputGroupFileAddon04" aria-label="Upload" required
+                                                 accept=".xlsx, .csv, .xls, .ods, .tsv">
+                                                    <label class="custom-file-label" for="file">Pilih File</label>
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-second btn-block">Import</button>
@@ -197,4 +197,5 @@
 
     </div>
 </div>
+
 @endsection

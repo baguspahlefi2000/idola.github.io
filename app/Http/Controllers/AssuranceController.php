@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ExportAssurance;
-use App\Exports\ImportAssurance;
+use App\Imports\ImportAssurance;
+use Session;
 
 class AssuranceController extends Controller
 {
@@ -96,20 +97,8 @@ class AssuranceController extends Controller
     public function importAssurance(Request $request)
     {
 
-		$this->validate($request, [
-			'file' => 'required|mimes:csv,xls,xlsx'
-		]);
+		Excel::import(new ImportAssurance, request()->file('file'));
 
-        $file = $request->file('file');
-
-        $nama_file = rand().$file->getClientOriginalName();
-
-        $file->move('database_assurance_temp', $nama_file);
-
-        Excel::import(new ImportAssurance, public_path('/database_assurance_temp/' . $nama_file));
-
-        Session::flash('sukses','Data Assurance Berhasil Diimport!');
-
-        return redirect()->route('assurance.index');
+        return redirect()->route('assurance.index')->with('success','Data Assurance Berhasil Diinput!');
     }
 }

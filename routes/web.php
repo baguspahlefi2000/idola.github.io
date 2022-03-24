@@ -17,6 +17,7 @@ use App\Http\Controllers\RekapProgressController;
 use App\Models\Database;
 use App\Models\ProgresLapangan;
 use App\Models\DeploymentTabel;
+use App\Imports\ImportAssurance;
 use App\Models\PekerjaanLapangan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -121,6 +122,7 @@ Route::get('/deployment/export-deployment',[DeploymentController::class,'exportD
 Route::get('/assurance', [AssuranceController::class, 'index'])->name('assurance.index')->middleware('auth');
 Route::get('/assurance/export-assurance',[AssuranceController::class,'exportAssurance'])->name('assurance.export');
 Route::post('/assurance/import-assurance', [AssuranceController::class, 'importAssurance'])->name('assurance.import');
+
 
 
 // disconnect
