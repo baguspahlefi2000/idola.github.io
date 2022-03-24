@@ -152,7 +152,9 @@
                             </a>
                         </div>
                     </div>
-                 <div class="div1">
+                </div>
+            </div>
+                 <div class="div 1">
                     <table class="table table-responsive table-hover table-coba" id="table_id" style="width: 100%">
                         <thead>
                             <tr>
@@ -192,9 +194,7 @@
                                         </div>
                                     </td>
                                     @endcanany
-
                             </tr>
-
                             <tr>
                                 <th scope="row" class="text-nowrap">Tanggal Order</th>
                                 <th scope="row">Keterangan</th>
@@ -289,7 +289,7 @@
         </div>
 
         <!-- Modal Template -->
-        <div class="modal fade" id="templateButton" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        <div class="modal fade" id="templateButton" data-backdrop="static" data-keyboard="false" tabindex="2"
             aria-labelledby="templatelabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
@@ -359,6 +359,11 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <div id="orderModal" class="modal-body" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
+                            <div class="modal-footer">
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

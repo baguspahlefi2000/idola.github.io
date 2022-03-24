@@ -45,46 +45,85 @@
                                 <strong>{{ $sukses }}</strong>
                             </div>
                             @endif
-
-
+                            
+                            {{-- import/exportBtn --}}
                             <button type="button" class="btn btn-outline" data-toggle="modal"
-                                data-target="#importExcel">
+                                data-target="#importButton">
                                 <i class="las la-upload"></i> Import
                             </button>
 
-                            <!-- Import Excel -->
-                            <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <form method="post" action="{{ route('assurance.import')}}" enctype="multipart/form-data">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
-                                            </div>
-                                            <div class="modal-body">
-                    
-                                                {{ csrf_field() }}
-                    
-                                                <label>Pilih file excel</label>
-                                                <div class="form-group">
-                                                    <input type="file" name="file" required="required">
-                                                </div>
-                    
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Import</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                                                        
                             <a href="{{ route('assurance.export') }}" class="btn btn-second-thin ml-2">
                                 <i class="las la-download"></i> Export
                             </a>
+
+                            <!-- Import Excel -->
+                            <div class="modal fade" id="importButton" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                            aria-labelledby="importButtonLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="importButtonLabel">Import Excel</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="{{ route('wfm.import')}}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <p class="text-left"><i class="las la-info-circle"></i> Sebelum Import pastikan sesuai dengan template!</p>
+                                            <div class="input-group mb-3">
+                                                <div class="custom-file">
+                                                    <input type="file" name="file" class="custom-file-input" id="importFile" required
+                                                        accept=".xlsx, .csv, .xls, .ods, .tsv">
+                                                    <label class="custom-file-label" for="importFile">Pilih File</label>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-second btn-block">Import</button>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-second-thin text-bold" data-toggle="modal"
+                                            data-target="#templateButton">Lihat Template</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- TemplateImportAssurance --}}
+                            <div class="modal fade" id="templateButton" data-backdrop="static" data-keyboard="false" tabindex="2"
+                            aria-labelledby="templatelabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="templatelabel">Template Tabel Progress</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Pastikan urutan kolom file excel yang akan diupload sesuai seperti tabel template agar tidak
+                                                terjadi error!</p>
+                                            <table class="table table-sm table-responsive table-striped template-tabel">
+                                                <tbody>
+                                                    <tr>
+                                                        <td><img src="{{url(('img/template-assurance.png'))}}" alt=""></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div id="orderModal" class="modal-body" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
+                                                <div class="modal-footer">
+                                                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                <div class="div1">
+                </div>
+                
+                <div class="div 1">
                     <table class="table table-responsive table-hover table-coba" id="table_id">
                         <thead>
                             <th>No</th>
