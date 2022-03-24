@@ -357,7 +357,7 @@
                             <div class="col-6">
                                     <label for="capture_gpon" class="form-label">IMAGE GPON</label>
                                     <!-- Trigger the Modal -->
-                                    <img id="myImg" src="{{ asset('img/'. $deployment->gponcapture)}}" alt="caption" style="width:100%;max-width:50vw;max-height:100%;">
+                                    <img id="myImg" src="{{ asset('img/'. $deployment->gponcapture)}}" alt="{{$deployment->gponcapture}}" style="width:100%;max-width:50vw;max-height:100%;">
 
                                     <!-- The Modal -->
                                     <div id="myModal" class="modal">

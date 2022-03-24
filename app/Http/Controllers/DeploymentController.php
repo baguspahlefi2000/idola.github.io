@@ -178,7 +178,7 @@ class DeploymentController extends Controller
     {
 
         if($request->hasFile('gponcapture')){
-            $imgName = $request->gponcapture->getClientOriginalName() . '-' . time() . '.' . $request->gponcapture->extension();
+            $imgName = $request->gponcapture->getClientOriginalName() ;
             $request->gponcapture->move(public_path('img'), $imgName);
         }else{
             $imgName = null;
@@ -386,7 +386,7 @@ class DeploymentController extends Controller
         $Deployment->downlink = $request->downlink;
         $Deployment->type_2 = $request-> type_2;
         if($request->hasFile('gponcapture')){
-            $imgName = $request->gponcapture->getClientOriginalName() . '-' . time() . '.' . $request->gponcapture->extension();
+            $imgName = $request->gponcapture->getClientOriginalName();
             $request->gponcapture->move(public_path('img'), $imgName);
             $Deployment->gponcapture = $imgName;
         }
