@@ -28,6 +28,9 @@
                             <a href="{{route('db_produk.create')}}" class="btn btn-thin btn-primary">
                                 <i class="las la-plus"></i> Create
                             </a>
+                            <a href="{{ route('db_produk.export') }}" class="btn btn-second-thin ml-2">
+                                <i class="las la-download"></i> Export
+                            </a>
                         </div>
                         @endcanany
                     </div>

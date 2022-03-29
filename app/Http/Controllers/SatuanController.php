@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\SatuanTabel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Exports\ExportSatuan;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SatuanController extends Controller
 {
@@ -96,5 +98,9 @@ class SatuanController extends Controller
         $satuan->delete();
         sleep(1);
         return redirect()->route('db_satuan.index');
+    }
+
+    public function exportSatuan(Request $request){
+        return Excel::download(new ExportSatuan, 'data-satuan.xlsx');
     }
 }

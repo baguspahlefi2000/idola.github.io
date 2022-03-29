@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\OloTabel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Exports\ExportOlo;
+use Maatwebsite\Excel\Facades\Excel;
 
 class OloController extends Controller
 {
@@ -96,5 +98,9 @@ class OloController extends Controller
         $olo->delete();
         sleep(1);
         return redirect()->route('db_olo.index');
+    }
+
+    public function exportOlo(Request $request){
+        return Excel::download(new ExportOlo, 'data-olo.xlsx');
     }
 }

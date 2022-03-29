@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\ProdukTabel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Exports\ExportProduk;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProdukController extends Controller
 {
@@ -96,5 +98,8 @@ class ProdukController extends Controller
         $produk->delete();
         sleep(1);
         return redirect()->route('db_produk.index');
+    }
+    public function exportProduk(Request $request){
+        return Excel::download(new ExportProduk, 'data-produk.xlsx');
     }
 }

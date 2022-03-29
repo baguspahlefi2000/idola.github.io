@@ -138,6 +138,7 @@ Route::post('/db_olo/store', [OloController::class, 'store'])->name('db_olo.stor
 Route::get('/db_olo/edit/{olo}', [OloController::class, 'edit'])->name('db_olo.edit')->middleware('editor');
 Route::put('/db_olo/update/{olo}', [OloController::class, 'update'])->name('db_olo.update');
 Route::delete('/db_olo/delete/{olo}', [OloController::class, 'destroy'])->name('db_olo.destroy');
+Route::get('/db_olo/export-olo',[OloController::class,'exportOlo'])->name('db_olo.export');
 
 // db_produk
 Route::get('/db_produk', [ProdukController::class, 'index'])->name('db_produk.index')->middleware('auth');
@@ -146,6 +147,7 @@ Route::post('/db_produk/store', [ProdukController::class, 'store'])->name('db_pr
 Route::get('/db_produk/edit/{produk}', [ProdukController::class, 'edit'])->name('db_produk.edit')->middleware('editor');
 Route::put('/db_produk/update/{produk}', [ProdukController::class, 'update'])->name('db_produk.update');
 Route::delete('/db_produk/delete/{produk}', [ProdukController::class, 'destroy'])->name('db_produk.destroy');
+Route::get('/db_produk/export-produk',[ProdukController::class,'exportProduk'])->name('db_produk.export');
 
 // db_satuan
 Route::get('/db_satuan', [SatuanController::class, 'index'])->name('db_satuan.index')->middleware('auth');
@@ -154,6 +156,7 @@ Route::post('/db_satuan/store', [SatuanController::class, 'store'])->name('db_sa
 Route::get('/db_satuan/edit/{satuan}', [satuanController::class, 'edit'])->name('db_satuan.edit')->middleware('editor');
 Route::put('/db_satuan/update/{satuan}', [SatuanController::class, 'update'])->name('db_satuan.update');
 Route::delete('/db_satuan/delete/{satuan}', [SatuanController::class, 'destroy'])->name('db_satuan.destroy');
+Route::get('/db_satuan/export-satuan',[SatuanController::class,'exportSatuan'])->name('db_satuan.export');
 
 
 //route EXE SUMM
