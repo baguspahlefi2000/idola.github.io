@@ -19,7 +19,7 @@ class ImportAssurance implements ToModel, WithHeadingRow, WithCustomCsvSettings
         return new AssuranceTabel([
                 'incident' => $row['incident'],
                 'olo_id' => $row['olo_id'],
-                'contact_email' => $row['contact_email'],
+                'contact' => $row['contact'],
                 'summary' => $row['summary'],
                 'owner_group' => $row['owner_group'],
                 'channel' => $row['channel'],
@@ -44,7 +44,7 @@ class ImportAssurance implements ToModel, WithHeadingRow, WithCustomCsvSettings
                 'witel_id' => $row['witel_id'],
                 'regional' => $row['regional'],
                 'incidents_symptom' => $row['incidents_symptom'],
-                'solutions_symptom' => $row['solutions_symptom'],
+                'solutions_segment' => $row['solutions_segment'],
                 'actual_solution' => $row['actual_solution'],
                 'incident_domain_id' => $row['incident_domain_id'],
                 'resolved_date' => $row['resolved_date'],
@@ -54,7 +54,10 @@ class ImportAssurance implements ToModel, WithHeadingRow, WithCustomCsvSettings
     public function getCsvSettings(): array
     {
         return [
-            'delimiter' => ';'
+            'delimiter' => ';',
+            'enclosure' => '"',
+            'escape_character' => '"',
+            'input_encoding' => 'ISO-8859-1'
         ];
     }
 

@@ -29,7 +29,7 @@ class AssuranceTabel extends Model
 	protected $fillable = [
 		'incident',
 		'olo_id',
-		'contact_email',
+		'contact',
 		'summary',
 		'owner_group',
 		'channel',

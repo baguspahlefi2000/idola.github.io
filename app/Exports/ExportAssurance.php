@@ -20,7 +20,7 @@ class ExportAssurance implements FromCollection, WithHeadings
         return DB::table('assurance_tabel')
         ->selectRaw(' incident,
         olo_tabel.olo_nama as REKAP_OLO_NAMA,
-        contact_email,
+        contact,
         summary,
         owner_group,
         channel,
@@ -46,7 +46,7 @@ class ExportAssurance implements FromCollection, WithHeadings
 		witel_tabel.witel_nama as REKAP_WITEL_NAMA,
         regional,
         incidents_symptom,
-        solutions_symptom,
+        solutions_segment,
         actual_solution,
 		incident_domain_tabel.incident_domain_nama as INCIDENT_DOMAIN_NAMA,
         resolved_date,
