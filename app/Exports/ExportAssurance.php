@@ -64,6 +64,7 @@ class ExportAssurance implements FromCollection, WithHeadings
         ->join('witel_tabel', 'witel_tabel.witel_id', '=', 'assurance_tabel.witel_id')
 		->join('incident_domain_tabel', 'incident_domain_tabel.incident_domain_id', '=', 'assurance_tabel.incident_domain_id')
 		->groupBy('assurance_id')
+        ->orderBy('resolved_date')
         ->get();
     }
 

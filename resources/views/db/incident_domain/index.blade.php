@@ -13,25 +13,25 @@
                     <a href="{{ route('db_produk.index') }}#database-produk" class="tab-rekap">Database Produk</a>
                 </li>
                 <li class="nav-item tab-rekap-item">
-                    <a href="{{ route('db_satuan.index') }}#database-satuan" class="tab-rekap tab-active">Database Satuan</a>
+                    <a href="{{ route('db_satuan.index') }}#database-satuan" class="tab-rekap">Database Satuan</a>
                 </li>
                 <li class="nav-item tab-rekap-item">
-                    <a href="{{ route('db_incident_domain.index') }}#database-incident-domain" class="tab-rekap">Database Incident Domain</a>
+                    <a href="{{ route('db_incident_domain.index') }}#database-incident-domain" class="tab-rekap tab-active">Database Incident Domain</a>
                 </li>
             </ul>
 
-            <div class="card mt-2 mb-2 shadow-sm" id="database-satuan">
+            <div class="card mt-2 mb-2 shadow-sm" id="database-incident-domain">
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="col">
-                            <h2 class="">Database Satuan</h2>
+                            <h2 class="">Database Incident Domain</h2>
                         </div>
                         @canany(['admin', 'editor'])
                         <div class="col text-right button-list">
-                            <a href="{{route('db_satuan.create')}}" class="btn btn-thin btn-primary">
+                            <a href="{{route('db_incident_domain.create')}}" class="btn btn-thin btn-primary">
                                 <i class="las la-plus"></i> Create
                             </a>
-                            <a href="{{ route('db_satuan.export') }}" class="btn btn-second-thin ml-2">
+                            <a href="{{ route('db_incident_domain.export') }}" class="btn btn-second-thin ml-2">
                                 <i class="las la-download"></i> Export
                             </a>
                         </div>
@@ -41,29 +41,29 @@
                         <thead>
                             <tr>
                                 <th class="text-center">NO</th>
-                                <th>Satuan</th>
+                                <th>Incident Domain</th>
                                 @canany(['admin', 'editor'])
                                 <th scope="col" class="text-center"><span></span></th>
                                 @endcanany
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($satuan as $satuan)
+                            @foreach ($incident_domain as $incident_domain)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                <td>{{ $satuan->satuan_nama }}</td>
+                                <td>{{ $incident_domain->incident_domain_nama }}</td>
                                 @canany(['admin', 'editor'])
                                     <td class="text-center">
                                         <div class="dropleft" title="Menu">
                                             <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
                                                 aria-haspopup="true" aria-expanded="false"></span>
                                             <div class="dropdown-menu" aria-labelledby="menuEdit">
-                                                <a href="{{ route('db_satuan.edit',$satuan->satuan_id) }}" class="dropdown-item"
+                                                <a href="{{ route('db_incident_domain.edit',$incident_domain->incident_domain_id) }}" class="dropdown-item"
                                                     type="button">
                                                     <i class="fas fa-edit mr-2"></i>
                                                     Edit
                                                 </a>
-                                                <form action="{{ route('db_satuan.destroy',$satuan->satuan_id) }}" method="POST"
+                                                <form action="{{ route('db_incident_domain.destroy',$incident_domain->incident_domain_id) }}" method="POST"
                                                     class="d-inline" onsubmit="return validasiHapus()">
                                                     @csrf
                                                     @method('delete')

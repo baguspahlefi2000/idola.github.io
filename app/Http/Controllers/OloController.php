@@ -18,7 +18,7 @@ class OloController extends Controller
     public function index()
     {
         return view('db.olo.index', ['title' => 'Halaman Index', 
-        'olo' => OloTabel::orderBy('olo_id')->get()   
+        'olo' => OloTabel::orderBy('olo_nama')->skip(1)->take(PHP_INT_MAX)->get() 
     ]);
     }
 

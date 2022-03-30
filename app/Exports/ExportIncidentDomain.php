@@ -2,22 +2,21 @@
 
 namespace App\Exports;
 
-use App\Models\OloTabel;
+use App\Models\IncidentDomainTabel;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class ExportOlo implements FromCollection, WithHeadings
+class ExportIncidentDomain implements FromCollection, WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return OloTabel::all()->sortBy('olo_nama');
+        return IncidentDomainTabel::all()->sortBy('incident_domain_nama');
     }
-
     public function headings() : array
     {
-        return ['olo_id','olo_nama'];
+        return ['incident_domain_id','incident_domain_nama'];
     }
 }

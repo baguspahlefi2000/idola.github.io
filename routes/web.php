@@ -14,6 +14,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\RekapController;
 use App\Http\Controllers\RekapProgressController;
+use App\Http\Controllers\IncidentDomainController;
 use App\Models\Database;
 use App\Models\ProgresLapangan;
 use App\Models\DeploymentTabel;
@@ -157,6 +158,15 @@ Route::get('/db_satuan/edit/{satuan}', [satuanController::class, 'edit'])->name(
 Route::put('/db_satuan/update/{satuan}', [SatuanController::class, 'update'])->name('db_satuan.update');
 Route::delete('/db_satuan/delete/{satuan}', [SatuanController::class, 'destroy'])->name('db_satuan.destroy');
 Route::get('/db_satuan/export-satuan',[SatuanController::class,'exportSatuan'])->name('db_satuan.export');
+
+// db_incident_domain
+Route::get('/db_incident_domain', [IncidentDomainController::class, 'index'])->name('db_incident_domain.index')->middleware('auth');
+Route::get('/db_incident_domain/create', [IncidentDomainController::class, 'create'])->name('db_incident_domain.create')->middleware('editor');
+Route::post('/db_incident_domain/store', [IncidentDomainController::class, 'store'])->name('db_incident_domain.store');
+Route::get('/db_incident_domain/edit/{satuan}', [IncidentDomainController::class, 'edit'])->name('db_incident_domain.edit')->middleware('editor');
+Route::put('/db_incident_domain/update/{satuan}', [IncidentDomainController::class, 'update'])->name('db_incident_domain.update');
+Route::delete('/db_incident_domain/delete/{satuan}', [IncidentDomainController::class, 'destroy'])->name('db_incident_domain.destroy');
+Route::get('/db_incident_domain/export-satuan',[IncidentDomainController::class,'exportIncidentDomain'])->name('db_incident_domain.export');
 
 
 //route EXE SUMM

@@ -15,6 +15,9 @@
                 <li class="nav-item tab-rekap-item">
                     <a href="{{ route('db_satuan.index') }}#database-satuan" class="tab-rekap">Database Satuan</a>
                 </li>
+                <li class="nav-item tab-rekap-item">
+                    <a href="{{ route('db_incident_domain.index') }}#database-incident-domain" class="tab-rekap">Database Incident Domain</a>
+                </li>
             </ul>
 
             <div class="card mt-2 mb-2 shadow-sm" id="database-produk">

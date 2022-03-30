@@ -18,7 +18,7 @@ class SatuanController extends Controller
     public function index()
     {
         return view('db.satuan.index', ['title' => 'Halaman Index', 
-        'satuan' => SatuanTabel::orderBy('satuan_id')->get()   
+        'satuan' => SatuanTabel::orderBy('satuan_nama')->skip(1)->take(PHP_INT_MAX)->get()   
     ]);
     }
 

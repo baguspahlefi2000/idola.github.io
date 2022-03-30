@@ -18,7 +18,7 @@ class ProdukController extends Controller
     public function index()
     {
         return view('db.produk.index', ['title' => 'Halaman Index', 
-        'produk' => ProdukTabel::orderBy('produk_id')->get()   
+        'produk' => ProdukTabel::orderBy('produk_nama')->skip(1)->take(PHP_INT_MAX)->get()   
     ]);
     }
 

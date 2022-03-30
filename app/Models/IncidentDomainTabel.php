@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Created by Reliese Model.
+ */
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class IncidentDomainTabel extends Model
 {
@@ -8,12 +17,12 @@ class IncidentDomainTabel extends Model
 	public $timestamps = false;
 
 	protected $fillable = [
-		'indicent_domain_nama'
+		'incident_domain_nama'
 	];
 
 	public function deployment_tabels()
 	{
-		return $this->hasMany(DeploymentTabel::class, 'produk_id');
+		return $this->hasMany(AssuranceTabel::class, 'incident_domain_id');
 	}
 
 }

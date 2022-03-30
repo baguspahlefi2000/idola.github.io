@@ -13,7 +13,7 @@ class ExportProduk implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return ProdukTabel::all();
+        return ProdukTabel::all()->sortBy('produk_nama');
     }
 
     public function headings() : array

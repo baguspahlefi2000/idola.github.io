@@ -13,7 +13,7 @@ class ExportSatuan implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return SatuanTabel::all();
+        return SatuanTabel::all()->sortBy('satuan_nama');
     }
 
     public function headings() : array
