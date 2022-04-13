@@ -84,7 +84,7 @@ class ImportAssurance implements ToModel, WithHeadingRow, WithCustomCsvSettings
             'scc_logic' => $row['scc_logic'],
             'complete_wo_by' => $row['complete_wo_by'],
             'kode_produk' => $row['kode_produk'],
-            'resolved_date' => $row['workzone']
+            'resolved_date' => $row['resolved_date']
         ]);
     }
     public function getCsvSettings(): array
