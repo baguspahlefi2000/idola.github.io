@@ -23,27 +23,54 @@ class AssuranceTabel extends Model
 
 
 	protected $dates = [
+		'last_work_log_date' => 'date',
+		'booking_date' => 'date',
+		'reported_date' => 'date',
+		'last_update_ticket' => 'date',
+		'status_date' => 'date',
 		'resolved_date' => 'date'
 	];
 
 	protected $fillable = [
 		'incident',
 		'olo_id',
-		'contact',
+		'contact_name',
+		'contact_phone',
+		'contact_email',
 		'summary',
 		'owner_group',
+		'owner',
+		'last_updated_work_log',
+		'last_work_log_date',
+		'count_cust_info',
+		'last_cust_info',
+		'assigned_to',
+		'booking_date',
+		'assigned_by',
+		'reported_priority',
+		'source',
+		'subsidiary',
 		'external_ticket_id',
+		'external_ticket_status',
+		'segment',
 		'channel',
 		'customer_segment',
+		'customer_type',
+		'closed_by',
+		'customer_id',
 		'service_id',
 		'service_no',
 		'service_type',
 		'top_priority',
 		'slg',
-		'reported_date',
-		'reported_time',
+		'technology',
+		'datek',
+		'rk_name',
+		'ibooster_alert_id',
 		'induk_gamas',
 		'related_to_global_issue',
+		'reported_date',
+		'reported_time',
 		'lapul',
 		'gaul',
 		'ttr_customer',
@@ -55,8 +82,10 @@ class AssuranceTabel extends Model
 		'ttr_pending',
 		'pending_reason',
 		'status',
+		'hasil_ukur',
+		'osm_resolved_code',
+		'last_update_ticket',
 		'status_date',
-		'status_time',
 		'resolved_by',
 		'workzone',
 		'witel_id',
@@ -65,8 +94,12 @@ class AssuranceTabel extends Model
 		'solutions_segment',
 		'actual_solution',
 		'incident_domain_id',
-		'resolved_date',
-		'resolved_time'
+		'onu_rx_before_after',
+		'scc_fisik_inet',
+		'scc_logic',
+		'complete_wo_by',
+		'kode_produk',
+		'resolved_date'
 	];
 
 	public function assurance_id_tabel()
@@ -143,11 +176,11 @@ class AssuranceTabel extends Model
 	}
 
 	public function scopeFilter($query, array $filters){
-		// filter resolved_date
+		// filter reported_date
         if (request()->tgl_bulan_dr_assurance || request()->tgl_bulan_sd_assurance){
             $tgl_bulan_dr_assurance = Carbon::parse(request()->tgl_bulan_dr_assurance)->toDateTimeString();
             $tgl_bulan_sd_assurance = Carbon::parse(request()->tgl_bulan_sd_assurance)->toDateTimeString();
-            $query->whereBetween('resolved_date',[$tgl_bulan_dr_assurance,$tgl_bulan_sd_assurance]);
+            $query->whereBetween('reported_date',[$tgl_bulan_dr_assurance,$tgl_bulan_sd_assurance]);
 		}
 	}
 
