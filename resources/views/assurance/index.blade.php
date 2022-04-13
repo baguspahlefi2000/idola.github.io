@@ -133,6 +133,8 @@
                             <th class="text-nowrap">Service ID</th>
                             <th class="text-nowrap">Related to Global Issue</th>
                             <th>Gaul</th>
+                            <th class="text-nowrap">REPORTED DATE</th>
+                            <th class="text-nowrap">REPORTED TIME</th>
                             <th class="text-nowrap">TTR E2E</th>
                             <th class="text-nowrap">TTR Customer</th>
                             <th class="text-nowrap">TTR Nasional</th>
@@ -149,7 +151,6 @@
                             <th>Actual Solution</th>
                             <th>Incident Domain</th>
                             <th>Resolved Date</th>
-                            <th>Resolved Time</th>
                             @canany(['admin', 'editor'])
                             <th scope="col"><span class="las la-ellipsis-v"></span></th>
                             @endcanany
@@ -164,6 +165,8 @@
                                 <td>{{$data->service_id }}</td>
                                 <td>{{$data->related_to_global_issue }}</td>
                                 <td>{{$data->gaul }}</td>
+                                <td>{{$data->reported_date }}</td>
+                                <td>{{$data->reported_time }}</td>
                                 <td>{{$data->TTR_E2E }}</td>
                                 <td>{{$data->ttr_customer }}</td>
                                 <td>{{$data->ttr_nasional }}</td>
@@ -180,10 +183,6 @@
                                 <td>{{$data->actual_solution }}</td>
                                 <td>{{$data->INCIDENT_DOMAIN_NAMA }}</td>
                                 <td>{{$data->resolved_date }}</td>
-                                <td>{{$data->resolved_time }}</td>
-                                
-
-                                
                             </tr>
                             @endforeach
                         </tbody>

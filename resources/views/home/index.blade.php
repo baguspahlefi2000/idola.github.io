@@ -157,7 +157,7 @@
                     </div>
                 </form>
                     <div class="row py-3 mt-3">
-                        <div class="col-3">
+                        <div class="col-3 ml-n4">
                             <div class="row">
                                 <div class="container">
                                     <h6>Comply</h6>
@@ -169,7 +169,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col content-comply">
+                        <div class="col content-comply ml-n2">
                         @foreach ($comply_not_comply as $item)
                             <div class="row">
                                 <div class="container comply">

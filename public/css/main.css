@@ -571,7 +571,7 @@ th {
     font-weight: bold;
 }
 .assurance .content-total{
-    max-width: 20%;
+    max-width: fit-content;
 }
 .assurance .total{
     background-color: #c09404;
