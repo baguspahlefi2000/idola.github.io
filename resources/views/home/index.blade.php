@@ -235,10 +235,10 @@
                         </div>
                             @foreach ($segment_gangguan as $item)
                             <?php
-                                $cpe = $item->REKAP_CPE;
-                                $odp = $item->REKAP_ODP;
-                                $dropcore = $item->REKAP_DROPCORE;
-                                $lain = $item->REKAP_LAIN;
+                                $first = $item->REKAP_FIRST;
+                                $second = $item->REKAP_SECOND;
+                                $third = $item->REKAP_THIRD;
+                                $etc = $item->REKAP_ETC;
                             ?>
                             @endforeach
                             
@@ -362,10 +362,10 @@
 <!-- Chart Assurance -->
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script>
-    var cpe = <?php echo($cpe)?>;
-    var odp = <?php echo($odp)?>;
-    var dropcore = <?php echo($dropcore)?>;
-    var lain = <?php echo($lain)?>;
+    var first = <?php echo($first)?>;
+    var second = <?php echo($second)?>;
+    var third = <?php echo($third)?>;
+    var etc = <?php echo($etc)?>;
     Highcharts.chart('container', {
     chart: {
         type: 'bar',
@@ -375,7 +375,7 @@
         text: 'Segmen Gangguan'
     },
     xAxis: {
-        categories: ['CPE', 'ODP', 'DROP CORE', 'LAIN - LAIN'],
+        categories: ['DATIN - TELKOM - OPTIK AKSES CUT (DROPCORE)', 'DATIN - CUSTOMER - CPE MANAGED', 'DATIN - TELKOM - OPTIK AKSES CUT (ODP)', 'LAIN - LAIN'],
         title: {
             text: null
         }
@@ -404,7 +404,7 @@
     },
     series: [{
         name : 'Data Gangguan',
-        data: [cpe, odp, dropcore, lain],
+        data: [first, second, third, etc],
         color: '#bf9000'
     }]
 });
