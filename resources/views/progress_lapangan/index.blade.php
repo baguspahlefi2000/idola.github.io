@@ -143,150 +143,115 @@
                             <h2 class="">Progress Lapangan</h2>
                         </div>
                         <div class="col text-right">
-                            <button type="button" class="btn btn-outline" data-toggle="modal"
-                                data-target="#importButton">
-                                <i class="las la-upload"></i> Import
-                            </button>
                             <a href="{{ route('progress.export') }}" class="btn btn-second-thin ml-2">
                                 <i class="las la-download"></i> Export
                             </a>
                         </div>
                     </div>
+                    <div class="div 1">
+                        <table class="table table-responsive table-hover table-coba" id="table_id" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th scope="col" rowspan="2">No</th>
+                                    <th scope="col" rowspan="2">Tanggal</th>
+                                    <th scope="col" rowspan="2">Witel</th>
+                                    <th scope="col" class="text-nowrap" rowspan="2">No Ao</th>
+                                    <th scope="col" rowspan="2">Olo</th>
+                                    <th scope="col" rowspan="2">Produk</th>
+                                    <th scope="col" rowspan="2">Bandwith</th>
+                                    <th scope="col" class="text-nowrap" rowspan="2">Alamat</th>
+                                    <th scope="col" colspan="2" class="text-center">Progress PT1</th>
+                                    <th scope="col" colspan="2" class="text-center">Progress PT2</th>
+                                    <th scope="col" class="text-nowrap" rowspan="2">Datek ODP</th>
+                                    <th scope="col" class="text-nowrap" rowspan="2">Datek GPON</th>
+                                    <th scope="col" rowspan="2">Progress</th>
+                                    <th scope="col" rowspan="2">Keterangan</th>
+                                    @canany(['admin', 'editor'])
+                                        <td class="text-center">
+                                            <div class="dropleft" title="Menu">
+                                                <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false"></span>
+                                                <div class="dropdown-menu" aria-labelledby="menuEdit">
+                                                    <a href="#" class="dropdown-item"
+                                                        type="button">
+                                                        <i class="fas fa-edit mr-2"></i>
+                                                        Edit
+                                                    </a>
+                                                    <form action="#" method="POST"
+                                                        class="d-inline" onsubmit="return validasiHapus()">
+                                                        @csrf
+                                                        <button class="dropdown-item" type="submit"
+                                                            onclick="return confirm('Apakah Anda Ingin Menghapusnya?')"><i
+                                                                class="fas fa-trash mr-2"></i> Hapus</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        @endcanany
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-nowrap">Tanggal Order</th>
+                                    <th scope="row">Keterangan</th>
+                                    <th scope="row" class="text-nowrap">Tanggal Order</th>
+                                    <th scope="row">Keterangan</th>
+                                </tr>
+                            </thead>
+    
+                            <tbody>
+                                @foreach ($progress_lapangan as $item)
+                                <tr>
+                                    <td class="text-center">{{ $loop->iteration }}</td>
+                                    <td>{{ $item->tanggal }}</td>
+                                    <td>{{ $item->witel_tabel->witel_nama}}</td>
+                                    <td>{{ $item->ao }}</td>
+                                    <td>{{ $item->olo_tabel->olo_nama }}</td>
+                                    <td>{{ $item->produk_tabel->produk_nama }}</td>
+                                    <td>{{ $item->bandwith}}</td>
+                                    <td>{{ $item->alamat_toko }}</td>
+                                    <td>{{ $item->tanggal_order_pt1 }}</td>
+                                    <td>{{ $item->keterangan_pt1 }}</td>
+                                    <td>{{ $item->tanggal_order_pt2 }}</td>
+                                    <td>{{ $item->keterangan_pt2 }}</td>
+                                    <td>{{ $item->datek_odp }}</td>
+                                    <td>{{ $item->datek_gpon }}</td>
+                                    <td>{{ $item->status_p_lapangan_tabel->status_p_lapangan_nama }}</td>
+                                    <td>{{ $item->keterangan }}</td>
+                                    @canany(['admin', 'editor'])
+                                        <td class="text-center">
+                                            <div class="dropleft" title="Menu">
+                                                <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false"></span>
+                                                <div class="dropdown-menu" aria-labelledby="menuEdit">
+                                                    <a href="{{ route('progress.edit',$item->progress_lapangan_id) }}" class="dropdown-item"
+                                                        type="button">
+                                                        <i class="fas fa-edit mr-2"></i>
+                                                        Edit
+                                                    </a>
+                                                    <form action="{{ route('progress.destroy',$item->progress_lapangan_id) }}" method="POST"
+                                                        class="d-inline" onsubmit="return validasiHapus()">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button class="dropdown-item" type="submit"
+                                                            onclick="return confirm('Apakah Anda Ingin Menghapusnya?')"><i
+                                                                class="fas fa-trash mr-2"></i> Hapus</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        @endcanany
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
-                 <div class="div 1">
-                    <table class="table table-responsive table-hover table-coba" id="table_id" style="width: 100%">
-                        <thead>
-                            <tr>
-                                <th scope="col" rowspan="2">No</th>
-                                <th scope="col" rowspan="2">Tanggal</th>
-                                <th scope="col" rowspan="2">Witel</th>
-                                <th scope="col" class="text-nowrap" rowspan="2">No Ao</th>
-                                <th scope="col" rowspan="2">Olo</th>
-                                <th scope="col" rowspan="2">Produk</th>
-                                <th scope="col" rowspan="2">Bandwith</th>
-                                <th scope="col" class="text-nowrap" rowspan="2">Alamat</th>
-                                <th scope="col" colspan="2" class="text-center">Progress PT1</th>
-                                <th scope="col" colspan="2" class="text-center">Progress PT2</th>
-                                <th scope="col" class="text-nowrap" rowspan="2">Datek ODP</th>
-                                <th scope="col" class="text-nowrap" rowspan="2">Datek GPON</th>
-                                <th scope="col" rowspan="2">Progress</th>
-                                <th scope="col" rowspan="2">Keterangan</th>
-                                @canany(['admin', 'editor'])
-                                    <td class="text-center">
-                                        <div class="dropleft" title="Menu">
-                                            <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false"></span>
-                                            <div class="dropdown-menu" aria-labelledby="menuEdit">
-                                                <a href="#" class="dropdown-item"
-                                                    type="button">
-                                                    <i class="fas fa-edit mr-2"></i>
-                                                    Edit
-                                                </a>
-                                                <form action="#" method="POST"
-                                                    class="d-inline" onsubmit="return validasiHapus()">
-                                                    @csrf
-                                                    <button class="dropdown-item" type="submit"
-                                                        onclick="return confirm('Apakah Anda Ingin Menghapusnya?')"><i
-                                                            class="fas fa-trash mr-2"></i> Hapus</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    @endcanany
-                            </tr>
-                            <tr>
-                                <th scope="row" class="text-nowrap">Tanggal Order</th>
-                                <th scope="row">Keterangan</th>
-                                <th scope="row" class="text-nowrap">Tanggal Order</th>
-                                <th scope="row">Keterangan</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            @foreach ($progress_lapangan as $item)
-                            <tr>
-                                <td class="text-center">{{ $loop->iteration }}</td>
-                                <td>{{ $item->tanggal }}</td>
-                                <td>{{ $item->witel_tabel->witel_nama}}</td>
-                                <td>{{ $item->ao }}</td>
-                                <td>{{ $item->olo_tabel->olo_nama }}</td>
-                                <td>{{ $item->produk_tabel->produk_nama }}</td>
-                                <td>{{ $item->bandwith}}</td>
-                                <td>{{ $item->alamat_toko }}</td>
-                                <td>{{ $item->tanggal_order_pt1 }}</td>
-                                <td>{{ $item->keterangan_pt1 }}</td>
-                                <td>{{ $item->tanggal_order_pt2 }}</td>
-                                <td>{{ $item->keterangan_pt2 }}</td>
-                                <td>{{ $item->datek_odp }}</td>
-                                <td>{{ $item->datek_gpon }}</td>
-                                <td>{{ $item->status_p_lapangan_tabel->status_p_lapangan_nama }}</td>
-                                <td>{{ $item->keterangan }}</td>
-                                @canany(['admin', 'editor'])
-                                    <td class="text-center">
-                                        <div class="dropleft" title="Menu">
-                                            <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false"></span>
-                                            <div class="dropdown-menu" aria-labelledby="menuEdit">
-                                                <a href="{{ route('progress.edit',$item->progress_lapangan_id) }}" class="dropdown-item"
-                                                    type="button">
-                                                    <i class="fas fa-edit mr-2"></i>
-                                                    Edit
-                                                </a>
-                                                <form action="{{ route('progress.destroy',$item->progress_lapangan_id) }}" method="POST"
-                                                    class="d-inline" onsubmit="return validasiHapus()">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button class="dropdown-item" type="submit"
-                                                        onclick="return confirm('Apakah Anda Ingin Menghapusnya?')"><i
-                                                            class="fas fa-trash mr-2"></i> Hapus</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    @endcanany
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>   
+                    
                 </div>
             </div>
         </div>
 
-        <!-- Modal Impor -->
-        <div class="modal fade" id="importButton" data-backdrop="static" data-keyboard="false" tabindex="-1"
-            aria-labelledby="importButtonLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="importButtonLabel">Import Excel</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="{{ route('progress.import')}}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <p><i class="las la-info-circle"></i> Sebelum Import pastikan sesuai dengan template!</p>
-                            <div class="input-group mb-3">
-                                <div class="custom-file">
-                                    <input type="file" name="file" class="custom-file-input" id="importFile" required
-                                        accept=".xlsx, .csv, .xls, .ods, .tsv">
-                                    <label class="custom-file-label" for="importFile">Pilih File</label>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-second btn-block">Import</button>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-second-thin text-bold" data-toggle="modal"
-                            data-target="#templateButton">Lihat Template</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Modal Template -->
         <div class="modal fade" id="templateButton" data-backdrop="static" data-keyboard="false" tabindex="2"

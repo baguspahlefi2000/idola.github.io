@@ -187,7 +187,6 @@ class ProgresLapanganController extends Controller
         ->orderBy('produk_nama', 'ASC')
         ->get();
 
-
         $status_progress_data = DB::table("status_p_lapangan_tabel")
         ->select("status_p_lapangan_id", "status_p_lapangan_nama")
         ->get();

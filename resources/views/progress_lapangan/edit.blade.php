@@ -15,7 +15,6 @@
                             <label for="tanggal">Tanggal</label>
                              <input type="date" name="tanggal" id="tanggal" class="form-control"
                                 value="{{ $progress->tanggal }}">
-                            </input>
                         </div>
 
                         <div class="form-group">

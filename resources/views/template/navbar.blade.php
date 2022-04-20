@@ -40,9 +40,18 @@
                                 class="las la-pen mr-3"></i>Update Progress</a>
                     </div>
                 </li>
-                <li class="nav-item menu">
-                    <a class="nav-link {{ Request::is('assurance*') ? 'nav-active' : '' }}"
-                        href="{{ route('assurance.index') }}">Assurance</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link {{ Request::is('assurance*') ? 'nav-active' : '' }} dropdown-toggle"
+                        href="#" id="progressMenu" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Assurance
+                    </a>
+                    <div class="dropdown-menu dropmenu" aria-labelledby="progressMenu">
+                        <a class="dropdown-item" href="{{ route('assurance.create') }}"><i
+                                class="las la-plus mr-3"></i>New Assurance</a>
+                        <a class="dropdown-item" href="{{ route('assurance.index') }}"><i
+                                class="las la-pen mr-3"></i>Update Assurance</a>
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="evaluasiMenu" role="button" data-toggle="dropdown"

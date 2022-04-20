@@ -19,6 +19,23 @@
             </div>
         </div>
     </div>
+    @elseif (session()->has('failed'))
+    <div class="success-tambah align-items-center mt-3" id="success-tambah">
+        <div class="d-flex">
+            <div class="ml-3 p-2 align-self-center text-danger">
+                <i class="las la-close display-4"></i>
+            </div>
+            <div class="p-2 flex-grow-1 border-right">
+                <h3 class="mt-2">Failed</h3>
+                <p class="pesan-gagal">{{ session('failed') }}</p>
+            </div>
+            <div class="px-4 align-self-center">
+                <button id="close-flash" class="close" onclick="hideFlash()">
+                    <span class="font-weight-normal">CLOSE</span>
+                </button>
+            </div>
+        </div>
+    </div>
     @endif
     <div class="row">
         <div class="col">
@@ -183,6 +200,29 @@
                                 <td>{{$data->actual_solution }}</td>
                                 <td>{{$data->INCIDENT_DOMAIN_NAMA }}</td>
                                 <td>{{$data->resolved_date }}</td>
+                                @canany(['admin', 'editor'])
+                                <td class="text-center">
+                                    <div class="dropleft" title="Menu">
+                                        <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"></span>
+                                        <div class="dropdown-menu" aria-labelledby="menuEdit">
+                                            <a href="{{ route('assurance.edit',$data->assurance_id) }}" class="dropdown-item"
+                                                type="button">
+                                                <i class="fas fa-edit mr-2"></i>
+                                                Edit
+                                            </a>
+                                            <form action="{{ route('assurance.destroy',$data->assurance_id) }}" method="POST"
+                                                class="d-inline" onsubmit="return validasiHapus()">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="dropdown-item" type="submit"
+                                                    onclick="return confirm('Apakah Anda Ingin Menghapusnya?')"><i
+                                                        class="fas fa-trash mr-2"></i> Hapus</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td>
+                                @endcanany
                             </tr>
                             @endforeach
                         </tbody>

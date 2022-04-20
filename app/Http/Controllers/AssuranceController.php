@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ExportAssurance;
 use App\Imports\ImportAssurance;
+use Illuminate\Support\Facades\DB;
 use Session;
+use File;
 
 class AssuranceController extends Controller
 {
@@ -29,9 +31,28 @@ class AssuranceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(AssuranceTabel $assurance)
     {
-        //
+        $witel_data = DB::table("witel_tabel")
+        ->select("witel_id", "witel_nama")
+        ->orderBy('witel_nama', 'ASC')
+        ->get();
+
+        $olo_data = DB::table("olo_tabel")
+        ->select("olo_id","olo_nama")
+        ->orderBy('olo_nama', 'ASC')
+        ->get();
+
+        $incident_domain_data = DB::table("incident_domain_tabel")
+        ->select("incident_domain_id", "incident_domain_nama")
+        ->orderBy('incident_domain_id', 'ASC')
+        ->get();
+
+
+        return view('assurance.create', ["title" => "Create Data - Data Assurance", 
+        'witel_data' => $witel_data,
+        'olo_data' => $olo_data,
+        'incident_domain_data' => $incident_domain_data,]);
     }
 
     /**
@@ -42,7 +63,9 @@ class AssuranceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        AssuranceTabel::create($data);
+        return redirect()->route('assurance.index')->with('success','Data Assurance Berhasil Diinput!');
     }
 
     /**
@@ -62,9 +85,29 @@ class AssuranceController extends Controller
      * @param  \App\Models\AssuranceTabel  $assuranceTabel
      * @return \Illuminate\Http\Response
      */
-    public function edit(AssuranceTabel $assuranceTabel)
+    public function edit(AssuranceTabel $assurance)
     {
-        //
+        $witel_data = DB::table("witel_tabel")
+        ->select("witel_id", "witel_nama")
+        ->orderBy('witel_nama', 'ASC')
+        ->get();
+
+        $olo_data = DB::table("olo_tabel")
+        ->select("olo_id","olo_nama")
+        ->orderBy('olo_nama', 'ASC')
+        ->get();
+
+        $incident_domain_data = DB::table("incident_domain_tabel")
+        ->select("incident_domain_id", "incident_domain_nama")
+        ->orderBy('incident_domain_id', 'ASC')
+        ->get();
+
+
+        return view('assurance.edit', ["title" => "Edit Data - Data Assurance", 
+        'assurance' => $assurance,
+        'witel_data' => $witel_data,
+        'olo_data' => $olo_data,
+        'incident_domain_data' => $incident_domain_data,]);
     }
 
     /**
@@ -74,9 +117,12 @@ class AssuranceController extends Controller
      * @param  \App\Models\AssuranceTabel  $assuranceTabel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AssuranceTabel $assuranceTabel)
+    public function update(Request $request, AssuranceTabel $assurance)
     {
-        //
+        $data = $request->all();
+        $assurance->update($data);
+        sleep(1);
+        return redirect()->route('assurance.index');
     }
 
     /**
@@ -85,9 +131,11 @@ class AssuranceController extends Controller
      * @param  \App\Models\AssuranceTabel  $assuranceTabel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AssuranceTabel $assuranceTabel)
+    public function destroy(AssuranceTabel $assurance)
     {
-        //
+        $assurance->delete();
+        sleep(1);
+        return redirect()->route('assurance.index');
     }
 
     public function exportAssurance(Request $request){
@@ -96,9 +144,19 @@ class AssuranceController extends Controller
 
     public function importAssurance(Request $request)
     {
+        //validate the csv file
+        $this->validate($request, array('file' => 'required'));
 
-		Excel::import(new ImportAssurance, request()->file('file'));
+        if($request->hasFile('file')){
+            $extension = File::extension($request->file->getClientOriginalName());
+            if ($extension == "csv") {
+    
+                Excel::import(new ImportAssurance, request()->file('file'));
 
-        return redirect()->route('assurance.index')->with('success','Data Assurance Berhasil Diinput!');
+                return redirect()->route('assurance.index')->with('success','Data Assurance Imported Successfully!');
+            } else {
+                return redirect()->route('assurance.index')->with('failed','Failed to Import, Format File Must Be a CSV UTF-8!');
+            }
+        }
     }
 }

@@ -121,6 +121,11 @@ Route::delete('/deployment/delete/{deployment}', [DeploymentController::class, '
 Route::get('/deployment/export-deployment',[DeploymentController::class,'exportDeployment'])->name('deployment.export');
 // assurance
 Route::get('/assurance', [AssuranceController::class, 'index'])->name('assurance.index')->middleware('auth');
+Route::get('/assurance/create', [AssuranceController::class, 'create'])->name('assurance.create')->middleware('editor');
+Route::post('/assurance/store', [AssuranceController::class, 'store'])->name('assurance.store')->middleware('editor');
+Route::get('/assurance/edit/{assurance}', [AssuranceController::class, 'edit'])->name('assurance.edit')->middleware('editor');
+Route::put('/assurance/update/{assurance}', [AssuranceController::class, 'update'])->name('assurance.update')->middleware('editor');
+Route::delete('/assurance/destroy/{assurance}', [AssuranceController::class, 'destroy'])->name('assurance.destroy')->middleware('editor');
 Route::get('/assurance/export-assurance',[AssuranceController::class,'exportAssurance'])->name('assurance.export');
 Route::post('/assurance/import-assurance', [AssuranceController::class, 'importAssurance'])->name('assurance.import');
 
