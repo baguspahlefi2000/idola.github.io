@@ -17,11 +17,11 @@
                         <div class="row mb-3">
 
                             <div class="col-md-center">
-                                <input id="email" type="input" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email" required autocomplete="email" autofocus>
+                                <input id="username" type="input" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" placeholder="Username" required autocomplete="username" autofocus>
 
-                                @error('email')
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>*Incorrect Username or Password.</strong>
                                     </span>
                                 @enderror
                             </div>
@@ -35,7 +35,7 @@
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>*Incorrect Username or Password.</strong>
                                     </span>
                                 @enderror
                             </div>
