@@ -853,6 +853,10 @@ th {
         font-size: large;
         min-width: 12vw;
     }
+    .row .tabel-ruwet{
+        height: fit-content;
+        font-size: xx-small;
+    }
     
 
 
@@ -947,6 +951,10 @@ th {
         border-radius: 6px;
         font-size: x-large;
         min-width: 15vw;
+    }
+    .row .tabel-ruwet{
+        height: fit-content;
+        font-size: large;
     }
     
 }
@@ -1222,7 +1230,7 @@ th {
     }
     .row .tabel-ruwet{
         height: fit-content;
-        font-size: small;
+        font-size: x-small;
     }
     
     .nopadding {

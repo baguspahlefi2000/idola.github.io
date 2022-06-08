@@ -20,7 +20,7 @@
         <div class="row mx-auto">
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                 <div class="form-row row-rumah">
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 ">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-4">
                         <div class="rumah-1 p-2">
                             <label class="mt-4" for="witel">Witel</label><br>
                             @foreach ($witel as $item)
@@ -28,7 +28,7 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 ">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-4">
                         <div class="rumah-2 p-2">
                             <label class="mt-4" for="produk">Produk</label>
                             @foreach ($produk as $item)
@@ -36,7 +36,7 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-4">
                     <div class="rumah-3 p-2">
                         <label class="mt-4" for="witel">Customer</label>
                         @foreach ($customer as $item)
@@ -94,12 +94,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
+            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mt-4">
                 <div class="form-row img-teknisi">
                     <img src="{{ asset('img/teknisi-olo.png') }}" alt="">
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
+            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mt-4">
                 <div class="form-row img-teknisi">
                     <img src="{{ asset('img/teknisi-ff.png') }}" alt="">
                 </div>
@@ -108,8 +108,8 @@
         <!--Tutup Data Row 1 -->
 
         <!-- Data Row 2 -->
-        <div class="row mt-4">
-            <div class="col-xl-4 col-lg-4 p-0">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 p-0 mt-4">
                 <div class="row">
                     <div class="col">
                         <h5>Top 10 Produk OLO</h5>
@@ -142,7 +142,7 @@
                 </div>
             </div>
             
-            <div class="col-xl-4 col-lg-4 text-center mx-auto">
+            <div class="col-xl-4 col-lg-4 text-center mx-auto mt-4">
                 <div class="assurance">
                     <div class="container">
                     <div class="row">
@@ -261,7 +261,7 @@
                 
             </div>
 
-            <div class="col-xl-4 col-lg-4 progressff mx-auto">
+            <div class="col-xl-4 col-lg-4 progressff mx-auto mt-4">
                 <div class="row">
                     <h5 class="ml-2">Progress FF</h5>
                 </div>
@@ -366,7 +366,7 @@
         </div>
         <!-- Data Row 2 -->
         <div class="text-center mt-4">
-            <img src="{{ asset('img/tulisan-home.png') }}" width="70%" alt="">
+            <img src="{{ asset('img/tulisan-home.png') }}" width="65%" alt="">
         </div>
             
         </div>
