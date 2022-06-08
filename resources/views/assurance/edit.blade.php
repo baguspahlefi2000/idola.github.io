@@ -32,7 +32,7 @@
                                 value="{{ $assurance->contact_name }}">     
                             </div>
                             <div class="col">
-                                <label for="contact_phone">Contact phone</label>
+                                <label for="contact_phone">Contact Phone</label>
                                 <input type="text" name="contact_phone" id="contact_phone" class="form-control"
                                 value="{{ $assurance->contact_phone }}">     
                             </div>
@@ -84,7 +84,7 @@
                         <div class="form-row mt-3">
                             
                             <div class="col">
-                                <label for="assigned_to">assigned to</label>
+                                <label for="assigned_to">Assigned To</label>
                                 <input type="text" name="assigned_to" id="assigned_to" class="form-control"
                                 value="{{$assurance->assigned_to}}">
                             </div>
@@ -165,7 +165,7 @@
                                     <input type="form-control" name="service_no" id="service_no" class="form-control" value="{{$assurance->service_no}}">
                                 </div>
                                 <div class="col">
-                                    <label for="service_type">Service type</label>
+                                    <label for="service_type">Service Type</label>
                                     <input type="form-control" name="service_type" id="service_type" class="form-control" value="{{$assurance->service_type}}">
                                 </div>
                         </div>
@@ -189,7 +189,7 @@
                                 value="{{$assurance->technology}}">
                             </div>
                             <div class="col">
-                                <label for="datek">datek</label>
+                                <label for="datek">Datek</label>
                                 <input type="form-control" name="datek" id="datek" class="form-control"
                                 value="{{$assurance->datek}}">
                             </div>
@@ -197,12 +197,12 @@
 
                         <div class="form-row mt">
                             <div class="col">
-                                <label for="datek">rk name</label>
+                                <label for="datek">RK Name</label>
                                 <input type="form-control" name="rk_name" id="rk_name" class="form-control"
                                 value="{{$assurance->rk_name}}">
                             </div>
                             <div class="col">
-                                <label for="ibooster_alert_ID">ibooster alert ID</label>
+                                <label for="ibooster_alert_ID">IBooster Alert ID</label>
                                 <input type="form-control" name="ibooster_alert_ID" id="vlan" class="form-control"
                                 value="{{$assurance->technology}}">
                             </div>   
@@ -230,12 +230,12 @@
                                 value="{{$assurance->reported_time}}">
                             </div>
                             <div class="col">
-                                <label for="lapul">lapul</label>
+                                <label for="lapul">Lapul</label>
                                 <input type="text" name="lapul" id="lapul" class="form-control"
                                 value="{{$assurance->reported_lapul}}">
                             </div>
                             <div class="col">
-                                <label for="lapul">gaul</label>
+                                <label for="lapul">Gaul</label>
                                 <input type="form-control" name="gaul" id="gaul" class="form-control"
                                 value="{{$assurance->reported_gaul}}">
                             </div>
@@ -243,22 +243,22 @@
 
                         <div class="form-row">
                             <div class="col">
-                                <label for="ttr_customer">ttr customer</label>
+                                <label for="ttr_customer">TTR Customer</label>
                                 <input type="form-control" name="ttr_customer" id="ttr_customer" class="form-control"
                                 value="{{$assurance->ttr_customer}}">
                             </div>
                             <div class="col">
-                                <label for="ttr_nasional">ttr nasional</label>
+                                <label for="ttr_nasional">TTR Nasional</label>
                                 <input type="form-control" name="ttr_customer" id="ttr_customer" class="form-control"
                                 value="{{$assurance->ttr_nasional}}">
                             </div>
                             <div class="col">
-                                <label for="ttr_regional">ttr regional</label>
+                                <label for="ttr_regional">TTR Regional</label>
                                 <input type="form-control" name="ttr_regional" id="ttr_regional" class="form-control"
                                 value="{{$assurance->ttr_regional}}">
                             </div>
                             <div class="col">
-                                <label for="ttr_witel">ttr witel</label>
+                                <label for="ttr_witel">TTR Witel</label>
                                 <input type="form-control" name="ttr_regional" id="ttr_regional" class="form-control"
                                 value="{{$assurance->ttr_witel}}">
                             </div>
@@ -266,12 +266,12 @@
 
                         <div class="form-row">
                             <div class="col">
-                                <label for="ttr_mitra">ttr mitra</label>
+                                <label for="ttr_mitra">TTR Mitra</label>
                                 <input type="form-control" name="ttr_mitra" id="ttr_mitra" class="form-control"
                                 value="{{$assurance->ttr_mitra}}">
                             </div>
                             <div class="col">
-                                <label for="ttr_agent">ttr pending</label>
+                                <label for="ttr_agent">TTR Pending</label>
                                 <input type="form-control" name="ttr_agent" id="ttr_agent" class="form-control"
                                 value="{{$assurance->ttr_pending}}">
                             </div>
@@ -294,7 +294,7 @@
                                 value="{{$assurance->hasil_ukur}}">
                             </div>
                             <div class="col">
-                                <label for="osm_reason_code">Osm Reason Code</label>
+                                <label for="osm_reason_code">OSM Reason Code</label>
                                 <input class="form-control" name="osm_reason_code" id="osm_reason_code"
                                 value="{{$assurance->osm_reason_code}}">
                             </div>
@@ -317,7 +317,7 @@
                                 value="{{$assurance->resolved_by}}">
                             </div>
                             <div class="col">
-                                <label for="workzone">WorkZone</label>
+                                <label for="workzone">Workzone</label>
                                 <input type="form-control" name="last_update_ticket" id="last_update_ticket" class="form-control"
                                 value="{{$assurance->workzone}}">
                             </div>
@@ -339,7 +339,7 @@
                                 value="{{$assurance->regional}}">
                             </div>
                             <div class="col">
-                                <label for="incidents_symptom">incident symptom</label>
+                                <label for="incidents_symptom">Incident Symptom</label>
                                 <input type="form-control" name="incidents_symptom" id="incidents_symptom" class="form-control"
                                 value="{{$assurance->incidents_symptom}}">
                             </div>
@@ -353,7 +353,7 @@
                                 </select>
                             </div>
                             <div class="col">
-                                <label for="onu_rx_before_after">Onu RX before after</label>
+                                <label for="onu_rx_before_after">ONU RX before after</label>
                                 <input class="form-control" name="onu_rx_before_after" id="onu_rx_before_after"
                                 value="{{$assurance->onu_rx_before_after}}">
                             </div>
@@ -361,7 +361,7 @@
 
                         <div class="form-row">
                             <div class="col">
-                                <label for="scc_fisik_inet">SCC fisik inet</label>
+                                <label for="scc_fisik_inet">SCC Fisik Inet</label>
                                 <input type="form-control" name="scc_fisik_inet" id="scc_fisik_inet" class="form-control"
                                 value="{{$assurance->scc_fisik_inet}}">
                             </div>

@@ -73,7 +73,7 @@
                         <div class="form-row mt-3">
                             
                             <div class="col">
-                                <label for="assigned_to">assigned to</label>
+                                <label for="assigned_to">Assigned To</label>
                                 <input type="text" name="assigned_to" id="assigned_to" class="form-control">
                             </div>
                             <div class="col">
@@ -145,7 +145,7 @@
                                     <input type="form-control" name="service_no" id="service_no" class="form-control">
                                 </div>
                                 <div class="col">
-                                    <label for="service_type">Service type</label>
+                                    <label for="service_type">Service Type</label>
                                     <input type="form-control" name="service_type" id="service_type" class="form-control">
                                 </div>
                         </div>
@@ -166,18 +166,18 @@
                                 <input type="text" name="technology" id="technology" class="form-control">
                             </div>
                             <div class="col">
-                                <label for="datek">datek</label>
+                                <label for="datek">Datek</label>
                                 <input type="form-control" name="datek" id="datek" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-row mt">
                             <div class="col">
-                                <label for="datek">rk name</label>
+                                <label for="datek">RK Name</label>
                                 <input type="form-control" name="rk_name" id="rk_name   " class="form-control">
                             </div>
                             <div class="col">
-                                <label for="ibooster_alert_ID">ibooster alert ID</label>
+                                <label for="ibooster_alert_ID">IBooster Alert ID</label>
                                 <input type="form-control" name="ibooster_alert_ID" id="vlan" class="form-control">
                             </div>   
                             <div class="col">
@@ -200,45 +200,45 @@
                                 <input type="form-control" name="reported_time" id="reported_time" class="form-control">
                             </div>
                             <div class="col">
-                                <label for="lapul">lapul</label>
+                                <label for="lapul">Lapul</label>
                                 <input type="text" name="lapul" id="lapul" class="form-control">
                             </div>
                             <div class="col">
-                                <label for="lapul">gaul</label>
+                                <label for="lapul">Gaul</label>
                                 <input type="form-control" name="gaul" id="gaul" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="col">
-                                <label for="ttr_customer">ttr customer</label>
+                                <label for="ttr_customer">TTR Customer</label>
                                 <input type="form-control" name="ttr_customer" id="ttr_customer" class="form-control">
                             </div>
                             <div class="col">
-                                <label for="ttr_nasional">ttr nasional</label>
+                                <label for="ttr_nasional">TTR Nasional</label>
                                 <input type="form-control" name="ttr_nasional" id="ttr_nasional" class="form-control">
                             </div>
                             <div class="col">
-                                <label for="ttr_regional">ttr regional</label>
+                                <label for="ttr_regional">TTR Regional</label>
                                 <input type="form-control" name="ttr_regional" id="ttr_regional" class="form-control">
                             </div>
                             <div class="col">
-                                <label for="ttr_witel">ttr witel</label>
+                                <label for="ttr_witel">TTR Witel</label>
                                 <input type="form-control" name="ttr_regional" id="ttr_regional" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="col">
-                                <label for="ttr_mitra">ttr mitra</label>
+                                <label for="ttr_mitra">TTR Mitra</label>
                                 <input type="form-control" name="ttr_mitra" id="ttr_mitra" class="form-control">
                             </div>
                             <div class="col">
-                                <label for="ttr_agent">ttr agent</label>
+                                <label for="ttr_agent">TTR Agent</label>
                                 <input type="form-control" name="ttr_agent" id="ttr_agent" class="form-control">
                             </div>
                             <div class="col">
-                                <label for="ttr_pending">ttr pending</label>
+                                <label for="ttr_pending">TTR Pending</label>
                                 <input type="form-control" name="ttr_pending" id="ttr_agent" class="form-control">
                             </div>
                             <div class="col">
@@ -276,7 +276,7 @@
                                 <input class="form-control" name="resolved_by" id="resolved_by">
                             </div>
                             <div class="col">
-                                <label for="workzone">WorkZone</label>
+                                <label for="workzone">Workzone</label>
                                 <input type="form-control" name="last_update_ticket" id="last_update_ticket" class="form-control">
                             </div>
                             <div class="col">
@@ -296,7 +296,7 @@
                                 <input class="form-control" name="regional" id="regional">
                             </div>
                             <div class="col">
-                                <label for="incidents_symptom">incident symptom</label>
+                                <label for="incidents_symptom">Incident Symptom</label>
                                 <input type="form-control" name="incidents_symptom" id="incidents_symptom" class="form-control">
                             </div>
                             <div class="col">
@@ -309,14 +309,14 @@
                                 </select>
                             </div>
                             <div class="col">
-                                <label for="onu_rx_before_after">Onu RX before after</label>
+                                <label for="onu_rx_before_after">ONU RX Before After</label>
                                 <input class="form-control" name="onu_rx_before_after" id="onu_rx_before_after">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="col">
-                                <label for="scc_fisik_inet">SCC fisik inet</label>
+                                <label for="scc_fisik_inet">SCC Fisik Inet</label>
                                 <input type="form-control" name="scc_fisik_inet" id="scc_fisik_inet" class="form-control">
                             </div>
                             <div class="col">

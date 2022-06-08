@@ -17,7 +17,7 @@
     <div class="card">
         <!-- Data Row 1 -->
         <div class="row">
-            <div class="col-md-lg m-4">
+            <div class="col-md m-4">
                 <div class="form-row row-rumah">
                     <div class="col rumah-1">
                         <label class="mt-4" for="witel">Witel</label><br>
@@ -31,7 +31,7 @@
                         <div class="mt-0 mb-3 mx-5 bg-light text-dark rounded isi-rumah">{{ $item->REKAP_PRODUK }}</div>
                         @endforeach
                     </div>
-                    <div class="col rumah-3">
+                    <div class="col rumah-3 mr-4">
                         <label class="mt-4" for="witel">Customer</label>
                         @foreach ($customer as $item)
                         <div class="mt-0 mb-3 mx-5 bg-light text-dark rounded isi-rumah">{{ $item->REKAP_CUSTOMER }}</div>
@@ -39,48 +39,50 @@
                     </div>
                 </div>
                 <div class="row mt-4 table-rekap">
-                    <table class="table table-borderless ">
-                        <thead>
-                            <th> </th>
-                            <th class="text-nowrap text-center">New Install</th>
-                            <th class="text-center">Modify</th>
-                            <th class="text-nowrap text-center">Disconnect</th>
-                            <th class="text-nowrap text-center">Total</th>
-                        </thead>
-                        <tbody>
-                            <?php
-                                $totalSatu = 0;
-                                
-                            ?>
-                            <td class="tahun">2021</td>
-                            @foreach ($rekapSatu as $item)
-                            <td><div class="py-2 px-3 data-1">{{ $item->REKAP_AKTIVASI_SATU }}</div></td>
-                            <td><div class="py-2 px-3 data-1">{{ $item->REKAP_MODIFY_SATU }}</div></td>
-                            <td><div class="py-2 px-3 data-1">{{ $item->REKAP_DISCONNECT_SATU }}</div></td>
-                            <?php
-                                $totalSatu = $item->REKAP_AKTIVASI_SATU + $item->REKAP_MODIFY_SATU + $item->REKAP_DISCONNECT_SATU;
-                            ?>
-                            <td><div class="py-2 px-3 total-1">{{ $totalSatu }}</div></td>
-                            @endforeach
-                        </tbody>
-                        <tbody>
-                            <?php
-                                $totalDua = 0;
-                                
-                            ?>
-                            <td class="tahun">2022</td>
-                            @foreach ($rekapDua as $item)
-                            <td><div class="py-2 px-3 data-2">{{ $item->REKAP_AKTIVASI_DUA }}</div></td>
-                            <td><div class="py-2 px-3 data-2">{{ $item->REKAP_MODIFY_DUA }}</div></td>
-                            <td><div class="py-2 px-3 data-2">{{ $item->REKAP_DISCONNECT_DUA }}</div></td>
-                            <?php
-                                $totalDua = $item->REKAP_AKTIVASI_DUA + $item->REKAP_MODIFY_DUA + $item->REKAP_DISCONNECT_DUA;
-                            ?>
-                            <td><div class="py-2 px-3 total-2">{{ $totalDua }}</div></td>
-                           
-                            @endforeach
-                        </tbody>
-                    </table>
+                    <div class="col">
+                        <table class="table table-borderless ">
+                            <thead>
+                                <th> </th>
+                                <th class="text-nowrap text-center">New Install</th>
+                                <th class="text-center">Modify</th>
+                                <th class="text-nowrap text-center">Disconnect</th>
+                                <th class="text-nowrap text-center">Total</th>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $totalSatu = 0;
+                                    
+                                ?>
+                                <td class="tahun">2021</td>
+                                @foreach ($rekapSatu as $item)
+                                <td><div class="py-2 px-3 data-1">{{ $item->REKAP_AKTIVASI_SATU }}</div></td>
+                                <td><div class="py-2 px-3 data-1">{{ $item->REKAP_MODIFY_SATU }}</div></td>
+                                <td><div class="py-2 px-3 data-1">{{ $item->REKAP_DISCONNECT_SATU }}</div></td>
+                                <?php
+                                    $totalSatu = $item->REKAP_AKTIVASI_SATU + $item->REKAP_MODIFY_SATU + $item->REKAP_DISCONNECT_SATU;
+                                ?>
+                                <td><div class="py-2 px-3 total-1">{{ $totalSatu }}</div></td>
+                                @endforeach
+                            </tbody>
+                            <tbody>
+                                <?php
+                                    $totalDua = 0;
+                                    
+                                ?>
+                                <td class="tahun">2022</td>
+                                @foreach ($rekapDua as $item)
+                                <td><div class="py-2 px-3 data-2">{{ $item->REKAP_AKTIVASI_DUA }}</div></td>
+                                <td><div class="py-2 px-3 data-2">{{ $item->REKAP_MODIFY_DUA }}</div></td>
+                                <td><div class="py-2 px-3 data-2">{{ $item->REKAP_DISCONNECT_DUA }}</div></td>
+                                <?php
+                                    $totalDua = $item->REKAP_AKTIVASI_DUA + $item->REKAP_MODIFY_DUA + $item->REKAP_DISCONNECT_DUA;
+                                ?>
+                                <td><div class="py-2 px-3 total-2">{{ $totalDua }}</div></td>
+                               
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <div class="col-md m-4">
@@ -233,14 +235,14 @@
                         <div class="container">
                             <div id="container">
                         </div>
-                            @foreach ($segment_gangguan as $item)
+                        @foreach ($segment_gangguan as $item)
                             <?php
-                                $first = $item->REKAP_FIRST;
-                                $second = $item->REKAP_SECOND;
-                                $third = $item->REKAP_THIRD;
+                                $dropcore = $item->REKAP_DROPCORE;
+                                $odp = $item->REKAP_ODP;
+                                $cpe = $item->REKAP_CPE;
                                 $etc = $item->REKAP_ETC;
                             ?>
-                            @endforeach
+                        @endforeach
                             
                         </div>
                     </div>
@@ -362,9 +364,9 @@
 <!-- Chart Assurance -->
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script>
-    var first = <?php echo($first)?>;
-    var second = <?php echo($second)?>;
-    var third = <?php echo($third)?>;
+    var dropcore = <?php echo($dropcore)?>;
+    var odp = <?php echo($odp)?>;
+    var cpe = <?php echo($cpe)?>;
     var etc = <?php echo($etc)?>;
     Highcharts.chart('container', {
     chart: {
@@ -375,7 +377,7 @@
         text: 'Segmen Gangguan'
     },
     xAxis: {
-        categories: ['DATIN - TELKOM - OPTIK AKSES CUT (DROPCORE)', 'DATIN - CUSTOMER - CPE MANAGED', 'DATIN - TELKOM - OPTIK AKSES CUT (ODP)', 'LAIN - LAIN'],
+        categories: ['DROPCORE', 'ODP', 'CPE', 'LAIN-LAIN'],
         title: {
             text: null
         }
@@ -404,7 +406,7 @@
     },
     series: [{
         name : 'Data Gangguan',
-        data: [first, second, third, etc],
+        data: [dropcore, odp, cpe, etc],
         color: '#bf9000'
     }]
 });

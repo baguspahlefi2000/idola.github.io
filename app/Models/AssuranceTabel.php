@@ -152,11 +152,12 @@ class AssuranceTabel extends Model
 	}
 
 	public function scopeFifthCal($query){
-		return $query->addSelect(DB::raw('
-		SUM(CASE WHEN incident_domain_id = 3 THEN 1 ELSE 0 END) as REKAP_FIRST,
-		SUM(CASE WHEN incident_domain_id = 1 THEN 1 ELSE 0 END) as REKAP_SECOND,
-        SUM(CASE WHEN incident_domain_id = 5 THEN 1 ELSE 0 END) as REKAP_THIRD,
-		+ SUM(CASE WHEN incident_domain_id <> 1 & 3 & 5 THEN 1 ELSE 0 END) as REKAP_ETC'));
+		return $query->join('incident_domain_tabel', 'incident_domain_tabel.incident_domain_id', '=', 'assurance_tabel.incident_domain_id')
+		->addSelect(DB::raw('
+		SUM(CASE WHEN incident_domain_tabel.incident_domain_nama LIKE "%DROPCORE%" THEN 1 ELSE 0 END) as REKAP_DROPCORE,
+		SUM(CASE WHEN incident_domain_tabel.incident_domain_nama LIKE "%ODP%" THEN 1 ELSE 0 END) as REKAP_ODP,
+		SUM(CASE WHEN incident_domain_tabel.incident_domain_nama LIKE "%CPE%" THEN 1 ELSE 0 END) as REKAP_CPE,
+		SUM(CASE WHEN incident_domain_tabel.incident_domain_nama NOT REGEXP "DROPCORE|ODP|CPE" THEN 1 ELSE 0 END) as REKAP_ETC'));
 	}
 
 

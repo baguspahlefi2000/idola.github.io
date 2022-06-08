@@ -63,8 +63,6 @@ class ProgresLapanganController extends Controller
         ->select("status_p_lapangan_id", "status_p_lapangan_nama")
         ->get();
 
-        
-
 
 
         return view('progress_lapangan.index', ['title' => 'Halaman Progress lapangan', 
