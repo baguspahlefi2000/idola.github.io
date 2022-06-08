@@ -1,13 +1,13 @@
 @extends('template.main')
 
 @section('contain')
-<div class="container-fluid isi">
-    <div class="head-text mt-4 mb-4">
+<div class="container-fluid">
+    <div class="head-text my-4">
         <div class="row">
-            <div class="col-md-4 tulisan">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tulisan">
                 <h4>OLO CUSTOMER DATA HIGHLIGHTS</h4>
              </div>
-            <div class="col">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                 <span id="ct" class="mt-3 d-block text-right"></span>
             </div>
         </div>
@@ -15,32 +15,41 @@
 
     <!-- Data Semua -->
     <div class="card">
+        <div class="card-body">
         <!-- Data Row 1 -->
-        <div class="row">
-            <div class="col-md m-4">
+        <div class="row mx-auto">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                 <div class="form-row row-rumah">
-                    <div class="col rumah-1">
-                        <label class="mt-4" for="witel">Witel</label><br>
-                        @foreach ($witel as $item)
-                        <div class="mt-0 mb-3 mx-5 bg-light text-dark rounded isi-rumah">{{ $item->REKAP_WITEL }}</div>
-                        @endforeach
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 ">
+                        <div class="rumah-1 p-2">
+                            <label class="mt-4" for="witel">Witel</label><br>
+                            @foreach ($witel as $item)
+                            <div class="mt-0 mb-3 bg-light text-dark rounded isi-rumah">{{ $item->REKAP_WITEL }}</div>
+                            @endforeach
+                        </div>
                     </div>
-                    <div class="col rumah-2">
-                        <label class="mt-4" for="produk">Produk</label>
-                        @foreach ($produk as $item)
-                        <div class="mt-0 mb-3 mx-5 bg-light text-dark rounded isi-rumah">{{ $item->REKAP_PRODUK }}</div>
-                        @endforeach
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 ">
+                        <div class="rumah-2 p-2">
+                            <label class="mt-4" for="produk">Produk</label>
+                            @foreach ($produk as $item)
+                            <div class="mt-0 mb-3 bg-light text-dark rounded isi-rumah">{{ $item->REKAP_PRODUK }}</div>
+                            @endforeach
+                        </div>
                     </div>
-                    <div class="col rumah-3 mr-4">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                    <div class="rumah-3 p-2">
                         <label class="mt-4" for="witel">Customer</label>
                         @foreach ($customer as $item)
-                        <div class="mt-0 mb-3 mx-5 bg-light text-dark rounded isi-rumah">{{ $item->REKAP_CUSTOMER }}</div>
+                        <div class="mt-0 mb-3 bg-light text-dark rounded isi-rumah">{{ $item->REKAP_CUSTOMER }}</div>
                         @endforeach
                     </div>
+                    </div>
+                    
+                    
                 </div>
-                <div class="row mt-4 table-rekap">
+                <div class="row mt-4 table-rekap mx-auto">
                     <div class="col">
-                        <table class="table table-borderless ">
+                        <table class="table table-borderless table-satu">
                             <thead>
                                 <th> </th>
                                 <th class="text-nowrap text-center">New Install</th>
@@ -55,13 +64,13 @@
                                 ?>
                                 <td class="tahun">2021</td>
                                 @foreach ($rekapSatu as $item)
-                                <td><div class="py-2 px-3 data-1">{{ $item->REKAP_AKTIVASI_SATU }}</div></td>
-                                <td><div class="py-2 px-3 data-1">{{ $item->REKAP_MODIFY_SATU }}</div></td>
-                                <td><div class="py-2 px-3 data-1">{{ $item->REKAP_DISCONNECT_SATU }}</div></td>
+                                <td><div class="data-1">{{ $item->REKAP_AKTIVASI_SATU }}</div></td>
+                                <td><div class="data-1">{{ $item->REKAP_MODIFY_SATU }}</div></td>
+                                <td><div class="data-1">{{ $item->REKAP_DISCONNECT_SATU }}</div></td>
                                 <?php
                                     $totalSatu = $item->REKAP_AKTIVASI_SATU + $item->REKAP_MODIFY_SATU + $item->REKAP_DISCONNECT_SATU;
                                 ?>
-                                <td><div class="py-2 px-3 total-1">{{ $totalSatu }}</div></td>
+                                <td><div class="total-1">{{ $totalSatu }}</div></td>
                                 @endforeach
                             </tbody>
                             <tbody>
@@ -71,13 +80,13 @@
                                 ?>
                                 <td class="tahun">2022</td>
                                 @foreach ($rekapDua as $item)
-                                <td><div class="py-2 px-3 data-2">{{ $item->REKAP_AKTIVASI_DUA }}</div></td>
-                                <td><div class="py-2 px-3 data-2">{{ $item->REKAP_MODIFY_DUA }}</div></td>
-                                <td><div class="py-2 px-3 data-2">{{ $item->REKAP_DISCONNECT_DUA }}</div></td>
+                                <td><div class="data-2">{{ $item->REKAP_AKTIVASI_DUA }}</div></td>
+                                <td><div class="data-2">{{ $item->REKAP_MODIFY_DUA }}</div></td>
+                                <td><div class="data-2">{{ $item->REKAP_DISCONNECT_DUA }}</div></td>
                                 <?php
                                     $totalDua = $item->REKAP_AKTIVASI_DUA + $item->REKAP_MODIFY_DUA + $item->REKAP_DISCONNECT_DUA;
                                 ?>
-                                <td><div class="py-2 px-3 total-2">{{ $totalDua }}</div></td>
+                                <td><div class="total-2">{{ $totalDua }}</div></td>
                                
                                 @endforeach
                             </tbody>
@@ -85,12 +94,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md m-4">
+            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
                 <div class="form-row img-teknisi">
                     <img src="{{ asset('img/teknisi-olo.png') }}" alt="">
                 </div>
             </div>
-            <div class="col-md m-4">
+            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
                 <div class="form-row img-teknisi">
                     <img src="{{ asset('img/teknisi-ff.png') }}" alt="">
                 </div>
@@ -99,8 +108,8 @@
         <!--Tutup Data Row 1 -->
 
         <!-- Data Row 2 -->
-        <div class="row mx-2">
-            <div class="col">
+        <div class="row mt-4">
+            <div class="col-xl-4 col-lg-4 p-0">
                 <div class="row">
                     <div class="col">
                         <h5>Top 10 Produk OLO</h5>
@@ -110,7 +119,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6 col-md col-sm">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                         <table class="table table-kiri">
                             @foreach ($topProduk as $item)
                             <tr>
@@ -120,7 +129,7 @@
                             @endforeach
                         </table>
                     </div>
-                    <div class="col-lg-6 col-md col-sm">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                         <table class="table table-kanan nopadding">
                             @foreach ($topOlo as $item)
                             <tr>
@@ -133,123 +142,126 @@
                 </div>
             </div>
             
-            <div class="col-lg assurance text-center mx-2">
-                <div class="container">
-                <div class="row">
-                    <h5 class="ml-2">Rekap Assurance</h5>
-                </div>
-                <form class="text-left" action="{{ route('home.index') }}" method="GET">
-                    <div class="row tanggal ">
-                        <div class="col-6">
-                        <h6 for="tgl_bulan_dr_assurance">Dari Tanggal</h6>
-                            <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_dr_assurance"
-                                    id="tgl_bulan_dr_assurance">
-                        </div>
-                        <div class="col-6">
-                        <h6 for="tgl_bulan_sd_assurance">Sampai Tanggal</h6>
-                            <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_sd_assurance"
-                                    id="tgl_bulan_sd_assurance">
-                        </div>
-                        <div class="col-6">
-                            <button class="btn btn-reset px-4 py-2 mt-4 mr-2" type="submit">Reset</button>
-                        </div>
-                        <div class="col-6">
-                            <button class="btn btn-filter px-4 py-2 mt-4 mr-2" type="submit">Filter</button>
-                        </div>
-                    </div>
-                </form>
-                    <div class="row py-3 mt-3">
-                        <div class="col-3 ml-n4">
-                            <div class="row">
-                                <div class="container">
-                                    <h6>Comply</h6>
-                                </div>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="container">
-                                    <h6>Not Comply</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col content-comply ml-n2">
-                        @foreach ($comply_not_comply as $item)
-                            <div class="row">
-                                <div class="container comply">
-                                    {{ $item->COMPLY }}
-                                </div>
-                            </div>
-                            <div class="row mt-4">
-                                <div class="container not-comply">
-                                {{ $item->NOT_COMPLY }}
-                                </div>
-                            </div>
-                        @endforeach
-                        </div>
-                        <div class="col content-total mx-3">
-                            <div class="row total">
-                                <div class="container" style="font-weight:bold;">
-                                    Total
-                                </div>
-                            </div>
-                            <div class="row isi-total">
-                                <div class="container">
-                                @foreach ($rekap_assurance as $item)
-                                    <h1 class="text-white">{{ $item->REKAP_ASSURANCE }}</h1>
-                                @endforeach
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col mttr">
-                             <div class="row">
-                                <div class="container mt-2 fw-bold">
-                                    <b>MTTR</b>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="container mt-2 isi-mttr">
-                                @foreach ($mttr as $item)
-                                    <b>{{ $item->MTTR }}</b>
-                                @endforeach 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="col-xl-4 col-lg-4 text-center mx-auto">
+                <div class="assurance">
+                    <div class="container">
                     <div class="row">
-                        <div class="col text-center">
-                            <h3>OLO Terganggu</h3>
-                        </div>
+                        <h5 class="ml-2">Rekap Assurance</h5>
                     </div>
-                    <div class="row g-3 justify-content-center">
-                        <div class="col-2 d-flex justify-content-center tabel-ruwet">
-                            <table class="table table-kiri-assurance">
-                            @foreach ($top_assurance as $item)
-                                <tr>
-                                    <td class="text text-nowrap text-left">{{ $item->REKAP_OLO_NAMA }}</td>
-                                    <td class="angka">{{ $item->REKAP_ASSURANCE }}</td>
-                                </tr>
+                    <form class="text-left" action="{{ route('home.index') }}" method="GET">
+                        <div class="row tanggal ">
+                            <div class="col-6">
+                            <h6 for="tgl_bulan_dr_assurance">Dari Tanggal</h6>
+                                <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_dr_assurance"
+                                        id="tgl_bulan_dr_assurance">
+                            </div>
+                            <div class="col-6">
+                            <h6 for="tgl_bulan_sd_assurance">Sampai Tanggal</h6>
+                                <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_sd_assurance"
+                                        id="tgl_bulan_sd_assurance">
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-reset px-4 py-2 mt-4 mr-2" type="submit">Reset</button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-filter px-4 py-2 mt-4 mr-2" type="submit">Filter</button>
+                            </div>
+                        </div>
+                    </form>
+                        <div class="row py-3 mt-3">
+                            <div class="col-3 ml-n4">
+                                <div class="row">
+                                    <div class="container">
+                                        <h6>Comply</h6>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="container">
+                                        <h6>Not Comply</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col content-comply ml-n2">
+                            @foreach ($comply_not_comply as $item)
+                                <div class="row">
+                                    <div class="container comply">
+                                        {{ $item->COMPLY }}
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="container not-comply">
+                                    {{ $item->NOT_COMPLY }}
+                                    </div>
+                                </div>
                             @endforeach
-                            </table>
+                            </div>
+                            <div class="col content-total mx-3">
+                                <div class="row total">
+                                    <div class="container" style="font-weight:bold;">
+                                        Total
+                                    </div>
+                                </div>
+                                <div class="row isi-total">
+                                    <div class="container">
+                                    @foreach ($rekap_assurance as $item)
+                                        <h1 class="text-white">{{ $item->REKAP_ASSURANCE }}</h1>
+                                    @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mttr">
+                                <div class="row">
+                                    <div class="container mt-2 fw-bold">
+                                        <b>MTTR</b>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="container mt-2 isi-mttr">
+                                    @foreach ($mttr as $item)
+                                        <b>{{ $item->MTTR }}</b>
+                                    @endforeach 
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row my-2 mb-4">
-                        <div class="container">
-                            <div id="container">
+                        <div class="row">
+                            <div class="col text-center">
+                                <h3>OLO Terganggu</h3>
+                            </div>
                         </div>
-                        @foreach ($segment_gangguan as $item)
-                            <?php
-                                $dropcore = $item->REKAP_DROPCORE;
-                                $odp = $item->REKAP_ODP;
-                                $cpe = $item->REKAP_CPE;
-                                $etc = $item->REKAP_ETC;
-                            ?>
-                        @endforeach
-                            
+                        <div class="row g-3 justify-content-center">
+                            <div class="col-2 d-flex justify-content-center tabel-ruwet">
+                                <table class="table table-kiri-assurance">
+                                @foreach ($top_assurance as $item)
+                                    <tr>
+                                        <td class="text text-nowrap text-left">{{ $item->REKAP_OLO_NAMA }}</td>
+                                        <td class="angka">{{ $item->REKAP_ASSURANCE }}</td>
+                                    </tr>
+                                @endforeach
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row my-2 mb-4">
+                            <div class="container">
+                                <div id="container">
+                            </div>
+                            @foreach ($segment_gangguan as $item)
+                                <?php
+                                    $dropcore = $item->REKAP_DROPCORE;
+                                    $odp = $item->REKAP_ODP;
+                                    $cpe = $item->REKAP_CPE;
+                                    $etc = $item->REKAP_ETC;
+                                ?>
+                            @endforeach
+                                
+                            </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
 
-            <div class="col progressff">
+            <div class="col-xl-4 col-lg-4 progressff mx-auto">
                 <div class="row">
                     <h5 class="ml-2">Progress FF</h5>
                 </div>
@@ -356,6 +368,9 @@
         <div class="text-center mt-4">
             <img src="{{ asset('img/tulisan-home.png') }}" width="70%" alt="">
         </div>
+            
+        </div>
+        
     </div>
         
     </div>

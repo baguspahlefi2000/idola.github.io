@@ -41,6 +41,19 @@
     --black-40: #999999;
     --black-10: #e5e5e5;
 }
+/* For desktop: */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
 
 /* Style All Element */
 * {
@@ -401,9 +414,15 @@ th {
     max-height: 100%;
     display: block;
 }
+
 .isi-rumah{
-    font-size: 2.5ch;
     font-weight: bold;
+}
+
+
+
+.table-satu{
+    table-layout: fixed;
 }
 
 .table-rekap{
@@ -778,8 +797,9 @@ th {
 
 /* RESPONSIVE */
 
-/* Handphone */
-@media (max-width: 575.98px) {
+
+  /* Extra small devices (portrait phones, less than 576px) */
+  @media (max-width: 575.98px) { 
     .main-content {
         margin: 5px;
     }
@@ -792,8 +812,422 @@ th {
     .navbar-nav {
         margin: 10px 0 5px 0;
     }
-}
+    .modal-content {
+        width: 100%;
+      }
+      /* Data Rumah */
+      .row-rumah label{
+        font-size: 1.8ch;
+    }
+    
+    .isi-rumah{
+        font-size: 2ch;
+        margin-left: 38%;
+        margin-right: 38%;
+    }
+    .table-rekap th{
+        font-size: xx-small;
+    }
+    .table-rekap .tahun{
+        white-space: nowrap;
+        font-size: small;
+    }
+    .table-rekap .data-1{
+        border-radius: 6px;
+        font-size: large;
+        min-width: 12vw;
+    
+    }
+    .table-rekap .total-1{        
+        border-radius: 6px;
+        font-size: large;
+        min-width: 12vw;
+    }
+    .table-rekap .data-2{
+        border-radius: 6px;
+        font-size: large;
+        min-width: 12vw;
+    }
+    .table-rekap .total-2{
+        border-radius: 6px;
+        font-size: large;
+        min-width: 12vw;
+    }
+    
 
-/* Tablet */
-@media (min-width: 576px) {
+
 }
+  
+  /* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    .modal-content {
+        width: 100%;
+      }
+      .row-rumah label{
+        font-size: 1.8ch;
+    }
+    
+    .isi-rumah{
+        font-size: 2ch;
+        margin-left: 40%;
+        margin-right: 40%;
+    }
+    .table-rekap th{
+        font-size: xx-small;
+    }
+    .table-rekap td{
+        font-size: small;
+    }
+    .table-rekap th{
+        font-size: xx-small;
+    }
+    .table-rekap .tahun{
+        white-space: nowrap;
+        font-size: small;
+    }
+    .table-rekap .data-1{
+        border-radius: 6px;
+        font-size: large;
+        min-width: 12vw;
+    
+    }
+    .table-rekap .total-1{        
+        border-radius: 6px;
+        font-size: large;
+        min-width: 12vw;
+    }
+    .table-rekap .data-2{
+        border-radius: 6px;
+        font-size: large;
+        min-width: 12vw;
+    }
+    .table-rekap .total-2{
+        border-radius: 6px;
+        font-size: large;
+        min-width: 12vw;
+    }
+   }
+  
+  /* Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) and (max-width: 991.98px) { 
+    .row-rumah label{
+        font-size: 1.8ch;
+    }
+    
+    .isi-rumah{
+        font-size: 2ch;
+        margin-left: 40%;
+        margin-right: 40%;
+    }
+    .table-rekap th{
+        font-size: large;
+    }
+    .table-rekap td{
+        font-size: x-large;
+    }
+    .table-rekap .tahun{
+        white-space: nowrap;
+    }
+    .table-rekap .data-1{
+        border-radius: 6px;
+        font-size: x-large;
+        min-width: 15vw;
+    }
+    .table-rekap .total-1{        
+        border-radius: 6px;
+        font-size: x-large;
+        min-width: 15vw;
+    }
+    .table-rekap .data-2{
+        border-radius: 6px;
+        font-size: x-large;
+        min-width: 15vw;
+    }
+    .table-rekap .total-2{
+        border-radius: 6px;
+        font-size: x-large;
+        min-width: 15vw;
+    }
+    
+}
+  
+  /* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    .row-rumah label{
+        font-size: 1.8ch;
+    }
+    
+    .isi-rumah{
+        font-size: 2ch;
+        margin-left: 18%;
+        margin-right: 18%;
+    }
+    .table-rekap th{
+        font-size: x-small;
+    }
+    .table-rekap td{
+        font-size: x-large;
+    }
+    .table-rekap .tahun{
+        white-space: nowrap;
+    }
+    .table-rekap .data-1{
+        border-radius: 6px;
+        font-size: xx-large;
+        min-width: 6vw;
+    }
+    .table-rekap .total-1{        
+        border-radius: 6px;
+        font-size: xx-large;
+        min-width: 6vw;
+    }
+    .table-rekap .data-2{
+        border-radius: 6px;
+        font-size: xx-large;
+        min-width: 6vw;
+    }
+    .table-rekap .total-2{
+        border-radius: 6px;
+        font-size: xx-large;
+        min-width: 6vw;
+    }
+    .row .table-kiri {
+        border-collapse: separate;
+        font-size: x-small;
+    }
+    .row .table-kanan {
+        border-collapse: separate;
+        font-size: x-small;
+    }
+    .row .tabel-ruwet{
+        height: fit-content;
+        font-size: x-small;
+    }
+}
+  
+  /* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+    .row-rumah label{
+        font-size: 2ch;
+    }
+    
+    .isi-rumah{
+        font-size: 2.5ch;
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+    
+    .table-rekap th{
+        font-size: small;
+    }
+    .table-rekap td{
+        text-align: center;
+        font-size: xx-large;
+        font-weight: bold;
+        color: white;
+    }
+    .table-rekap .data-1{
+        background-color: #ed7d31;
+        border-radius: 10px;
+        min-width: 5.5vw;
+    
+    }
+    .table-rekap .total-1{
+        background-color: #c55a11;
+        border-radius: 10px;
+        min-width: 5.5vw;
+    }
+    .table-rekap .data-2{
+        background-color: #c00000;
+        border-radius: 10px;
+        min-width: 5.5vw;
+    }
+    .table-rekap .total-2{
+        background-color: #941100;
+        border-radius: 10px;
+        min-width: 5.5vw;
+    }
+    
+    .table-rekap .tahun{
+        color: black;
+        transform: rotate(270deg);
+        font-size: x-large;
+    }
+    
+    .row .table-kiri {
+        border-collapse: separate;
+        font-size: small;
+    }
+    
+    .row .table-kiri .angka{
+        background-color: #ff7e79;
+        border: 2px solid #ff2600;
+        vertical-align: middle;
+        text-align: center;
+        color: white;
+    }
+    .row .table-kiri .text{
+        border: 2px solid #ff2600;
+        border-radius: 0px 8px 8px 0px;
+    }
+    
+    .row .table-kanan {
+        border-collapse: separate;
+        font-size: small;
+    }
+    .row .table-kanan .angka{
+        background-color: #7a81ff;
+        border: 2px solid #0432ff;
+        text-align: center;
+        vertical-align: middle;
+        color: white;
+    }
+    
+    
+    .row .table-kanan .text{
+        border: 2px solid #0432ff;
+        border-radius: 8px 0px 0px 8px;
+    }
+    
+    
+     .row .progressff{
+        height: fit-content;
+        background-color: #e2f0d9;
+        border : 1px solid black;
+     }
+     .row .integrasi{
+        background-image: url("/img/integrasi.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        text-align: center;
+        background-position: center;
+    }
+    
+    .row .integrasi-2{
+        background-image: url("/img/integrasi2.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        text-align: center;
+        background-position: center;
+    }
+    
+    .row .integrasi-3{
+        background-image: url("/img/integrasi3.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        text-align: center;
+        background-position: center;
+    }
+    .row .totaltxtff{
+        background-color: #70ad47;
+        border-left: 0.5px solid black;
+        border-top: 0.5px solid black;
+        border-bottom: 0.5px solid black;
+    }
+    
+    .row .totalff{
+        background-color: #548235;
+        border-left: 0.5px solid black;
+    }
+    
+    .vertical-line{ 
+        position: absolute;
+        z-index: 0;
+        width: 18%;
+        transform: rotate(110deg); 
+        border-color: purple;
+        margin-left: 4%;
+        margin-top: 1.2%;
+    
+    }
+    .vertical-line-2{ 
+        position: absolute;
+        z-index: 0;
+        width: 20%; 
+        transform: rotate(-115deg); 
+        border-color: purple;
+        margin-left: 19.5%;
+        margin-top:  2%;
+    }
+    .row .isi-ff{
+        max-height: 100%;
+        background-color: #e2f0d9;
+    }
+    
+    .assurance{
+        height: fit-content;
+        background-color: #fff4cc;
+        border: 2px solid #806404 ;
+    }
+    .row .content-comply{
+        max-width: 15%;
+    }
+    .row .comply{
+        border-radius: 10px 10px 0px 0px;
+        max-width: 100%;
+        background-color: #08b454;
+        color: white;
+        font-weight: bold;
+    }
+    .row .not-comply{
+        border-radius: 10px 10px 0px 0px;
+        max-width: 100%;
+        background-color: #c80404;
+        color: white;
+        font-weight: bold;
+    }
+    .assurance .content-total{
+        max-width: fit-content;
+    }
+    .assurance .total{
+        background-color: #c09404;
+        color: white;
+        border: 1px solid #c09404;
+    }
+    .assurance .isi-total{
+        background-color: #ffc404;
+        border: 1px solid #c09404;
+    }
+    .assurance .mttr{
+        background-color: #e8f4dc;
+        border: 2px solid #d8cccc;
+        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+    
+    }
+    .assurance .isi-mttr{
+        background-color: #78ac44;
+        color: white;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        font-size: 2ch;
+        height: fit-content;
+        width: fit-content;
+    }
+    .row .table-kiri-assurance{
+        border: 2px solid #806404;
+        vertical-align: middle;
+        text-align: center;
+        max-height: fit-content;
+        width: fit-content;
+        }
+    .row .table-kiri-assurance .text{
+        border: 2px solid #806404;
+        vertical-align: middle;
+    }
+    .row .table-kiri-assurance .angka{
+        border: 2px solid #806404;
+        background-color: #985404;
+        vertical-align: middle;
+        color: white;
+    }
+    .row .tabel-ruwet{
+        height: fit-content;
+        font-size: small;
+    }
+    
+    .nopadding {
+        padding: 0 !important;
+        margin: 0 !important;
+     }
+    /* Tutup Data Rumah */
+}  
