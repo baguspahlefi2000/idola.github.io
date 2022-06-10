@@ -15,6 +15,7 @@ use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\RekapController;
 use App\Http\Controllers\RekapProgressController;
 use App\Http\Controllers\IncidentDomainController;
+use App\Http\Controllers\WitelController;
 use App\Models\Database;
 use App\Models\ProgresLapangan;
 use App\Models\DeploymentTabel;
@@ -173,6 +174,15 @@ Route::put('/db_incident_domain/update/{satuan}', [IncidentDomainController::cla
 Route::delete('/db_incident_domain/delete/{satuan}', [IncidentDomainController::class, 'destroy'])->name('db_incident_domain.destroy');
 Route::get('/db_incident_domain/export-satuan',[IncidentDomainController::class,'exportIncidentDomain'])->name('db_incident_domain.export');
 
+
+// db_witel
+Route::get('/db_witel', [WitelController::class, 'index'])->name('db_witel.index')->middleware('auth');
+Route::get('/db_witel/create', [WitelController::class, 'create'])->name('db_witel.create')->middleware('editor');
+Route::post('/db_witel/store', [WitelController::class, 'store'])->name('db_witel.store');
+Route::get('/db_witel/edit/{witel}', [WitelController::class, 'edit'])->name('db_witel.edit')->middleware('editor');
+Route::put('/db_witel/update/{witel}', [WitelController::class, 'update'])->name('db_witel.update');
+Route::delete('/db_witel/delete/{witel}', [WitelController::class, 'destroy'])->name('db_witel.destroy');
+Route::get('/db_witel/export-witel',[WitelController::class,'exportWitel'])->name('db_witel.export');
 
 //route EXE SUMM
 Route::get('/exe_summ', [ExeSummController::class, 'index'])->name('xSumm.index')->middleware('auth');
