@@ -53,16 +53,9 @@
                                 class="las la-pen mr-3"></i>Update Assurance</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="" id="evaluasiMenu" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Evaluasi
-                    </a>
-                    <div class="dropdown-menu dropmenu" aria-labelledby="evaluasiMenu">
-                        <a class="dropdown-item" href="{{ route('deployment.index') }}">Deployment</a>
-                        <a class="dropdown-item" href="{{ route('progress.index') }}">Progress Lapangan</a>
-                        <a class="dropdown-item" href="{{ route('rekap.index') }}">Rekap</a>
-                    </div>
+                <li class="nav-item menu">
+                    <a class="nav-link {{ Request::is('rekap*') ? 'nav-active' : '' }}"
+                        href="{{ route('rekap.index') }}">Rekap</a>
                 </li>
                 <li class="nav-item menu">
                     <a class="nav-link {{ Request::is('db_olo*') ? 'nav-active' : '' }}" href="{{route('db_olo.index')}}" id="databaseMenu">

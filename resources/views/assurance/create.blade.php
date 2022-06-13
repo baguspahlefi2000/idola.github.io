@@ -185,8 +185,8 @@
                                 <input type="form-control" name="induk_gamas" id="induk_gamas" class="form-control">
                             </div>
                             <div class="col">
-                                <label for="related_to_gpon_issue">Related To Gpon Issue</label>
-                                <input type="text" name="related_to_gpon_issue" id="related_to_gpon_issue" class="form-control" >
+                                <label for="related_to_global_issue">Related To Global Issue</label>
+                                <input type="text" name="related_to_global_issue" id="related_to_global_issue" class="form-control" >
                             </div>
                         </div>
 

@@ -212,9 +212,9 @@
                                 value="{{$assurance->induk_gamas}}">
                             </div>
                             <div class="col">
-                                <label for="related_to_gpon_issue">Related To Gpon Issue</label>
-                                <input type="text" name="related_to_gpon_issue" id="related_to_gpon_issue" class="form-control"
-                                value="{{$assurance->related_to_gpon_issue}}">
+                                <label for="related_to_global_issue">Related To Global Issue</label>
+                                <input type="text" name="related_to_global_issue" id="related_to_global_issue" class="form-control"
+                                value="{{$assurance->related_to_global_issue}}">
                             </div>
                         </div>
 
