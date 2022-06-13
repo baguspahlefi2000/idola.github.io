@@ -92,7 +92,8 @@ class ImportAssurance implements ToModel, WithHeadingRow, WithCustomCsvSettings
         return [
             'delimiter' => ';',
             'enclosure' => '"',
-            'escape_character' => '"'
+            'escape_character' => '"',
+            'input_encoding' => 'ISO-8859-1'
         ];
     }
 

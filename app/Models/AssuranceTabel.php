@@ -128,7 +128,7 @@ class AssuranceTabel extends Model
 		->join('incident_domain_tabel', 'incident_domain_tabel.incident_domain_id', '=', 'assurance_tabel.incident_domain_id')
 		->groupBy('assurance_id')
 		->addSelect(DB::raw(' *,
-        SUM(ttr_customer + ttr_pending) as TTR_E2E,
+        IF(pending_reason = "Travel time", ttr_customer + ttr_pending, 0) as TTR_E2E,
 		olo_tabel.olo_nama as REKAP_OLO_NAMA,
 		witel_tabel.witel_nama as REKAP_WITEL_NAMA,
 		incident_domain_tabel.incident_domain_nama as INCIDENT_DOMAIN_NAMA'));

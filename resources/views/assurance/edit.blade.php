@@ -249,7 +249,7 @@
                             </div>
                             <div class="col">
                                 <label for="ttr_nasional">TTR Nasional</label>
-                                <input type="form-control" name="ttr_customer" id="ttr_customer" class="form-control"
+                                <input type="form-control" name="ttr_nasional" id="ttr_nasional" class="form-control"
                                 value="{{$assurance->ttr_nasional}}">
                             </div>
                             <div class="col">
@@ -271,8 +271,13 @@
                                 value="{{$assurance->ttr_mitra}}">
                             </div>
                             <div class="col">
-                                <label for="ttr_agent">TTR Pending</label>
+                                <label for="ttr_agent">TTR Agent</label>
                                 <input type="form-control" name="ttr_agent" id="ttr_agent" class="form-control"
+                                value="{{$assurance->ttr_agent}}">
+                            </div>
+                            <div class="col">
+                                <label for="ttr_pending">TTR Pending</label>
+                                <input type="form-control" name="ttr_pending" id="ttr_pending" class="form-control"
                                 value="{{$assurance->ttr_pending}}">
                             </div>
                             <div class="col">
