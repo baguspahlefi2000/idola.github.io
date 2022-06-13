@@ -169,26 +169,26 @@
                         </div>
                     </form>
                         <div class="row py-3 mt-3">
-                            <div class="col-3 ml-n4">
+                            <div class="col-3">
                                 <div class="row">
                                     <div class="container">
                                         <h6>Comply</h6>
                                     </div>
                                 </div>
-                                <div class="row mt-2">
+                                <div class="row mt-4">
                                     <div class="container">
                                         <h6>Not Comply</h6>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col content-comply ml-n2">
+                            <div class="col content-comply">
                             @foreach ($comply_not_comply as $item)
                                 <div class="row">
                                     <div class="container comply">
                                         {{ $item->COMPLY }}
                                     </div>
                                 </div>
-                                <div class="row mt-4">
+                                <div class="row mt-lg-2">
                                     <div class="container not-comply">
                                     {{ $item->NOT_COMPLY }}
                                     </div>
@@ -253,7 +253,7 @@
                                     $etc = $item->REKAP_ETC;
                                 ?>
                             @endforeach
-                                
+                            
                             </div>
                         </div>
                     </div>

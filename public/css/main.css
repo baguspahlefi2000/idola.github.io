@@ -1169,18 +1169,26 @@ th {
         border: 2px solid #806404 ;
     }
     .row .content-comply{
-        max-width: 15%;
+        width: 20%;
+   
     }
     .row .comply{
         border-radius: 10px 10px 0px 0px;
         max-width: 100%;
+        font-size: 2ch;
+        padding-top: 5px;
+        padding-bottom: 10px;
         background-color: #08b454;
         color: white;
         font-weight: bold;
+        border-radius: 2px solid blue;
     }
     .row .not-comply{
         border-radius: 10px 10px 0px 0px;
         max-width: 100%;
+        font-size: 2ch;
+        padding-top: 5px;
+        padding-bottom: 10px;
         background-color: #c80404;
         color: white;
         font-weight: bold;
@@ -1217,6 +1225,7 @@ th {
         text-align: center;
         max-height: fit-content;
         width: fit-content;
+        font-size: 3ch;
         }
     .row .table-kiri-assurance .text{
         border: 2px solid #806404;
