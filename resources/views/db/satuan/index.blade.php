@@ -7,7 +7,7 @@
             <span id="ct" class="mt-3 d-block text-right"></span>
             <ul class="nav tab-nav ml-n1 my-3">
                 <li class="nav-item tab-rekap-item">
-                    <a href="{{ route('db_olo.index') }}#database-olo" class="tab-rekap">Database Olo</a>
+                    <a href="{{ route('db_olo.index') }}#database-olo" class="tab-rekap">Database OLO</a>
                 </li>
                 <li class="nav-item tab-rekap-item">
                     <a href="{{ route('db_produk.index') }}#database-produk" class="tab-rekap">Database Produk</a>
@@ -21,6 +21,9 @@
                 <li class="nav-item tab-rekap-item">
                     <a href="{{ route('db_witel.index') }}#database-incident-domain" class="tab-rekap">Database Witel</a>
                 </li>
+                <li class="nav-item tab-rekap-item">
+                    <a href="{{ route('db_jenis_nte.index') }}#database-jenis-nte" class="tab-rekap">Database Jenis NTE</a>
+                </li>
             </ul>
 
             <div class="card mt-2 mb-2 shadow-sm" id="database-satuan">
@@ -29,11 +32,18 @@
                         <div class="col">
                             <h2 class="">Database Satuan</h2>
                         </div>
-                        @canany(['admin', 'editor'])
+                        @canany(['admin'])
                         <div class="col text-right button-list">
                             <a href="{{route('db_satuan.create')}}" class="btn btn-thin btn-primary">
                                 <i class="las la-plus"></i> Create
                             </a>
+                            <a href="{{ route('db_satuan.export') }}" class="btn btn-second-thin ml-2">
+                                <i class="las la-download"></i> Export
+                            </a>
+                        </div>
+                        @endcanany
+                        @canany(['editor'])
+                        <div class="col text-right button-list">
                             <a href="{{ route('db_satuan.export') }}" class="btn btn-second-thin ml-2">
                                 <i class="las la-download"></i> Export
                             </a>
@@ -55,7 +65,7 @@
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td>{{ $satuan->satuan_nama }}</td>
-                                @canany(['admin', 'editor'])
+                                @canany(['admin'])
                                     <td class="text-center">
                                         <div class="dropleft" title="Menu">
                                             <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
@@ -74,6 +84,21 @@
                                                         onclick="return confirm('Apakah Anda Ingin Menghapusnya?')"><i
                                                             class="fas fa-trash mr-2"></i> Hapus</button>
                                                 </form>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    @endcanany
+                                    @canany(['editor'])
+                                    <td class="text-center">
+                                        <div class="dropleft" title="Menu">
+                                            <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false"></span>
+                                            <div class="dropdown-menu" aria-labelledby="menuEdit">
+                                                <a href="{{ route('db_satuan.edit',$satuan->satuan_id) }}" class="dropdown-item"
+                                                    type="button">
+                                                    <i class="fas fa-edit mr-2"></i>
+                                                    Edit
+                                                </a>
                                             </div>
                                         </div>
                                     </td>

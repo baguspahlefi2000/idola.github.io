@@ -148,6 +148,11 @@ class DeploymentController extends Controller
         ->select("odp_id", "odp_nama")
         ->get();
 
+        $jenis_nte_data = DB::table("jenis_nte_tabel")
+        ->select("jenis_nte_id", "jenis_nte_nama")
+        ->orderBy('jenis_nte_nama', 'ASC')
+        ->get();
+
         $status_integrasi_data = DB::table('status_integrasi_tabel')
         ->select("status_integrasi_id", "status_integrasi_nama")
         ->get();
@@ -165,6 +170,7 @@ class DeploymentController extends Controller
         'status_ncx_data' => $status_ncx_data,
         'status_wfm_data' => $status_wfm_data,
         'status_odp_data' => $status_odp_data,
+        'jenis_nte_data' => $jenis_nte_data,
         'status_integrasi_data' => $status_integrasi_data,]);
     }
 
@@ -228,8 +234,9 @@ class DeploymentController extends Controller
         $wfm->sn = $request->sn;
         $wfm->odp_id = $request->odp;
         $wfm->odp = $request->isi_odp;
+        $wfm->port_odp = $request->port_odp;
         $wfm->port_4 = $request->port_4;
-        $wfm->type_1 = $request->type_1;
+        $wfm->jenis_nte_id = $request->jenis_nte;
         $wfm->kontak_pic_lokasi = $request->kontak_pic_lokasi;
         $wfm->ip_4 = $request->ip_4;
         $wfm->downlink = $request->downlink;
@@ -306,6 +313,11 @@ class DeploymentController extends Controller
         $status_odp_data = DB::table('odp_tabel')
         ->select("odp_id", "odp_nama")
         ->get();
+        
+        $jenis_nte_data = DB::table("jenis_nte_tabel")
+        ->select("jenis_nte_id", "jenis_nte_nama")
+        ->orderBy('jenis_nte_nama', 'ASC')
+        ->get();
 
         $status_integrasi_data = DB::table('status_integrasi_tabel')
         ->select("status_integrasi_id", "status_integrasi_nama")
@@ -325,6 +337,7 @@ class DeploymentController extends Controller
         'status_ncx_data' => $status_ncx_data,
         'status_wfm_data' => $status_wfm_data,
         'status_odp_data' => $status_odp_data,
+        'jenis_nte_data' => $jenis_nte_data,
         'status_integrasi_data' => $status_integrasi_data,]);
     }
 
@@ -379,8 +392,9 @@ class DeploymentController extends Controller
         $Deployment->sn = $request->sn;
         $Deployment->odp_id = $request->odp;
         $Deployment->odp = $request->isi_odp;
+        $Deployment->port_odp = $request->port_odp;
         $Deployment->port_4 = $request->port_4;
-        $Deployment->type_1 = $request->type_1;
+        $Deployment->jenis_nte_id = $request->jenis_nte;
         $Deployment->kontak_pic_lokasi = $request->kontak_pic_lokasi;
         $Deployment->ip_4 = $request->ip_4;
         $Deployment->downlink = $request->downlink;

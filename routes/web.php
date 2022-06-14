@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PekerjaanLapanganController;
 use App\Http\Controllers\ProgresLapanganController;
 use App\Http\Controllers\OloController;
+use App\Http\Controllers\JenisNteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\SatuanController;
@@ -183,6 +184,15 @@ Route::get('/db_witel/edit/{witel}', [WitelController::class, 'edit'])->name('db
 Route::put('/db_witel/update/{witel}', [WitelController::class, 'update'])->name('db_witel.update');
 Route::delete('/db_witel/delete/{witel}', [WitelController::class, 'destroy'])->name('db_witel.destroy');
 Route::get('/db_witel/export-witel',[WitelController::class,'exportWitel'])->name('db_witel.export');
+
+// db_jenis_nte
+Route::get('/db_jenis_nte', [JenisNteController::class, 'index'])->name('db_jenis_nte.index')->middleware('auth');
+Route::get('/db_jenis_nte/create', [JenisNteController::class, 'create'])->name('db_jenis_nte.create')->middleware('editor');
+Route::post('/db_jenis_nte/store', [JenisNteController::class, 'store'])->name('db_jenis_nte.store');
+Route::get('/db_jenis_nte/edit/{witel}', [JenisNteController::class, 'edit'])->name('db_jenis_nte.edit')->middleware('editor');
+Route::put('/db_jenis_nte/update/{witel}', [JenisNteController::class, 'update'])->name('db_jenis_nte.update');
+Route::delete('/db_jenis_nte/delete/{witel}', [JenisNteController::class, 'destroy'])->name('db_jenis_nte.destroy');
+Route::get('/db_jenis_nte/export-witel',[JenisNteController::class,'exportJenisNte'])->name('db_jenis_nte.export');
 
 //route EXE SUMM
 Route::get('/exe_summ', [ExeSummController::class, 'index'])->name('xSumm.index')->middleware('auth');

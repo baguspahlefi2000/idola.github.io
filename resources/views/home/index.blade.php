@@ -366,7 +366,7 @@
         </div>
         <!-- Data Row 2 -->
         <div class="text-center mt-4">
-            <img src="{{ asset('img/tulisan-home.png') }}" width="65%" alt="">
+            <img src="{{ asset('img/tulisan-home.png') }}" width="45%" alt="">
         </div>
             
         </div>

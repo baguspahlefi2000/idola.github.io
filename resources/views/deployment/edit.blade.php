@@ -193,8 +193,8 @@
                                 value="{{ $deployment->ready_after_cancel }}"></input>
                             </div>
                             <div class="form-row">
-                                <div class="col-5">
-                                <label for="status_integrasi">STATUS INTEGRASI</label>
+                                <div class="col-6">
+                                <label for="status_integrasi" class="text-nowrap">STATUS INTEGRASI</label>
                                     <select name="status_integrasi" id="status_integrasi" class="form-control" onclick="display();">
                                         <option value="{{ $deployment->status_integrasi_id }}">{{ $deployment->status_integrasi_tabel->status_integrasi_nama }}</option>
                                         @foreach ($status_integrasi_data as $item)
@@ -203,8 +203,8 @@
                                     </select>
                                 </div>
 
-                                <div class="col-7">
-                                    <label for="tanggal_integrasi">TANGGAL INTEGRASI</label>
+                                <div class="col-6">
+                                    <label for="tanggal_integrasi" class="text-nowrap">TANGGAL INTEGRASI</label>
                                     <input type="date" name="tanggal_integrasi" id="tanggal_integrasi_a" class="form-control"
                                         value="{{ $deployment->tanggal_integrasi }}"  disabled>
                                     </input>
@@ -285,7 +285,7 @@
                             </div>
 
                             <div class="col">
-                                <label for="sn">SN</label>
+                                <label for="sn">SN ONT</label>
                                 <input type="text" name="sn" id="sn" class="form-control" value="{{ $deployment->sn }}">
                             </div>
 
@@ -302,6 +302,35 @@
                                 <input type="text" name="port_3" id="port_3" class="form-control" value="{{ $deployment->port_3 }}">
                             </div>
 
+                            <div class="col">
+                                <label for="port_4">PORT ONT</label>
+                                <input type="text" name="port_4" id="port_4" class="form-control" value="{{ $deployment->port_4 }}">
+                            </div>
+                            <div class="col">
+                            <label for="jenis_nte">TYPE ONT</label>
+                                <select class="form-control" id="jenis_nte" name="jenis_nte">
+                                    @if (request('jenis_nte'))
+                                    <option value="{{ request('jenis_nte') }}">Pilih TYPE ONT</option>
+                                    @else
+                                    <option value="">Pilih TYPE ONT</option>
+                                    @endif
+
+                                    @foreach ($jenis_nte_data as $dbs)
+                                    <option value="{{ $dbs->jenis_nte_id }}">{{ $dbs->jenis_nte_nama }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-6">
+                                <label for="capture gpon">CAPTURE GPON</label>
+                                <textarea class="form-control" name="capture_gpon" id="capture_gpon" rows="3"
+                                value="{{ $deployment->capture_gpon }}">{{ $deployment->capture_gpon }}</textarea>
+                            </div>
+
                             <div class="col-3" onclick="displayodp();"> 
                                 <label for="odp">ODP</label>
                                 <select name="odp" id="odp" class="form-control" onclick="displayodp();">
@@ -312,26 +341,21 @@
                             </div>
 
                             <div class="col-3">
-                                <label for="isi_odp">ISI ODP</label>
+                                <label for="isi_odp">NAMA ODP</label>
                                 <input class="form-control" name="isi_odp" id="isi_odp" rows="3"
                                 value="{{ $deployment->odp }}"></input>
                             </div>
+                            
+                            
                         </div>
 
                         <div class="form-row">
-                            <div class="col-6">
-                                <label for="capture gpon">CAPTURE GPON</label>
-                                <textarea class="form-control" name="capture_gpon" id="capture_gpon" rows="3"
-                                value="{{ $deployment->capture_gpon }}">{{ $deployment->capture_gpon }}</textarea>
+                        <div class="col-6">
+                                
                             </div>
-                            
-                            <div class="col">
-                                <label for="port_4">PORT 4</label>
-                                <input type="text" name="port_4" id="port_4" class="form-control" value="{{ $deployment->port_4 }}">
-                            </div>
-                            <div class="col">
-                                <label for="type_1">TYPE 1</label>
-                                <input type="text" name="type_1" id="type_1" class="form-control" value="{{ $deployment->type_1 }}">
+                            <div class="col-3">
+                                <label for="isi_odp">PORT ODP</label>
+                                <input type="text" name="port_odp" id="port_odp" class="form-control">
                             </div>
                         </div>
 

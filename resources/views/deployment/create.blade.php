@@ -166,8 +166,8 @@
                                 <input type="date" name="ready_after_cancel" id="ready_after_cancel" class="form-control">
                             </div>
                             <div class="form-row">
-                                <div class="col-5">
-                                    <label for="start_cancel">STATUS INTEGRASI</label>
+                                <div class="col-6">
+                                    <label for="start_cancel" class="text-nowrap">STATUS INTEGRASI</label>
                                     <select name="status_integrasi" id="status_integrasi" class="form-control" onclick="display();" required>
                                         @foreach ($status_integrasi_data as $item)
                                         <option value="{{ $item->status_integrasi_id }}">{{ $item->status_integrasi_nama }}</option>
@@ -175,8 +175,8 @@
                                     </select>
                                 </div>
 
-                                <div class="col-7">
-                                    <label for="tanggal_integrasi">TANGGAL INTEGRASI</label>
+                                <div class="col-6" >
+                                    <label for="tanggal_integrasi" class="text-nowrap">TANGGAL INTEGRASI</label>
                                     <input type="date" name="tanggal_integrasi" id="tanggal_integrasi_a" class="form-control" disabled>
                                     </input>
 
@@ -275,8 +275,18 @@
                                     <input type="text" name="port_4" id="port_4" class="form-control">
                             </div>
                             <div class="col">
-                                <label for="type_1">TYPE ONT</label>
-                                <input type="text" name="type_1" id="type_1" class="form-control">
+                                <label for="jenis_nte">TYPE ONT</label>
+                                <select class="form-control" id="jenis_nte" name="jenis_nte">
+                                    @if (request('jenis_nte'))
+                                    <option value="{{ request('jenis_nte') }}">Pilih TYPE ONT</option>
+                                    @else
+                                    <option value="">Pilih TYPE ONT</option>
+                                    @endif
+
+                                    @foreach ($jenis_nte_data as $dbs)
+                                    <option value="{{ $dbs->jenis_nte_id }}">{{ $dbs->jenis_nte_nama }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
@@ -306,7 +316,13 @@
                         
 
                         <div class="form-row">
-                            
+                        <div class="col-6">
+                                
+                            </div>
+                            <div class="col-3">
+                                <label for="isi_odp">PORT ODP</label>
+                                <input type="text" name="port_odp" id="port_odp" class="form-control">
+                            </div>
                         </div>
 
                         

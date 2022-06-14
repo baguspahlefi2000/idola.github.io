@@ -154,6 +154,7 @@ class DeploymentTabel extends Model
 		'sn',
 		'odp_id',
 		'odp',
+		'port_odp',
 		'port_4',
 		'type_1',
 		'kontak_pic_lokasi',

@@ -297,7 +297,7 @@
                                 <td>{{$wfm->sn }}</td>
                                 <td>{{ $wfm->odp_tabel->odp_nama }}</td>
                                 <td>{{$wfm->port_4 }}</td>
-                                <td>{{$wfm->type_1 }}</td>
+                                <td>{{$wfm->jenis_nte_tabel->jenis_nte_nama }}</td>
                                 <td>{{ $wfm->kontak_pic_lokasi }}</td>
                                 <td>{{ $wfm->ip_4 }}</td>
                                 <td>{{ $wfm->downlink }}</td>
