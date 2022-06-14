@@ -309,11 +309,8 @@
                             <div class="col">
                             <label for="jenis_nte">TYPE ONT</label>
                                 <select class="form-control" id="jenis_nte" name="jenis_nte">
-                                    @if (request('jenis_nte'))
-                                    <option value="{{ request('jenis_nte') }}">Pilih TYPE ONT</option>
-                                    @else
+                                    <option value="{{ $deployment->jenis_nte_id }}">{{ $deployment->jenis_nte_tabel->jenis_nte_nama }}</option>
                                     <option value="">Pilih TYPE ONT</option>
-                                    @endif
 
                                     @foreach ($jenis_nte_data as $dbs)
                                     <option value="{{ $dbs->jenis_nte_id }}">{{ $dbs->jenis_nte_nama }}</option>
@@ -355,7 +352,7 @@
                             </div>
                             <div class="col-3">
                                 <label for="isi_odp">PORT ODP</label>
-                                <input type="text" name="port_odp" id="port_odp" class="form-control">
+                                <input type="text" name="port_odp" id="port_odp" value="{{$deployment->port_odp}}"class="form-control">
                             </div>
                         </div>
 

@@ -23,12 +23,12 @@ class AssuranceTabel extends Model
 
 
 	protected $dates = [
-		'last_work_log_date' => 'date',
-		'booking_date' => 'date',
-		'reported_date' => 'date',
-		'last_update_ticket' => 'date',
-		'status_date' => 'date',
-		'resolved_date' => 'date'
+		'last_work_log_date' => 'datetime:YYYY-MM-DD HH:MM:SS',
+		'booking_date' => 'datetime:YYYY-MM-DD HH:MM:SS',
+		'reported_date' => 'date:YYYY-MM-DD',
+		'last_update_ticket' => 'datetime:YYYY-MM-DD HH:MM:SS',
+		'status_date' => 'datetime:YYYY-MM-DD HH:MM:SS',
+		'resolved_date' => 'datetime:YYYY-MM-DD HH:MM:SS'
 	];
 
 	protected $fillable = [

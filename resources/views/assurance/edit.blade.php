@@ -282,8 +282,30 @@
                             </div>
                             <div class="col">
                                 <label for="pending_reason">Pending Reason</label>
-                                <input class="form-control" name="pending_reason" id="pending_reason"
-                                value="{{$assurance->pending_reason}}">
+                                <select name="pending_reason" id="pending_reason" class="form-control">
+                                    <option value="{{$assurance->pending_reason}}">{{$assurance->pending_reason}}</option>
+                                    <option value="">(Blanks)</option>
+                                    <option value="Administasi kontrak Telkom ke customer">Administasi kontrak Telkom ke customer</option>
+                                    <option value="Administrasi Kontrak Telkom ke Mitra">Administrasi Kontrak Telkom ke Mitra</option>
+                                    <option value="Alker (Alat Kerja) tidak tersedia">Alker (Alat Kerja) tidak tersedia</option>
+                                    <option value="Daerah rawan keamanan">Daerah rawan keamanan</option>
+                                    <option value="Hujan lebat">Hujan lebat</option>
+                                    <option value="Kantor tutup">Kantor tutup</option>
+                                    <option value="Pelanggan tidak bisa di hubungi">Pelanggan tidak bisa di hubungi</option>
+                                    <option value="Pelanggan tidak ditempat">Pelanggan tidak ditempat</option>
+                                    <option value="Perijinan dari pihak pengelola/Pelanggan">Perijinan dari pihak pengelola/Pelanggan</option>
+                                    <option value="Perizinan Pelanggan">Perizinan Pelanggan</option>
+                                    <option value="Perizinan dari pihak berwajib">Perizinan dari pihak berwajib</option>
+                                    <option value="Permintaan customer untuk pengecekan di jam tertentu">Permintaan customer untuk pengecekan di jam tertentu</option>
+                                    <option value="Proses menunggu pengiriman suku cadang">Proses menunggu pengiriman suku cadang</option>
+                                    <option value="Teknisi sedang apel pagi">Teknisi sedang apel pagi</option>
+                                    <option value="Teknisi sedang melakukan ibadah Minggu">Teknisi sedang melakukan ibadah Minggu</option>
+                                    <option value="Teknisi sedang melakukan shalat jumat">Teknisi sedang melakukan shalat jumat</option>
+                                    <option value="Teknisi sedang mengerjakan gangguan lain">Teknisi sedang mengerjakan gangguan lain</option>
+                                    <option value="Teknisi sedang rapid/swab test">Teknisi sedang rapid/swab test</option>
+                                    <option value="Travel time">Travel time</option>
+                                    <option value="Travel time untuk waktu perjalanan diatas 1 jam, disertai estimasi dan evidence foto google map">Travel time untuk waktu perjalanan diatas 1 jam, disertai estimasi dan evidence foto google map</option>
+                                </select>
                             </div>
                         </div>
 
