@@ -1153,7 +1153,7 @@ th {
     .vertical-line-2{ 
         position: absolute;
         z-index: 0;
-        width: 20%; 
+        width: 19%; 
         transform: rotate(-115deg); 
         border-color: purple;
         margin-left: 19.5%;
@@ -1250,46 +1250,4 @@ th {
     /* Tutup Data Rumah */
 }  
 
-  /* Extra large devices (large desktops, 1200px and up) */
-  @media (min-width: 1920px) {
-
-    .row .done-integrasi{
-        background-image: url("/img/integrasi.png");
-        background-repeat: no-repeat;
-        background-size: contain;
-        text-align: center;
-        background-position: center;
-    }
-    
-    .row .menunggu-integrasi{
-        background-image: url("/img/integrasi2.png");
-        background-repeat: no-repeat;
-        background-size: contain;
-        margin-right: 90px;
-
-    }
-    .row .text-menunggu-integrasi{
-        margin-right: 90px;
-    }
-    
-
-    .vertical-line{ 
-        position: absolute;
-        z-index: 0;
-        width: 15%;
-        transform: rotate(110deg); 
-        border-color: purple;
-        margin-left: 4%;
-        margin-top: 1.5%;
-    
-    }
-    .vertical-line-2{ 
-        position: absolute;
-        z-index: 0;
-        width: 14%; 
-        transform: rotate(-110deg); 
-        border-color: purple;
-        margin-left: 18%;
-        margin-top:  1%;
-    }
-   }
+  

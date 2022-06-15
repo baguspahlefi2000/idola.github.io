@@ -54,7 +54,8 @@
                         <thead>
                             <tr>
                                 <th class="text-center">NO</th>
-                                <th>Witel Nama</th>
+                                <th>Witel</th>
+                                <th class="text-center">ID</th>
                                 @canany(['admin', 'editor'])
                                 <th scope="col" class="text-center"><span></span></th>
                                 @endcanany
@@ -65,6 +66,7 @@
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td>{{ $witel->witel_nama }}</td>
+                                <td class="text-center">{{ $witel->witel_id }}</td>
                                 @canany(['admin'])
                                     <td class="text-center">
                                         <div class="dropleft" title="Menu">
