@@ -48,47 +48,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 // Route Home
 Route::get('/', [HomeController::class, 'index'])->name('home.index')->middleware('auth');
 
-// Route Database
-// Route::get('/database', [DatabaseController::class, 'index'])->name('database.index')->middleware('auth');
-// Route::post('/database/tambah', [DatabaseController::class, 'store'])->name('database.store');
-// Route::get('/database/edit/{database}', [DatabaseController::class, 'edit'])->name('database.edit');
-// Route::put('/database/update/', [DatabaseController::class, 'update'])->name('database.update');
-// Route::delete('/database/delete/{database}', [DatabaseController::class, 'destroy'])->name('database.destroy');
 
-// Pekerjaan Lapangan Route
-Route::get('/pekerjaan_lapangan', [PekerjaanLapanganController::class, 'index'])->name('pekerjaan_lapangan.index')->middleware('auth');
-Route::get('/pekerjaan_lapangan/create', [PekerjaanLapanganController::class, 'create'])->name('pekerjaan_lapangan.create')->middleware('editor');
-Route::post('/pekerjaan_lapangan/tambah', [PekerjaanLapanganController::class, 'store'])->name('pekerjaan_lapangan.store');
-Route::get('/pekerjaan_lapangan/edit/{pekerjaan_lapangan}', [PekerjaanLapanganController::class, 'edit'])->name('pekerjaan_lapangan.edit')->middleware('editor');
-Route::put('/pekerjaan_lapangan/update/{pekerjaan_lapangan}', [PekerjaanLapanganController::class, 'update'])->name('pekerjaan_lapangan.update');
-Route::delete('/pekerjaan_lapangan/delete/{pekerjaan_lapangan}', [PekerjaanLapanganController::class, 'destroy'])->name('pekerjaan_lapangan.destroy');
-Route::get('/export/pekerjaan_lapangan', [PekerjaanLapanganController::class, 'exportPekerjaanLapangan'])->name('pekerjaan_lapangan.export');
-Route::post('/import/pekerjaan_lapangan', [PekerjaanLapanganController::class, 'importPekerjaanLapangan'])->name('pekerjaan_lapangan.import');
-
-
-// database
-Route::get('/database', [DatabaseController::class, 'index'])->name('database.index')->middleware('admin');
-Route::get('/database/create', [DatabaseController::class, 'create'])->name('database.create')->middleware('admin');
-Route::post('/database/tambah', [DatabaseController::class, 'store'])->name('database.store');
-Route::get('/database/edit/{database}', [DatabaseController::class, 'edit'])->name('database.edit')->middleware('admin');
-Route::put('/database/update/{database}', [DatabaseController::class, 'update'])->name('database.update');
-Route::delete('/database/delete/{database}', [DatabaseController::class, 'destroy'])->name('database.destroy');
-Route::get('/export/database', [DatabaseController::class, 'databaseexport'])->name('database.export');
-Route::post('/import/database', [DatabaseController::class, 'databaseimport'])->name('database.import');
-
-
-// end of database
-
-// WFM
-
-Route::get('/wfm/create', [WfmController::class, 'create'])->name('wfm.create')->middleware('editor');
-Route::post('/wfm/store', [WfmController::class, 'store'])->name('wfm.store');
-Route::get('/wfm/edit/{wfm}', [WfmController::class, 'edit'])->name('wfm.edit')->middleware('editor');
-Route::put('/wfm/update/{wfm}', [WfmController::class, 'update'])->name('wfm.update');
-Route::delete('/wfm/delete/{wfm}', [WfmController::class, 'destroy'])->name('wfm.delete');
-Route::get('/export/wfm', [WfmController::class, 'exportWfm'])->name('wfm.export');
-Route::post('/import/wfm', [WfmController::class, 'importWfm'])->name('wfm.import');
-// end of wfm
 // rekap
 Route::get('/rekap', [RekapController::class, 'index'])->name('rekap.index')->middleware('auth');
 Route::get('/rekap/create', [RekapController::class, 'create'])->name('rekap.create')->middleware('editor');
@@ -130,8 +90,6 @@ Route::put('/assurance/update/{assurance}', [AssuranceController::class, 'update
 Route::delete('/assurance/destroy/{assurance}', [AssuranceController::class, 'destroy'])->name('assurance.destroy')->middleware('editor');
 Route::get('/assurance/export-assurance',[AssuranceController::class,'exportAssurance'])->name('assurance.export');
 Route::post('/assurance/import-assurance', [AssuranceController::class, 'importAssurance'])->name('assurance.import');
-
-
 
 // disconnect
 Route::get('/disconnect', [DisconnectController::class, 'index'])->name('disconnect.index')->middleware('auth');

@@ -18,7 +18,7 @@ class ExportAssurance implements FromCollection, WithHeadings
     public function collection()
     {
         return DB::table('assurance_tabel')
-        ->selectRaw('assurance_id,
+        ->selectRaw('
         incident,
         olo_tabel.olo_nama as REKAP_OLO_NAMA,
         contact_name,
@@ -119,7 +119,8 @@ class ExportAssurance implements FromCollection, WithHeadings
         "Subsidiary",
         "External Ticket ID",
         "External Ticket Status",
-        "Segment	Channel",
+        "Segment",	
+        "Channel",
         "Customer Segment",
         "Customer Type",
         "Closed By",
