@@ -276,7 +276,7 @@
                             </div>
                             <div class="col">
                                 <label for="jenis_nte">TYPE ONT</label>
-                                <select class="form-control" id="jenis_nte" name="jenis_nte">
+                                <select class="form-control" id="jenis_nte" name="jenis_nte" required>
                                     @if (request('jenis_nte'))
                                     <option value="{{ request('jenis_nte') }}">Pilih TYPE ONT</option>
                                     @else

@@ -220,50 +220,51 @@
 
                         <div class="form-row" style = "margin-top:7vh">
                             <div class="col">
-                            <label for="metro_access">METRO ACCESS</label>
-                                <input type="text" name="metro_access" id="metro_access" class="form-control"
-                                value="{{ $deployment->metro_access }}">
-                            </div>
-
-                            <div class="col">
                                 <label for="metro_backhaul">METRO BACKHAUL</label>
                                 <input class="form-control" name="metro_backhaul" id="metro_backhaul" rows="3"
                                     value="{{ $deployment->metro_backhaul }}"></input>
+                            </div>
+
+                            <div class="col">
+                            <label for="metro_access">METRO ACCESS</label>
+                                <input type="text" name="metro_access" id="metro_access" class="form-control"
+                                value="{{ $deployment->metro_access }}">
                             </div>
                         </div>
 
                         <div class="form-row mt">
                             <div class="col">
-                                <label for="ip_1">IP 1</label>
+                                <label for="ip_1">IP ME BH</label>
                                 <input type="text" name="ip_1" id="ip_1" class="form-control" value="{{ $deployment->ip_1 }}">
                             </div>
 
                             <div class="col">
-                                <label for="port_1">PORT 1</label>
+                                <label for="port_1">PORT ME BH</label>
                                 <input type="text" name="port_1" id="port_1" class="form-control" value="{{ $deployment->port_1 }}">
                             </div>
 
                             <div class="col">
-                                <label for="ip_2">IP 2</label>
+                                <label for="ip_2">IP ME ACCESS</label>
                                 <input type="text" name="ip_2" id="ip_2" class="form-control" value="{{ $deployment->ip_2 }}">
                             </div>
 
                             <div class="col">
-                                <label for="port_2">PORT 2</label>
+                                <label for="port_2">PORT ME ACCESS</label>
                                 <input type="text" name="port_2" id="port_2" class="form-control" value="{{ $deployment->port_2 }}">
                             </div>
                         </div>
 
                         <div class="form-row mt">
                             <div class="col">
-                            <label for="capture metro access">CAPTURE METRO ACCESS</label>
-                                <textarea class="form-control" name="capture_metro_access" id="capture_metro_access" rows="3"
-                                value="{{ $deployment->capture_metro_access }}">{{ $deployment->capture_metro_access }}</textarea>
-                            </div>
-                            <div class="col">
                                 <label for="capture metro backhaul">CAPTURE METRO BACKHAUL</label>
                                 <textarea class="form-control" name="capture_metro_backhaul" id="capture_metro_backhaul" rows="3"
                                 value="{{ $deployment->capture_metro_backhaul }}">{{ $deployment->capture_metro_backhaul }}</textarea>
+                            </div>
+
+                            <div class="col">
+                            <label for="capture metro access">CAPTURE METRO ACCESS</label>
+                                <textarea class="form-control" name="capture_metro_access" id="capture_metro_access" rows="3"
+                                value="{{ $deployment->capture_metro_access }}">{{ $deployment->capture_metro_access }}</textarea>
                             </div>
                         </div>
 
@@ -293,12 +294,12 @@
 
                         <div class="form-row">
                             <div class="col">
-                                <label for="ip_3">IP 3</label>
+                                <label for="ip_3">IP GPON</label>
                                 <input type="text" name="ip_3" id="ip_3" class="form-control" value="{{ $deployment->ip_3 }}"></input>
                             </div>
 
                             <div class="col">
-                                <label for="port_3">PORT 3</label>
+                                <label for="port_3">PORT GPON</label>
                                 <input type="text" name="port_3" id="port_3" class="form-control" value="{{ $deployment->port_3 }}">
                             </div>
 
@@ -366,12 +367,6 @@
                                 <textarea class="form-control" name="kontak_pic_lokasi" id="kontak_pic_lokasi" rows="1"
                                 value="{{ $deployment->kontak_pic_lokasi }}">{{ $deployment->kontak_pic_lokasi }}</textarea>
                             </div>
-                            
-                            <div class="col">
-                            <label for="ip_4">IP 4</label>
-                                    <input class="form-control" name="ip_4" id="ip_4" rows="3" value="{{ $deployment->ip_4 }}">
-                                    </input>
-                            </div>
                         </div>
 
                         <div class="form-row mt-3">
@@ -392,16 +387,6 @@
                                     <!-- Modal Caption (Image Text) -->
                                     <div id="caption"></div>
                                     </div>
-                            </div>
-                            <div class="col-3 ">
-                            <label for="downlink">DOWNLINK</label>
-                                <input class="form-control" name="downlink" id="downlink" rows="3"
-                                value="{{ $deployment->downlink }}"></input>
-                            </div>
-                            <div class="col-3">
-                                <label for="type_2">TYPE 2</label>
-                                <input class="form-control" name="type_2" id="type_2"
-                                    rows="3" value="{{ $deployment->type_2}}"></input>
                             </div>
                         </div>
                             

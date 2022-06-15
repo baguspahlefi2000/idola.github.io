@@ -193,7 +193,7 @@
                         <div class="form-row" style="margin-top:7vh">
                             <div class="col">
                                 <label for="reported_date">Reported Date</label>
-                                <input type="date" name="reported_date" id="reported_date" class="form-control">
+                                <input type="date" name="reported_date" id="reported_date" class="form-control" required>
                             </div>
                             <div class="col">
                                 <label for="reported_time">Reported Time</label>
@@ -243,7 +243,7 @@
                             </div>
                             <div class="col">
                                 <label for="pending_reason" >Pending Reason</label>
-                                <select name="pending_reason" id="pending_reason" class="form-control">
+                                <select name="pending_reason" id="pending_reason" class="form-control" required>
                                     <option value="">(Blanks)</option>
                                     <option value="Administasi kontrak Telkom ke customer">Administasi kontrak Telkom ke customer</option>
                                     <option value="Administrasi Kontrak Telkom ke Mitra">Administrasi Kontrak Telkom ke Mitra</option>
