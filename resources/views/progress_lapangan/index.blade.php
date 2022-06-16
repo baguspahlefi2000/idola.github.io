@@ -153,7 +153,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col" rowspan="2">No</th>
-                                    <th scope="col" rowspan="2">Tanggal</th>
+                                    <th scope="col" rowspan="2">THN/BLN/TGL</th>
                                     <th scope="col" rowspan="2">Witel</th>
                                     <th scope="col" class="text-nowrap" rowspan="2">No Ao</th>
                                     <th scope="col" rowspan="2">Olo</th>
@@ -189,7 +189,7 @@
                                         </td>
                                         @endcanany
                                 </tr>
-                                <tr>
+                                <tr class="progress-lapangan">
                                     <th scope="row" class="text-nowrap">Tanggal Order</th>
                                     <th scope="row">Keterangan</th>
                                     <th scope="row" class="text-nowrap">Tanggal Order</th>
