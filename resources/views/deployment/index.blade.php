@@ -193,10 +193,6 @@
                             <h2 class="">Deployment</h2>
                         </div>
                         <div class="col text-right">
-                            <button type="button" class="btn btn-outline" data-toggle="modal"
-                                data-target="#importButton">
-                                <i class="las la-upload"></i> Import
-                            </button>
                             <a href="{{ route('deployment.export') }}" class="btn btn-second-thin ml-2">
                                 <i class="las la-download"></i> Export
                             </a>
