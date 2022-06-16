@@ -61,6 +61,44 @@ class UserManagementController extends Controller
         $this->authorize('admin');
         return view('user_management.edit', compact('user'), ["title" => "Update Data User - User Management"]);
     }
+    
+    public function update_2(Request $request, User $user_2)
+    {
+        $user_2->name = $request->name;
+        $user_2->username = $request->username;
+        $user_2->email = $request->email;
+        $user_2->role = $request->role;
+        $user_2->password = $request->password;
+
+        $user_2->password = Hash::make($user_2->password);
+        $user_2->save();
+        return redirect()->route('home.index')->with('success', 'User Berhasil Diubah');
+    }
+
+    public function edit_2(User $user_2)
+    {
+        $this->authorize('editor');
+        return view('user_management_2.edit', compact('user_2'), ["title" => "Update Data User - User Management"]);
+    }
+
+    public function update_3(Request $request, User $user_3)
+    {
+        $user_3->name = $request->name;
+        $user_3->username = $request->username;
+        $user_3->email = $request->email;
+        $user_3->role = $request->role;
+        $user_3->password = $request->password;
+
+        $user_3->password = Hash::make($user_3->password);
+        $user_3->save();
+        return redirect()->route('home.index')->with('success', 'User Berhasil Diubah');
+    }
+
+    public function edit_3(User $user_3)
+    {
+        $this->authorize('view');
+        return view('user_management_2.edit', compact('user_2'), ["title" => "Update Data User - User Management"]);
+    }
 
     public function destroy(User $user)
     {
@@ -68,4 +106,6 @@ class UserManagementController extends Controller
         sleep(1);
         return back();
     }
+
+    
 }

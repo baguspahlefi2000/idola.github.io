@@ -221,7 +221,7 @@
                         <div class="form-row" style="margin-top:7vh">
                             <div class="col">
                                 <label for="reported_date">Reported Date</label>
-                                <input type="form-control" name="reported_Date" id="reported_date" class="form-control"
+                                <input type="form-control" name="reported_date" id="reported_date" class="form-control"
                                 value="{{$assurance->reported_date}}">
                             </div>
                             <div class="col">

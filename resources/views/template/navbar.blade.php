@@ -161,7 +161,7 @@
                     class="user-pic rounded-circle dropdown-toggle" id="user-menu" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false" style="width: 48px">
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-menu">
-                    <a class="dropdown-item text-center">{{ auth()->user()->name }}</a>
+                    <a class="dropdown-item text-center" href="{{ route('management_2.edit_2', auth()->user()->id ) }}">{{ auth()->user()->name }}</a>
                     <div class="dropdown-divider"></div>
                     <form action="/logout" method="post">
                         @csrf
@@ -173,7 +173,7 @@
                 </div>
             </li>
         </ul>
-        @else
+        @elseif (Auth::user()->role == 'view')
         <div class="navbar-collapse collapse d-flex-xl justify-content-xl-end" id="navDropdown">
             <ul class="navbar-nav mr-5">
                 <li class="nav-item menu">
@@ -217,7 +217,7 @@
                     class="user-pic rounded-circle dropdown-toggle" id="user-menu" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false" style="width: 48px">
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-menu">
-                    <a class="dropdown-item text-center">{{ auth()->user()->name }}</a>
+                    <a class="dropdown-item text-center" href="{{ route('management_3.edit_3', auth()->user()->id ) }}">{{ auth()->user()->name }}</a>
                     <div class="dropdown-divider"></div>
                     <form action="/logout" method="post">
                         @csrf

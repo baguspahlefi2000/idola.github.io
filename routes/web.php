@@ -166,5 +166,13 @@ Route::get('/management/edit/{user}', [UserManagementController::class, 'edit'])
 Route::put('/management/update/{user}', [UserManagementController::class, 'update'])->name('management.update');
 Route::delete('/management/delete/{user}', [UserManagementController::class, 'destroy'])->name('management.destroy');
 
+//route usermanagement_2
+Route::get('/manage/edit/{user_2}', [UserManagementController::class, 'edit_2'])->name('management_2.edit_2')->middleware('editor');
+Route::put('/manage/update/{user_2}', [UserManagementController::class, 'update_2'])->name('management_2.update_2');
+
+//route usermanagement_3
+Route::get('/manage_user/edit/{user_3}', [UserManagementController::class, 'edit_3'])->name('management_3.edit_3')->middleware('view');
+Route::put('/manage_user/update/{user_3}', [UserManagementController::class, 'update_3'])->name('management_3.update_3');
+
 Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home.index')->middleware('auth');

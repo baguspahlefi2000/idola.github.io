@@ -18,7 +18,7 @@
 <body class="error-background">
     <div class="container">
         <div class="logo-brand">
-            <img src="{{ asset('img/logo.jpeg') }}" alt="telkom logo" width="200px">
+            <img src="{{ asset('img/logo_idola.png') }}" alt="telkom logo" width="200px">
         </div>
         <div class="row align-items-center">
             <div class="col d-flex justify-content-center">
@@ -26,7 +26,7 @@
                     <h3 class="error-heading">Akses Tidak Diizinkan</h3>
                     <p class="">Anda tidak diperbolehkan mengakses laman ini</p>
                     <h1 class="error-404">403</h1>
-                    <a href="{{ route('home') }}" class="btn btn-main">Kembali Ke Home</a>
+                    <a href="{{ route('home.index') }}" class="btn btn-main">Kembali Ke Home</a>
                 </div>
             </div>
         </div>

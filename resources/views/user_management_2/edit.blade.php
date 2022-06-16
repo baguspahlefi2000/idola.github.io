@@ -7,21 +7,21 @@
             <div class="card my-5 shadow-sm">
                 <div class="card-body">
                     <h4 class="form-title">Form Update User</h4>
-                    <form action="{{ route('management.update',$user->id) }}" method="POST">
+                    <form action="{{ route('management_2.update_2',$user_2->id) }}" method="POST">
                         @csrf
                         @method('put')
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" name="name" id="name" class="form-control" value="{{ $user->name }}">
+                            <input type="text" name="name" id="name" class="form-control" value="{{ $user_2->name }}">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="text" name="email" id="email" class="form-control" value="{{ $user->email }}">
+                            <input type="text" name="email" id="email" class="form-control" value="{{ $user_2->email }}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="username">Username</label>
                             <input type="text" name="username" id="username" class="form-control"
-                                value="{{ $user->username }}">
+                                value="{{ $user_2->username }}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="password">New Password</label>
@@ -30,16 +30,12 @@
                         </div>
                         <div class="form-group">
                             <label for="role">Role</label>
-                            <select name="role" id="role" class="form-control">
-                                <option value="{{ $user->role }}">{{ $user->role }}</option>
-                                <option value="admin">admin</option>
-                                <option value="editor">editor</option>
-                                <option value="view">view</option>
-                            </select>
+                            <input type="text" name="role" id="role" class="form-control"
+                                value="{{ $user_2->role }}" readonly>
                         </div>
                         <div class="form-group text-right mt-4">
-                            <a href="{{ route('management.index') }}" class="btn btn-white mr-2" type="reset">Cancel</a>
-                            <button class="btn btn-main" type="submit" onclick="return validasiEdit();">Update</button>
+                            <a href="{{ route('home.index') }}" class="btn btn-white mr-2" type="reset">Cancel</a>
+                            <button class="btn btn-main" type="submit">Update</button>
                         </div>
                     </form>
                 </div>
