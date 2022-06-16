@@ -142,7 +142,7 @@
                 </div>
             </div>
             
-            <div class="col-xl-4 col-lg-4 text-center mx-auto mt-4 border border-dark">
+            <div class="col-xl-4 col-lg-4 text-center mx-auto mt-4">
                 <div class="assurance">
                     <div class="container">
                     <div class="row">
@@ -231,13 +231,19 @@
                         </div>
                         <div class="row g-3 justify-content-center">
                             <div class="col-2 d-flex justify-content-center tabel-ruwet">
-                                <table class="table table-kiri-assurance">
-                                @foreach ($top_assurance as $item)
-                                    <tr>
-                                        <td class="text text-nowrap text-left">{{ $item->REKAP_OLO_NAMA }}</td>
-                                        <td class="angka">{{ $item->REKAP_ASSURANCE }}</td>
-                                    </tr>
-                                @endforeach
+                                <table class="table table-kiri-assurance" id="table_id">
+                                    <thead>
+                                        <th>Olo nama</th>
+                                        <th>Jumlah</th>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($top_assurance as $item)
+                                        <tr>
+                                            <td class="text text-nowrap text-left">{{ $item->REKAP_OLO_NAMA }}</td>
+                                            <td class="angka">{{ $item->REKAP_ASSURANCE }}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -286,84 +292,87 @@
                     </div>
                 </form>
      
-            <div class="isi-ff">
-                <div class="row mt-4 text-center mx-4">
-                    <div class="col">
-                        <h6>Complete</h6>
-                    </div>
-                    <div class="col">
-                        <h6>On Progress</h6>
-                    </div>
-                    <div class="col">
-                        <h6>Cancel</h6>
-                    </div>
-                </div>
-                <?php
-                    $totalff = 0;
-                ?>
-               
-                <div class="row text-center text-white mt-1 mb-4 mx-4">
-                @foreach ($rekapWfm as $item)
-                    <div class="col-4 integrasi">
-                        <h4 class="p-3">{{ $item->REKAP_DONE }}</h4>
-                    </div>
-                    <div class="col-4 integrasi-2">
-                        <h4 class="p-3">{{ $item->REKAP_ONPROGRESS }}</h4>
-                    </div>
-                    <div class="col-4 integrasi-3">
-                        <h4 class="p-3">{{ $item->REKAP_CANCEL }}</h4>
-                    </div>
-                @endforeach
-                </div>
-
-                <hr class="vertical-line">
-                <hr class="vertical-line-2">
-
-                <div class="row mt-4">
-                    <div class="col-7">
-                        <div class="row text-center">
-                            <div class="col-lg done-integrasi">
-                                @foreach ($rekapIntegrasiSatu as $item)
-                                <h4 class="mt-1 p-3 text-white">{{ $item->REKAP_DONE_INTEGRASI }}</h4>
-                                @endforeach
-                            </div>
-                            <div class="col-lg menunggu-integrasi">
-                                @foreach ($rekapIntegrasiDua as $item)
-                                <h4 class="mt-3 text-white text-center">{{ $item->REKAP_NOTYET_INTEGRASI }}</h4>
-                                @endforeach
-                            </div>
-                        </div>
-                        <div class="row">
+                    <div class="isi-ff">
+                        <div class="row mt-4 text-center mx-4">
                             <div class="col">
-                                <h6>Done Integrasi</h6>
+                                <h6>Complete</h6>
                             </div>
                             <div class="col">
-                                <h6 class="text-menunggu-integrasi">Menunggu Integrasi</h6>
+                                <h6>On Progress</h6>
+                            </div>
+                            <div class="col">
+                                <h6>Cancel</h6>
                             </div>
                         </div>
-                    </div>
+                        <?php
+                            $totalff = 0;
+                        ?>
+                    
+                        <div class="row text-center text-white mt-1 mb-4 mx-4">
+                        @foreach ($rekapWfm as $item)
+                            <div class="col-4 integrasi">
+                                <h4 class="p-3">{{ $item->REKAP_DONE }}</h4>
+                            </div>
+                            <div class="col-4 integrasi-2">
+                                <h4 class="p-3">{{ $item->REKAP_ONPROGRESS }}</h4>
+                            </div>
+                            <div class="col-4 integrasi-3">
+                                <h4 class="p-3">{{ $item->REKAP_CANCEL }}</h4>
+                            </div>
+                        @endforeach
+                        </div>
 
-                </div>
+                        <hr class="vertical-line">
+                        <hr class="vertical-line-2">
 
-                <div class="row justify-content-end">
-                    <div class="col-4 totaltxtff text-center text-white">
-                        <h6 class="pt-2 align-middle">Total</h6>
+                        <div class="row mt-4">
+                            <div class="col-7">
+                                <div class="row text-center">
+                                    <div class="col-lg done-integrasi">
+                                        @foreach ($rekapIntegrasiSatu as $item)
+                                        <h4 class="mt-1 p-3 text-white">{{ $item->REKAP_DONE_INTEGRASI }}</h4>
+                                        @endforeach
+                                    </div>
+                                    <div class="col-lg menunggu-integrasi">
+                                        @foreach ($rekapIntegrasiDua as $item)
+                                        <h4 class="mt-3 text-white text-center">{{ $item->REKAP_NOTYET_INTEGRASI }}</h4>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <h6>Done Integrasi</h6>
+                                    </div>
+                                    <div class="col">
+                                        <h6 class="text-menunggu-integrasi">Menunggu Integrasi</h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row justify-content-end">
+                            <div class="col-4 totaltxtff text-center text-white">
+                                <h6 class="pt-2 align-middle">Total</h6>
+                            </div>
+                        </div>
+                        
+                        <div class="row justify-content-end">
+                            @foreach ($rekapWfm as $item)
+                            <?php
+                            $totalff = $item->REKAP_DONE + $item->REKAP_ONPROGRESS + $item->REKAP_CANCEL;
+                            ?>
+                            <div class="col-4 totalff">
+                                <h2 class="py-3 text-center text-white">{{ $totalff }}</h2>
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
-                
-                <div class="row justify-content-end">
-                    @foreach ($rekapWfm as $item)
-                    <?php
-                    $totalff = $item->REKAP_DONE + $item->REKAP_ONPROGRESS + $item->REKAP_CANCEL;
-                    ?>
-                    <div class="col-4 totalff">
-                        <h2 class="py-3 text-center text-white">{{ $totalff }}</h2>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
             </div>
         </div>
+
+
+
         <!-- Data Row 2 -->
         <div class="text-center mt-4">
             <img src="{{ asset('img/tulisan-home.png') }}" width="45%" alt="">
