@@ -323,13 +323,13 @@ th {
 }
 
 .table-coba {
-    height: 500px;
+    height: 400px;
     width: 100%;
 
 }
 .table-coba thead{
     overflow: auto;
-    z-index: 1;
+    z-index: 22;
 }
 .table-coba thead th{
     position: sticky;
@@ -337,43 +337,74 @@ th {
     background: #eee;
 }
 
-.div1 th:nth-child(1),
-.div1 td:nth-child(1) {
+.table-coba thead .progress-lapangan{
+    position: sticky;
+    top:0;
+    background: #eee;
+}
+
+.table-coba th:nth-child(1){
     position: sticky;
     left: 0;
-    width: 40px;
+    width:150px;
     min-width: 40px;
+    background-color: #eee;
+}
+.table-coba td:nth-child(1) {
+    position: sticky;
+    left: 0;
+    width:150px;
+    min-width: 40px;
+    background-color: #ffff
 }
 
-.div1 th:nth-child(2),
-.div1 td:nth-child(2) {
+.table-coba th:nth-child(2){
     position: sticky;
     /* 1st cell left/right padding + 1st cell width + 1st cell left/right border width */
     /* 0 + 5 + 150 + 5 + 1 */
-    left: 76px;
+    left: 75.5px;
     width: 100px;
-    min-width: 100px;
+    min-width: 150px;
+    background-color: #eee;
 }
-
-.div1 th:nth-child(3),
-.div1 td:nth-child(3) {
+.table-coba td:nth-child(2) {
     position: sticky;
     /* 1st cell left/right padding + 1st cell width + 1st cell left/right border width */
     /* 0 + 5 + 150 + 5 + 1 */
-    left: 212px;
+    left: 75.5px;
     width: 100px;
-    min-width: 100px;
+    min-width: 150px;
+    background-color: #ffff
 }
 
-.div1 td:nth-child(1),
-.div1 td:nth-child(2),
-.div1 td:nth-child(3){
+.table-coba th:nth-child(3){
+    position: sticky;
+    /* 1st cell left/right padding + 1st cell width + 1st cell left/right border width */
+    /* 0 + 5 + 150 + 5 + 1 */
+    left: 262px;
+    width: 100%;
+    min-width: 100px;
+    background-color: #eee;
+}
+.table-coba td:nth-child(3) {
+    position: sticky;
+    /* 1st cell left/right padding + 1st cell width + 1st cell left/right border width */
+    /* 0 + 5 + 150 + 5 + 1 */
+    left: 262px;
+    width: 100;
+    min-width: 100px;
+    background-color: #ffff
+}
+
+.table-coba td:nth-child(1),
+.table-coba td:nth-child(2),
+.table-coba td:nth-child(3){
     background: rgb(255, 255, 255);
 }
 
-.div1 th:nth-child(1),
-.div1 th:nth-child(2),
-.div1 th:nth-child(3) {
+.table-coba th:nth-child(1),
+.table-coba th:nth-child(2),
+.table-coba th:nth-child(3) {
     z-index: 2;
 }
 

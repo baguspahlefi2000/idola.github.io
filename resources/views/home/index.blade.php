@@ -142,7 +142,7 @@
                 </div>
             </div>
             
-            <div class="col-xl-4 col-lg-4 text-center mx-auto mt-4">
+            <div class="col-xl-4 col-lg-4 text-center mx-auto mt-4 border border-dark">
                 <div class="assurance">
                     <div class="container">
                     <div class="row">
@@ -263,7 +263,7 @@
 
             <div class="col-xl-4 col-lg-4 progressff mx-auto mt-4">
                 <div class="row">
-                    <h5 class="ml-2">Progress FF</h5>
+                    <h5 class="ml-2">Progress Fulfillment</h5>
                 </div>
                 <form action="{{ route('home.index') }}" method="GET">
                     <div class="row tanggal ">

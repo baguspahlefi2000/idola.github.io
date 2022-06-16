@@ -406,7 +406,7 @@ class DeploymentController extends Controller
         }
         
         $Deployment->save();
-
+        
         sleep(1);
         return redirect()->route('deployment.index');
     }
