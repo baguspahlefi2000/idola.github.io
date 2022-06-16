@@ -95,6 +95,9 @@
         @elseif (Auth::user()->role == 'editor')
         <div class="navbar-collapse collapse d-flex-xl justify-content-xl-end" id="navDropdown">
             <ul class="navbar-nav mr-5">
+            <li class="nav-item menu">
+                    <a class="nav-link {{ Request::is('/') ? 'nav-active' : '' }}" href="{{ route('home.index') }}">Home</a>
+            </li>
             <li class="nav-item dropdown">
                     <a class="nav-link {{ Request::is('wfm*') ? 'nav-active' : '' }} dropdown-toggle" href=""
                         id="deploymentMenu" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -173,6 +176,9 @@
         @else
         <div class="navbar-collapse collapse d-flex-xl justify-content-xl-end" id="navDropdown">
             <ul class="navbar-nav mr-5">
+                <li class="nav-item menu">
+                    <a class="nav-link {{ Request::is('/') ? 'nav-active' : '' }}" href="{{ route('home.index') }}">Home</a>
+                </li>
                 <li class="nav-item menu">
                     <a class="nav-link {{ Request::is('deployment*') ? 'nav-active' : '' }}" href="{{route('deployment.index')}}" id="deploymentMenu">
                         Deployment
