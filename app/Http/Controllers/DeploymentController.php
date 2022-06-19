@@ -73,7 +73,6 @@ class DeploymentController extends Controller
         $status_integrasi_data = DB::table('status_integrasi_tabel')
         ->select("status_integrasi_id", "status_integrasi_nama")
         ->get();
-        
 
         
 
@@ -90,7 +89,7 @@ class DeploymentController extends Controller
         'status_wfm_data' => $status_wfm_data,
         'status_integrasi_data'=> $status_integrasi_data,
 
-    ]);
+        ]);
     }
     
 
@@ -406,6 +405,8 @@ class DeploymentController extends Controller
         }
         
         $Deployment->save();
+
+        
         
         sleep(1);
         return redirect()->route('deployment.index');
@@ -423,6 +424,7 @@ class DeploymentController extends Controller
         sleep(1);
         return redirect()->route('deployment.index');
     }
+
 
     public function exportDeployment(Request $request){
         return Excel::download(new ExportDeployment, 'deployment-wfm.xlsx');

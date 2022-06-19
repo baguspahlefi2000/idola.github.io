@@ -539,6 +539,18 @@ th {
     background-color: #e2f0d9;
     border : 1px solid black;
  }
+ .row .progresslapangan{
+    margin-top: 20px;
+    height: fit-content;
+    background-color: #52ad18;
+    border : 1px solid black;
+ }
+ .row .progressintegrasi{
+    margin-top: 20px;
+    height: fit-content;
+    background-color: #498baa;
+    border : 1px solid black;
+ }
  .row .done-integrasi{
     background-image: url("/img/integrasi.png");
     background-repeat: no-repeat;
@@ -597,6 +609,16 @@ th {
 .row .isi-ff{
     max-height: 100%;
     background-color: #e2f0d9;
+}
+
+.row .isi-progresslapangan{
+    max-height: 100%;
+    background-color: #52ad18;
+}
+
+.row .isi-progressintegrasi{
+    max-height: 100%;
+    background-color: #498baa;
 }
 
 .assurance{
