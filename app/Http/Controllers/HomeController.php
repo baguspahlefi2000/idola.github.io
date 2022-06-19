@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\AssuranceTabel;
 use App\Models\DeploymentTabel;
+use App\Models\ProgressLapanganTabel;
 use App\Models\WitelTabel;
 use App\Models\OloTabel;
 use App\Models\OrderTypeTabel;
@@ -43,7 +44,9 @@ class HomeController extends Controller
         'comply_not_comply' => AssuranceTabel::thirdCal()->filter(request(['reported_date']))->get(),
         'rekap_assurance' => AssuranceTabel::fourthCal()->filter(request(['reported_date']))->get(),
         'segment_gangguan' => AssuranceTabel::fifthCal()->filter(request(['reported_date']))->get(),
-        'top_assurance' => AssuranceTabel::sixthCal()->filter(request(['reported_date']))->get()]);
+        'top_assurance' => AssuranceTabel::sixthCal()->filter(request(['reported_date']))->get(),
+        'rekap_status_proglapangan' => ProgressLapanganTabel::rekapProgressLapanganSatu()->filter(request(['tanggal']))->get(),
+        'top_proglapangan' => ProgressLapanganTabel::topOloProgressLapangan()->filter(request(['tanggal']))->get()]);
     }
 
     /**
