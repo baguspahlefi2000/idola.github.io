@@ -40,6 +40,8 @@ class HomeController extends Controller
         'rekapWfm' => DeploymentTabel::rekapWfm()->filter(request(['tanggal']))->get(),
         'rekapIntegrasiSatu' => DeploymentTabel::rekapIntegrasiSatu()->filter(request(['tanggal']))->get(),
         'rekapIntegrasiDua' => DeploymentTabel::rekapIntegrasiDua()->filter(request(['tanggal']))->get(),
+        'rekapIntegrasiTiga' => DeploymentTabel::rekapIntegrasiTiga()->filterIntegrasi(request(['tanggal']))->get(),
+        'topOloIntegrasi' => DeploymentTabel::topOlo()->filterIntegrasi(request(['tanggal']))->get(),
         'mttr' => AssuranceTabel::secondCal()->filter(request(['reported_date']))->get(),
         'comply_not_comply' => AssuranceTabel::thirdCal()->filter(request(['reported_date']))->get(),
         'rekap_assurance' => AssuranceTabel::fourthCal()->filter(request(['reported_date']))->get(),

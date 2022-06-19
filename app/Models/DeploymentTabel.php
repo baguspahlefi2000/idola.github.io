@@ -370,6 +370,24 @@ class DeploymentTabel extends Model
 		
 	}
 
+	public function scopeRekapIntegrasiTiga($query){
+		return $query
+		->addSelect(DB::raw('
+		SUM(CASE WHEN status_integrasi_id = "1" THEN 1 ELSE 0 END) as REKAP_NOTYET_INTEGRASI,
+		SUM(CASE WHEN status_integrasi_id = "2" THEN 1 ELSE 0 END) as REKAP_DONE_INTEGRASI,
+		SUM(CASE WHEN status_integrasi_id = "3" THEN 1 ELSE 0 END) as REKAP_BLANK_INTEGRASI'));
+		
+	}
+	public function scopeFilterIntegrasi($query){
+		if (request()->tgl_bulan_dr_integrasi || request()->tgl_bulan_sd_integrasi){
+            $tgl_bulan_dr_integrasi = Carbon::parse(request()->tgl_bulan_dr_integrasi)->toDateTimeString();
+            $tgl_bulan_sd_integrasi = Carbon::parse(request()->tgl_bulan_sd_integrasi)->toDateTimeString();
+			return $query->whereBetween('tanggal',[$tgl_bulan_dr_integrasi,$tgl_bulan_sd_integrasi]);
+		}
+		
+	}
+
+	
 	public function scopeExportDeployment($query){
 		return $query->join('witel_tabel','witel_tabel.witel_id','=','deployment_tabel.witel_id')
 		->join('olo_tabel','olo_tabel.olo_id','=','deployment_tabel.olo_id')
@@ -386,6 +404,5 @@ class DeploymentTabel extends Model
 	}
 
 	
-
 
 }
