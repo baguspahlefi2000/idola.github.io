@@ -138,6 +138,42 @@
     }
 </script>
 
+<script>
+        $(document).ready(function () {
+            $('#table_ids').DataTable({
+                "language": {
+                    "decimal": "",
+                    "emptyTable": "Tidak ada data di dalam table",
+                    "info": "Menampilkan _START_ ke _END_ dari _TOTAL_ data",
+                    "infoEmpty": "Menampilkan 0 ke 0 dari 0 data",
+                    "infoFiltered": "(terfilter dari _MAX_ total data)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Tampilkan _MENU_ data",
+                    "loadingRecords": "Sedang Memuat...",
+                    "processing": "Sedang Memproses...",
+                    "search": "Cari:",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "paginate": {
+                        "first": "First",
+                        "last": "Last",
+                        "next": "Next",
+                        "previous": "Previous"
+                    },
+                    "aria": {
+                        "sortAscending": ": activate to sort column ascending",
+                        "sortDescending": ": activate to sort column descending"
+                    }
+                },
+            });
+        });
+
+        $(document).ready(function () {
+            $('#table_ids_2').DataTable();
+        });
+
+    </script>
+
 
 
 </body>

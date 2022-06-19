@@ -48,14 +48,14 @@
                             </datalist>
                         </div>
                         <div class="col">
-                        <label for="tgl_bulan_dr">Dari Tanggal</label>
-                        <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_dr"
-                                id="tgl_bulan_dr">
+                        <label for="tgl_bulan_dr_progress_lapangan">Dari Tanggal</label>
+                        <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_dr_progress_lapangan"
+                                id="tgl_bulan_dr_progress_lapangan">
                     </div>
                     <div class="col">
-                        <label for="tgl_bulan_th_sd">Sampai Tanggal</label>
-                        <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_sd"
-                                id="tgl_bulan_sd">
+                        <label for="tgl_bulan_sd_progress_lapangan">Sampai Tanggal</label>
+                        <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_sd_progress_lapangan"
+                                id="tgl_bulan_sd_progress_lapangan">
                     </div>
 
                         <div class="col">

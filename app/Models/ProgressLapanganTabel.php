@@ -105,10 +105,10 @@ class ProgressLapanganTabel extends Model
             fn ($query, $no_ao) => $query->where('ao', '=', $no_ao)
         );
 		// filter tanggal
-        if (request()->tgl_bulan_dr || request()->tgl_bulan_sd){
-            $tgl_bulan_dr = Carbon::parse(request()->tgl_bulan_dr)->toDateTimeString();
-            $tgl_bulan_sd = Carbon::parse(request()->tgl_bulan_sd)->toDateTimeString();
-            $query->whereBetween('tanggal',[$tgl_bulan_dr,$tgl_bulan_sd]);
+        if (request()->tgl_bulan_dr_progress_lapangan || request()->tgl_bulan_sd_progress_lapangan){
+            $tgl_bulan_dr_progress_lapangan = Carbon::parse(request()->tgl_bulan_dr_progress_lapangan)->toDateTimeString();
+            $tgl_bulan_sd_progress_lapangan = Carbon::parse(request()->tgl_bulan_sd_progress_lapangan)->toDateTimeString();
+            $query->whereBetween('tanggal',[$tgl_bulan_dr_progress_lapangan,$tgl_bulan_sd_progress_lapangan]);
         }
 		// filter witel
 		$query->when(
@@ -157,5 +157,21 @@ class ProgressLapanganTabel extends Model
         SUM(CASE WHEN status_p_lapangan_id = "3"  THEN 0 ELSE 0 END) as PLAN_DISCONNECT,
 		olo_tabel.olo_nama as OLO'))
         ->orderBy('PLAN_AKTIVASI', 'DESC');
+	}
+
+	public function scopeRekapProgressLapanganSatu($query){
+		return $query
+		->addSelect(DB::raw('
+		SUM(CASE WHEN status_p_lapangan_id = "1" THEN 1 ELSE 0 END) as REKAP_INPROG_PROGLAPANGAN,
+        SUM(CASE WHEN status_p_lapangan_id = "2" THEN 1 ELSE 0 END) as REKAP_DONE_PROGLAPANGAN,
+        SUM(CASE WHEN status_p_lapangan_id = "3" THEN 1 ELSE 0 END) as REKAP_CANCEL_PROGLAPANGAN'));
+	}
+	public function scopeTopOloProgressLapangan($query){
+		return $query->join('olo_tabel', 'olo_tabel.olo_id', '=', 'progress_lapangan_tabel.olo_id')
+		->groupBy('progress_lapangan_tabel.olo_id')
+		->addSelect(DB::raw('
+        COUNT(progress_lapangan_tabel.olo_id) as REKAP_OLO_PROGLAPANGAN,
+		olo_tabel.olo_nama as REKAP_OLO_NAMA_PROGLAPANGAN'))
+        ->orderBy('REKAP_OLO_PROGLAPANGAN', 'DESC');
 	}
 }
