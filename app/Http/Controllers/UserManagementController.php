@@ -81,6 +81,8 @@ class UserManagementController extends Controller
         return view('user_management_2.edit', compact('user_2'), ["title" => "Update Data User - User Management"]);
     }
 
+
+
     public function update_3(Request $request, User $user_3)
     {
         $user_3->name = $request->name;
@@ -96,8 +98,8 @@ class UserManagementController extends Controller
 
     public function edit_3(User $user_3)
     {
-        $this->authorize('view');
-        return view('user_management_2.edit', compact('user_2'), ["title" => "Update Data User - User Management"]);
+    
+        return view('user_management_3.edit', compact('user_3'), ["title" => "Update Data User - User Management"]);
     }
 
     public function destroy(User $user)
