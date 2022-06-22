@@ -106,36 +106,6 @@
                                 </div>
                             </div>
 
-                            {{-- TemplateImportAssurance --}}
-                            <div class="modal fade" id="templateButton" data-backdrop="static" data-keyboard="false" tabindex="2"
-                            aria-labelledby="templatelabel" aria-hidden="true">
-                                <div class="modal-dialog modal-xl">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="templatelabel">Template Tabel Progress</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Pastikan urutan kolom file excel yang akan diupload sesuai seperti tabel template agar tidak
-                                                terjadi error!</p>
-                                            <table class="table table-sm table-responsive table-striped template-tabel">
-                                                <tbody>
-                                                    <tr>
-                                                        <td><img src="{{url(('img/template-assurance.png'))}}" alt=""></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <div id="orderModal" class="modal-body" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
-                                                <div class="modal-footer">
-                                                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

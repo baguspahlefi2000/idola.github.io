@@ -329,19 +329,8 @@ th {
 }
 .table-coba thead{
     overflow: auto;
-    z-index: 22;
-}
-.table-coba thead th{
-    position: sticky;
-    top:0;
-    background: #eee;
 }
 
-.table-coba thead .progress-lapangan{
-    position: sticky;
-    top:0;
-    background: #eee;
-}
 
 .table-coba th:nth-child(1){
     position: sticky;
@@ -402,11 +391,6 @@ th {
     background: rgb(255, 255, 255);
 }
 
-.table-coba th:nth-child(1),
-.table-coba th:nth-child(2),
-.table-coba th:nth-child(3) {
-    z-index: 2;
-}
 
 #tanggal_integrasi_b{
     display: none;
@@ -539,18 +523,104 @@ th {
     background-color: #e2f0d9;
     border : 1px solid black;
  }
- .row .progresslapangan{
+
+ .row .totaltxtff{
+    background-color: #70ad47;
+    border-left: 0.5px solid black;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black;
+}
+
+.row .totalff{
+    background-color: #548235;
+    border-left: 0.5px solid black;
+}
+
+ 
+
+.row .progresslapangan{
     margin-top: 20px;
     height: fit-content;
-    background-color: #52ad18;
+    background-color: #e0ecf4;
     border : 1px solid black;
  }
- .row .progressintegrasi{
+
+.row .txtprogresslapangan{
+    min-width: 100%;
+}
+.row .txtprogresslapangan h6{
+    min-width:100%;
+    text-align:center;
+}
+.row .txt-progresslapangan h4{
+    min-width: 100%; 
+    text-align:center;
+}
+.row .bg-doneprogresslapangan{
+    min-width: 100%;
+    min-height:60%; 
+    background-image: url('/img/integrasi.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-bottom:5px
+}
+.row .bg-inprogresslapangan{
+    min-width: 100%;
+    min-height:60%; 
+    background-image: url('/img/integrasi2.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-bottom:5px
+}
+.row .bg-cancelprogresslapangan{
+    min-width: 100%;
+    min-height:60%; 
+    background-image: url('/img/integrasi3.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-bottom:5px
+}
+
+.row .totalprogresslapangan{
+    background-color: #3074b4;
+    border-left: 0.5px solid black;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black;
+}
+.row .totalisiprogresslapangan{
+    background-color: #6cb4dc;
+    border-left: 0.5px solid black;
+    border-bottom: 0.5px solid black;
+}
+
+.row .totalintegrasi{
+    background-color: #787474;
+    border-left: 0.5px solid black;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black;
+}
+.row .totalisiintegrasi{
+    background-color: #a8a4a4;
+    border-left: 0.5px solid black;
+    border-bottom: 0.5px solid black;
+}
+
+
+
+
+
+.row .progressintegrasi{
     margin-top: 20px;
     height: fit-content;
-    background-color: #498baa;
+    background-color: #f8f4f4;
     border : 1px solid black;
  }
+.row .isi-progressintegrasi{
+    max-height: 100%;
+    background-color: #f8f4f4;
+}
+ 
+
  .row .done-integrasi{
     background-image: url("/img/integrasi.png");
     background-repeat: no-repeat;
@@ -574,17 +644,6 @@ th {
     background-size: contain;
     text-align: center;
     background-position: center;
-}
-.row .totaltxtff{
-    background-color: #70ad47;
-    border-left: 0.5px solid black;
-    border-top: 0.5px solid black;
-    border-bottom: 0.5px solid black;
-}
-
-.row .totalff{
-    background-color: #548235;
-    border-left: 0.5px solid black;
 }
 
 .vertical-line{ 
@@ -611,15 +670,9 @@ th {
     background-color: #e2f0d9;
 }
 
-.row .isi-progresslapangan{
-    max-height: 100%;
-    background-color: #52ad18;
-}
 
-.row .isi-progressintegrasi{
-    max-height: 100%;
-    background-color: #498baa;
-}
+
+
 
 .assurance{
     height: fit-content;
@@ -1181,17 +1234,6 @@ th {
         text-align: center;
         background-position: center;
     }
-    .row .totaltxtff{
-        background-color: #70ad47;
-        border-left: 0.5px solid black;
-        border-top: 0.5px solid black;
-        border-bottom: 0.5px solid black;
-    }
-    
-    .row .totalff{
-        background-color: #548235;
-        border-left: 0.5px solid black;
-    }
     
     .vertical-line{ 
         position: absolute;
@@ -1293,7 +1335,7 @@ th {
     }
     .row .tabel-ruwet{
         height: fit-content;
-        font-size: 8px;
+        font-size: 7.5px;
     }
     
     .nopadding {
