@@ -284,7 +284,7 @@
                                 <label for="pending_reason">Pending Reason</label>
                                 <select name="pending_reason" id="pending_reason" class="form-control">
                                     <option value="{{$assurance->pending_reason}}">{{$assurance->pending_reason}}</option>
-                                    <option value="">(Blanks)</option>
+                                    <option value="">None</option>
                                     <option value="Administasi kontrak Telkom ke customer">Administasi kontrak Telkom ke customer</option>
                                     <option value="Administrasi Kontrak Telkom ke Mitra">Administrasi Kontrak Telkom ke Mitra</option>
                                     <option value="Alker (Alat Kerja) tidak tersedia">Alker (Alat Kerja) tidak tersedia</option>

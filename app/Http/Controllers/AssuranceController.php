@@ -21,11 +21,30 @@ class AssuranceController extends Controller
      */
     public function index()
     {
+        $witel_data = DB::table("witel_tabel")
+        ->select("witel_id", "witel_nama")
+        ->orderBy('witel_nama', 'ASC')
+        ->get();
+
+        $olo_data = DB::table("olo_tabel")
+        ->select("olo_id","olo_nama")
+        ->orderBy('olo_nama', 'ASC')
+        ->get();
+
+        $incident_domain_data = DB::table("incident_domain_tabel")
+        ->select("incident_domain_id", "incident_domain_nama")
+        ->orderBy('incident_domain_id', 'ASC')
+        ->get();
+
         return view('assurance.index', ['title' => 'Halaman Assurance', 
-        'assurance' => AssuranceTabel::firstCal()->orderBy('resolved_date')->get()
+        'assurance' => AssuranceTabel::firstCal()->orderBy('resolved_date')->filter(request([
+        'reported_date', 'witel', 'olo', 'incident_domain'
+        ]))->get(),
+        'witel_data' => $witel_data,
+        'olo_data' => $olo_data,
+        'incident_domain_data' => $incident_domain_data
     ]);
     }
-
     /**
      * Show the form for creating a new resource.
      *

@@ -319,8 +319,6 @@ class DeploymentTabel extends Model
 	}
 
 	public function scopeRekapDua($query){
-
-
 		return $query
 		->addSelect(DB::raw('
         SUM(CASE WHEN order_type_id = "1"  THEN 1 ELSE 0 END) as REKAP_AKTIVASI_DUA,

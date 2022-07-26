@@ -177,6 +177,22 @@ class AssuranceTabel extends Model
             $tgl_bulan_sd_assurance = Carbon::parse(request()->tgl_bulan_sd_assurance)->toDateTimeString();
             $query->whereBetween('reported_date',[$tgl_bulan_dr_assurance,$tgl_bulan_sd_assurance]);
 		}
+		// filter witel
+		$query->when(
+			$filters['witel'] ?? false,
+			fn ($query, $witel) => $query->where('assurance_tabel.witel_id', '=', $witel)
+		);
+		// filter olo
+		$query->when(
+			$filters['olo'] ?? false,
+			fn ($query, $olo) => $query->where('assurance_tabel.olo_id', '=', $olo)
+		);
+
+		//incident domain
+		$query->when(
+			$filters['incident_domain'] ?? false,
+			fn ($query, $incident_domain) => $query->where('assurance_tabel.incident_domain_id', '=', $incident_domain)
+		);
 	}
 
 

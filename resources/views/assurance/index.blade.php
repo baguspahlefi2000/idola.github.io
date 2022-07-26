@@ -40,6 +40,83 @@
     <div class="row">
         <div class="col">
 
+            <div class="m-0 p-0" id="filterform">
+                <h4 class="filter-title" title="Filter"><i class="las la-filter"></i> Filter</h4>
+                <div class="clear-filter">
+                    <a href="{{ route('assurance.index') }}">Clear Filters</a>
+                </div>
+                <form action="{{ route('assurance.index') }}" method="GET">
+                    {{-- filter field --}}
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="incident_domain">Incident Domain</label>
+                            <select class="form-control" id="incident_domain" name="incident_domain">
+
+                                @if (request('incident_domain'))
+                                <option value="{{ request('incident_domain') }}">
+                                Pilih Incident Domain
+                                </option>
+                                @else
+                                <option value="">Pilih Incident Domain</option>
+                                @endif
+
+                                @foreach ($incident_domain_data as $dbs)
+                                <option value="{{ $dbs->incident_domain_id }}">{{ $dbs->incident_domain_nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="tgl_bulan_dr_assurance">Dari Tanggal</label>
+                            <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_dr_assurance"
+                                    id="tgl_bulan_dr_assurance">
+                        </div>
+                        <div class="col">
+                            <label for="tgl_bulan_sd_assurance">Sampai Tanggal</label>
+                            <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_sd_assurance"
+                                    id="tgl_bulan_sd_assurance">
+                        </div>
+                        <div class="col">
+                            <label for="witel">Witel</label>
+                            <select class="form-control" id="witel" name="witel">
+
+                                @if (request('witel'))
+                                <option value="{{ request('witel') }}">
+                                Pilih Witel
+                                </option>
+                                @else
+                                <option value="">Pilih Witel</option>
+                                @endif
+
+                                @foreach ($witel_data as $dbs)
+                                <option value="{{ $dbs->witel_id }}">{{ $dbs->witel_nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="olo">OLO</label>
+                            <select class="form-control" id="olo" name="olo">
+                                @if (request('olo'))
+                                <option value="{{ request('olo') }}">Pilih OLO</option>
+                                @else
+                                <option value="">Pilih OLO</option>
+                                @endif
+
+                                @foreach ($olo_data as $dbs)
+                                <option value="{{ $dbs->olo_id }}">{{ $dbs->olo_nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>                  
+                    {{-- akhir filter field --}}
+
+                    {{-- button filter --}}
+                    <div class="mt-3 text-right">
+                        <button class="btn btn-reset px-4 py-3/2" type="reset">Reset</button>
+                        <button class="btn btn-filter px-4 py-3/2" type="submit">Filter</button>
+                    </div>
+                </form>
+            </div>
+
             <span id="ct" class="mt-3 d-block text-right"></span>
             <div class="card mt-2 mb-5 shadow-sm">
                 <div class="card-body">
